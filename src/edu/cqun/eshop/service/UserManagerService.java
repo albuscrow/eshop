@@ -17,10 +17,48 @@ public class UserManagerService implements IUserManagerService {
 	@Autowired
 	private BuyerDAO buyerDAO;
 	
+	
+	
 	@Override
 	public boolean checkLogin(Buyer buyer){
-		List<Buyer> buyer2 = buyerDAO.findByName(buyer.getName());
+		//List<Buyer> buyer2 = buyerDAO.findById(id) ;
 		return true;
+	}
+
+	@Override
+	public boolean regester(Buyer buyer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Buyer findUser(Buyer buyer) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean modifypassword(String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean modifyUserInfo(Buyer buyer) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteUser(long buyerId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteUsers(List<Long> buyerIds) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 }
