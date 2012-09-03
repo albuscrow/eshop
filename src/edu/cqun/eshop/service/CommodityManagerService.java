@@ -1,65 +1,87 @@
 package edu.cqun.eshop.service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.domain.Category;
 import edu.cqun.eshop.domain.Commodity;
+import edu.cqun.eshop.dao.*;
 
 public class CommodityManagerService implements ICommodityManagerService {
+	@Autowired
+	private CommodityDAO commdityDAO;
+	@Autowired
+	private CategoryDAO categoryDAO;
 
 	@Override
 	public boolean addCommodity(Commodity commodity) {
-		// TODO Auto-generated method stub
-		return false;
+		commdityDAO.save(commodity);
+		return true;
 	}
 
 	@Override
 	public boolean deleteCommodity(long commodityId) {
-		// TODO Auto-generated method stub
-		return false;
+		commdityDAO.delete(commdityDAO.findById(commodityId));
+		return true;
 	}
 
 	@Override
-	public boolean deleteCommoditys(List<Long> commodityIds) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deleteCommoditys(Set<Long> commodityIds) {
+		
+		for (Long commoithyid : commodityIds) {
+			commdityDAO.delete(commdityDAO.findById(commoithyid));
+		};
+		return true;
 	}
 
 	@Override
 	public boolean modifyCommodity(Commodity commodity) {
-		// TODO Auto-generated method stub
-		return false;
+		commdityDAO.attachDirty(commodity);
+		return true;
 	}
 
 	@Override
 	public long getCommodityQuantity(long commodityId) {
-		// TODO Auto-generated method stub
-		return 0;
+		long rest=commdityDAO.findById(commodityId).getRest();
+		return rest;
 	}
 
 	@Override
-	public List<Commodity> searchCommodity(List<Category> categorys) {
-		// TODO Auto-generated method stub
-		return null;
+	public Set<Commodity> searchCommodity(Category category) {
+		Set<Commodity> result;
+		result=categoryDAO.findById(category.getCategoryId()).getCommodities();
+		return result;
 	}
 
 	@Override
 	public List<Commodity> getCommodityOrderBysales() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Commodity> result=(List<Commodity>)commdityDAO.findAll();
+		Collections.sort(result, new Comparator<Commodity>() {
+			@Override
+			public int compare(Commodity o1, Commodity o2) {
+				return 	o1.getSales().compareTo(o2.getSales());
+			}
+		});
+		return result;
 	}
 
 	@Override
 	public List<Commodity> getRecommendCommodity() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Commodity> result;
+		result=commdityDAO.findByIsRecommend(true);
+		return result;
 	}
 
 	@Override
 	public List<Commodity> getSpecialOffercommodity() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Commodity> result;
+		result=commdityDAO.findByIsSale(true);
+		return result;
 	}
 
 }
