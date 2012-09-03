@@ -1,6 +1,7 @@
 package edu.cqun.eshop.service;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,16 +24,17 @@ public class CommodityManagerServiceTest {
 	@Test
 	public void test() {
 		Commodity testCommodity =new Commodity();
-	//	testCommodity.setCommodityId((long) 3);
-		testCommodity.setPrice((double) 10);
-		testCommodity.setName("aaa");
-		testCommodity.setIsRecommend(false);
-		testCommodity.setPicture("11424115");
-		Timestamp timestamp=new Timestamp(2013,9,13,4,5,5, 0);
-		testCommodity.setRegisterDate(timestamp);
-		testCommodity.setBrand("aaf");
-		testService.addCommodity(testCommodity);
-		//testService.deleteCommodity(testCommodity.getCommodityId());
+//		testCommodity.setPrice((double) 10);
+//		testCommodity.setName("aaa");
+//		testCommodity.setIsRecommend(false);
+//		testCommodity.setPicture("11424115");
+//		Timestamp timestamp=new Timestamp(2013,9,13,4,5,5, 0);
+//		testCommodity.setRegisterDate(timestamp);
+//		testCommodity.setBrand("aaf");
+//		testService.addCommodity(testCommodity);
+		List<Commodity> commoditiylist = testService.getAllCommodities();
+		for (Commodity commodity : commoditiylist) {
+			System.out.println(commodity.getName());
+		}
 	}
-
 }
