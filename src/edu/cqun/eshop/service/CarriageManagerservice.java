@@ -10,6 +10,7 @@ public class CarriageManagerservice implements ICarriageManagerService {
 
 	@Override
 
+
 	public boolean addCommodity(Long userId, Commodity commodity) {
 		// TODO Auto-generated method stub
 		return false;

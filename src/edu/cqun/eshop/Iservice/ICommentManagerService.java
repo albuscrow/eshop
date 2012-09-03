@@ -1,5 +1,7 @@
 package edu.cqun.eshop.Iservice;
 
+import java.util.Set;
+
 import edu.cqun.eshop.domain.OrderList;
 
 public interface ICommentManagerService {
@@ -16,6 +18,6 @@ public interface ICommentManagerService {
 	 * @param commodityId
 	 * @return
 	 */
-	boolean checkoutComment(long commodityId);
+	Set<OrderList> checkComment(long commodityId);
 
 }
