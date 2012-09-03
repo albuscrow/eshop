@@ -8,8 +8,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+<<<<<<< HEAD
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+=======
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 
 import edu.cqun.eshop.domain.Commodity;
 
@@ -38,8 +41,15 @@ public class CommodityDAO extends HibernateDaoSupport {
 	public static final String PICTURE = "picture";
 	public static final String AVERAGE_MARK = "averageMark";
 	public static final String INTRODUCTION = "introduction";
+<<<<<<< HEAD
 	public static final String START = "start";
 	public static final String MARKET_PRICE = "marketPrice";
+=======
+	public static final String ORIGIN = "origin";
+	public static final String MARKET_PRICE = "marketPrice";
+	public static final String IS_SALE = "isSale";
+	public static final String BRAND = "brand";
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 
 	protected void initDao() {
 		// do nothing
@@ -142,14 +152,30 @@ public class CommodityDAO extends HibernateDaoSupport {
 		return findByProperty(INTRODUCTION, introduction);
 	}
 
+<<<<<<< HEAD
 	public List<Commodity> findByStart(Object start) {
 		return findByProperty(START, start);
+=======
+	public List<Commodity> findByOrigin(Object origin) {
+		return findByProperty(ORIGIN, origin);
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	public List<Commodity> findByMarketPrice(Object marketPrice) {
 		return findByProperty(MARKET_PRICE, marketPrice);
 	}
 
+<<<<<<< HEAD
+=======
+	public List<Commodity> findByIsSale(Object isSale) {
+		return findByProperty(IS_SALE, isSale);
+	}
+
+	public List<Commodity> findByBrand(Object brand) {
+		return findByProperty(BRAND, brand);
+	}
+
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	public List findAll() {
 		log.debug("finding all Commodity instances");
 		try {

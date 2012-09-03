@@ -28,8 +28,13 @@ public class Buyer implements java.io.Serializable {
 	private String password;
 	private String email;
 	private Timestamp registerDate;
+<<<<<<< HEAD
 	private Set<UserOrder> userOrders = new HashSet<UserOrder>(0);
 	private Set<ShopCar> shopCars = new HashSet<ShopCar>(0);
+=======
+	private Set<OrderList> orderLists = new HashSet<OrderList>(0);
+	private Set<Delivery> deliveries = new HashSet<Delivery>(0);
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 
 	// Constructors
 
@@ -48,16 +53,26 @@ public class Buyer implements java.io.Serializable {
 
 	/** full constructor */
 	public Buyer(String name, String sex, String user, String password,
+<<<<<<< HEAD
 			String email, Timestamp registerDate, Set<UserOrder> userOrders,
 			Set<ShopCar> shopCars) {
+=======
+			String email, Timestamp registerDate, Set<OrderList> orderLists,
+			Set<Delivery> deliveries) {
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		this.name = name;
 		this.sex = sex;
 		this.user = user;
 		this.password = password;
 		this.email = email;
 		this.registerDate = registerDate;
+<<<<<<< HEAD
 		this.userOrders = userOrders;
 		this.shopCars = shopCars;
+=======
+		this.orderLists = orderLists;
+		this.deliveries = deliveries;
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	// Property accessors
@@ -127,6 +142,7 @@ public class Buyer implements java.io.Serializable {
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "buyer")
+<<<<<<< HEAD
 	public Set<UserOrder> getUserOrders() {
 		return this.userOrders;
 	}
@@ -142,6 +158,23 @@ public class Buyer implements java.io.Serializable {
 
 	public void setShopCars(Set<ShopCar> shopCars) {
 		this.shopCars = shopCars;
+=======
+	public Set<OrderList> getOrderLists() {
+		return this.orderLists;
+	}
+
+	public void setOrderLists(Set<OrderList> orderLists) {
+		this.orderLists = orderLists;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "buyer")
+	public Set<Delivery> getDeliveries() {
+		return this.deliveries;
+	}
+
+	public void setDeliveries(Set<Delivery> deliveries) {
+		this.deliveries = deliveries;
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 }

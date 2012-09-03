@@ -33,6 +33,7 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
+<<<<<<< HEAD
 				<value>edu.cqun.eshop.domain.Commend</value>
 				<value>edu.cqun.eshop.domain.SystemUser</value>
 				<value>edu.cqun.eshop.domain.ShopCar</value>
@@ -47,6 +48,24 @@
 		</property>
 	</bean>
 	<bean id="SystemUserDAO" class="edu.cqun.eshop.dao.SystemUserDAO">
+=======
+				<value>edu.cqun.eshop.domain.ImportList</value>
+				<value>edu.cqun.eshop.domain.Delivery</value>
+				<value>edu.cqun.eshop.domain.PayWay</value>
+				<value>edu.cqun.eshop.domain.SalesRecord</value>
+				<value>edu.cqun.eshop.domain.OtherPay</value>
+				<value>edu.cqun.eshop.domain.OrderList</value>
+				<value>edu.cqun.eshop.domain.RoleList</value>
+				<value>edu.cqun.eshop.domain.Commodity</value>
+				<value>edu.cqun.eshop.domain.User</value>
+				<value>edu.cqun.eshop.domain.Buyer</value>
+				<value>edu.cqun.eshop.domain.Carriage</value>
+				<value>edu.cqun.eshop.domain.Category</value></list>
+		</property>
+	</bean>
+	
+	<bean id="RoleListDAO" class="edu.cqun.eshop.dao.RoleListDAO">
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -61,7 +80,16 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+<<<<<<< HEAD
 	<bean id="SalerDAO" class="edu.cqun.eshop.dao.SalerDAO">
+=======
+	<bean id="OrderListDAO" class="edu.cqun.eshop.dao.OrderListDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ImportListDAO" class="edu.cqun.eshop.dao.ImportListDAO">
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -71,12 +99,25 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+<<<<<<< HEAD
 	<bean id="CommendDAO" class="edu.cqun.eshop.dao.CommendDAO">
+=======
+	<bean id="UserDAO" class="edu.cqun.eshop.dao.UserDAO">
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+<<<<<<< HEAD
 	<bean id="UserOrderDAO" class="edu.cqun.eshop.dao.UserOrderDAO">
+=======
+	<bean id="PayWayDAO" class="edu.cqun.eshop.dao.PayWayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="OtherPayDAO" class="edu.cqun.eshop.dao.OtherPayDAO">
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -91,15 +132,25 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+<<<<<<< HEAD
 	<bean id="ShopCarDAO" class="edu.cqun.eshop.dao.ShopCarDAO">
+=======
+	<bean id="SalesRecordDAO"
+		class="edu.cqun.eshop.dao.SalesRecordDAO">
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 
 	<context:annotation-config />
+<<<<<<< HEAD
 	<context:component-scan base-package="edu.cqun.eshop.service"></context:component-scan>
 
+=======
+	<context:component-scan base-package="edu.cqun.eshop.service"></context:component-scan> 
+	
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	<bean class="org.springframework.orm.hibernate3.HibernateTransactionManager"
 		id="transactionManager" autowire="default" lazy-init="default"
 		abstract="false">
@@ -107,6 +158,13 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+<<<<<<< HEAD
 	<tx:annotation-driven />
 
 </beans>
+=======
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	</beans>
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392

@@ -1,44 +1,39 @@
 package edu.cqun.eshop.dao;
 
 import java.util.List;
-<<<<<<< HEAD
-import java.util.Set;
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import edu.cqun.eshop.domain.Delivery;
+import edu.cqun.eshop.domain.PayWay;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * Delivery entities. Transaction control of the save(), update() and delete()
+ * PayWay entities. Transaction control of the save(), update() and delete()
  * operations can directly support Spring container-managed transactions or they
  * can be augmented to handle user-managed Spring transactions. Each of these
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.domain.Delivery
+ * @see edu.cqun.eshop.domain.PayWay
  * @author MyEclipse Persistence Tools
  */
 
-public class DeliveryDAO extends HibernateDaoSupport {
-	private static final Logger log = LoggerFactory
-			.getLogger(DeliveryDAO.class);
+public class PayWayDAO extends HibernateDaoSupport {
+	private static final Logger log = LoggerFactory.getLogger(PayWayDAO.class);
 	// property constants
-	public static final String POSTCODE = "postcode";
-	public static final String ADDRESS = "address";
-	public static final String PHONE = "phone";
+	public static final String NAME = "name";
+	public static final String COMPANY = "company";
+	public static final String URL = "url";
 
 	protected void initDao() {
 		// do nothing
 	}
 
-	public void save(Delivery transientInstance) {
-		log.debug("saving Delivery instance");
+	public void save(PayWay transientInstance) {
+		log.debug("saving PayWay instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
@@ -48,8 +43,8 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void delete(Delivery persistentInstance) {
-		log.debug("deleting Delivery instance");
+	public void delete(PayWay persistentInstance) {
+		log.debug("deleting PayWay instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
@@ -59,11 +54,11 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Delivery findById(java.lang.Long id) {
-		log.debug("getting Delivery instance with id: " + id);
+	public PayWay findById(java.lang.Long id) {
+		log.debug("getting PayWay instance with id: " + id);
 		try {
-			Delivery instance = (Delivery) getHibernateTemplate().get(
-					"edu.cqun.eshop.domain.Delivery", id);
+			PayWay instance = (PayWay) getHibernateTemplate().get(
+					"edu.cqun.eshop.domain.PayWay", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -71,10 +66,10 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List<Delivery> findByExample(Delivery instance) {
-		log.debug("finding Delivery instance by example");
+	public List<PayWay> findByExample(PayWay instance) {
+		log.debug("finding PayWay instance by example");
 		try {
-			List<Delivery> results = (List<Delivery>) getHibernateTemplate()
+			List<PayWay> results = (List<PayWay>) getHibernateTemplate()
 					.findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -86,10 +81,10 @@ public class DeliveryDAO extends HibernateDaoSupport {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Delivery instance with property: " + propertyName
+		log.debug("finding PayWay instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Delivery as model where model."
+			String queryString = "from PayWay as model where model."
 					+ propertyName + "= ?";
 			return getHibernateTemplate().find(queryString, value);
 		} catch (RuntimeException re) {
@@ -98,22 +93,22 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List<Delivery> findByPostcode(Object postcode) {
-		return findByProperty(POSTCODE, postcode);
+	public List<PayWay> findByName(Object name) {
+		return findByProperty(NAME, name);
 	}
 
-	public List<Delivery> findByAddress(Object address) {
-		return findByProperty(ADDRESS, address);
+	public List<PayWay> findByCompany(Object company) {
+		return findByProperty(COMPANY, company);
 	}
 
-	public List<Delivery> findByPhone(Object phone) {
-		return findByProperty(PHONE, phone);
+	public List<PayWay> findByUrl(Object url) {
+		return findByProperty(URL, url);
 	}
 
 	public List findAll() {
-		log.debug("finding all Delivery instances");
+		log.debug("finding all PayWay instances");
 		try {
-			String queryString = "from Delivery";
+			String queryString = "from PayWay";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
@@ -121,10 +116,10 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Delivery merge(Delivery detachedInstance) {
-		log.debug("merging Delivery instance");
+	public PayWay merge(PayWay detachedInstance) {
+		log.debug("merging PayWay instance");
 		try {
-			Delivery result = (Delivery) getHibernateTemplate().merge(
+			PayWay result = (PayWay) getHibernateTemplate().merge(
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -134,8 +129,8 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachDirty(Delivery instance) {
-		log.debug("attaching dirty Delivery instance");
+	public void attachDirty(PayWay instance) {
+		log.debug("attaching dirty PayWay instance");
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -145,8 +140,8 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachClean(Delivery instance) {
-		log.debug("attaching clean Delivery instance");
+	public void attachClean(PayWay instance) {
+		log.debug("attaching clean PayWay instance");
 		try {
 			getHibernateTemplate().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -156,7 +151,7 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public static DeliveryDAO getFromApplicationContext(ApplicationContext ctx) {
-		return (DeliveryDAO) ctx.getBean("DeliveryDAO");
+	public static PayWayDAO getFromApplicationContext(ApplicationContext ctx) {
+		return (PayWayDAO) ctx.getBean("PayWayDAO");
 	}
 }

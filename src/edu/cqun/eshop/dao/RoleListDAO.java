@@ -1,44 +1,40 @@
 package edu.cqun.eshop.dao;
 
 import java.util.List;
-<<<<<<< HEAD
 import java.util.Set;
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-import edu.cqun.eshop.domain.Delivery;
+import edu.cqun.eshop.domain.RoleList;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * Delivery entities. Transaction control of the save(), update() and delete()
+ * RoleList entities. Transaction control of the save(), update() and delete()
  * operations can directly support Spring container-managed transactions or they
  * can be augmented to handle user-managed Spring transactions. Each of these
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.domain.Delivery
+ * @see edu.cqun.eshop.domain.RoleList
  * @author MyEclipse Persistence Tools
  */
 
-public class DeliveryDAO extends HibernateDaoSupport {
+public class RoleListDAO extends HibernateDaoSupport {
 	private static final Logger log = LoggerFactory
-			.getLogger(DeliveryDAO.class);
+			.getLogger(RoleListDAO.class);
 	// property constants
-	public static final String POSTCODE = "postcode";
-	public static final String ADDRESS = "address";
-	public static final String PHONE = "phone";
+	public static final String ROLE = "role";
+	public static final String AUTHORITY = "authority";
 
 	protected void initDao() {
 		// do nothing
 	}
 
-	public void save(Delivery transientInstance) {
-		log.debug("saving Delivery instance");
+	public void save(RoleList transientInstance) {
+		log.debug("saving RoleList instance");
 		try {
 			getHibernateTemplate().save(transientInstance);
 			log.debug("save successful");
@@ -48,8 +44,8 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void delete(Delivery persistentInstance) {
-		log.debug("deleting Delivery instance");
+	public void delete(RoleList persistentInstance) {
+		log.debug("deleting RoleList instance");
 		try {
 			getHibernateTemplate().delete(persistentInstance);
 			log.debug("delete successful");
@@ -59,11 +55,11 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Delivery findById(java.lang.Long id) {
-		log.debug("getting Delivery instance with id: " + id);
+	public RoleList findById(java.lang.Long id) {
+		log.debug("getting RoleList instance with id: " + id);
 		try {
-			Delivery instance = (Delivery) getHibernateTemplate().get(
-					"edu.cqun.eshop.domain.Delivery", id);
+			RoleList instance = (RoleList) getHibernateTemplate().get(
+					"edu.cqun.eshop.domain.RoleList", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -71,10 +67,10 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List<Delivery> findByExample(Delivery instance) {
-		log.debug("finding Delivery instance by example");
+	public List<RoleList> findByExample(RoleList instance) {
+		log.debug("finding RoleList instance by example");
 		try {
-			List<Delivery> results = (List<Delivery>) getHibernateTemplate()
+			List<RoleList> results = (List<RoleList>) getHibernateTemplate()
 					.findByExample(instance);
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -86,10 +82,10 @@ public class DeliveryDAO extends HibernateDaoSupport {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Delivery instance with property: " + propertyName
+		log.debug("finding RoleList instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Delivery as model where model."
+			String queryString = "from RoleList as model where model."
 					+ propertyName + "= ?";
 			return getHibernateTemplate().find(queryString, value);
 		} catch (RuntimeException re) {
@@ -98,22 +94,18 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public List<Delivery> findByPostcode(Object postcode) {
-		return findByProperty(POSTCODE, postcode);
+	public List<RoleList> findByRole(Object role) {
+		return findByProperty(ROLE, role);
 	}
 
-	public List<Delivery> findByAddress(Object address) {
-		return findByProperty(ADDRESS, address);
-	}
-
-	public List<Delivery> findByPhone(Object phone) {
-		return findByProperty(PHONE, phone);
+	public List<RoleList> findByAuthority(Object authority) {
+		return findByProperty(AUTHORITY, authority);
 	}
 
 	public List findAll() {
-		log.debug("finding all Delivery instances");
+		log.debug("finding all RoleList instances");
 		try {
-			String queryString = "from Delivery";
+			String queryString = "from RoleList";
 			return getHibernateTemplate().find(queryString);
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
@@ -121,10 +113,10 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public Delivery merge(Delivery detachedInstance) {
-		log.debug("merging Delivery instance");
+	public RoleList merge(RoleList detachedInstance) {
+		log.debug("merging RoleList instance");
 		try {
-			Delivery result = (Delivery) getHibernateTemplate().merge(
+			RoleList result = (RoleList) getHibernateTemplate().merge(
 					detachedInstance);
 			log.debug("merge successful");
 			return result;
@@ -134,8 +126,8 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachDirty(Delivery instance) {
-		log.debug("attaching dirty Delivery instance");
+	public void attachDirty(RoleList instance) {
+		log.debug("attaching dirty RoleList instance");
 		try {
 			getHibernateTemplate().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -145,8 +137,8 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public void attachClean(Delivery instance) {
-		log.debug("attaching clean Delivery instance");
+	public void attachClean(RoleList instance) {
+		log.debug("attaching clean RoleList instance");
 		try {
 			getHibernateTemplate().lock(instance, LockMode.NONE);
 			log.debug("attach successful");
@@ -156,7 +148,7 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		}
 	}
 
-	public static DeliveryDAO getFromApplicationContext(ApplicationContext ctx) {
-		return (DeliveryDAO) ctx.getBean("DeliveryDAO");
+	public static RoleListDAO getFromApplicationContext(ApplicationContext ctx) {
+		return (RoleListDAO) ctx.getBean("RoleListDAO");
 	}
 }

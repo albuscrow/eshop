@@ -1,8 +1,11 @@
 package edu.cqun.eshop.domain;
 
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.CascadeType;
+=======
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,7 +13,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
+=======
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 import javax.persistence.Table;
 
 /**
@@ -23,11 +29,18 @@ public class Delivery implements java.io.Serializable {
 	// Fields
 
 	private Long deliveryId;
+<<<<<<< HEAD
 	private UserOrder userOrder;
 	private Integer postcode;
 	private String address;
 	private String phone;
 	private Set<UserOrder> userOrders = new HashSet<UserOrder>(0);
+=======
+	private Buyer buyer;
+	private Integer postcode;
+	private String address;
+	private String phone;
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 
 	// Constructors
 
@@ -43,6 +56,7 @@ public class Delivery implements java.io.Serializable {
 	}
 
 	/** full constructor */
+<<<<<<< HEAD
 	public Delivery(UserOrder userOrder, Integer postcode, String address,
 			String phone, Set<UserOrder> userOrders) {
 		this.userOrder = userOrder;
@@ -50,6 +64,13 @@ public class Delivery implements java.io.Serializable {
 		this.address = address;
 		this.phone = phone;
 		this.userOrders = userOrders;
+=======
+	public Delivery(Buyer buyer, Integer postcode, String address, String phone) {
+		this.buyer = buyer;
+		this.postcode = postcode;
+		this.address = address;
+		this.phone = phone;
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	// Property accessors
@@ -65,6 +86,7 @@ public class Delivery implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
+<<<<<<< HEAD
 	@JoinColumn(name = "User_Order_ID")
 	public UserOrder getUserOrder() {
 		return this.userOrder;
@@ -72,6 +94,15 @@ public class Delivery implements java.io.Serializable {
 
 	public void setUserOrder(UserOrder userOrder) {
 		this.userOrder = userOrder;
+=======
+	@JoinColumn(name = "Buyer_ID")
+	public Buyer getBuyer() {
+		return this.buyer;
+	}
+
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	@Column(name = "Postcode", nullable = false)
@@ -101,6 +132,7 @@ public class Delivery implements java.io.Serializable {
 		this.phone = phone;
 	}
 
+<<<<<<< HEAD
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "delivery")
 	public Set<UserOrder> getUserOrders() {
 		return this.userOrders;
@@ -110,4 +142,6 @@ public class Delivery implements java.io.Serializable {
 		this.userOrders = userOrders;
 	}
 
+=======
+>>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 }
