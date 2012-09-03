@@ -2,12 +2,19 @@ package edu.cqun.eshop.service;
 
 import java.util.Set;
 
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.ICommentManagerService;
 import edu.cqun.eshop.domain.OrderList;
 import edu.cqun.eshop.dao.*;
 
+@Transactional
+@Service("CommentManagerService")
 public class CommentManagerService implements ICommentManagerService {
 
 	@Autowired
@@ -18,10 +25,7 @@ public class CommentManagerService implements ICommentManagerService {
 	@Override
 	public boolean addComment(OrderList order) {
 		try {
-			orderListDAO.findById(order.getOrderId()).setComment(
-					order.getComment());
-			orderListDAO.findById(order.getOrderId()).setCommentDate(
-					order.getCommentDate());
+			orderListDAO.attachDirty(order);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -32,9 +36,10 @@ public class CommentManagerService implements ICommentManagerService {
 	@Override
 	public Set<OrderList> checkComment(long commodityId) {
 		try {
-			Set<OrderList> ordersetSet = commodityDAO.findById(commodityId)
+			Set<OrderList> orderSet = commodityDAO.findById(commodityId)
 					.getOrderLists();
-			return ordersetSet;
+			Hibernate.initialize(orderSet);//强制初始化
+			return orderSet;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
