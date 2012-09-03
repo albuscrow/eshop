@@ -2,28 +2,25 @@ package edu.cqun.eshop.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.cqun.eshop.domain.User;
+
 public class TestStruts extends ActionSupport{
-	private String name;
-	private String password;
+	private User user;
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public String getPassword() {
-		return password;
+	public User getUser() {
+		return user;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+
+
+	public void setUser(User user) {
+		this.user = user;
 	}
+
+
 
 	public String execute(){
-		name = "hello," + name + "!";
+		//name = "hello," + name + "!";
 		return SUCCESS;
 	}
 

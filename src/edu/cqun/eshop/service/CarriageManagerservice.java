@@ -16,14 +16,12 @@ public class CarriageManagerservice implements ICarriageManagerService {
 
 	@Override
 	public boolean removeCommodity(Long userId, long commodityId) {
-
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean removeCommodities(Long userId, List<Long> commodityIds) {
-
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -36,6 +34,7 @@ public class CarriageManagerservice implements ICarriageManagerService {
 	}
 
 	@Override
+
 	public boolean pay(Long userId, List<Long> commodityIds) {
 		// TODO Auto-generated method stub
 		return false;

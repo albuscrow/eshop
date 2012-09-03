@@ -10,8 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.ICommentManagerService;
+import edu.cqun.eshop.dao.CommodityDAO;
+import edu.cqun.eshop.dao.OrderListDAO;
 import edu.cqun.eshop.domain.OrderList;
-import edu.cqun.eshop.dao.*;
+
+
 
 @Transactional
 @Service("CommentManagerService")
