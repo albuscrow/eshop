@@ -12,56 +12,108 @@ import edu.cqun.eshop.domain.Buyer;
 
 
 @Transactional
-@Service("loginService")
+@Service("UserManagerService")
 public class UserManagerService implements IUserManagerService {
 	@Autowired
 	private BuyerDAO buyerDAO;
 
 	@Override
-	public boolean checkLogin(Buyer buyer) {
+	public boolean checkLogin(Buyer buyer){
 		// TODO Auto-generated method stub
-		List<Buyer> result = buyerDAO.findByExample(buyer);
-		if (result != null && result.size() == 1) {
-			return true;
-		}else {
-			return false;
+		try{
+			List<Buyer> result = buyerDAO.findByExample(buyer);
+			if (result != null && result.size() == 1) {
+				return true;
+			}else {
+				return false;
+			}
+		}catch (RuntimeException re) {
+			throw re;
 		}
 	}
 
 	@Override
 	public boolean regester(Buyer buyer) {
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			buyerDAO.save(buyer);
+			return true;
+		}catch (RuntimeException re) {
+			throw re;
+		}
 	}
 
 	@Override
-	public Buyer findUser(Buyer buyer) {
+	public List<Buyer> findUser(Buyer buyer) {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		try{
+			List<Buyer> result = (buyerDAO.findByExample(buyer));
+			if (result != null) 
+				return result;
+			else 
+				return null;
+		}catch (RuntimeException re) {
+			throw re;
+		}
+	} 
 
 	@Override
-	public boolean modifypassword(String password) {
+	public boolean modifypassword(Long id,String old_password,String new_password){
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			Buyer result=buyerDAO.findById(id);
+			if(result==null)
+				return false;
+			else if(result.getPassword()==old_password)
+			{
+				result.setPassword(new_password);
+				return true;
+			}
+			else
+				return false;
+		}catch (RuntimeException re) {
+			throw re;
+		}
 	}
 
 	@Override
 	public boolean modifyUserInfo(Buyer buyer) {
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			Buyer buyer_test=buyerDAO.findById(buyer.getBuyerId());
+			if(buyer_test!=null)
+				buyerDAO.save(buyer);
+			return true;
+		}catch (RuntimeException re) {
+			throw re;
+		}
 	}
 
 	@Override
 	public boolean deleteUser(long buyerId) {
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			Buyer buyer=buyerDAO.findById(buyerId);
+			if(buyer!=null)
+				buyerDAO.delete(buyer);
+			return true;	
+		}catch (RuntimeException re) {
+			throw re;
+		}
 	}
 
 	@Override
 	public boolean deleteUsers(List<Long> buyerIds) {
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			for (Long buyerId : buyerIds) {
+				Buyer buyer= buyerDAO.findById(buyerId);
+				buyerDAO.delete(buyer);
+			}
+			return true;
+		}catch (RuntimeException re) {
+			throw re;
+		}
 	}
-	
+
 }
