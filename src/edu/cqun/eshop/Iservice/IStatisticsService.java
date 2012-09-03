@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public interface IStatisticsService {
 	
 	/**
-	 * 
+	 * ·µ»ØÔÂÀûÈó
 	 * @param time
 	 * @return
 	 */

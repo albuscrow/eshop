@@ -41,5 +41,4 @@ public interface ICarriageManagerService {
 	 */
 	boolean pay(Long userId, List<Long> commodityIds);
 	
-
 }

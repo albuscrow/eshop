@@ -12,4 +12,14 @@
 			<result>helloworld.action</result>
 		</action>
 	</package>
+	
+	<package name="back" extends="struts-default" namespace="/back">
+		<action name="login">
+			<result>/view/back/login.jsp</result>
+		</action>
+		
+		<action name="main">
+			<result>/view/back/main.jsp</result>
+		</action>
+	</package>
 </struts>
