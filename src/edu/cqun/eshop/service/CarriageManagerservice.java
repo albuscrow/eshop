@@ -27,6 +27,7 @@ public class CarriageManagerservice implements ICarriageManagerService {
 
 	@Override
 	public boolean checkCarriage(Long userId) {
+
 		// TODO Auto-generated method stub
 		return false;
 	}
@@ -36,7 +37,5 @@ public class CarriageManagerservice implements ICarriageManagerService {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	
 
 }
