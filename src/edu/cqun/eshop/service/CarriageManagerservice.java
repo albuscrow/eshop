@@ -7,6 +7,7 @@ import edu.cqun.eshop.domain.Commodity;
 
 public class CarriageManagerservice implements ICarriageManagerService {
 
+
 	@Override
 	public boolean addCommodity(Long userId, Commodity commodity) {
 		// TODO Auto-generated method stub
@@ -15,12 +16,14 @@ public class CarriageManagerservice implements ICarriageManagerService {
 
 	@Override
 	public boolean removeCommodity(Long userId, long commodityId) {
+
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean removeCommodities(Long userId, List<Long> commodityIds) {
+
 		// TODO Auto-generated method stub
 		return false;
 	}

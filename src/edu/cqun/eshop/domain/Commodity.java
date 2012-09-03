@@ -51,7 +51,7 @@ public class Commodity implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Commodity(String name, Double price, Boolean isRecommend,
-			String picture, Timestamp registerDate, String brand) {
+		String picture, Timestamp registerDate, String brand) {
 		this.name = name;
 		this.price = price;
 		this.isRecommend = isRecommend;

@@ -27,8 +27,10 @@ public class CarriageDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String START = "start";
 	public static final String DESTINATION = "destination";
+
 	public static final String COMPANY = "company";
 	public static final String COST = "cost";
+
 
 	protected void initDao() {
 		// do nothing
@@ -102,6 +104,7 @@ public class CarriageDAO extends HibernateDaoSupport {
 	public List<Carriage> findByDestination(Object destination) {
 		return findByProperty(DESTINATION, destination);
 	}
+
 
 	public List<Carriage> findByCompany(Object company) {
 		return findByProperty(COMPANY, company);
