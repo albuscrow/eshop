@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-<<<<<<< HEAD
-
-</struts>    
-=======
 	<include file = "structs-default.xml"/>
 	
 	<package name="test" extends="struts-default" namespace="/testStruts/" >
@@ -17,4 +13,3 @@
 		</action>
 	</package>
 </struts>
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392

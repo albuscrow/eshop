@@ -270,4 +270,18 @@ public class OrderList implements java.io.Serializable {
 		this.total = total;
 	}
 
+	@Override
+	public String toString() {
+		return "OrderList [orderId=" + orderId + ", commodity=" + commodity
+				+ ", buyer=" + buyer + ", quantity=" + quantity + ", payType="
+				+ payType + ", state=" + state + ", logisticsState="
+				+ logisticsState + ", registerDate=" + registerDate
+				+ ", postType=" + postType + ", postcode=" + postcode
+				+ ", address=" + address + ", phone=" + phone
+				+ ", carriageFee=" + carriageFee + ", comment=" + comment
+				+ ", isMatched=" + isMatched + ", logisticsSpeed="
+				+ logisticsSpeed + ", attitude=" + attitude + ", commentDate="
+				+ commentDate + ", total=" + total + "]";
+	}
+
 }

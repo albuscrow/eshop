@@ -24,10 +24,6 @@ public class Commodity implements java.io.Serializable {
 	// Fields
 
 	private Long commodityId;
-<<<<<<< HEAD
-	private Saler saler;
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	private Category category;
 	private String name;
 	private Integer sales;
@@ -38,13 +34,6 @@ public class Commodity implements java.io.Serializable {
 	private String picture;
 	private Double averageMark;
 	private String introduction;
-<<<<<<< HEAD
-	private String start;
-	private Double marketPrice;
-	private Timestamp registerDate;
-	private Set<UserOrder> userOrders = new HashSet<UserOrder>(0);
-	private Set<ShopCar> shopCars = new HashSet<ShopCar>(0);
-=======
 	private String origin;
 	private Double marketPrice;
 	private Timestamp registerDate;
@@ -53,7 +42,6 @@ public class Commodity implements java.io.Serializable {
 	private Set<OrderList> orderLists = new HashSet<OrderList>(0);
 	private Set<SalesRecord> salesRecords = new HashSet<SalesRecord>(0);
 	private Set<ImportList> importLists = new HashSet<ImportList>(0);
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 
 	// Constructors
 
@@ -63,28 +51,12 @@ public class Commodity implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Commodity(String name, Double price, Boolean isRecommend,
-<<<<<<< HEAD
-			String picture, Timestamp registerDate) {
-=======
-			String picture, Timestamp registerDate, String brand) {
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
+		String picture, Timestamp registerDate, String brand) {
 		this.name = name;
 		this.price = price;
 		this.isRecommend = isRecommend;
 		this.picture = picture;
 		this.registerDate = registerDate;
-<<<<<<< HEAD
-	}
-
-	/** full constructor */
-	public Commodity(Saler saler, Category category, String name,
-			Integer sales, Double price, Double discountPrice,
-			Boolean isRecommend, Long rest, String picture, Double averageMark,
-			String introduction, String start, Double marketPrice,
-			Timestamp registerDate, Set<UserOrder> userOrders,
-			Set<ShopCar> shopCars) {
-		this.saler = saler;
-=======
 		this.brand = brand;
 	}
 
@@ -95,7 +67,6 @@ public class Commodity implements java.io.Serializable {
 			String origin, Double marketPrice, Timestamp registerDate,
 			Boolean isSale, String brand, Set<OrderList> orderLists,
 			Set<SalesRecord> salesRecords, Set<ImportList> importLists) {
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 		this.category = category;
 		this.name = name;
 		this.sales = sales;
@@ -106,13 +77,6 @@ public class Commodity implements java.io.Serializable {
 		this.picture = picture;
 		this.averageMark = averageMark;
 		this.introduction = introduction;
-<<<<<<< HEAD
-		this.start = start;
-		this.marketPrice = marketPrice;
-		this.registerDate = registerDate;
-		this.userOrders = userOrders;
-		this.shopCars = shopCars;
-=======
 		this.origin = origin;
 		this.marketPrice = marketPrice;
 		this.registerDate = registerDate;
@@ -121,7 +85,6 @@ public class Commodity implements java.io.Serializable {
 		this.orderLists = orderLists;
 		this.salesRecords = salesRecords;
 		this.importLists = importLists;
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	// Property accessors
@@ -137,19 +100,6 @@ public class Commodity implements java.io.Serializable {
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-<<<<<<< HEAD
-	@JoinColumn(name = "Saler_ID")
-	public Saler getSaler() {
-		return this.saler;
-	}
-
-	public void setSaler(Saler saler) {
-		this.saler = saler;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	@JoinColumn(name = "Category_ID")
 	public Category getCategory() {
 		return this.category;
@@ -240,15 +190,6 @@ public class Commodity implements java.io.Serializable {
 		this.introduction = introduction;
 	}
 
-<<<<<<< HEAD
-	@Column(name = "Start", length = 16)
-	public String getStart() {
-		return this.start;
-	}
-
-	public void setStart(String start) {
-		this.start = start;
-=======
 	@Column(name = "Origin", length = 16)
 	public String getOrigin() {
 		return this.origin;
@@ -256,7 +197,6 @@ public class Commodity implements java.io.Serializable {
 
 	public void setOrigin(String origin) {
 		this.origin = origin;
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	@Column(name = "Market_Price", precision = 22, scale = 0)
@@ -277,24 +217,6 @@ public class Commodity implements java.io.Serializable {
 		this.registerDate = registerDate;
 	}
 
-<<<<<<< HEAD
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "commodity")
-	public Set<UserOrder> getUserOrders() {
-		return this.userOrders;
-	}
-
-	public void setUserOrders(Set<UserOrder> userOrders) {
-		this.userOrders = userOrders;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "commodity")
-	public Set<ShopCar> getShopCars() {
-		return this.shopCars;
-	}
-
-	public void setShopCars(Set<ShopCar> shopCars) {
-		this.shopCars = shopCars;
-=======
 	@Column(name = "Is_SALE")
 	public Boolean getIsSale() {
 		return this.isSale;
@@ -338,7 +260,6 @@ public class Commodity implements java.io.Serializable {
 
 	public void setImportLists(Set<ImportList> importLists) {
 		this.importLists = importLists;
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 }

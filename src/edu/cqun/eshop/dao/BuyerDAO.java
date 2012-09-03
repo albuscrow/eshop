@@ -166,8 +166,4 @@ public class BuyerDAO extends HibernateDaoSupport {
 	public static BuyerDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (BuyerDAO) ctx.getBean("BuyerDAO");
 	}
-<<<<<<< HEAD
-	
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 }

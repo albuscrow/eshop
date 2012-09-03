@@ -1,10 +1,6 @@
 package edu.cqun.eshop.dao;
 
 import java.util.List;
-<<<<<<< HEAD
-import java.util.Set;
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

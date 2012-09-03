@@ -1,10 +1,6 @@
 package edu.cqun.eshop.dao;
 
 import java.util.List;
-<<<<<<< HEAD
-import java.util.Set;
-=======
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,13 +27,10 @@ public class CarriageDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String START = "start";
 	public static final String DESTINATION = "destination";
-<<<<<<< HEAD
-	public static final String AFFORD_TYPE = "affordType";
-	public static final String AMOUNT = "amount";
-=======
+
 	public static final String COMPANY = "company";
 	public static final String COST = "cost";
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
+
 
 	protected void initDao() {
 		// do nothing
@@ -112,21 +105,13 @@ public class CarriageDAO extends HibernateDaoSupport {
 		return findByProperty(DESTINATION, destination);
 	}
 
-<<<<<<< HEAD
-	public List<Carriage> findByAffordType(Object affordType) {
-		return findByProperty(AFFORD_TYPE, affordType);
-	}
 
-	public List<Carriage> findByAmount(Object amount) {
-		return findByProperty(AMOUNT, amount);
-=======
 	public List<Carriage> findByCompany(Object company) {
 		return findByProperty(COMPANY, company);
 	}
 
 	public List<Carriage> findByCost(Object cost) {
 		return findByProperty(COST, cost);
->>>>>>> 8c3b95de00c9d4919d17c095832bc7e702567392
 	}
 
 	public List findAll() {
