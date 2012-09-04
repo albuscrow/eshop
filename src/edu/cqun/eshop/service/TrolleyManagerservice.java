@@ -7,14 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.ITrolleyManagerService;
-import edu.cqun.eshop.dao.CarriageDAO;
-import edu.cqun.eshop.domain.Carriage;
+import edu.cqun.eshop.dao.OrderListDAO;
 import edu.cqun.eshop.domain.Commodity;
 
 @Transactional
 @Service("TrolleyManagerservice")
 public class TrolleyManagerservice implements ITrolleyManagerService {
-
+	@Autowired
+	private OrderListDAO orderDAO;
+	
 	@Override
 	public boolean addCommodity(Long userId, Commodity commodity) {
 		// TODO Auto-generated method stub

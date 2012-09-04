@@ -4,9 +4,10 @@ import java.util.List;
 
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.domain.User;
+import edu.cqun.eshop.dao.UserDAO;;
 
 public class SystemUserManagerService implements ISystemUserManagerService{
-
+	
 	@Override
 	public boolean addSystemUser(User user) {
 		// TODO Auto-generated method stub
