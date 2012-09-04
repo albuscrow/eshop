@@ -40,6 +40,6 @@ public interface ISystemUserManagerService {
 	 * @param user
 	 * @return
 	 */
-	boolean modifySystemUserInfo(long id,RoleList roleList,String user);
+	boolean modifySystemUserInfo(long user_id,long role_id,String user);
 	
 }
