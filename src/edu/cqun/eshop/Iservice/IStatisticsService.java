@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public interface IStatisticsService {
 	
 	/**
-	 * 返回月利润
+	 * 返回日利润
 	 * @param time
 	 * @return
 	 */
@@ -24,4 +24,11 @@ public interface IStatisticsService {
 	 * @return
 	 */
 	double getYearProfit(Timestamp time);
+	
+	/**
+	 * 返回一段时间的利润
+	 * @param time
+	 * @return
+	 */
+	double getPeriodProfit(Timestamp start,Timestamp end);
 }

@@ -23,6 +23,7 @@ public class OtherPay implements java.io.Serializable {
 	private User user;
 	private String note;
 	private Timestamp opayDate;
+	private Double amount;
 
 	// Constructors
 
@@ -80,6 +81,15 @@ public class OtherPay implements java.io.Serializable {
 
 	public void setOpayDate(Timestamp opayDate) {
 		this.opayDate = opayDate;
+	}
+
+	@Column(name = "Amount", nullable = false, precision = 22, scale = 0)
+	public Double getAmount() {
+		return this.amount;
+	}
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
 	}
 
 }

@@ -43,6 +43,20 @@ public class StaticsServiceTest {
 	
 	@Test
 	public void test2() {
-//		statisticsService.get
+		double d = statisticsService.getMonthProfit(Timestamp.valueOf("2012-09-03 17:11:25"));
+		System.out.println(d);
+	}
+	
+	@Test
+	public void test3() {
+		double d = statisticsService.getYearProfit(Timestamp.valueOf("2012-09-03 17:11:25"));
+		System.out.println(d);
+	}
+	
+	@Test
+	public void test4() {
+		double d = statisticsService.getPeriodProfit
+				(Timestamp.valueOf("2012-08-13 17:11:25"), Timestamp.valueOf("2012-09-03 17:11:25"));
+		System.out.println(d);
 	}
 }
