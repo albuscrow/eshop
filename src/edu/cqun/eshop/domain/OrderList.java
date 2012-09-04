@@ -272,8 +272,8 @@ public class OrderList implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "OrderList [orderId=" + orderId + ", commodity=" + commodity
-				+ ", buyer=" + buyer + ", quantity=" + quantity + ", payType="
+		return "OrderList [orderId=" + orderId  /*+", commodity=" + commodity
+				+ ", buyer=" + buyer*/ + ", quantity=" + quantity + ", payType="
 				+ payType + ", state=" + state + ", logisticsState="
 				+ logisticsState + ", registerDate=" + registerDate
 				+ ", postType=" + postType + ", postcode=" + postcode
