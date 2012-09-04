@@ -11,13 +11,17 @@ import edu.cqun.eshop.dao.BuyerDAO;
 import edu.cqun.eshop.dao.UserDAO;
 import edu.cqun.eshop.domain.Buyer;
 import edu.cqun.eshop.domain.User;
+import edu.cqun.eshop.dao.UserDAO;;
 
 @Transactional
 @Service("SystemUserManagerService")
 public class SystemUserManagerService implements ISystemUserManagerService{
+<<<<<<< HEAD
 
 	@Autowired
 	private UserDAO userDAO;
+=======
+>>>>>>> 930b9f90dec2232cdf101d4158e60f4a0a3212ac
 	
 	@Override
 	public boolean addSystemUser(User user) {
