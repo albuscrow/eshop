@@ -4,7 +4,7 @@ import java.util.List;
 
 import edu.cqun.eshop.domain.Commodity;
 
-public interface ICarriageManagerService {
+public interface ITrolleyManagerService {
 	
 	/**
 	 * 添加商品到购物车
@@ -32,7 +32,7 @@ public interface ICarriageManagerService {
 	 * @param userId
 	 * @return
 	 */
-	boolean checkCarriage(Long userId);
+	boolean checkTrolley(Long userId);
 	
 	/**
 	 * 付款
