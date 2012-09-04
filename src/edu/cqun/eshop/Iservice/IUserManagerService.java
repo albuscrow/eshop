@@ -40,7 +40,7 @@ public interface IUserManagerService {
 	 * @param buyer buyer中包含了用户修改后的资料
 	 * @return
 	 */
-	boolean modifyUserInfo(long id,String name, String sex, String user, String password,
+	boolean modifyUserInfo(long id,String name, String sex, String user, 
 			String email, Timestamp registerDate);
 	
 	/**

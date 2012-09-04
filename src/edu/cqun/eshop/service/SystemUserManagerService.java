@@ -10,18 +10,16 @@ import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.dao.BuyerDAO;
 import edu.cqun.eshop.dao.UserDAO;
 import edu.cqun.eshop.domain.Buyer;
+import edu.cqun.eshop.domain.RoleList;
 import edu.cqun.eshop.domain.User;
 import edu.cqun.eshop.dao.UserDAO;;
 
 @Transactional
 @Service("SystemUserManagerService")
 public class SystemUserManagerService implements ISystemUserManagerService{
-<<<<<<< HEAD
 
 	@Autowired
 	private UserDAO userDAO;
-=======
->>>>>>> 930b9f90dec2232cdf101d4158e60f4a0a3212ac
 	
 	@Override
 	public boolean addSystemUser(User user) {
@@ -66,9 +64,46 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 	}
 
 	@Override
-	public boolean modifySystemUser(User user) {
+	public boolean modifySystemUserPassword(long id,String old_password,String new_password) {
 		// TODO Auto-generated method stub
-		return false;
+		try{
+			User result = userDAO.findById(id);
+			if(result==null)
+				return false;
+			else if((result.getPassword()).equalsIgnoreCase(old_password))
+			{
+				result.setPassword(new_password);
+				userDAO.save(result);
+				return true;
+			}
+			else
+				return false; 
+		}catch (RuntimeException re) {
+			throw re;
+		}
+	}
+
+	@Override
+	public boolean modifySystemUserInfo(long id, RoleList roleList, String user) {
+		// TODO Auto-generated method stub
+		try{
+			User result=userDAO.findById(id);
+			if(result!=null)
+			{
+				if(roleList!=null)
+				result.setRoleList(roleList);
+				
+				if(user!=null)
+				result.setUser(user);
+				
+				userDAO.save(result);
+				return true;
+			}
+			else
+				return false;
+		}catch (RuntimeException re) {
+			throw re;
+		}
 	}
 
 }
