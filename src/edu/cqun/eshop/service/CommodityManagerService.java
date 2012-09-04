@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -128,6 +129,14 @@ public class CommodityManagerService implements ICommodityManagerService {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	@Override
+	public List<Commodity> getAllCommodities() {
+		List<Commodity> result;
+		result=commdityDAO.findAll();
+		Hibernate.initialize(result);
+		return result;
 	}
 
 }

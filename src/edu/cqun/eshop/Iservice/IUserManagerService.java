@@ -24,14 +24,14 @@ public interface IUserManagerService {
 	 * @param buyer buyer中的属性如果不为null，则该属性是一个查找条件，如果为null，这在查找时忽略该属性，可以调用findbyexample（）那个函数
 	 * @return
 	 */
-	Buyer findUser(Buyer buyer);
+	List<Buyer> findUser(Buyer buyer);
 	
 	/**
 	 * 修改密码
 	 * @param password
 	 * @return
 	 */
-	boolean modifypassword(String password);
+	boolean modifypassword(Long id,String old_password,String new_password);
 
 	
 	/**

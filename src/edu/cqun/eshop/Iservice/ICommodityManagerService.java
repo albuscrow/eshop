@@ -68,4 +68,10 @@ public interface ICommodityManagerService {
 	 */
 	List<Commodity>getSpecialOffercommodity();
 
+	/*
+	 * 取得所有商品
+	 * @return
+	 */
+	List<Commodity>getAllCommodities();
 }
+
