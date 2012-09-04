@@ -1,10 +1,12 @@
 package edu.cqun.eshop.service;
 
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -61,31 +63,56 @@ public class UserManagerService implements IUserManagerService {
 	} 
 
 	@Override
-	public boolean modifypassword(Long id,String old_password,String new_password){
+	public boolean modifypassword(long id,String old_password,String new_password){
 		// TODO Auto-generated method stub
 		try{
-			Buyer result=buyerDAO.findById(id);
+			Buyer result = buyerDAO.findById(id);
+			//result.setPassword(new_password);
+			//buyerDAO.save(result);
+			//return true;
 			if(result==null)
 				return false;
-			else if(result.getPassword()==old_password)
+			else if((result.getPassword()).equalsIgnoreCase(old_password))
 			{
 				result.setPassword(new_password);
+				buyerDAO.save(result);
 				return true;
 			}
 			else
-				return false;
+				return false; 
 		}catch (RuntimeException re) {
 			throw re;
 		}
 	}
 
 	@Override
-	public boolean modifyUserInfo(Buyer buyer) {
+	public boolean modifyUserInfo(long id,String name, String sex, String user, String password,
+			String email, Timestamp registerDate) {
 		// TODO Auto-generated method stub
 		try{
-			Buyer buyer_test=buyerDAO.findById(buyer.getBuyerId());
-			if(buyer_test!=null)
-				buyerDAO.save(buyer);
+			Buyer result=buyerDAO.findById(id);
+			if(result!=null)
+			{
+				if(name!=null)
+				result.setName(name);
+				
+				if(sex!=null)
+				result.setSex(sex);
+				
+				if(user!=null)
+				result.setUser(user);
+				
+				if(password!=null)
+				result.setPassword(password);
+				
+				if(email!=null)
+				result.setEmail(email);
+				
+				if(registerDate!=null)
+				result.setRegisterDate(registerDate);
+				
+				buyerDAO.save(result);
+			}
 			return true;
 		}catch (RuntimeException re) {
 			throw re;
@@ -98,8 +125,12 @@ public class UserManagerService implements IUserManagerService {
 		try{
 			Buyer buyer=buyerDAO.findById(buyerId);
 			if(buyer!=null)
+			{
 				buyerDAO.delete(buyer);
-			return true;	
+			    return true;	
+			}
+			 else
+				 return false;
 		}catch (RuntimeException re) {
 			throw re;
 		}

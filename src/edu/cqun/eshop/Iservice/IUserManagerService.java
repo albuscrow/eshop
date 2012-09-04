@@ -1,5 +1,6 @@
 package edu.cqun.eshop.Iservice;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import edu.cqun.eshop.domain.Buyer;
@@ -31,7 +32,7 @@ public interface IUserManagerService {
 	 * @param password
 	 * @return
 	 */
-	boolean modifypassword(Long id,String old_password,String new_password);
+	boolean modifypassword(long id,String old_password,String new_password);
 
 	
 	/**
@@ -39,7 +40,8 @@ public interface IUserManagerService {
 	 * @param buyer buyer中包含了用户修改后的资料
 	 * @return
 	 */
-	boolean modifyUserInfo(Buyer buyer);
+	boolean modifyUserInfo(long id,String name, String sex, String user, String password,
+			String email, Timestamp registerDate);
 	
 	/**
 	 * 删除用户
@@ -49,7 +51,7 @@ public interface IUserManagerService {
 	boolean deleteUser(long buyerId);
 	
 	/**
-	 * 屁来那个删除用户
+	 * 批量删除用户
 	 * @param buyerIds 
 	 * @return
 	 */
