@@ -3,6 +3,7 @@ package edu.cqun.eshop.service;
 import static org.junit.Assert.*;
 
 import java.sql.Timestamp;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.ws.rs.GET;
@@ -26,8 +27,11 @@ public class OrderManagerServiceTest {
 	
 	@Autowired
 	IOrderManagerService service;
+	@Autowired
 	private CommodityDAO commodityDAO;
+	@Autowired
 	private BuyerDAO buyerDAO;
+	
 	private OrderList oList;
 	
 	
@@ -59,21 +63,31 @@ public class OrderManagerServiceTest {
 				commentDate, total);
 	}
 	
-	@Test
-	public void test() {
-		generateOrderList();
-		assertTrue(service.generateOrderList(oList));
-//		fail("Not yet implemented");
-	}
+//	@Test
+//	public void test() {
+//		generateOrderList();
+//		assertTrue(service.generateOrderList(oList));
+////		fail("Not yet implemented");
+//	}
 
 	@Test
 	public void test1() {
 		
 		OrderList ol = new OrderList();
-		Set<OrderList> set = service.findOrderListByUser(201309020001l);
-		for(OrderList ol1:set){
-			System.out.println(ol1);
+		if(service.findOrderListByUser(201309020001l)==null){
+			System.out.println("WAAWWAWWAA");
 		}
+		else{
+			Set<OrderList> set = service.findOrderListByUser(201309020001l);
+			Iterator iterator = set.iterator();
+			while(iterator.hasNext()){
+				System.out.println(iterator.next());
+			}
+//			for(OrderList ol1:set){
+//				System.out.println(ol1);
+//			}
+		}
+		
 //		fail("Not yet implemented");
 	}
 	
