@@ -16,7 +16,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-@Controller("GetCommodityAction")
 public class GetBuyerAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
@@ -32,10 +31,8 @@ public class GetBuyerAction extends ActionSupport  implements SessionAware, Serv
     private HttpServletResponse response;
 
 	public String execute() {
-		if (userManagerService == null) {
-			System.out.println("nullllllllll");
-		}
 		att.put("buyers", userManagerService.getAllUser());
+		
 		return SUCCESS;
 	}
 
@@ -52,6 +49,5 @@ public class GetBuyerAction extends ActionSupport  implements SessionAware, Serv
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
-		
 	}
 }
