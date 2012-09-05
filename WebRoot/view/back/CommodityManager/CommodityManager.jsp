@@ -9,7 +9,19 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>EGO</title>
+    <base href="<%=basePath%>">
+    
+    <title>My JSP 'Commodity.jsp' starting page</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
 <style>
 <!--
 body {
@@ -167,7 +179,7 @@ table {
 					<th>操作</th>
 				</tr>
 				<tr>
-					<th>&nbsp;</th>
+					<th> "${commodities[0].commodityId}" </th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
 					<th>&nbsp;</th>
@@ -188,6 +200,7 @@ table {
 				</tr>
 			</thead>
 		</table>
+		"${commodities[0].commodityId}"
 		<p align="center">
 			共XX页 每页10条 页数 <label> <input name="textfield3" type="text"
 				size="4"> </label> /XX页 <a href="#" title="商品管理首页">首页</a><a href="#"></a>

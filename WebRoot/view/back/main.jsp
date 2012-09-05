@@ -35,7 +35,7 @@
 
 <body>
 	<div id="operation" class="menu">
-		<h3>商品管理</h3>
+		<h3 id = "CommodityManager">商品管理</h3>
 		<div>
 			<a id = "addCommodity">添加商品</a> 
 			<br>
