@@ -126,10 +126,10 @@ public class Buyer implements java.io.Serializable {
 		this.registerDate = registerDate;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "buyer")
+	@OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY, mappedBy = "buyer")
 	public Set<OrderList> getOrderLists() {
 		return this.orderLists;
-	}
+	} 
 
 	public void setOrderLists(Set<OrderList> orderLists) {
 		this.orderLists = orderLists;
