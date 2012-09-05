@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.ICommentManagerService;
+import edu.cqun.eshop.constant.OrderStatus;
 import edu.cqun.eshop.dao.CommodityDAO;
 import edu.cqun.eshop.dao.OrderListDAO;
 import edu.cqun.eshop.domain.OrderList;
@@ -28,6 +29,7 @@ public class CommentManagerService implements ICommentManagerService {
 	@Override
 	public boolean addComment(OrderList order) {
 		try {
+			order.setState(OrderStatus.COMMENTED);
 			orderListDAO.attachDirty(order);
 			return true;
 		} catch (Exception e) {
