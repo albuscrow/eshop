@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+.menu{
+	width: 15%;
+	float: left;
+}
+
+.content{
+	width: 80%;
+	float: left;
+	margin-left: 1%;
+}

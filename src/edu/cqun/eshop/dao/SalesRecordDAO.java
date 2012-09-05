@@ -3,6 +3,7 @@ package edu.cqun.eshop.dao;
 import java.sql.Timestamp;
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -151,5 +152,13 @@ public class SalesRecordDAO extends HibernateDaoSupport {
 	public static SalesRecordDAO getFromApplicationContext(
 			ApplicationContext ctx) {
 		return (SalesRecordDAO) ctx.getBean("SalesRecordDAO");
+	}
+	
+	public List<SalesRecord> getOverallSalesByPeriod(Timestamp start, Timestamp end){
+		org.hibernate.Session session = getSession();
+		List<SalesRecord> record_needed = session.createCriteria(SalesRecord.class)
+				.add(Restrictions.between("recordDate", start, end))
+				.list();
+		return record_needed;
 	}
 }

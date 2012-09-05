@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.IOrderManagerService;
+import edu.cqun.eshop.constant.OrderStatus;
 import edu.cqun.eshop.dao.BuyerDAO;
 import edu.cqun.eshop.dao.OrderListDAO;
 import edu.cqun.eshop.domain.Buyer;
@@ -41,12 +42,14 @@ public class OrderManagerService implements IOrderManagerService {
 	}
 
 	@Override
-	public boolean OrderListStatus(long orderId, short OrderStatus) {
+	public boolean OrderListStatus(long orderId, short status) {
 		// TODO Auto-generated method stub
 		OrderList ol = orderListDAO.findById(orderId);
-		ol.setState(OrderStatus);
+		ol.setState(status);
 		orderListDAO.attachDirty(ol);
 		return true;
 	}
+	
+	
 
 }

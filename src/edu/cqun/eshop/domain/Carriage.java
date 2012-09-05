@@ -83,4 +83,11 @@ public class Carriage implements java.io.Serializable {
 		this.cost = cost;
 	}
 
+	@Override
+	public String toString() {
+		return "Carriage [carriageId=" + carriageId + ", start=" + start
+				+ ", destination=" + destination + ", company=" + company
+				+ ", cost=" + cost + "]";
+	}
+	
 }

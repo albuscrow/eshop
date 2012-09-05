@@ -68,7 +68,7 @@ public class UserManagerServiceTest {
 	@Test
 	public void testmodifyUserInfo() {
 		//断定返回"true",否则就报错。
-		assertTrue(service.modifyUserInfo(201309010001l,"lc.gai","女",null,null,null,null));
+		assertTrue(service.modifyUserInfo(201309010001l,"lc","男",null,null,null));
 		return;
 	}
 

@@ -153,6 +153,7 @@ create table Other_Pay
    User_ID              bigint,
    Note                 varchar(1024),
    OPay_Date            datetime not null,
+   Amount		double not null,
    primary key (OPay_ID)
 );
 
