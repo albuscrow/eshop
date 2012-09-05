@@ -56,18 +56,25 @@ public class OrderManagerService implements IOrderManagerService {
 			String logisticsState, Timestamp registerDate, Integer postType,
 			Integer postcode, String address, String phone, Short carriageFee) {
 		// TODO Auto-generated method stub
-		OrderList olList = orderListDAO.findById(orderId);
-		olList.setAddress(address);
-		olList.setQuantity(quantity);
-		olList.setPayType(payType);
-		olList.setLogisticsState(logisticsState);
-		olList.setRegisterDate(registerDate);
-		olList.setPostcode(postcode);
-		olList.setPostType(postType);
-		olList.setPhone(phone);
-		olList.setCarriageFee(carriageFee);
-		orderListDAO.attachDirty(olList);
-		return true;
+		if((quantity!=null) & (payType!=null) & (state!=null) & 
+				(logisticsState!=null) & (registerDate!=null) & (postType!=null) & 
+				(postcode!=null) &  (address!=null) & (phone!=null) & (carriageFee!=null)){
+			OrderList olList = orderListDAO.findById(orderId);
+			olList.setAddress(address);
+			olList.setState(state);
+			olList.setQuantity(quantity);
+			olList.setPayType(payType);
+			olList.setLogisticsState(logisticsState);
+			olList.setRegisterDate(registerDate);
+			olList.setPostcode(postcode);
+			olList.setPostType(postType);
+			olList.setPhone(phone);
+			olList.setCarriageFee(carriageFee);
+			orderListDAO.attachDirty(olList);
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	
