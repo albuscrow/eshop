@@ -29,7 +29,7 @@ public interface IOrderManagerService {
 	 */
 	boolean OrderListStatus(long orderId, short status);
 	
-	boolean OrderListHasPaid(Short quantity,Short payType,Short state,String logisticsState,
+	boolean OrderListHasPaid(long orderId, Short quantity,Short payType,Short state,String logisticsState,
 	Timestamp registerDate,Integer postType,Integer postcode,String address,String phone,
 	Short carriageFee);
 
