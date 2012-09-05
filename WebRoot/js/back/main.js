@@ -7,8 +7,6 @@ $(function init() {
 		$(".content").attr("src","back/addCommodity.action");
 	});
 	
-	$("");
-	
 });
 
 
