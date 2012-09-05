@@ -28,5 +28,8 @@
 		<action name="BuyerManager" class="edu.cqun.eshop.action.GetBuyerAction">
 			<result>/view/back/BuyerManager/BuyerManagerMain.jsp</result>
 		</action>
+		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
+		    <result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
+		</action>
 	</package>
 </struts>
