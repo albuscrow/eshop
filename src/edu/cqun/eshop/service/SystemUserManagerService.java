@@ -121,4 +121,14 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 		}
 	}
 
+	@Override
+	public List getAllUser() {
+		// TODO Auto-generated method stub
+		try{
+			return userDAO.findAll();
+		}catch (RuntimeException re) {
+			throw re;
+		}
+	}
+
 }
