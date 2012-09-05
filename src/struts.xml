@@ -12,6 +12,10 @@
 			<result>/view/back/main.jsp</result>
 		</action>
 		
+		<action name="importList" class="edu.cqun.eshop.action.GetImportListAction">
+			<result>/view/back/StatisticsManager/importList.jsp</result>
+		</action>
+		
 		<action name="addCommodity">
 			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
 		</action>
