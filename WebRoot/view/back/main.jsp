@@ -37,23 +37,24 @@
 	<div id="operation" class="menu">
 		<h3>商品管理</h3>
 		<div>
-			<a href="">1234</a> <br> <a>5678</a>
+			<a id = "addCommodity">添加商品</a> 
+			<br>
 
 		</div>
-		<h3>Section 2</h3>
+		<h3>系统用户管理</h3>
 		<div>
 			<a href="">1234</a> <a>5678</a>
 		</div>
-		<h3>Section 3</h3>
+		<h3>买家管理</h3>
 		<div>
 			<a href="">1234</a> <a>5678</a>
 		</div>
-		<h3>Section 4</h3>
+		<h3>营业信息管理</h3>
 		<div>
 			<a href="">1234</a> <a>5678</a>
 		</div>
 	</div>
 	
-	<iframe class="content" src="view/back/CommodityManager.jsp" scrolling="auto"></iframe>
+	<iframe class="content" src="view/back/CommodityManager/CommodityManager.jsp" scrolling="auto"></iframe>
 </body>
 </html>
