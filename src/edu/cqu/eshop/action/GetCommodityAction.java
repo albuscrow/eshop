@@ -1,5 +1,10 @@
 package edu.cqu.eshop.action;
 
-public class GetCommodityAction  {
-	
+import com.opensymphony.xwork2.ActionSupport;
+import edu.cqun.eshop.domain.*;
+import edu.cqun.eshop.service.CommodityManagerService;
+
+public class GetCommodityAction extends ActionSupport {
+
+
 }
