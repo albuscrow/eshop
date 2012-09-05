@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.dao.BuyerDAO;
+import edu.cqun.eshop.dao.UserDAO;
 import edu.cqun.eshop.domain.Buyer;
 
 
@@ -141,6 +143,17 @@ public class UserManagerService implements IUserManagerService {
 			return true;
 		}catch (RuntimeException re) {
 			throw re;
+		}
+	}
+
+	@Override
+	public List<Buyer> getAllUser() {
+		// TODO Auto-generated method stub
+		try {
+			return buyerDAO.findAll();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
 		}
 	}
 

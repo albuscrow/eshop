@@ -1,4 +1,4 @@
-package edu.cqu.eshop.action;
+package edu.cqun.eshop.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import edu.cqun.eshop.domain.*;
