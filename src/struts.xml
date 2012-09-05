@@ -14,7 +14,7 @@
 		</action>
 		
 		<action name="importList" class="edu.cqun.eshop.action.GetImportListAction">
-			<result>/view/back/StatisticsManager/importList.jsp</result>
+			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
 		<action name="addCommodity">
