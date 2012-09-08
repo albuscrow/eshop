@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
         <form action="back/MSUI.action">
                         请输入要修改信息的系统用户ID <input name="userId"><br><br>
-                       如果要修改此用户角色，请输入具体角色ID<input name="role_id"><br><br>
+                       如果要修改此用户角色，请输入具体角色ID<input name="role_id">注意：角色ID只能在数字1到数字7（包括1和7）之中选<br><br>
                       如果要修改用户名，请输入新用户名<input name="username"><br><br>
                      如果要修改用户名，请输入新的用户姓名<input name="name"><br><br>            
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

@@ -33,7 +33,7 @@
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
 
 <link rel="stylesheet" type="text/css"
-	href="css/back/StatisticsManager/BackLogin.css">
+	href="css/back/StatisticsManager/ImportList.css">
 
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 
@@ -62,24 +62,13 @@ background-attachment: fixed;}
 <br/>
 <br/>
 <br/>
-	<div class="div1">
-	<s:form action="main" namespace="/back">
 		<div align="center">
-			<h1>欢迎来到Ego后台登录页面</h1>
+			<h1>用户名或密码错误，请重新登录</h1>
 		</div>
 		<br />
 		<p align="center">
-			 <label> 用户名<s:textfield name="userId" type="text" size="20" /> </label>
+			<label><input type="button" value="重新登录" 
+			onclick="location.href='back/login.action'"></label>
 		</p>
-		<p align="center">
-			 <label> 密码<s:password name="password" type="password" size="20" /> </label>
-		</p>
-		<br />
-		<p align="center">
-			<s:submit value="登录"></s:submit>
-		</p>
-
-	</s:form>
-	</div>
 </body>
 </html>

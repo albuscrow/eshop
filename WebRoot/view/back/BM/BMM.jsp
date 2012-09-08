@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <button onclick="javascript:location.href='view/back/BM/modify_info.jsp'">修改买家基本信息</button>
      <button onclick="javascript:location.href='view/back/BM/modify_pass.jsp'">修改买家密码</button>
      <button onclick="javascript:location.href='view/back/BM/query.jsp'">查询买家</button>
-	<display:table name="${buyers}" pagesize="5" id = "buyer">
+	<display:table name="${buyers}" pagesize="10" id = "buyer">
 	    <display:column property="buyerId" title="买家ID" />
 		<display:column property="name" title="买家姓名" />
 		<display:column property="sex" title="性别" />

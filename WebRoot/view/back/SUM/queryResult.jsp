@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <display:table name="${user}" pagesize="3" id = "user">
+    <display:table name="${user}" pagesize="10" id = "user">
 		<display:column property="userId" title="用户ID" />
 		<display:column property="user" title="用户名" />
 		<display:column property="roleList.role" title="用户角色" />

@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <display:table name="${buyer}" pagesize="3" id = "buyer">
+    <display:table name="${buyer}" pagesize="10" id = "buyer">
 	    <display:column property="buyerId" title="买家ID" />
 		<display:column property="name" title="买家姓名" />
 		<display:column property="sex" title="性别" />

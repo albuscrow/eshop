@@ -128,6 +128,7 @@ public class StatisticsService implements IStatisticsService{
 		}
 		String resultString = year + "-" + mouth + "-" + day;
 		return resultString;
+		
 	}
 	
 	public String getMonth(Timestamp time){

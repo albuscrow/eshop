@@ -8,42 +8,42 @@ import edu.cqun.eshop.domain.User;
 public interface ISystemUserManagerService {
 	
 	/**
-	 * 添加系统用户
+	 * 娣诲姞绯荤粺鐢ㄦ埛
 	 * @param user
 	 * @return
 	 */
 	boolean addSystemUser(User user);
 	
 	/**
-	 * ����û�Idɾ���û�
+	 * 锟斤拷锟斤拷没锟絀d删锟斤拷锟矫伙拷
 	 * @param UserId
 	 * @return
 	 */
 	boolean deleteSystemUser(long userId);
 	
 	/**
-	 * ����û�Idɾ���û�
+	 * 锟斤拷锟斤拷没锟絀d删锟斤拷锟矫伙拷
 	 * @param userIds
 	 * @return
 	 */
 	boolean deleteSystemUsers(List<Long> userIds);
 	
 	/**
-	 * ����û�����
+	 * 锟斤拷锟斤拷没锟斤拷锟斤拷锟�
 	 * @param userIds
 	 * @return
 	 */
 	boolean modifySystemUserPassword(long id,String old_password,String new_password);
 	
 	/**
-	 * �޸��û���Ϣ
+	 * 锟睫革拷锟矫伙拷锟斤拷息
 	 * @param user
 	 * @return
 	 */
 	boolean modifySystemUserInfo(long user_id,long role_id,String user,String name);
 	
 	/**
-	 * ��ѯϵͳ�û���Ϣ
+	 * 锟斤拷询系统锟矫伙拷锟斤拷息
 	 * @param user
 	 * @return
 	 */	
@@ -52,16 +52,24 @@ public interface ISystemUserManagerService {
 	
 	
 	/**
-	 * ȡ������ϵͳ�û���Ϣ
+	 * 取锟斤拷锟斤拷锟斤拷系统锟矫伙拷锟斤拷息
 	 * @param user
 	 * @return
 	 */
 	List<User> getAllUser();
 	
 	/**
-	 * ͨ������ȡ���û�
+	 * 通锟斤拷锟斤拷锟斤拷取锟斤拷锟矫伙拷
 	 * @param name
 	 * @return
 	 */
 	List<User> getUsersByName(String name);
+	
+	/**
+	 * 系统用户登录
+	 * @param userId
+	 * @param password
+	 * @return
+	 */
+	public boolean checkLogin(String userId,String password);
 }

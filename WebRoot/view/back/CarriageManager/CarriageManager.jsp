@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         操作：
   <button onclick="javascript:location.href='view/back/CarriageManager/add.jsp'">增加配送方式</button>
   <button onclick="javascript:location.href='view/back/CarriageManager/delete.jsp'">删除配送方式</button>
-     <display:table name="${carriages}" pagesize="3" id = "carriage">
+     <display:table name="${carriages}" pagesize="10" id = "carriage">
 		<display:column property="carriageId" title="配送方式ID" />
 		<display:column property="start" title="起始地" />
 		<display:column property="destination" title="目的地" />
