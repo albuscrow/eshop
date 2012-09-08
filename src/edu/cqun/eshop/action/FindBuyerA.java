@@ -43,10 +43,6 @@ public class FindBuyerA extends ActionSupport  implements SessionAware, ServletR
 		String buyerIdr = request.getParameter("buyerId");
 		long buyerId = Long.parseLong(buyerIdr);
 		att.put("buyer", userManagerService.findUserById(buyerId));
-		
-//		if(userManagerService.findUserById(buyerId)==null)
-//			return ERROR;
-//		else
 		    return SUCCESS;
 	}
 

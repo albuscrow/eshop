@@ -7,21 +7,21 @@ import edu.cqun.eshop.domain.Carriage;
 public interface ICarriageManagerService {
 	
 	/**
-	 * Ìí¼ÓÔË·ÑÂ·Ïß
+	 * ï¿½ï¿½ï¿½ï¿½Ë·ï¿½Â·ï¿½ï¿½
 	 * @param carriage
 	 * @return
 	 */
 	boolean addCarriageRoute(Carriage carriage);
 	
 	/**
-	 * É¾³ıÔË·ÑÂ·Ïß
+	 * É¾ï¿½ï¿½ï¿½Ë·ï¿½Â·ï¿½ï¿½
 	 * @param id
 	 * @return
 	 */
 	boolean deleteCarriageRoute(Long id);
 	
 	/**
-	 * ¸ü¸ÄÔË·ÑÂ·Ïß
+	 * ï¿½ï¿½ï¿½ï¿½Ë·ï¿½Â·ï¿½ï¿½
 	 * @param id
 	 * @param start
 	 * @param destination
@@ -32,7 +32,7 @@ public interface ICarriageManagerService {
 	boolean modifyCarriageRoute(Long id, String start,String destination,String company,Short cost);
 	
 	/**
-	 * Í¨¹ıĞÅÏ¢²éÑ¯ÔË·ÑÂ·Ïß
+	 * Í¨ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½Ñ¯ï¿½Ë·ï¿½Â·ï¿½ï¿½
 	 * @param start
 	 * @param destination
 	 * @param company
@@ -42,9 +42,15 @@ public interface ICarriageManagerService {
 	List<Carriage> queryCarriageRouteByMessage(String start,String destination,String company,Short cost);
 	
 	/**
-	 * Í¨¹ıID²éÑ¯ÔË·ÑÂ·Ïß
+	 * Í¨ï¿½ï¿½IDï¿½ï¿½Ñ¯ï¿½Ë·ï¿½Â·ï¿½ï¿½
 	 * @param id
 	 * @return
 	 */
 	Carriage queryCarriageRouteById(Long id);
+	/**
+	 * æ‰¾å‡ºæ‰€æœ‰é…é€æ–¹å¼
+	 * @param id
+	 * @return
+	 */
+	List<Carriage>  findAll();
 }

@@ -10,7 +10,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'main.jsp' starting page</title>
+<title>网上商城系统</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -51,6 +51,15 @@
 			<a id = "OrderListManagement">订单管理</a><br/>
 			<a id = "Statistics">相关统计</a><br/>
 		</div>
+
+		<h3 id = "PayWayManager">付款方式管理</h3>
+		<div>
+		</div>		
+		
+		<h3 id = "CarriageManager">配送方式管理</h3>
+		<div>
+		</div>
+		
 	</div>
 	
 	<iframe class="content" src="view/back/backWelcome.jsp" scrolling="auto"></iframe>

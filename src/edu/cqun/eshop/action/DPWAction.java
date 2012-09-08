@@ -13,19 +13,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.cqun.eshop.Iservice.IPayWayManagerService;
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
-import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-public class deleteBuyerA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class DPWAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除买家用户
+	 * 删除付款方式
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private IUserManagerService userManagerService;
+	private IPayWayManagerService payWayManagerService;
 
 	private Map att;
     private HttpServletRequest request;
@@ -34,9 +34,10 @@ public class deleteBuyerA extends ActionSupport  implements SessionAware, Servle
     
     @Override
 	public String execute() {
-		String buyerIdr = request.getParameter("buyerId");
-		long buyerId = Long.parseLong(buyerIdr);
-		if(userManagerService.deleteUser(buyerId)){
+		String payIdr = request.getParameter("payId");
+		long payId = Long.parseLong(payIdr);
+		
+		if(payWayManagerService.deletePay(payId)){
 			return SUCCESS;
 		}
 	    else{

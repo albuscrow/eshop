@@ -61,6 +61,16 @@ public class CarriageManagerService implements ICarriageManagerService {
 		return carriage;
 	}
 
+	@Override
+	public List<Carriage> findAll() {
+		// TODO Auto-generated method stub
+		try{
+			return carriageDAO.findAll();
+		}catch (RuntimeException re) {
+			throw re;
+		}
+	}
+
 	
 
 }

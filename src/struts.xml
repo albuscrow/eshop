@@ -218,11 +218,36 @@
 	    <action name="FindBuyer" class="edu.cqun.eshop.action.FindBuyerA">
 		    <result name="success">/view/back/BM/queryResult.jsp</result>
 		    <result name="error">/view/back/fail.jsp</result>
-	    </action>	    
+	    </action>	  
 	    
-		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
-		   	
+	    <action name="PayWayManager" class = "edu.cqun.eshop.action.GetPayWayAction">
+			<result name="success">/view/back/PayWayManager/PayWayManager.jsp</result>
 		</action>
+		
+		<action name="AddPayWay" class = "edu.cqun.eshop.action.AddPayWayAction">
+			<result name="success">/view/back/suc.jsp</result>
+			<result name="error">/view/back/fail.jsp</result>
+		</action>  
+		
+		<action name="DPW" class = "edu.cqun.eshop.action.DPWAction">
+			<result name="success">/view/back/suc.jsp</result>
+			<result name="error">/view/back/fail.jsp</result>
+		</action>
+		
+		<action name="CarriageManager" class = "edu.cqun.eshop.action.GetCarriageAction">
+			<result name="success">/view/back/CarriageManager/CarriageManager.jsp</result>
+		</action>
+		
+		<action name="AddCarriage" class = "edu.cqun.eshop.action.AddCarriageAction">
+			<result name="success">/view/back/suc.jsp</result>
+			<result name="error">/view/back/fail.jsp</result>
+		</action>
+		
+		<action name="DeleteCarriage" class = "edu.cqun.eshop.action.DeleteCarriageAction">
+			<result name="success">/view/back/suc.jsp</result>
+			<result name="error">/view/back/fail.jsp</result>
+		</action>
+
 	</package>
 	
 	<package name="forward" namespace="/forward" extends="struts-default">
@@ -262,6 +287,7 @@
 		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
 			<result>/view/forward/mytrolley.jsp</result>
 		</action>
+
 		
 		<action name="buy">
 			<result type="dispatcher">/view/forward/buy.jsp</result>
@@ -283,5 +309,6 @@
 		<action name="Modify" class="edu.cqun.eshop.forwordAction.Modify">
 			<result>/view/forward/main.jsp</result>
 		</action>
+
 	</package>
 </struts>

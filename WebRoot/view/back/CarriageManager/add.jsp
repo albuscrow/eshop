@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>增加系统用户</title>
+    <title>增加配送方式</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,12 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-        <form action="back/AddUser.action">
-                            请填写新增用户基本信息：<br><br>
-                              请输入用户名<input name="username"><br><br>
-                              请输入密码<input name="pass"><br><br>
-                            请输入姓名<input name="name"><br><br>
-        <input type="submit" value="点击确认增加此系统用户">（注：用户权限在审核之后进用户信息修改页面修改）
-        </form>
+        <form action="back/AddCarriage.action">
+                            请填写新增付款方式信息：<br><br>
+                               请输入起始地<input name="start"><br><br>
+                               请输入目的地<input name="destination"><br><br>
+                             请输入公司名称<input name="company"><br><br>  
+                           请输入总花费<input name="cost"><br><br>                                  
+        <input type="submit" value="点击确认增加此配送方式">
   </body>
 </html>

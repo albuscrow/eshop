@@ -2,6 +2,7 @@ package edu.cqun.eshop.action;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,20 +13,27 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.jmx.snmp.Timestamp;
 
-import edu.cqun.eshop.Iservice.ISystemUserManagerService;
+import edu.cqun.eshop.Iservice.ICarriageManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
+import edu.cqun.eshop.domain.Buyer;
+import edu.cqun.eshop.domain.Carriage;
+import edu.cqun.eshop.domain.Delivery;
+import edu.cqun.eshop.domain.OrderList;
+import edu.cqun.eshop.domain.RoleList;
+import edu.cqun.eshop.domain.User;
 
 
-public class deleteBuyerA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class AddCarriageAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除买家用户
+	 * 添加新的配送方式
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private IUserManagerService userManagerService;
+	private ICarriageManagerService carriageManagerService;
 
 	private Map att;
     private HttpServletRequest request;
@@ -34,9 +42,15 @@ public class deleteBuyerA extends ActionSupport  implements SessionAware, Servle
     
     @Override
 	public String execute() {
-		String buyerIdr = request.getParameter("buyerId");
-		long buyerId = Long.parseLong(buyerIdr);
-		if(userManagerService.deleteUser(buyerId)){
+		String start = request.getParameter("start");
+		String destination = request.getParameter("destination");
+		String company = request.getParameter("company");
+		String costr = request.getParameter("cost");
+		short cost = Short.parseShort(costr);
+		
+		Carriage carriage = new Carriage(start, destination, company, cost);
+		
+		if(carriageManagerService.addCarriageRoute(carriage)){
 			return SUCCESS;
 		}
 	    else{
