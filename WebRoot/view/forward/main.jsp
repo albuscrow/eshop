@@ -44,7 +44,7 @@ function order(){
 }
 
 function pinglun(data) {
-	location.href="forward/Comment.action?cid="+data;
+	location.href="forward/showComment.action?cid="+data;
 }
 
 
@@ -73,7 +73,7 @@ background-attachment: fixed;}
     <input type = "text" value = "" id = "buyerUserName" > 
     <input type = "text" value = "" id = "password" >
     <input type="button"onclick="login()" class="HY" value="[登录]" id = "login">
-    <input type="button" onclick="window.location.href('regesterPage.action')"class="HY" value="[注册]"id = "regester" >    
+    <input type="button" onclick="location.href='forward/regesterPage.action'"class="HY" value="[注册]"id = "regester" >    
     <input type="button" class="HY" value="我的账户" id = "zhanghu" onclick = "zhanghu()">
     <input type="button" class="HY"value="我的订单" id = "order" onclick="order()"></td>
   </tr>

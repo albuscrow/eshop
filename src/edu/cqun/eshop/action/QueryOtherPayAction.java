@@ -114,6 +114,24 @@ ServletRequestAware, ServletResponseAware{
 		Long id = null;
 		Timestamp start = null;
 		Timestamp end = null;
+		if(Integer.parseInt(daye)<10){
+			daye = "0"+daye;
+		}
+		if(Integer.parseInt(days)<10){
+			days = "0"+days;
+		}
+		if(Integer.parseInt(yeare)<10){
+			yeare = "0"+yeare;
+		}
+		if(Integer.parseInt(years)<10){
+			years = "0"+years;
+		}
+		if(Integer.parseInt(monthe)<10){
+			monthe = "0"+monthe;
+		}
+		if(Integer.parseInt(months)<10){
+			months = "0"+months;
+		}
 		if(!years.equals("") & !months.equals("") & !days.equals("") & !yeare.equals("") & !monthe.equals("") & !daye.equals("")){
 			System.out.println("years"+years);
 			String startString = years + "-" + months + "-" + days + " " + startTime;

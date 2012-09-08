@@ -159,7 +159,7 @@
 		</action>
 
 		<action name="BuyerDetail" class="edu.cqun.eshop.action.BuyerDetailAction">
-			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
+			<result>/view/back/BM/BuyerDetail.jsp</result>
 		</action>
 
 		<action name="ChangeBuyerPassword" class="edu.cqun.eshop.action.BuyerDetailAction">
@@ -297,9 +297,9 @@
 			<result>/view/forward/pay.jsp</result>
 		</action>
 		<action name="comment">
-			<result>/view/forward/comment.jsp</result>
+			<result>/view/forward/Addcomment.jsp</result>
 		</action>
-		<action name="addComment" class = "edu.cqun.eshop.forwordAction.AddComment">
+		<action name="Addcomment" class = "edu.cqun.eshop.forwordAction.AddComment">
 			<result>/view/forward/mytrolley.jsp</result>
 		</action>
 		
@@ -310,7 +310,7 @@
 		<action name="Modify" class="edu.cqun.eshop.forwordAction.Modify">
 			<result>/view/forward/main.jsp</result>
 		</action>
-		<action name="Comment" class="edu.cqun.eshop.forwordAction.Comment">
+		<action name="showComment" class="edu.cqun.eshop.forwordAction.Comment">
 			<result>/view/forward/comment.jsp</result>
 		</action>
 		

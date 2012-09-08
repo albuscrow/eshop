@@ -33,15 +33,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <script type="text/javascript" src="js/forward/regester.js?random=<%= (new Random()).nextInt()%>"></script>
+<script type="text/javascript">
+$(function() {
+	$("#user").val("");
+	$("#password").val("");
+});
 
+</script>
 
 </head>
 
 <body>
 	<p id = "inf">"${error}"</p>
 	<s:form theme="xhtml" onsubmit="return validate()" action="Regester">
-	<s:textfield name = "buyer.user" label = "用户名" id = "user" ></s:textfield>
-	<s:password name = "buyer.password" label = "密码" id = "password"></s:password>
+	<s:textfield name = "buyer.user" label = "用户名" id = "user" value=""></s:textfield>
+	<s:password name = "buyer.password" label = "密码" id = "password" value=""></s:password>
 	<s:password name = "password"  label = "密码确认" id = "passwordconfirm"></s:password>
 	<s:textfield name = "buyer.name" label="姓名" id = "name"></s:textfield>
 	<s:textfield name = "buyer.email" label = "email" id = "email"></s:textfield>
