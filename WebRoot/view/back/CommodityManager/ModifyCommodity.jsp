@@ -66,8 +66,7 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
            			 listValue="name"
            			 listKey="categoryId"
             		 name="categorySelect"
-            		 headerKey="%{#sessionScope.current.category.categoryId}"
-            		 headerValue="%{#sessionScope.current.category.name}"/>
+            		 />
 					</th>
 					<th>产地<input name="origin" type="text" size="15" value="${sessionScope.current.origin}"></th>
 					<th colspan="2">上市日期<input name = "regdate" size="10" class="datepicker"></th>
