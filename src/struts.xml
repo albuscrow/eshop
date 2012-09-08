@@ -117,10 +117,6 @@
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
-		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
-			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
-		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
-		
 		<action name="DeleteCommodity" class="edu.cqun.eshop.action.DeleteCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action>
@@ -143,6 +139,15 @@
 			<result name="success">/view/back/CommodityManager/CommodityManager.jsp</result>
 			<result name="fail">/view/back/CommodityManager/Addfail.jsp</result>
 		</action>
+		
+		<action name="ModifyCommodity" class="edu.cqun.eshop.action.GetModifyCommodityAction">
+			<result>/view/back/CommodityManager/ModifyCommodity.jsp</result>
+		</action>
+		<action name="ModifyCommodityEX" class="edu.cqun.eshop.action.ModifyCommodityAction">
+			<result name="success">/view/back/CommodityManager/CommodityManager.jsp</result>
+			<result name="fail">/view/back/CommodityManager/Addfail.jsp</result>
+		</action>
+		
 
 		<action name="CommodityManager" class="edu.cqun.eshop.action.GetCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>

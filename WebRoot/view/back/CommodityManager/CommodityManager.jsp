@@ -74,7 +74,8 @@
 			<display:column property="origin" title="产地" />
 			<display:column property="registerDate" title="上市日期" />
 			<display:column title="操作">
-			 
+			 <a
+				href="back/ModifyCommodity.action?commodityId=${commodities.commodityId}">修改</a> 
 			<p>&nbsp;</p>
 			<a
 				href="back/DeleteCommodity.action?commodityId=${commodities.commodityId}">删除</a> 

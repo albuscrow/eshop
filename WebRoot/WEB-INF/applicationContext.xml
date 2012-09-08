@@ -18,7 +18,6 @@
 		</property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
-		
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
