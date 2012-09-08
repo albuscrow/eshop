@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.IOrderManagerService;
+import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.constant.OrderStatus;
 import edu.cqun.eshop.domain.Buyer;
 import edu.cqun.eshop.domain.Commodity;
@@ -26,6 +27,9 @@ ServletRequestAware, ServletResponseAware {
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
+	
+	@Autowired
+	private IUserManagerService userManagerService;
 
 	
 	
@@ -55,10 +59,6 @@ ServletRequestAware, ServletResponseAware {
 		this.payType = payType;
 	}
 	
-
-
-	
-
 	public OrderList getOrder() {
 		return order;
 	}
@@ -76,7 +76,7 @@ ServletRequestAware, ServletResponseAware {
 	private IOrderManagerService orderManagerService;
 
 	public String execute(){
-		Buyer buyer = (Buyer) att.get("buyer");
+		Buyer buyer = (Buyer) userManagerService.findUserById(201309020001l);
 		
 		order.setBuyer(buyer);
 
