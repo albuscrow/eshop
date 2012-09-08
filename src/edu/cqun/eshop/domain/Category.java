@@ -60,7 +60,7 @@ public class Category implements java.io.Serializable {
 		this.categoryId = categoryId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Cat_Category_ID")
 	public Category getCategory() {
 		return this.category;

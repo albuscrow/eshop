@@ -1,6 +1,26 @@
 $(function() {
-	$("#zhanghu").hide();
-	$("#order").hide();
+	if($("#flag").val() != "yes"){
+		
+		$("#zhanghu").hide();
+		$("#order").hide();
+		
+		$("#buyerUserName").show();
+		$("#password").show();
+		$("#login").show();
+		$("#regester").show();
+	}else{
+		
+		$("#zhanghu").show();
+		$("#order").show();
+		
+		
+		$("#buyerUserName").hide();
+		$("#password").hide();
+		$("#login").hide();
+		$("#regester").hide();
+		
+		$("#inf").text("你好，"+$("#userName").val()+"!");
+	}
 });
 
 
@@ -17,12 +37,46 @@ function login() {
 			$("#login").hide();
 			$("#regester").hide();
 			$("#inf").text("你好，"+datas[1]+"!");
+			$("#flag").val("yes");
 		}else{
-			alert("用户名或密码错误，请重庆输入!");
+			alert("用户名或密码错误，请重新输入!");
 		}
 		
 	});
 	
+}
+
+
+function buy(data) {
+	if($("#flag").val()!="yes"){
+		alert("请先登录");
+	}else{
+		window.location.href("buy.action?cid="+data);
+	}
+	
+}
+
+function addToTrolley(data){
+	if($("#flag").val()!="yes"){
+		alert("请先登录");
+	}else{
+		$.get("forward/AddToTrolley.action",{commodity:data},function(res){
+			if(res == "success"){
+				alert("已加入购物车");
+			}else{
+				alert("系统内部错误");
+			}
+		});
+	}
+}
+
+function search(){
+	var keyWord = $("#serachContent").val();
+	if(keyWord == ""){
+		alert("请输入搜索关键字");
+	}else{
+		window.location.href("search.action?keyword="+keyWord);
+	}
 }
 
 

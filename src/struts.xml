@@ -3,8 +3,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<include file="structs-default.xml" />
-	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
-		value="true" />
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"	value="true" />
 	
 	<constant name="struts.objectFactory" value="spring" />
     
@@ -24,12 +23,28 @@
 			<result>/view/back/main.jsp</result>
 		</action>
 
+		<action name="OrderListManagement">
+			<result>/view/back/StatisticsManager/OrderListManagement.jsp</result>
+		</action>
+
+		<action name="StatisticsEX">
+			<result>/view/back/StatisticsManager/Statistics.jsp</result>
+		</action>
+
+		<action name="Statistics" class="edu.cqun.eshop.action.StatisticsAction">
+			<result>/view/back/StatisticsManager/Statistics.jsp</result>
+		</action>
+
 		<action name="ImportList" class="edu.cqun.eshop.action.GetImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
 		<action name="OtherPay" class="edu.cqun.eshop.action.GetOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
+		</action>
+		
+		<action name="OrderList" class="edu.cqun.eshop.action.GetOrderListAction">
+			<result>/view/back/StatisticsManager/OrderList.jsp</result>
 		</action>
 		
 		<action name="QueryImportList" class="edu.cqun.eshop.action.QueryImportListAction">
@@ -39,6 +54,10 @@
 		<action name="QueryOtherPay" class="edu.cqun.eshop.action.QueryOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
+		
+		<action name="QueryOrderList" class="edu.cqun.eshop.action.QueryOrderListAction">
+			<result>/view/back/StatisticsManager/OrderList.jsp</result>
+		</action>
 
 		<action name="ModifyImportList" class="edu.cqun.eshop.action.ModifyImportListAction">
 			<result>/view/back/StatisticsManager/ModifyImportList.jsp</result>
@@ -46,6 +65,10 @@
 		
 		<action name="ModifyOtherPay" class="edu.cqun.eshop.action.ModifyOtherPayAction">
 			<result>/view/back/StatisticsManager/ModifyOtherPay.jsp</result>
+		</action>
+		
+		<action name="ModifyOrderList" class="edu.cqun.eshop.action.ModifyOrderListAction">
+			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
 		
 		<action name="ModifyImportListEX" class="edu.cqun.eshop.action.ModifyImportListAction">
@@ -58,6 +81,11 @@
 			<result name="fail">/view/back/StatisticsManager/UserNotFound.jsp</result>
 		</action>
 		
+		<action name="ModifyOrderListEX" class="edu.cqun.eshop.action.ModifyOrderListAction">
+			<result name="success">/view/back/StatisticsManager/OrderList.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFound.jsp</result>
+		</action>
+		
 		<action name="AddImportList" class="edu.cqun.eshop.action.AddImportListAction">
 			<result name="success">/view/back/StatisticsManager/ImportList.jsp</result>
 			<result name="fail">/view/back/StatisticsManager/CommodityNotFoundADD.jsp</result>
@@ -65,6 +93,11 @@
 		
 		<action name="AddOtherPay" class="edu.cqun.eshop.action.AddOtherPayAction">
 			<result name="success">/view/back/StatisticsManager/OtherPay.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFoundADD.jsp</result>
+		</action>
+		
+		<action name="AddOrderList" class="edu.cqun.eshop.action.AddOrderListAction">
+			<result name="success">/view/back/StatisticsManager/OrderList.jsp</result>
 			<result name="fail">/view/back/StatisticsManager/UserNotFoundADD.jsp</result>
 		</action>
 
@@ -76,19 +109,39 @@
 			<result>/view/back/StatisticsManager/AddOtherPay.jsp</result>
 		</action>
 		
+		<action name="AddOrderListEX">
+			<result>/view/back/StatisticsManager/AddOrderList.jsp</result>
+		</action>
+		
 		<action name="DeleteImportList" class="edu.cqun.eshop.action.DeleteImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+		
+		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
+		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
+		
+		<action name="DeleteCommodity" class="edu.cqun.eshop.action.DeleteCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action>
 		
 		<action name="DeleteOtherPay" class="edu.cqun.eshop.action.DeleteOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
+		
+		<action name="DeleteOrderList" class="edu.cqun.eshop.action.DeleteOrderListAction">
+			<result>/view/back/StatisticsManager/OrderList.jsp</result>
+		</action>
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
 
-		<action name="addCommodity">
+		<action name="addCommodity" class="edu.cqun.eshop.action.GetCategoryAction">
 			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
+		</action>
+		<action name="AddCommodity" class="edu.cqun.eshop.action.AddCommodityAction">
+			<result name="success">/view/back/CommodityManager/CommodityManager.jsp</result>
+			<result name="fail">/view/back/CommodityManager/Addfail.jsp</result>
 		</action>
 
 		<action name="CommodityManager" class="edu.cqun.eshop.action.GetCommodityAction">
@@ -96,7 +149,7 @@
 		</action>
 
 		<action name="BuyerManager" class="edu.cqun.eshop.action.GetBuyerAction">
-			<result>/view/back/BuyerManager/BuyerManagerMain.jsp</result>
+			<result>/view/back/BM/BMM.jsp</result>
 		</action>
 
 		<action name="BuyerDetail" class="edu.cqun.eshop.action.BuyerDetailAction">
@@ -109,31 +162,66 @@
 		
 		<action name="SUM" class="edu.cqun.eshop.action.GSUA">
 			<result name="success">/view/back/SUM/SUM.jsp</result>
-			<result name="error">/view/back/SUM/fail.jsp</result>
+			<result name="error">/view/back/fail.jsp</result>
 		</action>
 		
 		<action name="DSU" class="edu.cqun.eshop.action.DSUA">
-		    <result name="success">/view/back/SUM/suc.jsp</result>
-		    <result name="error">/view/back/SUM/fail.jsp</result>
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
 	    
 	    <action name="MSUP" class="edu.cqun.eshop.action.MSUPA">
-		    <result name="success">/view/back/SUM/suc.jsp</result>
-		    <result name="error">/view/back/SUM/fail.jsp</result>
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
 		
 	    <action name="MSUI" class="edu.cqun.eshop.action.MSUIA">
-		    <result name="success">/view/back/SUM/suc.jsp</result>
-		    <result name="error">/view/back/SUM/fail.jsp</result>
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="AddUser" class="edu.cqun.eshop.action.AddUserA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
 		
+	    <action name="FindUser" class="edu.cqun.eshop.action.FindUserA">
+		    <result name="success">/view/back/SUM/queryResult.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	     <action name="AddBuyer" class="edu.cqun.eshop.action.AddBuyerA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="deleteBuyer" class="edu.cqun.eshop.action.deleteBuyerA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="MBI" class="edu.cqun.eshop.action.MBIA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="MBP" class="edu.cqun.eshop.action.MBPA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>	    
+	    
+	    <action name="FindBuyer" class="edu.cqun.eshop.action.FindBuyerA">
+		    <result name="success">/view/back/BM/queryResult.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>	    
+	    
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
 		   	
 		</action>
 	</package>
 	
 	<package name="forward" namespace="/forward" extends="struts-default">
-		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="login" class="edu.cqun.eshop.forwordAction.UserLoginAction">
 			
 		</action>
 		
@@ -145,7 +233,49 @@
 			<result>/view/forward/regester.jsp</result>
 		</action>
 		
-		<action name="regester" class = "edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="regester" class = "edu.cqun.eshop.forwordAction.Regester">
+			<result type="">/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="AddToTrolley" class = "edu.cqun.eshop.forwordAction.AddToTrolley">
+			
+		</action>
+		
+		<action name="Regester" class = "edu.cqun.eshop.forwordAction.Regester">
+			<result>/view/forward/main.jsp</result>
+			<result name="error">/view/forward/regester.jsp</result>
+		</action>
+		
+		<action name="search" class = "edu.cqun.eshop.forwordAction.Search">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="searchByK" class = "edu.cqun.eshop.forwordAction.SearchByK">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
+			<result>/view/forward/mytrolley.jsp</result>
+		</action>
+		
+		<action name="buy">
+			<result type="dispatcher">/view/forward/buy.jsp</result>
+		</action>
+		<action name="buyinf" class = "edu.cqun.eshop.forwordAction.SubmitOrder">
+			<result>/view/forward/pay.jsp</result>
+		</action>
+		<action name="comment">
+			<result>/view/forward/comment.jsp</result>
+		</action>
+		<action name="addComment" class = "edu.cqun.eshop.forwordAction.AddComment">
+			<result>/view/forward/mytrolley.jsp</result>
+		</action>
+		
+		<action name="mine">
+			<result>/view/forward/modify.jsp</result>
+		</action>
+		
+		<action name="Modify" class="edu.cqun.eshop.forwordAction.Modify">
 			<result>/view/forward/main.jsp</result>
 		</action>
 	</package>

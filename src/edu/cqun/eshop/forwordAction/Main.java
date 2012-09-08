@@ -26,6 +26,11 @@ public class Main extends ActionSupport implements SessionAware,
     
     @Override
     public String execute()  {
+    	
+    	
+    	if(request.getSession().getAttribute("flag")==null){
+    		request.getSession().setAttribute("flag", "no");
+    	}
     	att.put("commodities", commodityManagerService.getAllCommodities());
     	return SUCCESS;
     }

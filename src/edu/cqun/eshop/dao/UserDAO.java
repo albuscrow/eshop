@@ -27,6 +27,7 @@ public class UserDAO extends HibernateDaoSupport {
 	// property constants
 	public static final String USER = "user";
 	public static final String PASSWORD = "password";
+	public static final String NAME = "name";
 
 	protected void initDao() {
 		// do nothing
@@ -99,6 +100,10 @@ public class UserDAO extends HibernateDaoSupport {
 
 	public List<User> findByPassword(Object password) {
 		return findByProperty(PASSWORD, password);
+	}
+	
+	public List<User> findByName(Object name) {
+		return findByProperty(NAME, name);
 	}
 
 	public List findAll() {

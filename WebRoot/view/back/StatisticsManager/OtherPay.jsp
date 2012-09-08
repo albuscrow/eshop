@@ -27,13 +27,13 @@
 <script type="text/javascript"
 	src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript"
-	src="js/back/StatisticsManager/OtherPay.js"></script>
+	src="js/back/StatisticsManager/ImportList.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
 
 <link rel="stylesheet" type="text/css"
-	href="css/back/StatisticsManager/OtherPay.css">
+	href="css/back/StatisticsManager/ImportList.css">
 
 <link rel="stylesheet" type="text/css" 
 	href="css/screen.css" />
@@ -46,11 +46,11 @@
 			<p class="STYLE4">其他支出</p>
 		</div>
 		<br />
-		<p align="center">注：其他支出单号、负责人ID、支出时间可选一至多项填写</p>
+		<p align="center">注：其他支出单号、负责人姓名、支出时间可选一至多项填写</p>
 		<br />
 		<p align="center">
 			其他支出单号 <label> <s:textfield name="opayId" type="text" size="10" /> </label>
-			 负责人ID<label> <s:textfield type="text" name="userId" /> </label> 
+			 负责人姓名<label> <s:textfield type="text" name="name" /> </label> 
 			 支出时间 <label> <s:textfield name="years" type="text" size="4" /> 年</label> 
 			 <label> <s:textfield name="months" type="text" size="4" /> 月 </label>
 			 <label> <s:textfield name="days" type="text" size="4"/> 日</label> 
@@ -64,12 +64,15 @@
 			<s:submit value="查询"></s:submit>
 			<label><input type="button" value="添加其他支出单" 
 			onclick="location.href='back/AddOtherPayEX.action'"></label>
+			<label><input type="button" value="重置" 
+			onclick="location.href='back/OtherPay.action'"></label>
 		</p>
 
 	</s:form>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 
+<div align="center">
 	<display:table name="${otherPays}" pagesize="5" id="otherPays">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
 		<display:column property="opayId" title="支出单编号" />
@@ -87,6 +90,6 @@
 				href="back/DeleteOtherPay.action?opayId=${otherPays.opayId}">删除</a>
 		</display:column>
 	</display:table>
-
+</div>
   </body>
 </html>

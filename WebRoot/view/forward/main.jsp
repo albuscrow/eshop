@@ -5,6 +5,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
+<%@ page import="java.lang.*,java.util.*" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -30,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 <link rel="stylesheet" type="text/css" href="css/forward/main.css">
-<script type="text/javascript" src="js/forward/main.js"></script>
+<script type="text/javascript" src="js/forward/main.js?random=<%= (new Random()).nextInt() %>"></script>
 
 
 </head>
@@ -40,13 +41,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tr>
     <td width="30%" class="HY">welcome</td>
     <td align="right">
+    <input type="hidden" value="${flag}" id = "flag">
+    <input type = "hidden" value = "${buyer.user}" id = "userName"/>
     <span class="HY" id = "inf">您好！欢迎来到Ego</span>
-    <input type = "text" value = "用户名" id = "buyerUserName" > 
-    <input type = "text" value = "密码" id = "password" >
+    <input type = "text" value = "20105235" id = "buyerUserName" > 
+    <input type = "text" value = "20105235" id = "password" >
     <input type="button"onclick="login()" class="HY" value="[登录]" id = "login">
     <input type="button" onclick="window.location.href('regesterPage.action')"class="HY" value="[注册]"id = "regester" >    
-    <input type="button" class="HY" value="我的账户" id = "zhanghu" >
-    <input type="button" class="HY"value="我的订单" id = "order"></td>
+    <input type="button" class="HY" value="我的账户" id = "zhanghu" onclick = "window.location.href('mine.action')">
+    <input type="button" class="HY"value="我的订单" id = "order" onclick="window.location.href('trolley.action')"></td>
   </tr>
 </table>
 <br />
@@ -56,28 +59,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tr>
     <td width="540" rowspan="2"> 
     <p><span class="Ego" style="font-size: 70px">Ego </span>
-      <input name="txt" type="text" class="txt" id="txt"style="margin-left:10%; width: 50%;" />
-      <input type="submit" name="but" id="but" value="搜索" />
+      <input name="txt" type="text" class="txt" id="serachContent" style="margin-left:10%; width: 50%;" />
+      <input type="button" name="but" id="search" value="搜索" onclick = "search()" />
     </p>
-    </p>
+
     </td>
-    <td width="169" height="83" align="center" valign="bottom">
-<!--    <form id="form1" name="form1" method="post" action="">
-      <input type="submit" name="gr" id="gr" value="我的Ego" style="height:30px;width:100px" />
-    </form>      <form id="form2" name="form2" method="post" action="">
-        <input type="submit" name="gr2" id="gr2" value="购物车" style="height:30px;width:100px"/>
-    </form>    <form id="form3" name="form3" method="post" action="">
-      <input type="submit" name="gr3" id="gr3" value="我的订单" style="height:30px;width:100px"/>
-    </form>-->
-    <ul id="MenuBar1" class="MenuBarHorizontal">
-      <li><a class="MenuBarItemSubmenu" href="#">我的索引</a>
-        <ul>
-          <li><a href="#" class="index">我的Ego</a></li>
-          <li><a href="file///H//dreamwaver/购物车	.html" class="index">购物车</a></li>
-        </ul>
-      </li>
-      </ul>
-      </td>
   </tr>
   <tr>
     <td align="center" valign="bottom">&nbsp;</td>
@@ -93,44 +79,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td height="100%" align="center" valign="top"><ul id="MenuBar2" class="MenuBarVertical">
-      <li><a class="MenuBarItemSubmenu" href="#">食品酒水</a>
-        <ul>
-          <li><a href="#">项目 1.1</a></li>
-          <li><a href="#">项目 1.2</a></li>
-          <li><a href="#">项目 1.3</a></li>
-        </ul>
+      <li><a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=1">食品酒水</a>
+       
       </li>
       <li>
-      <a class="MenuBarItemSubmenu" href="#">电子数码</a>
-      <ul>
-          <li><a href="#">项目 1.1</a></li>
-          <li><a href="#">项目 1.2</a></li>
-          <li><a href="#">项目 1.3</a></li>
-        </ul>
+      <a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=2">电子数码</a>
+    
       </li>
       <li>
-      <a class="MenuBarItemSubmenu" href="#">服饰鞋帽</a>
-        <ul>
-          <li><a href="#">项目 3.1</a>
-          </li>
-          <li><a href="#">项目 3.2</a></li>
-          <li><a href="#">项目 3.3</a></li>
-        </ul>
+      <a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=3">服饰鞋帽</a>
+     
       </li>
       <li>
-      <a class="MenuBarItemSubmenu" href="#">个人护理</a>
-      <ul>
-          <li><a href="#">项目 1.1</a></li>
-          <li><a href="#">项目 1.2</a></li>
-          <li><a href="#">项目 1.3</a></li>
-        </ul>
+      <a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=4">个人护理</a>
+     
       </li>
     </ul></td>
     <td><display:table name = "${commodities}" pagesize="5" id = "commodity">
-    	<display:column property="name" title="商品名"  href="back/BuyerDetail.action" paramId="commodityId" paramProperty="commodityId"/>
+    	<display:column property="name" title="商品名" />
 		<display:column property="price" title="价格" />
 		<display:column property = "introduction" title = "简介"/>
 		<display:column property="brand" title="品牌" />
+		<display:column>
+			<a onclick = "buy(${commodity.commodityId})" >购买</a>   <a onclick = "addToTrolley(${commodity.commodityId})">加入到购物车</a>
+		</display:column>
     </display:table></td>
   </tr>
 </table>

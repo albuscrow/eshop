@@ -43,7 +43,7 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
 		<s:actionerror />
 			<s:actionmessage />
 			<s:fielderror />
-		<form action="/back/AddCommodityAction.action" method="post" enctype="multipart/form-data">
+		<s:form action="AddCommodity" namespace="/back" method="post" enctype="multipart/form-data">
 			<table class="bordered">
 				<tr>
 					<th>商品名称 <input name="name" type="text"
@@ -60,30 +60,25 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
   					<option value ="false">否</option>
 					</select></th>
 					<th>品牌<input name="brand" type="text" size="15"></th>
-					<th>类别<input name="category" type="text" size="15"></th>
-					<th>			
+					<th>类别
 					<s:select
-          			  label="分类"
-          			  list="category"
-          			  listValue="name"
-           			  listKey="categoryId"
-         			  name="categorySelect"
-          			  headerKey="null"
-          			  headerValue="全部"/>
+           			 label="分类"
+            		 list="%{#session.category}"
+           			 listValue="name"
+           			 listKey="categoryId"
+            		 name="categorySelect"/>
+					</th>
 					<th>产地<input name="origin" type="text" size="15"></th>
 					<th colspan="2">上市日期<input name = "regdate" size="10" class="datepicker"></th>
 				</tr>
 				<tr>
-					<th colspan="2">简介<input name="introduction" type="text" size="15"></th>
+					<th colspan="2">简介 <br><textarea name="introduction" rows="3" cols="30"> </textarea></th>
 					<th colspan="3"><div align="center">图片</div></th>
 				</tr>
 			</table> 
 			<label> <input type="submit" name="Submit" value="添加"></label>  
-		</form>	
+		</s:form>	
 		</div>
 		
-		<p align="center">
-			<label> <input type="submit" name="Submit2" value="返回"> </label>
-		</p>
 </body>
 </html>

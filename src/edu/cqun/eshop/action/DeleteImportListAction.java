@@ -33,7 +33,7 @@ public class DeleteImportListAction extends ActionSupport implements SessionAwar
 	@Override
 	public String execute() {
 		// TODO Auto-generated method stub
-		String importId = request.getParameter("importId");
+		String importId = request.getParameter("impozrtId");
 		iImportListManagerService.deleteImportList(Long.parseLong(importId));
 		att.put("importLists", iImportListManagerService.getAllImportList());
 		return SUCCESS;

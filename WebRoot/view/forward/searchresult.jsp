@@ -3,6 +3,8 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+
+
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'Buyer.jsp' starting page</title>
+<title>My JSP 'searchresult.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -20,15 +22,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
+<script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
+<script type="text/javascript"
+	src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
+
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/ui-lightness/jquery-ui-1.10.3.css">
+
 </head>
 
 <body>
-	<display:table name="${buyers}" pagesize="5" id = "buyer">
-		<display:column property="user" title="用户名"  href="back/BuyerDetail.action" paramId="buyerId" paramProperty="buyerId"/>
-		<display:column property="sex" title="性别" />
-		<display:column property = "password" title = "密码"></display:column>
-		<display:column property="registerDate" title="注册时间" />
+	<display:table name="${searchedcommodities}" pagesize="5"
+		id="commodity">
+		<display:column property="name" title="商品名" />
+		<display:column property="price" title="价格" />
+		<display:column property="introduction" title="简介" />
+		<display:column property="brand" title="品牌" />
+		<display:column>
+			<a onclick="buy(${commodity.commodityId})">购买</a>
+			<a onclick="addToTrolley(${commodity.commodityId})">加入到购物车</a>
+		</display:column>
 	</display:table>
 </body>
 </html>

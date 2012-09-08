@@ -17,24 +17,28 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
+import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.ImportList;
+import edu.cqun.eshop.domain.OtherPay;
+import edu.cqun.eshop.domain.User;
 
 public class ModifyOtherPayAction extends ActionSupport implements
 		SessionAware, ServletRequestAware, ServletResponseAware {
 
 	@Autowired
-	private IImportListManagerService iImportListManagerService;
-	
+	private IOtherPayManagerService iOtherPayManagerService;
+
 	@Autowired
-	private ICommodityManagerService iCommodityManagerService;
-	
+	private ISystemUserManagerService iSystemUserManagerService;
+
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private String name;
-	private String price;
-	private String quantity;
+	private String note;
+	private String amount;
 
 	public String getName() {
 		return name;
@@ -44,57 +48,60 @@ public class ModifyOtherPayAction extends ActionSupport implements
 		this.name = name;
 	}
 
-	public String getPrice() {
-		return price;
+	public String getNote() {
+		return note;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
+	public void setNote(String note) {
+		this.note = note;
 	}
 
-	public String getQuantity() {
-		return quantity;
+	public String getAmount() {
+		return amount;
 	}
 
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
-	
+
 	@Override
-	public String execute()  {
-	// TODO Auto-generated method stub
-		if(price==null){
-			String importId = request.getParameter("importId");
-			System.out.println("SDFASLKDJFKALSJDFLAJL:"+importId);
-			ImportList importList = iImportListManagerService.getById(Long.parseLong(importId));
-			att.put("importList", importList);
-		}
-		else {
-			System.out.println("Price¾¹È»²»ÎªNULLLLLLLLLLLLLL!");
-			System.out.println(name);
-			List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
-			if (list.isEmpty()) {
-				System.out.println("FAILED!dededed!!!!!!!!!!!!!!");
+	public String execute() {
+		// TODO Auto-generated method stub
+		if (amount == null || amount.equals("")) {
+			String opayId = request.getParameter("opayId");
+			System.out.println("SDFASLKDJFKALSJDFLAJL:" + opayId);
+			OtherPay otherPay = iOtherPayManagerService.getById(Long
+					.parseLong(opayId));
+			att.put("otherPay", otherPay);
+		} else {
+			if (!amount.equals("") & !note.equals("") & !name.equals("")) {
+				List<User> list = iSystemUserManagerService
+						.getUsersByName(name);
+				if (list.isEmpty()) {
+					return "fail";
+				}
+				OtherPay otherPay = (OtherPay) att.get("otherPay");
+				Long id = otherPay.getOpayId();
+				System.out.println("DDDDiergele:" + id);
+				Timestamp opayDate = otherPay.getOpayDate();
+				Double amountnum = Double.parseDouble(amount);
+				OtherPay otherPay2 = new OtherPay(opayDate);
+				System.out.println("Commodity:" + list.get(0));
+				otherPay2.setNote(note);
+				otherPay2.setUser(list.get(0));
+				otherPay2.setOpayId(id);
+				otherPay2.setAmount(amountnum);
+				iOtherPayManagerService.modifyOtherPay(otherPay2);
+				att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
+			} else {
 				return "fail";
 			}
-//			Long id = Long.parseLong(request.getParameter("importId"));
-			ImportList importList = (ImportList) att.get("importList");
-			Long id = importList.getImportId();
-			System.out.println("DDDDiergele:"+id);
-			Timestamp timestamp = importList.getImportDate();
-			Short quantitynum = Short.parseShort(quantity);
-			Double pricenum = Double.parseDouble(price);
-			ImportList importList2 = new ImportList(quantitynum, pricenum, timestamp);
-			System.out.println("Commodity:"+list.get(0));
-			importList2.setCommodity(list.get(0));
-			importList2.setImportId(id);
-			iImportListManagerService.modifyImportList(importList2);
-			List<ImportList> importLists = iImportListManagerService.getAllImportList();
-			att.put("importLists", importLists);
-			System.out.println();
+			// List<ImportList> importLists =
+			// iImportListManagerService.getAllImportList();
+			// att.put("importLists", importLists);
 		}
-	return SUCCESS;
-}
+		return SUCCESS;
+	}
 
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
