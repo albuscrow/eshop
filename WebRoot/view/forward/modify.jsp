@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<s:form theme="xhtml" onsubmit="return validate()" action="Modify">
 	<s:textfield name = "buyer.user" label = "用户名" id = "user" value="%{#session.buyer.user}"></s:textfield>
-	<s:password name = "buyer.password" label = "密码" id = "password" ></s:password>
+	<s:password name = "buyer.password" label = "密码" id = "password" value=""></s:password>
 	<s:password name = "password"  label = "密码确认" id = "passwordconfirm" ></s:password>
 	<s:textfield name = "buyer.name" label="姓名" id = "name"  value="%{#session.buyer.name}"></s:textfield>
 	<s:textfield name = "buyer.email" label = "email" id = "email"  value="%{#session.buyer.email}"></s:textfield>

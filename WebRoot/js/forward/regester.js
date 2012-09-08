@@ -13,7 +13,7 @@ function validate(){
 	var name = $("#name").val();
 	var email = $("#email").val();
 	var sex = $("#sex").val();
-	if(user != "" && name != "" && email != "" && sex != "" && password != "" && passwordConfirm != "" && password == passwordConfirm){
+	if(user != "" && name != "" && email != "" && sex != "" && password == passwordConfirm){
 		return true;
 	}else{
 		alert("输入有误，请重新输入");

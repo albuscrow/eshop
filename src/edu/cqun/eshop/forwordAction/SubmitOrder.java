@@ -7,11 +7,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.IOrderManagerService;
@@ -76,7 +78,20 @@ ServletRequestAware, ServletResponseAware {
 	private IOrderManagerService orderManagerService;
 
 	public String execute(){
-		Buyer buyer = (Buyer) userManagerService.findUserById(201309020001l);
+		Buyer buyer0 = (Buyer) ServletActionContext.getRequest().getSession().getAttribute("buyer");
+		Buyer buyer1 = (Buyer)ActionContext.getContext().getSession().get("buyer");
+		Buyer buyer2 = (Buyer)att.get("buyer");
+		
+		Buyer buyer = null;
+		if (buyer0  != null) {
+			buyer = buyer0;
+		}
+		if (buyer1  != null) {
+			buyer = buyer1;
+		}
+		if (buyer2  != null) {
+			buyer = buyer2;
+		}
 		
 		order.setBuyer(buyer);
 

@@ -309,6 +309,11 @@
 		<action name="Modify" class="edu.cqun.eshop.forwordAction.Modify">
 			<result>/view/forward/main.jsp</result>
 		</action>
+		<action name="Comment" class="edu.cqun.eshop.forwordAction.Comment">
+			<result>/view/forward/comment.jsp</result>
+		</action>
+		
+		
 
 	</package>
 </struts>

@@ -1,7 +1,7 @@
 package edu.cqun.eshop.forwordAction;
 
-import java.sql.Timestamp;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,40 +13,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.IUserManagerService;
-import edu.cqun.eshop.domain.Buyer;
+import edu.cqun.eshop.Iservice.ICommentManagerService;
+import edu.cqun.eshop.domain.Commodity;
+import edu.cqun.eshop.domain.OrderList;
 
-public class Modify extends ActionSupport implements SessionAware,
+public class Comment extends ActionSupport implements SessionAware,
 ServletRequestAware, ServletResponseAware{
-	
+	@SuppressWarnings("rawtypes")
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
 	@Autowired
-	private IUserManagerService userManagerService;
+	private ICommentManagerService commentManagerService;
 	
-	private Buyer buyer;
-
-	public Buyer getBuyer() {
-		return buyer;
-	}
-
-	public void setBuyer(Buyer buyer) {
-		this.buyer = buyer;
+	public String execute(){
+		Long id = Long.parseLong(request.getParameter("cid"));
+		Set<OrderList> commentLists = commentManagerService.checkComment(id);
+		att.put("comments", commentLists);
+		return SUCCESS;
 	}
 	
-	@Override
-	public String execute() {
-	    Long id = ((Buyer)att.get("buyer")).getBuyerId();
-	    userManagerService.modifyUserInfo(id, buyer.getName(), buyer.getSex(), buyer.getUser(), buyer.getEmail());
-	    String password = buyer.getPassword();
-	    if (password!= null && !password.equals("")) {
-	    	userManagerService.modifypassword(id, ((Buyer)att.get("buyer")).getPassword(), password);
-		}
-	    
-	    return SUCCESS;
-	}
+	
 	
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {

@@ -51,7 +51,7 @@ function buy(data) {
 	if($("#flag").val()!="yes"){
 		alert("请先登录");
 	}else{
-		window.location.href("buy.action?cid="+data);
+		location.href = "forward/buy.action?cid="+data;
 	}
 	
 }
@@ -75,7 +75,7 @@ function search(){
 	if(keyWord == ""){
 		alert("请输入搜索关键字");
 	}else{
-		window.location.href("search.action?keyword="+keyWord);
+		location.href="forward/search.action?keyword="+keyWord;
 	}
 }
 

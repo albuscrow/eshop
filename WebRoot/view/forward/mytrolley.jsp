@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<display:column property="quantity" title = "数量"></display:column>
 		<display:column property="state" title = "状态"></display:column>
 		<display:column property="total" title = "总价"></display:column>
-		<display:column><input type="button" value="评价" onclick = "window.location.href('comment.action?orderid=${order.orderId}')"></display:column>
+		<display:column><input type="button" value="评价" onclick = "location.href = 'forward/comment.action?orderid=${order.orderId}'"></display:column>
 	</display:table>
 </body>
 </html>

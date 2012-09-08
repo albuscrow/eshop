@@ -24,6 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
    	 在这个页面完成付款 <br>
-   	 <input type="button" onclick="window.location.href('main.action')" value="已完成支付">
+   	 <input type="button" onclick="location.href='forward/main.action'" value="已完成支付">
   </body>
 </html>

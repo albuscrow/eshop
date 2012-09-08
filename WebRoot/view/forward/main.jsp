@@ -33,6 +33,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="css/forward/main.css">
 <script type="text/javascript" src="js/forward/main.js?random=<%= (new Random()).nextInt() %>"></script>
 
+<script type="text/javascript">
+
+function zhanghu(){
+	location.href="forward/mine.action";
+}
+
+function order(){
+	location.href="forward/trolley.action";
+}
+
+function pinglun(data) {
+	location.href="forward/Comment.action?cid="+data;
+}
+
+
+</script>
 
 </head>
 
@@ -44,12 +60,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <input type="hidden" value="${flag}" id = "flag">
     <input type = "hidden" value = "${buyer.user}" id = "userName"/>
     <span class="HY" id = "inf">您好！欢迎来到Ego</span>
-    <input type = "text" value = "20105235" id = "buyerUserName" > 
-    <input type = "text" value = "20105235" id = "password" >
+    <input type = "text" value = "" id = "buyerUserName" > 
+    <input type = "text" value = "" id = "password" >
     <input type="button"onclick="login()" class="HY" value="[登录]" id = "login">
     <input type="button" onclick="window.location.href('regesterPage.action')"class="HY" value="[注册]"id = "regester" >    
-    <input type="button" class="HY" value="我的账户" id = "zhanghu" onclick = "window.location.href('mine.action')">
-    <input type="button" class="HY"value="我的订单" id = "order" onclick="window.location.href('trolley.action')"></td>
+    <input type="button" class="HY" value="我的账户" id = "zhanghu" onclick = "zhanghu()">
+    <input type="button" class="HY"value="我的订单" id = "order" onclick="order()"></td>
   </tr>
 </table>
 <br />
@@ -59,8 +75,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <tr>
     <td width="540" rowspan="2"> 
     <p><span class="Ego" style="font-size: 70px">Ego </span>
-      <input name="txt" type="text" class="txt" id="serachContent" style="margin-left:10%; width: 50%;" />
+      <input name="txt" type="text" class="txt" id="serachContent" style="margin-left:10%; width: 30%;" />
       <input type="button" name="but" id="search" value="搜索" onclick = "search()" />
+      <input type="button" name="but" id="search" value="查看全部" onclick = "location.href = 'forward/main.action'" />
     </p>
 
     </td>
@@ -102,6 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<display:column property="brand" title="品牌" />
 		<display:column>
 			<a onclick = "buy(${commodity.commodityId})" >购买</a>   <a onclick = "addToTrolley(${commodity.commodityId})">加入到购物车</a>
+			<a onclick= "pinglun(${commodity.commodityId})">查看评论</a>
 		</display:column>
     </display:table></td>
   </tr>

@@ -6,11 +6,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ITrolleyManagerService;
@@ -30,8 +32,17 @@ ServletRequestAware, ServletResponseAware{
 	
 	public String execute(){
 		Long commodityId = Long.parseLong(request.getParameter("commodity"));
-		Buyer buyer = (Buyer)att.get("buyer");
-		Long userId = buyer.getBuyerId();
+		Buyer buyer0 = (Buyer) ServletActionContext.getRequest().getSession().getAttribute("buyer");
+		Buyer buyer1 = (Buyer)ActionContext.getContext().getSession().get("buyer");
+		Buyer buyer2 = (Buyer)att.get("buyer");
+		Long userId = null;
+		if (buyer0 != null) {
+			 userId = buyer0.getBuyerId();
+		}if (buyer1 != null) {
+			 userId = buyer1.getBuyerId();
+		}if (buyer2 != null) {
+			 userId = buyer2.getBuyerId();
+		}
 		
 		@SuppressWarnings("unchecked")
 		List<Commodity> commodities = (List<Commodity>) att.get("commodities");
