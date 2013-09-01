@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.Carriage;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Carriage
+ * @see edu.cqun.eshop.domain.Carriage
  * @author MyEclipse Persistence Tools
  */
 
@@ -61,7 +61,7 @@ public class CarriageDAO extends HibernateDaoSupport {
 		log.debug("getting Carriage instance with id: " + id);
 		try {
 			Carriage instance = (Carriage) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Carriage", id);
+					"edu.cqun.eshop.domain.Carriage", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

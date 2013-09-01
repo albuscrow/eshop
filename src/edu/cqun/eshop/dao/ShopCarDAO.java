@@ -17,7 +17,7 @@ import edu.cqun.eshop.domain.ShopCar;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.ShopCar
+ * @see edu.cqun.eshop.domain.ShopCar
  * @author MyEclipse Persistence Tools
  */
 
@@ -56,7 +56,7 @@ public class ShopCarDAO extends HibernateDaoSupport {
 		log.debug("getting ShopCar instance with id: " + id);
 		try {
 			ShopCar instance = (ShopCar) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.ShopCar", id);
+					"edu.cqun.eshop.domain.ShopCar", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

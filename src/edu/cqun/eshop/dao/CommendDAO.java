@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.Commend;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Commend
+ * @see edu.cqun.eshop.domain.Commend
  * @author MyEclipse Persistence Tools
  */
 
@@ -62,7 +62,7 @@ public class CommendDAO extends HibernateDaoSupport {
 		log.debug("getting Commend instance with id: " + id);
 		try {
 			Commend instance = (Commend) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Commend", id);
+					"edu.cqun.eshop.domain.Commend", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

@@ -17,7 +17,7 @@ import edu.cqun.eshop.domain.SystemUser;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.SystemUser
+ * @see edu.cqun.eshop.domain.SystemUser
  * @author MyEclipse Persistence Tools
  */
 
@@ -59,7 +59,7 @@ public class SystemUserDAO extends HibernateDaoSupport {
 		log.debug("getting SystemUser instance with id: " + id);
 		try {
 			SystemUser instance = (SystemUser) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.SystemUser", id);
+					"edu.cqun.eshop.domain.SystemUser", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

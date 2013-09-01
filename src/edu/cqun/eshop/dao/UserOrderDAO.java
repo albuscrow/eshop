@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.UserOrder;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.UserOrder
+ * @see edu.cqun.eshop.domain.UserOrder
  * @author MyEclipse Persistence Tools
  */
 
@@ -63,7 +63,7 @@ public class UserOrderDAO extends HibernateDaoSupport {
 		log.debug("getting UserOrder instance with id: " + id);
 		try {
 			UserOrder instance = (UserOrder) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.UserOrder", id);
+					"edu.cqun.eshop.domain.UserOrder", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

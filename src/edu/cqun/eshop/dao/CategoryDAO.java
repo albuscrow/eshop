@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.Category;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Category
+ * @see edu.cqun.eshop.domain.Category
  * @author MyEclipse Persistence Tools
  */
 
@@ -58,7 +58,7 @@ public class CategoryDAO extends HibernateDaoSupport {
 		log.debug("getting Category instance with id: " + id);
 		try {
 			Category instance = (Category) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Category", id);
+					"edu.cqun.eshop.domain.Category", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

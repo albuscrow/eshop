@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.Delivery;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Delivery
+ * @see edu.cqun.eshop.domain.Delivery
  * @author MyEclipse Persistence Tools
  */
 
@@ -60,7 +60,7 @@ public class DeliveryDAO extends HibernateDaoSupport {
 		log.debug("getting Delivery instance with id: " + id);
 		try {
 			Delivery instance = (Delivery) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Delivery", id);
+					"edu.cqun.eshop.domain.Delivery", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

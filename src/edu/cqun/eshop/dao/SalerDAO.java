@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.Saler;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Saler
+ * @see edu.cqun.eshop.domain.Saler
  * @author MyEclipse Persistence Tools
  */
 
@@ -65,7 +65,7 @@ public class SalerDAO extends HibernateDaoSupport {
 		log.debug("getting Saler instance with id: " + id);
 		try {
 			Saler instance = (Saler) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Saler", id);
+					"edu.cqun.eshop.domain.Saler", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

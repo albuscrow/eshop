@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.Buyer;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Buyer
+ * @see edu.cqun.eshop.domain.Buyer
  * @author MyEclipse Persistence Tools
  */
 
@@ -62,7 +62,7 @@ public class BuyerDAO extends HibernateDaoSupport {
 		log.debug("getting Buyer instance with id: " + id);
 		try {
 			Buyer instance = (Buyer) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Buyer", id);
+					"edu.cqun.eshop.domain.Buyer", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

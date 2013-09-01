@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.Commodity;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Commodity
+ * @see edu.cqun.eshop.domain.Commodity
  * @author MyEclipse Persistence Tools
  */
 
@@ -69,7 +69,7 @@ public class CommodityDAO extends HibernateDaoSupport {
 		log.debug("getting Commodity instance with id: " + id);
 		try {
 			Commodity instance = (Commodity) getHibernateTemplate().get(
-					"edu.cqun.eshop.dao.Commodity", id);
+					"edu.cqun.eshop.domain.Commodity", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
