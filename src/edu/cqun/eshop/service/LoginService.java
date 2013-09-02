@@ -11,11 +11,11 @@ import edu.cqun.eshop.domain.Buyer;
 
 @Transactional
 @Service("loginService")
-public class LoginService {
+public class LoginService implements ILoginService {
 	@Autowired
 	private BuyerDAO buyerDAO;
 	
-//	@Override
+	@Override
 	public boolean checkLogin(Buyer buyer){
 		buyerDAO.findById(3l);
 		return true;
