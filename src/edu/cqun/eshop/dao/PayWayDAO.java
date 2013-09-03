@@ -17,7 +17,7 @@ import edu.cqun.eshop.domain.PayWay;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.PayWay
+ * @see edu.cqun.eshop.domain.PayWay
  * @author MyEclipse Persistence Tools
  */
 

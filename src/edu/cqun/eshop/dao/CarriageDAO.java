@@ -17,7 +17,7 @@ import edu.cqun.eshop.domain.Carriage;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Carriage
+ * @see edu.cqun.eshop.domain.Carriage
  * @author MyEclipse Persistence Tools
  */
 

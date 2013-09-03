@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.SalesRecord;
  * transactions. Each of these methods provides additional information for how
  * to configure it for the desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.SalesRecord
+ * @see edu.cqun.eshop.domain.SalesRecord
  * @author MyEclipse Persistence Tools
  */
 

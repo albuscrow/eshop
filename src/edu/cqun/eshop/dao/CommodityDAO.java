@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.Commodity;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Commodity
+ * @see edu.cqun.eshop.domain.Commodity
  * @author MyEclipse Persistence Tools
  */
 

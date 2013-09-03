@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.RoleList;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.RoleList
+ * @see edu.cqun.eshop.domain.RoleList
  * @author MyEclipse Persistence Tools
  */
 

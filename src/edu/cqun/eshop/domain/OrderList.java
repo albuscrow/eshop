@@ -1,9 +1,6 @@
 package edu.cqun.eshop.domain;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -25,7 +21,6 @@ public class OrderList implements java.io.Serializable {
 
 	private Long orderId;
 	private Commodity commodity;
-	private Comment comment;
 	private Buyer buyer;
 	private Short quantity;
 	private Short payType;
@@ -37,7 +32,12 @@ public class OrderList implements java.io.Serializable {
 	private String address;
 	private String phone;
 	private Short carriageFee;
-	private Set<Comment> comments = new HashSet<Comment>(0);
+	private String comment;
+	private Short isMatched;
+	private Short logisticsSpeed;
+	private Short attitude;
+	private Timestamp commentDate;
+	private Double total;
 
 	// Constructors
 
@@ -48,7 +48,9 @@ public class OrderList implements java.io.Serializable {
 	/** minimal constructor */
 	public OrderList(Short quantity, Short payType, Short state,
 			Timestamp registerDate, Integer postType, Integer postcode,
-			String address, String phone, Short carriageFee) {
+			String address, String phone, Short carriageFee, Short isMatched,
+			Short logisticsSpeed, Short attitude, Timestamp commentDate,
+			Double total) {
 		this.quantity = quantity;
 		this.payType = payType;
 		this.state = state;
@@ -58,16 +60,21 @@ public class OrderList implements java.io.Serializable {
 		this.address = address;
 		this.phone = phone;
 		this.carriageFee = carriageFee;
+		this.isMatched = isMatched;
+		this.logisticsSpeed = logisticsSpeed;
+		this.attitude = attitude;
+		this.commentDate = commentDate;
+		this.total = total;
 	}
 
 	/** full constructor */
-	public OrderList(Commodity commodity, Comment comment, Buyer buyer,
-			Short quantity, Short payType, Short state, String logisticsState,
+	public OrderList(Commodity commodity, Buyer buyer, Short quantity,
+			Short payType, Short state, String logisticsState,
 			Timestamp registerDate, Integer postType, Integer postcode,
-			String address, String phone, Short carriageFee,
-			Set<Comment> comments) {
+			String address, String phone, Short carriageFee, String comment,
+			Short isMatched, Short logisticsSpeed, Short attitude,
+			Timestamp commentDate, Double total) {
 		this.commodity = commodity;
-		this.comment = comment;
 		this.buyer = buyer;
 		this.quantity = quantity;
 		this.payType = payType;
@@ -79,7 +86,12 @@ public class OrderList implements java.io.Serializable {
 		this.address = address;
 		this.phone = phone;
 		this.carriageFee = carriageFee;
-		this.comments = comments;
+		this.comment = comment;
+		this.isMatched = isMatched;
+		this.logisticsSpeed = logisticsSpeed;
+		this.attitude = attitude;
+		this.commentDate = commentDate;
+		this.total = total;
 	}
 
 	// Property accessors
@@ -102,16 +114,6 @@ public class OrderList implements java.io.Serializable {
 
 	public void setCommodity(Commodity commodity) {
 		this.commodity = commodity;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Comment_ID")
-	public Comment getComment() {
-		return this.comment;
-	}
-
-	public void setComment(Comment comment) {
-		this.comment = comment;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -214,13 +216,58 @@ public class OrderList implements java.io.Serializable {
 		this.carriageFee = carriageFee;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "orderList")
-	public Set<Comment> getComments() {
-		return this.comments;
+	@Column(name = "Comment", length = 1024)
+	public String getComment() {
+		return this.comment;
 	}
 
-	public void setComments(Set<Comment> comments) {
-		this.comments = comments;
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	@Column(name = "Is_Matched", nullable = false)
+	public Short getIsMatched() {
+		return this.isMatched;
+	}
+
+	public void setIsMatched(Short isMatched) {
+		this.isMatched = isMatched;
+	}
+
+	@Column(name = "Logistics_Speed", nullable = false)
+	public Short getLogisticsSpeed() {
+		return this.logisticsSpeed;
+	}
+
+	public void setLogisticsSpeed(Short logisticsSpeed) {
+		this.logisticsSpeed = logisticsSpeed;
+	}
+
+	@Column(name = "Attitude", nullable = false)
+	public Short getAttitude() {
+		return this.attitude;
+	}
+
+	public void setAttitude(Short attitude) {
+		this.attitude = attitude;
+	}
+
+	@Column(name = "Comment_Date", nullable = false, length = 19)
+	public Timestamp getCommentDate() {
+		return this.commentDate;
+	}
+
+	public void setCommentDate(Timestamp commentDate) {
+		this.commentDate = commentDate;
+	}
+
+	@Column(name = "Total", nullable = false, precision = 22, scale = 0)
+	public Double getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Double total) {
+		this.total = total;
 	}
 
 }

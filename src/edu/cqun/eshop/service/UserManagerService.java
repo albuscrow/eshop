@@ -20,7 +20,12 @@ public class UserManagerService implements IUserManagerService {
 	@Override
 	public boolean checkLogin(Buyer buyer) {
 		// TODO Auto-generated method stub
-		return false;
+		List<Buyer> result = buyerDAO.findByExample(buyer);
+		if (result != null && result.size() == 1) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 
 	@Override

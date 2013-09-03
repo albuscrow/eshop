@@ -22,7 +22,13 @@ public class LoginServiceTest {
 	
 	@Test
 	public void testCheckLogin() {
-		service.checkLogin(new Buyer());
+		Buyer buyer = new Buyer();
+		buyer.setName("lzq");
+		buyer.setPassword("123456");
+		
+		//这个函数表示入参是ture的时候出错也就是测试通不过，这个登陆的结果是false，所以正常情况下测试可以通过
+		assertFalse(service.checkLogin(buyer));
+		return;
 	}
 
 }

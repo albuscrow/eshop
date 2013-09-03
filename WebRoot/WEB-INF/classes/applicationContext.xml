@@ -33,59 +33,27 @@
 		</property>
 		<property name="annotatedClasses">
 			<list>
-				<value>edu.cqun.eshop.domain.Delivery</value>
-				<value>edu.cqun.eshop.domain.Comment</value>
-				<value>edu.cqun.eshop.domain.Carriage</value>
 				<value>edu.cqun.eshop.domain.ImportList</value>
+				<value>edu.cqun.eshop.domain.Delivery</value>
+				<value>edu.cqun.eshop.domain.PayWay</value>
+				<value>edu.cqun.eshop.domain.SalesRecord</value>
+				<value>edu.cqun.eshop.domain.OtherPay</value>
 				<value>edu.cqun.eshop.domain.OrderList</value>
-				<value>edu.cqun.eshop.domain.User</value>
-				<value>edu.cqun.eshop.domain.Category</value>
 				<value>edu.cqun.eshop.domain.RoleList</value>
 				<value>edu.cqun.eshop.domain.Commodity</value>
-				<value>edu.cqun.eshop.domain.OtherPay</value>
-				<value>edu.cqun.eshop.domain.PayWay</value>
+				<value>edu.cqun.eshop.domain.User</value>
 				<value>edu.cqun.eshop.domain.Buyer</value>
-				<value>edu.cqun.eshop.domain.SalesRecord</value>
-			</list>
+				<value>edu.cqun.eshop.domain.Carriage</value>
+				<value>edu.cqun.eshop.domain.Category</value></list>
 		</property>
 	</bean>
-
-	<bean id="DeliveryDAO" class="edu.cqun.eshop.dao.DeliveryDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="CommentDAO" class="edu.cqun.eshop.dao.CommentDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="CarriageDAO" class="edu.cqun.eshop.dao.CarriageDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="ImportListDAO" class="edu.cqun.eshop.dao.ImportListDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="OrderListDAO" class="edu.cqun.eshop.dao.OrderListDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="UserDAO" class="edu.cqun.eshop.dao.UserDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="CategoryDAO" class="edu.cqun.eshop.dao.CategoryDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
+	
 	<bean id="RoleListDAO" class="edu.cqun.eshop.dao.RoleListDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="DeliveryDAO" class="edu.cqun.eshop.dao.DeliveryDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -95,7 +63,22 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="OtherPayDAO" class="edu.cqun.eshop.dao.OtherPayDAO">
+	<bean id="OrderListDAO" class="edu.cqun.eshop.dao.OrderListDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ImportListDAO" class="edu.cqun.eshop.dao.ImportListDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CarriageDAO" class="edu.cqun.eshop.dao.CarriageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserDAO" class="edu.cqun.eshop.dao.UserDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -105,22 +88,31 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	<bean id="OtherPayDAO" class="edu.cqun.eshop.dao.OtherPayDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="CategoryDAO" class="edu.cqun.eshop.dao.CategoryDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
 	<bean id="BuyerDAO" class="edu.cqun.eshop.dao.BuyerDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="SalesRecordDAO" class="edu.cqun.eshop.dao.SalesRecordDAO">
+	<bean id="SalesRecordDAO"
+		class="edu.cqun.eshop.dao.SalesRecordDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	
+
 	<context:annotation-config />
 	<context:component-scan base-package="edu.cqun.eshop.service"></context:component-scan> 
 	
-
-
 	<bean class="org.springframework.orm.hibernate3.HibernateTransactionManager"
 		id="transactionManager" autowire="default" lazy-init="default"
 		abstract="false">
@@ -131,4 +123,4 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-</beans>
+	</beans>

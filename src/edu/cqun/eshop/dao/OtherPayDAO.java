@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.OtherPay;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.OtherPay
+ * @see edu.cqun.eshop.domain.OtherPay
  * @author MyEclipse Persistence Tools
  */
 

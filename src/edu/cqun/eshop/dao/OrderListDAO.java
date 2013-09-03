@@ -2,7 +2,6 @@ package edu.cqun.eshop.dao;
 
 import java.sql.Timestamp;
 import java.util.List;
-import java.util.Set;
 import org.hibernate.LockMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +18,7 @@ import edu.cqun.eshop.domain.OrderList;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.OrderList
+ * @see edu.cqun.eshop.domain.OrderList
  * @author MyEclipse Persistence Tools
  */
 
@@ -36,6 +35,11 @@ public class OrderListDAO extends HibernateDaoSupport {
 	public static final String ADDRESS = "address";
 	public static final String PHONE = "phone";
 	public static final String CARRIAGE_FEE = "carriageFee";
+	public static final String COMMENT = "comment";
+	public static final String IS_MATCHED = "isMatched";
+	public static final String LOGISTICS_SPEED = "logisticsSpeed";
+	public static final String ATTITUDE = "attitude";
+	public static final String TOTAL = "total";
 
 	protected void initDao() {
 		// do nothing
@@ -136,6 +140,26 @@ public class OrderListDAO extends HibernateDaoSupport {
 
 	public List<OrderList> findByCarriageFee(Object carriageFee) {
 		return findByProperty(CARRIAGE_FEE, carriageFee);
+	}
+
+	public List<OrderList> findByComment(Object comment) {
+		return findByProperty(COMMENT, comment);
+	}
+
+	public List<OrderList> findByIsMatched(Object isMatched) {
+		return findByProperty(IS_MATCHED, isMatched);
+	}
+
+	public List<OrderList> findByLogisticsSpeed(Object logisticsSpeed) {
+		return findByProperty(LOGISTICS_SPEED, logisticsSpeed);
+	}
+
+	public List<OrderList> findByAttitude(Object attitude) {
+		return findByProperty(ATTITUDE, attitude);
+	}
+
+	public List<OrderList> findByTotal(Object total) {
+		return findByProperty(TOTAL, total);
 	}
 
 	public List findAll() {

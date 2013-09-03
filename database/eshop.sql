@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2013/9/2 16:50:48                            */
+/* Created on:     2013/9/3 18:38:32                            */
 /*==============================================================*/
 
 
@@ -9,8 +9,6 @@ drop table if exists Buyer;
 drop table if exists Carriage;
 
 drop table if exists Category;
-
-drop table if exists Comment;
 
 drop table if exists Commodity;
 
@@ -27,8 +25,6 @@ drop table if exists Pay_Way;
 drop table if exists Role_List;
 
 drop table if exists Sales_Record;
-
-drop table if exists Stock_Out;
 
 drop table if exists User;
 
@@ -72,28 +68,11 @@ create table Category
 );
 
 /*==============================================================*/
-/* Table: Comment                                               */
-/*==============================================================*/
-create table Comment
-(
-   Comment_ID           bigint not null,
-   Order_ID             bigint,
-   Comment              varchar(1024),
-   Is_Matched           smallint not null,
-   Logistics_Speed      smallint not null,
-   Attitude             smallint not null,
-   Comment_Date         datetime not null,
-   Total                real not null,
-   primary key (Comment_ID)
-);
-
-/*==============================================================*/
 /* Table: Commodity                                             */
 /*==============================================================*/
 create table Commodity
 (
    Commodity_ID         bigint not null,
-   ST_ID                bigint,
    Category_ID          bigint,
    Name                 varchar(32) not null,
    Sales                int,
@@ -145,7 +124,6 @@ create table Order_List
 (
    Order_ID             bigint not null,
    Buyer_ID             bigint,
-   Comment_ID           bigint,
    Commodity_ID         bigint,
    Quantity             smallint not null,
    Pay_Type             smallint not null,
@@ -157,6 +135,12 @@ create table Order_List
    Address              varchar(256) not null,
    Phone                varchar(32) not null,
    Carriage_Fee         smallint not null,
+   Comment              varchar(1024),
+   Is_Matched           smallint not null,
+   Logistics_Speed      smallint not null,
+   Attitude             smallint not null,
+   Comment_Date         datetime not null,
+   Total                real not null,
    primary key (Order_ID)
 );
 
@@ -208,8 +192,6 @@ create table Sales_Record
    primary key (Record_ID)
 );
 
-
-
 /*==============================================================*/
 /* Table: User                                                  */
 /*==============================================================*/
@@ -222,11 +204,8 @@ create table User
    primary key (User_ID)
 );
 
-alter table Category add constraint FK_Relationship_10 foreign key (Cat_Category_ID)
+alter table Category add constraint FK_Relationship_9 foreign key (Cat_Category_ID)
       references Category (Category_ID) on delete restrict on update restrict;
-
-alter table Comment add constraint FK_Relationship_9 foreign key (Order_ID)
-      references Order_List (Order_ID) on delete restrict on update restrict;
 
 alter table Commodity add constraint FK_Relationship_2 foreign key (Category_ID)
       references Category (Category_ID) on delete restrict on update restrict;
@@ -242,9 +221,6 @@ alter table Order_List add constraint FK_Relationship_5 foreign key (Commodity_I
 
 alter table Order_List add constraint FK_Relationship_6 foreign key (Buyer_ID)
       references Buyer (Buyer_ID) on delete restrict on update restrict;
-
-alter table Order_List add constraint FK_Relationship_8 foreign key (Comment_ID)
-      references Comment (Comment_ID) on delete restrict on update restrict;
 
 alter table Other_Pay add constraint FK_Relationship_12 foreign key (User_ID)
       references User (User_ID) on delete restrict on update restrict;

@@ -17,7 +17,7 @@ import edu.cqun.eshop.domain.Delivery;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Delivery
+ * @see edu.cqun.eshop.domain.Delivery
  * @author MyEclipse Persistence Tools
  */
 

@@ -19,7 +19,7 @@ import edu.cqun.eshop.domain.Buyer;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see edu.cqun.eshop.dao.Buyer
+ * @see edu.cqun.eshop.domain.Buyer
  * @author MyEclipse Persistence Tools
  */
 

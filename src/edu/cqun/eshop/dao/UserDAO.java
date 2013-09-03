@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.User;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see edu.cqun.eshop.dao.User
+ * @see edu.cqun.eshop.domain.User
  * @author MyEclipse Persistence Tools
  */
 

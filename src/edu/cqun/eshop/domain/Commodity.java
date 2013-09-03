@@ -61,11 +61,11 @@ public class Commodity implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Commodity(Category category, String name,
-			Integer sales, Double price, Double discountPrice,
-			Boolean isRecommend, Long rest, String picture, Double averageMark,
-			String introduction, String origin, Double marketPrice,
-			Timestamp registerDate, Boolean isSale, String brand,
+	public Commodity(Category category, String name, Integer sales,
+			Double price, Double discountPrice, Boolean isRecommend, Long rest,
+			String picture, Double averageMark, String introduction,
+			String origin, Double marketPrice, Timestamp registerDate,
+			Boolean isSale, String brand, Set<OrderList> orderLists,
 			Set<SalesRecord> salesRecords, Set<ImportList> importLists) {
 		this.category = category;
 		this.name = name;

@@ -18,7 +18,7 @@ import edu.cqun.eshop.domain.ImportList;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see edu.cqun.eshop.dao.ImportList
+ * @see edu.cqun.eshop.domain.ImportList
  * @author MyEclipse Persistence Tools
  */
 
