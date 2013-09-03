@@ -24,7 +24,6 @@ public class Commodity implements java.io.Serializable {
 	// Fields
 
 	private Long commodityId;
-	private StockOut stockOut;
 	private Category category;
 	private String name;
 	private Integer sales;
@@ -41,7 +40,6 @@ public class Commodity implements java.io.Serializable {
 	private Boolean isSale;
 	private String brand;
 	private Set<OrderList> orderLists = new HashSet<OrderList>(0);
-	private Set<StockOut> stockOuts = new HashSet<StockOut>(0);
 	private Set<SalesRecord> salesRecords = new HashSet<SalesRecord>(0);
 	private Set<ImportList> importLists = new HashSet<ImportList>(0);
 
@@ -63,14 +61,12 @@ public class Commodity implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Commodity(StockOut stockOut, Category category, String name,
+	public Commodity(Category category, String name,
 			Integer sales, Double price, Double discountPrice,
 			Boolean isRecommend, Long rest, String picture, Double averageMark,
 			String introduction, String origin, Double marketPrice,
 			Timestamp registerDate, Boolean isSale, String brand,
-			Set<OrderList> orderLists, Set<StockOut> stockOuts,
 			Set<SalesRecord> salesRecords, Set<ImportList> importLists) {
-		this.stockOut = stockOut;
 		this.category = category;
 		this.name = name;
 		this.sales = sales;
@@ -87,7 +83,6 @@ public class Commodity implements java.io.Serializable {
 		this.isSale = isSale;
 		this.brand = brand;
 		this.orderLists = orderLists;
-		this.stockOuts = stockOuts;
 		this.salesRecords = salesRecords;
 		this.importLists = importLists;
 	}
@@ -102,16 +97,6 @@ public class Commodity implements java.io.Serializable {
 
 	public void setCommodityId(Long commodityId) {
 		this.commodityId = commodityId;
-	}
-
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ST_ID")
-	public StockOut getStockOut() {
-		return this.stockOut;
-	}
-
-	public void setStockOut(StockOut stockOut) {
-		this.stockOut = stockOut;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
@@ -257,15 +242,6 @@ public class Commodity implements java.io.Serializable {
 
 	public void setOrderLists(Set<OrderList> orderLists) {
 		this.orderLists = orderLists;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "commodity")
-	public Set<StockOut> getStockOuts() {
-		return this.stockOuts;
-	}
-
-	public void setStockOuts(Set<StockOut> stockOuts) {
-		this.stockOuts = stockOuts;
 	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "commodity")

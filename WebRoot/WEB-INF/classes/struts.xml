@@ -3,9 +3,10 @@
 <struts>
 	<include file = "structs-default.xml"/>
 	
-	<package name="test" extends="struts-default" namespace="/testStruts">
+	<package name="test" extends="struts-default" namespace="/testStruts/" >
 		<action name="HelloWorld" class = "edu.cqun.eshop.action.TestStruts">
-			<result>/testStruct/MyJsp.action</result>
+			<result name="success">/testStruct/MyJsp.action</result>
+			<result name="error">sdseresrfdsd.jsp</result>
 		</action>
 		<action name="say">
 			<result>helloworld.action</result>

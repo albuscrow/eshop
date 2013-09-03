@@ -39,7 +39,6 @@
 				<value>edu.cqun.eshop.domain.ImportList</value>
 				<value>edu.cqun.eshop.domain.OrderList</value>
 				<value>edu.cqun.eshop.domain.User</value>
-				<value>edu.cqun.eshop.domain.StockOut</value>
 				<value>edu.cqun.eshop.domain.Category</value>
 				<value>edu.cqun.eshop.domain.RoleList</value>
 				<value>edu.cqun.eshop.domain.Commodity</value>
@@ -81,11 +80,6 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="StockOutDAO" class="edu.cqun.eshop.dao.StockOutDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
 	<bean id="CategoryDAO" class="edu.cqun.eshop.dao.CategoryDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -121,8 +115,11 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
+	
 	<context:annotation-config />
-	<context:component-scan base-package="edu.cqun.eshop.service"></context:component-scan>
+	<context:component-scan base-package="edu.cqun.eshop.service"></context:component-scan> 
+	
+
 
 	<bean class="org.springframework.orm.hibernate3.HibernateTransactionManager"
 		id="transactionManager" autowire="default" lazy-init="default"
@@ -131,5 +128,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<tx:annotation-driven />
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
 </beans>

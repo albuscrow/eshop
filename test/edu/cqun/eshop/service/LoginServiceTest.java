@@ -8,17 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
-import edu.cqun.eshop.Iservice.ILoginService;
+import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Buyer;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
 public class LoginServiceTest {
 	
 	@Autowired
-	private ILoginService service;
-
+	IUserManagerService service;
+	
+	
 	@Test
 	public void testCheckLogin() {
 		service.checkLogin(new Buyer());

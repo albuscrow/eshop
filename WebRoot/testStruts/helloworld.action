@@ -28,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<h3>say "hello" to:</h3>
 	<s:form action="HelloWorld">
 		<s:textfield name="name" />
+		<s:textfield name="password" />
 		<s:submit />
 	</s:form>
 </body>
