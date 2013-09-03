@@ -16,13 +16,11 @@ import edu.cqun.eshop.domain.Buyer;
 public class UserManagerService implements IUserManagerService {
 	@Autowired
 	private BuyerDAO buyerDAO;
-	
-	
-	
+
 	@Override
-	public boolean checkLogin(Buyer buyer){
-		//List<Buyer> buyer2 = buyerDAO.findById(id) ;
-		return true;
+	public boolean checkLogin(Buyer buyer) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	@Override
