@@ -16,7 +16,7 @@ public interface IOrderManagerService {
 	 * @param buyerId
 	 * @return
 	 */
-	boolean findOrderListByUser(long buyerId);
+	OrderList findOrderListByUser(long buyerId);
 	
 	/**
 	 * ÐÞ¸Ä¶©µ¥×´Ì¬
