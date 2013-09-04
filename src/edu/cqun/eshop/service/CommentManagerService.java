@@ -5,8 +5,11 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.cqun.eshop.Iservice.ICommentManagerService;
+import edu.cqun.eshop.dao.CommodityDAO;
+import edu.cqun.eshop.dao.OrderListDAO;
 import edu.cqun.eshop.domain.OrderList;
-import edu.cqun.eshop.dao.*;
+
+
 
 public class CommentManagerService implements ICommentManagerService {
 
