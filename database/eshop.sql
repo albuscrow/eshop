@@ -33,7 +33,7 @@ drop table if exists User;
 /*==============================================================*/
 create table Buyer
 (
-   Buyer_ID             bigint not null,
+   Buyer_ID             bigint auto_increment not null,
    Name                 varchar(32) not null,
    Sex                  varchar(1),
    User                 varchar(32) not null,
@@ -48,7 +48,7 @@ create table Buyer
 /*==============================================================*/
 create table Carriage
 (
-   Carriage_ID          bigint not null,
+   Carriage_ID          bigint auto_increment not null,
    Start                varchar(16) not null,
    Destination          varchar(16) not null,
    Company              varchar(64) not null,
@@ -61,7 +61,7 @@ create table Carriage
 /*==============================================================*/
 create table Category
 (
-   Category_ID          bigint not null,
+   Category_ID          bigint auto_increment not null,
    Cat_Category_ID      bigint,
    Name                 varchar(32) not null,
    primary key (Category_ID)
@@ -72,7 +72,7 @@ create table Category
 /*==============================================================*/
 create table Commodity
 (
-   Commodity_ID         bigint not null,
+   Commodity_ID         bigint auto_increment not null,
    Category_ID          bigint,
    Name                 varchar(32) not null,
    Sales                int,
@@ -96,7 +96,7 @@ create table Commodity
 /*==============================================================*/
 create table Delivery
 (
-   Delivery_ID          bigint not null,
+   Delivery_ID          bigint auto_increment not null,
    Buyer_ID             bigint,
    Postcode             int not null,
    Address              varchar(256) not null,
@@ -109,7 +109,7 @@ create table Delivery
 /*==============================================================*/
 create table Import_List
 (
-   Import_ID            bigint not null,
+   Import_ID            bigint auto_increment not null,
    Commodity_ID         bigint,
    Quantity             smallint not null,
    Price                real not null,
@@ -122,7 +122,7 @@ create table Import_List
 /*==============================================================*/
 create table Order_List
 (
-   Order_ID             bigint not null,
+   Order_ID             bigint auto_increment not null,
    Buyer_ID             bigint,
    Commodity_ID         bigint,
    Quantity             smallint not null,
@@ -149,7 +149,7 @@ create table Order_List
 /*==============================================================*/
 create table Other_Pay
 (
-   OPay_ID              bigint not null,
+   OPay_ID              bigint auto_increment not null,
    User_ID              bigint,
    Note                 varchar(1024),
    OPay_Date            datetime not null,
@@ -161,7 +161,7 @@ create table Other_Pay
 /*==============================================================*/
 create table Pay_Way
 (
-   Pay_ID               bigint not null,
+   Pay_ID               bigint auto_increment not null,
    Name                 varchar(32) not null,
    Company              varchar(64) not null,
    URL                  varchar(1024) not null,
@@ -173,7 +173,7 @@ create table Pay_Way
 /*==============================================================*/
 create table Role_List
 (
-   Role_ID              bigint not null,
+   Role_ID              bigint auto_increment not null,
    Role                 int not null,
    Authority            varchar(256) not null,
    primary key (Role_ID)
@@ -184,7 +184,7 @@ create table Role_List
 /*==============================================================*/
 create table Sales_Record
 (
-   Record_ID            bigint not null,
+   Record_ID            bigint auto_increment not null,
    Commodity_ID         bigint,
    Quantity             smallint not null,
    Amount               double not null,
@@ -197,7 +197,7 @@ create table Sales_Record
 /*==============================================================*/
 create table User
 (
-   User_ID              bigint not null,
+   User_ID              bigint auto_increment not null,
    Role_ID              bigint,
    User                 varchar(32) not null,
    Password             varchar(32) not null,
