@@ -28,9 +28,8 @@
 
 <link rel="stylesheet" type="text/css"
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
-	
-<link rel="stylesheet" type="text/css"
-	href="css/back/main.css">
+
+<link rel="stylesheet" type="text/css" href="css/back/main.css">
 
 </head>
 
@@ -38,9 +37,7 @@
 	<div id="operation" class="menu">
 		<h3>商品管理</h3>
 		<div>
-			<a href="">1234</a> 
-			<br>
-			<a>5678</a>
+			<a href="">1234</a> <br> <a>5678</a>
 
 		</div>
 		<h3>Section 2</h3>
@@ -56,5 +53,7 @@
 			<a href="">1234</a> <a>5678</a>
 		</div>
 	</div>
+	
+	<iframe class="content" src="view/back/CommodityManager.jsp" scrolling="auto"></iframe>
 </body>
 </html>
