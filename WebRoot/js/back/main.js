@@ -1,0 +1,6 @@
+$(function init() {
+	$("#operation").accordion();
+});
+
+
+
