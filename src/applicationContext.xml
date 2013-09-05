@@ -29,7 +29,12 @@
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MySQLDialect
 				</prop>
-				<prop key="show_sql">true</prop>
+				<prop key="hibernate.show_sql">
+					true
+				</prop>
+				<prop key="hibernate.format_sql">
+					true
+				</prop>
 			</props>
 		</property>
 		<property name="annotatedClasses">
@@ -126,5 +131,4 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
-	<
 	</beans>
