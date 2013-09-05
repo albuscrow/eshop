@@ -67,9 +67,6 @@ public class UserManagerService implements IUserManagerService {
 		// TODO Auto-generated method stub
 		try{
 			Buyer result = buyerDAO.findById(id);
-			//result.setPassword(new_password);
-			//buyerDAO.save(result);
-			//return true;
 			if(result==null)
 				return false;
 			else if((result.getPassword()).equalsIgnoreCase(old_password))
@@ -86,7 +83,7 @@ public class UserManagerService implements IUserManagerService {
 	}
 
 	@Override
-	public boolean modifyUserInfo(long id,String name, String sex, String user, String password,
+	public boolean modifyUserInfo(long id,String name, String sex, String user,
 			String email, Timestamp registerDate) {
 		// TODO Auto-generated method stub
 		try{
@@ -101,9 +98,6 @@ public class UserManagerService implements IUserManagerService {
 				
 				if(user!=null)
 				result.setUser(user);
-				
-				if(password!=null)
-				result.setPassword(password);
 				
 				if(email!=null)
 				result.setEmail(email);

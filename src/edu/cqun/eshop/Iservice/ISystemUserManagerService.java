@@ -2,6 +2,7 @@ package edu.cqun.eshop.Iservice;
 
 import java.util.List;
 
+import edu.cqun.eshop.domain.RoleList;
 import edu.cqun.eshop.domain.User;
 
 public interface ISystemUserManagerService {
@@ -28,10 +29,17 @@ public interface ISystemUserManagerService {
 	boolean deleteSystemUsers(List<Long> userIds);
 	
 	/**
+	 * 根据用户密码
+	 * @param userIds
+	 * @return
+	 */
+	boolean modifySystemUserPassword(long id,String old_password,String new_password);
+	
+	/**
 	 * 修改用户信息
 	 * @param user
 	 * @return
 	 */
-	boolean modifySystemUser(User user);
+	boolean modifySystemUserInfo(long id,RoleList roleList,String user);
 	
 }

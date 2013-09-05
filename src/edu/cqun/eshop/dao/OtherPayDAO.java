@@ -3,11 +3,13 @@ package edu.cqun.eshop.dao;
 import java.sql.Timestamp;
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
+import edu.cqun.eshop.domain.ImportList;
 import edu.cqun.eshop.domain.OtherPay;
 
 /**
@@ -145,5 +147,13 @@ public class OtherPayDAO extends HibernateDaoSupport {
 
 	public static OtherPayDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (OtherPayDAO) ctx.getBean("OtherPayDAO");
+	}
+	
+	public List<OtherPay> getOverallImportByPeriod(Timestamp start, Timestamp end){
+		org.hibernate.Session session = getSession();
+		List<OtherPay> record_needed = session.createCriteria(OtherPay.class)
+				.add(Restrictions.between("oPayDate", start, end))
+				.list();
+		return record_needed;
 	}
 }
