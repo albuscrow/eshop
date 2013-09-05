@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.dao.BuyerDAO;
+import edu.cqun.eshop.dao.RoleListDAO;
 import edu.cqun.eshop.dao.UserDAO;
 import edu.cqun.eshop.domain.Buyer;
 import edu.cqun.eshop.domain.RoleList;
@@ -82,21 +83,35 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 			throw re;
 		}
 	}
+	
+	@Autowired
+	private RoleListDAO roleListDAO;
 
 	@Override
-	public boolean modifySystemUserInfo(long id, RoleList roleList, String user) {
+	public boolean modifySystemUserInfo(long user_id,long role_id, String user) {
 		// TODO Auto-generated method stub
 		try{
-			User result=userDAO.findById(id);
-			if(result!=null)
+			User resultUser=userDAO.findById(user_id);
+			if(resultUser!=null)
 			{
-				if(roleList!=null)
-				result.setRoleList(roleList);
-				
+				if(0<role_id && role_id<7)
+				{
+					RoleList resultRoleList = roleListDAO.findById(role_id);
+					if(resultRoleList!=null)
+					{
+						resultUser.setRoleList(resultRoleList);
+					    userDAO.save(resultUser);
+					}
+					else
+						return false;
+				}
+				else
+					return false;
+
 				if(user!=null)
-				result.setUser(user);
-				
-				userDAO.save(result);
+					resultUser.setUser(user);
+
+				userDAO.save(resultUser);
 				return true;
 			}
 			else

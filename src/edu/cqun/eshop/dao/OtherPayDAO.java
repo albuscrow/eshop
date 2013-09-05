@@ -149,10 +149,10 @@ public class OtherPayDAO extends HibernateDaoSupport {
 		return (OtherPayDAO) ctx.getBean("OtherPayDAO");
 	}
 	
-	public List<OtherPay> getOverallImportByPeriod(Timestamp start, Timestamp end){
+	public List<OtherPay> getOverallOtherPayByPeriod(Timestamp start, Timestamp end){
 		org.hibernate.Session session = getSession();
 		List<OtherPay> record_needed = session.createCriteria(OtherPay.class)
-				.add(Restrictions.between("oPayDate", start, end))
+				.add(Restrictions.between("opayDate", start, end))
 				.list();
 		return record_needed;
 	}
