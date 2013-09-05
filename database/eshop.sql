@@ -80,7 +80,7 @@ create table Commodity
    Discount_Price       real,
    Is_Recommend         bool not null,
    Rest                 bigint,
-   Picture              varchar(256) not null,
+   Picture              varchar(256),
    Average_Mark         real,
    Introduction         text,
    Origin               varchar(16),
