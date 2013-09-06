@@ -51,7 +51,7 @@ public class Commodity implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Commodity(String name, Double price, Boolean isRecommend,
-			String picture, Timestamp registerDate, String brand) {
+		String picture, Timestamp registerDate, String brand) {
 		this.name = name;
 		this.price = price;
 		this.isRecommend = isRecommend;
@@ -260,6 +260,20 @@ public class Commodity implements java.io.Serializable {
 
 	public void setImportLists(Set<ImportList> importLists) {
 		this.importLists = importLists;
+	}
+
+	@Override
+	public String toString() {
+		return "Commodity [commodityId=" + commodityId + ", category="
+				+ category + ", name=" + name + ", sales=" + sales + ", price="
+				+ price + ", discountPrice=" + discountPrice + ", isRecommend="
+				+ isRecommend + ", rest=" + rest + ", picture=" + picture
+				+ ", averageMark=" + averageMark + ", introduction="
+				+ introduction + ", origin=" + origin + ", marketPrice="
+				+ marketPrice + ", registerDate=" + registerDate + ", isSale="
+				+ isSale + ", brand=" + brand + ", orderLists=" + orderLists
+				+ ", salesRecords=" + salesRecords + ", importLists="
+				+ importLists + "]";
 	}
 
 }

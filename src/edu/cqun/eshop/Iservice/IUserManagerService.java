@@ -1,6 +1,8 @@
 package edu.cqun.eshop.Iservice;
 
+import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 import edu.cqun.eshop.domain.Buyer;
 
@@ -24,14 +26,14 @@ public interface IUserManagerService {
 	 * @param buyer buyer中的属性如果不为null，则该属性是一个查找条件，如果为null，这在查找时忽略该属性，可以调用findbyexample（）那个函数
 	 * @return
 	 */
-	Buyer findUser(Buyer buyer);
+	List<Buyer> findUser(Buyer buyer);
 	
 	/**
 	 * 修改密码
 	 * @param password
 	 * @return
 	 */
-	boolean modifypassword(String password);
+	boolean modifypassword(long id,String old_password,String new_password);
 
 	
 	/**
@@ -39,7 +41,8 @@ public interface IUserManagerService {
 	 * @param buyer buyer中包含了用户修改后的资料
 	 * @return
 	 */
-	boolean modifyUserInfo(Buyer buyer);
+	boolean modifyUserInfo(long id,String name, String sex, String user, 
+			String email, Timestamp registerDate);
 	
 	/**
 	 * 删除用户
@@ -49,9 +52,15 @@ public interface IUserManagerService {
 	boolean deleteUser(long buyerId);
 	
 	/**
-	 * 屁来那个删除用户
+	 * 批量删除用户
 	 * @param buyerIds 
 	 * @return
 	 */
 	boolean deleteUsers(List<Long> buyerIds);
+	
+	/**
+	 * 获得所有用户
+	 * @return
+	 */
+	List<Buyer> getAllUser();
 }

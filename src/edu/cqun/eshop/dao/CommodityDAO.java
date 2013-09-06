@@ -70,6 +70,7 @@ public class CommodityDAO extends HibernateDaoSupport {
 	public Commodity findById(java.lang.Long id) {
 		log.debug("getting Commodity instance with id: " + id);
 		try {
+			
 			Commodity instance = (Commodity) getHibernateTemplate().get(
 					"edu.cqun.eshop.domain.Commodity", id);
 			return instance;

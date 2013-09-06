@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>题目</title>
+<style>
+<!--
+body {
+    width: 1000px;
+    margin: 40px auto;
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td, .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;    
+}
+
+.bordered th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+#Layer1 {
+	position:absolute;
+	left:378px;
+	top:197px;
+	width:82px;
+	height:22px;
+	z-index:1;
+}
+#Layer2 {
+	position:absolute;
+	left:518px;
+	top:195px;
+	width:99px;
+	height:23px;
+	z-index:2;
+}
+.STYLE4 {font-size: 24px}
+.STYLE6 {font-size: 18}
+
+-->
+</style>
+</head>
+<body>
+<form enctype="multipart/form-data">
+  <div align="center">
+    <p class="STYLE4">群发邮件</p>
+  </div>
+  <table width="156%" class="bordered">
+    <thead>
+
+    <tr>
+      <th><label>
+        主题  
+            <input name="textfield" type="text" size="120">
+      </label></th>
+      </tr>
+    <tr>
+      <th>内容
+        <label>
+        <textarea name="textfield2" cols="120"></textarea>
+        </label></th>
+    </tr>
+    <tr>
+      <th><label>附件
+        <input type="file" name="file">
+      </label></th>
+      </tr>
+    </thead>
+</table>
+<p align="center"><span class="STYLE4">
+  <label></label>
+  <label></label>
+</span></p>
+<p align="center">
+  <label>
+  <input type="submit" name="Submit2" value="发送邮件">
+  </label>
+  <label>
+     <input type="submit" name="Submit" value="返回">
+  </label>
+</p>
+<p align="center">
+  <label></label>
+</p>
+<div align="left"></div>
+<div align="left"></div>
+</form>
+<p>&nbsp;</p>
+</body>
+</html>

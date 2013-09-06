@@ -1,6 +1,7 @@
 package edu.cqun.eshop.Iservice;
 
 import java.util.List;
+import java.util.Set;
 
 import edu.cqun.eshop.domain.Category;
 import edu.cqun.eshop.domain.Commodity;
@@ -26,7 +27,7 @@ public interface ICommodityManagerService {
 	 * @param commodity
 	 * @return
 	 */
-	boolean deleteCommoditys(List<Long> commodityIds);
+	boolean deleteCommoditys(Set<Long> commodityIds);
 	
 	/**
 	 * 修改商品信息
@@ -47,7 +48,7 @@ public interface ICommodityManagerService {
 	 * @param categorys
 	 * @return
 	 */
-	List<Commodity> searchCommodity(List<Category> categorys);
+	Set<Commodity> searchCommodity(Category category);
 	
 	/**
 	 * 取得按照销量排序的商品
@@ -67,4 +68,10 @@ public interface ICommodityManagerService {
 	 */
 	List<Commodity>getSpecialOffercommodity();
 
+	/*
+	 * 取得所有商品
+	 * @return
+	 */
+	List<Commodity>getAllCommodities();
 }
+

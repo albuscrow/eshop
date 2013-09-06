@@ -1,5 +1,8 @@
 package edu.cqun.eshop.Iservice;
 
+import java.sql.Timestamp;
+import java.util.Set;
+
 import edu.cqun.eshop.domain.OrderList;
 
 public interface IOrderManagerService {
@@ -16,7 +19,7 @@ public interface IOrderManagerService {
 	 * @param buyerId
 	 * @return
 	 */
-	OrderList findOrderListByUser(long buyerId);
+	Set<OrderList> findOrderListByUser(long buyerId);
 	
 	/**
 	 * ÐÞ¸Ä¶©µ¥×´Ì¬
@@ -24,6 +27,10 @@ public interface IOrderManagerService {
 	 * @param OrderStatus
 	 * @return
 	 */
-	boolean OrderListStatus(long orderId, short OrderStatus);
+	boolean OrderListStatus(long orderId, short status);
+	
+	boolean OrderListHasPaid(long orderId, Short quantity,Short payType,Short state,String logisticsState,
+	Timestamp registerDate,Integer postType,Integer postcode,String address,String phone,
+	Short carriageFee);
 
 }

@@ -211,4 +211,5 @@ public class OrderListDAO extends HibernateDaoSupport {
 	public static OrderListDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (OrderListDAO) ctx.getBean("OrderListDAO");
 	}
+
 }

@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+
+.menu{
+	width: 15%;
+	float: left;
+}
+
+.content{
+	width: 83%;
+	float: left;
+	margin-left: 1%;
+	height:90%;
+}

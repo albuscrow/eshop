@@ -126,7 +126,7 @@ public class OrderList implements java.io.Serializable {
 		this.buyer = buyer;
 	}
 
-	@Column(name = "Quantity", nullable = false)
+	@Column(name = "Quantity")
 	public Short getQuantity() {
 		return this.quantity;
 	}
@@ -135,7 +135,7 @@ public class OrderList implements java.io.Serializable {
 		this.quantity = quantity;
 	}
 
-	@Column(name = "Pay_Type", nullable = false)
+	@Column(name = "Pay_Type")
 	public Short getPayType() {
 		return this.payType;
 	}
@@ -171,7 +171,7 @@ public class OrderList implements java.io.Serializable {
 		this.registerDate = registerDate;
 	}
 
-	@Column(name = "Post_Type", nullable = false)
+	@Column(name = "Post_Type")
 	public Integer getPostType() {
 		return this.postType;
 	}
@@ -180,7 +180,7 @@ public class OrderList implements java.io.Serializable {
 		this.postType = postType;
 	}
 
-	@Column(name = "Postcode", nullable = false)
+	@Column(name = "Postcode")
 	public Integer getPostcode() {
 		return this.postcode;
 	}
@@ -189,7 +189,7 @@ public class OrderList implements java.io.Serializable {
 		this.postcode = postcode;
 	}
 
-	@Column(name = "Address", nullable = false, length = 256)
+	@Column(name = "Address", length = 256)
 	public String getAddress() {
 		return this.address;
 	}
@@ -198,7 +198,7 @@ public class OrderList implements java.io.Serializable {
 		this.address = address;
 	}
 
-	@Column(name = "Phone", nullable = false, length = 32)
+	@Column(name = "Phone", length = 32)
 	public String getPhone() {
 		return this.phone;
 	}
@@ -207,7 +207,7 @@ public class OrderList implements java.io.Serializable {
 		this.phone = phone;
 	}
 
-	@Column(name = "Carriage_Fee", nullable = false)
+	@Column(name = "Carriage_Fee")
 	public Short getCarriageFee() {
 		return this.carriageFee;
 	}
@@ -225,7 +225,7 @@ public class OrderList implements java.io.Serializable {
 		this.comment = comment;
 	}
 
-	@Column(name = "Is_Matched", nullable = false)
+	@Column(name = "Is_Matched")
 	public Short getIsMatched() {
 		return this.isMatched;
 	}
@@ -234,7 +234,7 @@ public class OrderList implements java.io.Serializable {
 		this.isMatched = isMatched;
 	}
 
-	@Column(name = "Logistics_Speed", nullable = false)
+	@Column(name = "Logistics_Speed")
 	public Short getLogisticsSpeed() {
 		return this.logisticsSpeed;
 	}
@@ -243,7 +243,7 @@ public class OrderList implements java.io.Serializable {
 		this.logisticsSpeed = logisticsSpeed;
 	}
 
-	@Column(name = "Attitude", nullable = false)
+	@Column(name = "Attitude")
 	public Short getAttitude() {
 		return this.attitude;
 	}
@@ -252,7 +252,7 @@ public class OrderList implements java.io.Serializable {
 		this.attitude = attitude;
 	}
 
-	@Column(name = "Comment_Date", nullable = false, length = 19)
+	@Column(name = "Comment_Date", length = 19)
 	public Timestamp getCommentDate() {
 		return this.commentDate;
 	}
@@ -261,13 +261,27 @@ public class OrderList implements java.io.Serializable {
 		this.commentDate = commentDate;
 	}
 
-	@Column(name = "Total", nullable = false, precision = 22, scale = 0)
+	@Column(name = "Total", precision = 22, scale = 0)
 	public Double getTotal() {
 		return this.total;
 	}
 
 	public void setTotal(Double total) {
 		this.total = total;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderList [orderId=" + orderId  /*+", commodity=" + commodity
+				+ ", buyer=" + buyer*/ + ", quantity=" + quantity + ", payType="
+				+ payType + ", state=" + state + ", logisticsState="
+				+ logisticsState + ", registerDate=" + registerDate
+				+ ", postType=" + postType + ", postcode=" + postcode
+				+ ", address=" + address + ", phone=" + phone
+				+ ", carriageFee=" + carriageFee + ", comment=" + comment
+				+ ", isMatched=" + isMatched + ", logisticsSpeed="
+				+ logisticsSpeed + ", attitude=" + attitude + ", commentDate="
+				+ commentDate + ", total=" + total + "]";
 	}
 
 }

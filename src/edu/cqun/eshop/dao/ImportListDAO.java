@@ -3,12 +3,14 @@ package edu.cqun.eshop.dao;
 import java.sql.Timestamp;
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import edu.cqun.eshop.domain.ImportList;
+import edu.cqun.eshop.domain.SalesRecord;
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -150,5 +152,13 @@ public class ImportListDAO extends HibernateDaoSupport {
 
 	public static ImportListDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (ImportListDAO) ctx.getBean("ImportListDAO");
+	}
+	
+	public List<ImportList> getOverallImportByPeriod(Timestamp start, Timestamp end){
+		org.hibernate.Session session = getSession();
+		List<ImportList> record_needed = session.createCriteria(ImportList.class)
+				.add(Restrictions.between("importDate", start, end))
+				.list();
+		return record_needed;
 	}
 }

@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<include file = "structs-default.xml"/>
-	
-	<package name="test" extends="struts-default" namespace="/testStruts/" >
-		<action name="HelloWorld" class = "edu.cqun.eshop.action.TestStruts">
-			<result name="success">/testStruct/MyJsp.action</result>
-			<result name="error">sdseresrfdsd.jsp</result>
+	<include file="structs-default.xml" />
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
+		value="true" />
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="back" extends="struts-default" namespace="/back">
+		<action name="login">
+			<result>/view/back/login.jsp</result>
 		</action>
-		<action name="say">
-			<result>helloworld.action</result>
+
+		<action name="main">
+			<result>/view/back/main.jsp</result>
+		</action>
+		
+		<action name="importList" class="edu.cqun.eshop.action.GetImportListAction">
+			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+		<action name="addCommodity">
+			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
+		</action>
+
+		<action name="CommodityManager" class="edu.cqun.eshop.action.GetCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
+		</action>
+
+		<action name="BuyerManager" class="edu.cqun.eshop.action.GetBuyerAction">
+			<result>/view/back/BuyerManager/BuyerManagerMain.jsp</result>
 		</action>
 	</package>
 </struts>
