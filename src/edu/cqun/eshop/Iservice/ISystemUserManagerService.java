@@ -42,4 +42,10 @@ public interface ISystemUserManagerService {
 	 */
 	boolean modifySystemUserInfo(long user_id,long role_id,String user);
 	
+	/**
+	 * 取得所有系统用户信息
+	 * @param user
+	 * @return
+	 */
+	List getAllUser();
 }

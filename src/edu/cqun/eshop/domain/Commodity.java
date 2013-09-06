@@ -99,7 +99,7 @@ public class Commodity implements java.io.Serializable {
 		this.commodityId = commodityId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Category_ID")
 	public Category getCategory() {
 		return this.category;
