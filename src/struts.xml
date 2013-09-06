@@ -21,5 +21,9 @@
 		<action name="main">
 			<result>/view/back/main.jsp</result>
 		</action>
+		
+		<action name="addCommodity">
+			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
+		</action>
 	</package>
 </struts>
