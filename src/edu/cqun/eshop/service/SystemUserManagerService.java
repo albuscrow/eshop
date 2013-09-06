@@ -122,7 +122,7 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 	}
 
 	@Override
-	public List getAllUser() {
+	public List<User> getAllUser() {
 		// TODO Auto-generated method stub
 		try{
 			return userDAO.findAll();

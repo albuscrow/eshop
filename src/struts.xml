@@ -37,7 +37,6 @@
 			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
 		
-
 		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
 		    <result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
 		</action>
