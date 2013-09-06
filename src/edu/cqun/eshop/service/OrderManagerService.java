@@ -1,6 +1,7 @@
 package edu.cqun.eshop.service;
 
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Set;
 
@@ -47,6 +48,25 @@ public class OrderManagerService implements IOrderManagerService {
 		OrderList ol = orderListDAO.findById(orderId);
 		ol.setState(status);
 		orderListDAO.attachDirty(ol);
+		return true;
+	}
+
+	@Override
+	public boolean OrderListHasPaid(long orderId, Short quantity, Short payType, Short state,
+			String logisticsState, Timestamp registerDate, Integer postType,
+			Integer postcode, String address, String phone, Short carriageFee) {
+		// TODO Auto-generated method stub
+		OrderList olList = orderListDAO.findById(orderId);
+		olList.setAddress(address);
+		olList.setQuantity(quantity);
+		olList.setPayType(payType);
+		olList.setLogisticsState(logisticsState);
+		olList.setRegisterDate(registerDate);
+		olList.setPostcode(postcode);
+		olList.setPostType(postType);
+		olList.setPhone(phone);
+		olList.setCarriageFee(carriageFee);
+		orderListDAO.attachDirty(olList);
 		return true;
 	}
 	

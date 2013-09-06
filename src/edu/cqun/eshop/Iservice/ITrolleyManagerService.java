@@ -1,8 +1,10 @@
 package edu.cqun.eshop.Iservice;
 
 import java.util.List;
+import java.util.Set;
 
 import edu.cqun.eshop.domain.Commodity;
+import edu.cqun.eshop.domain.OrderList;
 
 public interface ITrolleyManagerService {
 	
@@ -32,7 +34,7 @@ public interface ITrolleyManagerService {
 	 * @param userId
 	 * @return
 	 */
-	boolean checkTrolley(Long userId);
+	Set<OrderList> checkTrolley(Long userId);
 	
 	/**
 	 * ¸¶¿î
@@ -40,5 +42,8 @@ public interface ITrolleyManagerService {
 	 * @return
 	 */
 	boolean pay(Long userId, List<Long> commodityIds);
+	
+	 Commodity getOneInstance(long commID) ;		
+
 	
 }
