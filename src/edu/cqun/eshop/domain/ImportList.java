@@ -59,7 +59,7 @@ public class ImportList implements java.io.Serializable {
 		this.importId = importId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Commodity_ID")
 	public Commodity getCommodity() {
 		return this.commodity;

@@ -92,10 +92,11 @@
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	
-	<display:table name="${buyers}" pagesize="5">
-		<display:column property="name" title="姓名" />
-		<display:column property="sex" title="性别" />
-		<display:column property="registerDate" title="注册时间" />
+	<display:table name="${importLists}" pagesize="2">
+		<display:column property="commodity.name" title="商品名" />
+		<display:column property="quantity" title="数量" />
+		<display:column property="price" title="价格" />
+		<display:column property="importDate" title="进货日期" />
 	</display:table>
 </body>
 </html>
