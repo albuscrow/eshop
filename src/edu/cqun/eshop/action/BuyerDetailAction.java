@@ -9,19 +9,14 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.IUserManagerService;
+import edu.cqun.eshop.domain.Buyer;
 
-
-public class GetBuyerAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7977697013453779402L;
+public class BuyerDetailAction extends ActionSupport implements SessionAware,
+		ServletRequestAware,ServletResponseAware {
 
 	@Autowired
 	private IUserManagerService userManagerService;
@@ -29,14 +24,26 @@ public class GetBuyerAction extends ActionSupport  implements SessionAware, Serv
 	private Map att;
     private HttpServletRequest request;
     private HttpServletResponse response;
-
+    private Buyer buyer;
     
-    @Override
-	public String execute() {
-		att.put("buyers", userManagerService.getAllUser());
-		
-		return SUCCESS;
+    public Buyer getBuyer() {
+		return buyer;
 	}
+
+
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+	}
+
+
+	@Override
+    public String execute()  {
+    	// TODO Auto-generated method stub
+    	buyer = userManagerService.findUserById(Long.parseLong(request.getParameter("buyerId")));
+    	att.put("currentBuyer", buyer);
+    	return SUCCESS;
+    }
+
 
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
@@ -51,5 +58,7 @@ public class GetBuyerAction extends ActionSupport  implements SessionAware, Serv
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
+
 	}
+
 }

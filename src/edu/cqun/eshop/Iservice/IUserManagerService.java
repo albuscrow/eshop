@@ -9,27 +9,27 @@ import edu.cqun.eshop.domain.Buyer;
 public interface IUserManagerService {
 
 	/**
-	 * µÇÂ½
+	 * ï¿½ï¿½Â½
 	 * @param buyer
 	 * @return
 	 */
 	boolean checkLogin(Buyer buyer);
 	
 	/**
-	 * ×¢²á
+	 * ×¢ï¿½ï¿½
 	 * @param buyer
 	 */
 	boolean regester(Buyer buyer);
 	
 	/**
-	 * ²éÕÒÓÃ»§£¬
-	 * @param buyer buyerÖĞµÄÊôĞÔÈç¹û²»Îªnull£¬Ôò¸ÃÊôĞÔÊÇÒ»¸ö²éÕÒÌõ¼ş£¬Èç¹ûÎªnull£¬ÕâÔÚ²éÕÒÊ±ºöÂÔ¸ÃÊôĞÔ£¬¿ÉÒÔµ÷ÓÃfindbyexample£¨£©ÄÇ¸öº¯Êı
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½
+	 * @param buyer buyerï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªnullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªnullï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ô¸ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½findbyexampleï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	List<Buyer> findUser(Buyer buyer);
 	
 	/**
-	 * ĞŞ¸ÄÃÜÂë
+	 * ï¿½Ş¸ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param password
 	 * @return
 	 */
@@ -37,30 +37,32 @@ public interface IUserManagerService {
 
 	
 	/**
-	 * ĞŞ¸ÄÓÃ»§×ÊÁÏ
-	 * @param buyer buyerÖĞ°üº¬ÁËÓÃ»§ĞŞ¸ÄºóµÄ×ÊÁÏ
+	 * ï¿½Ş¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * @param buyer buyerï¿½Ğ°ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ş¸Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @return
 	 */
 	boolean modifyUserInfo(long id,String name, String sex, String user, 
 			String email, Timestamp registerDate);
 	
 	/**
-	 * É¾³ıÓÃ»§
-	 * @param buyerId ´ú±íÒªÉ¾³ıµÄÓÃ»§µÄid
+	 * É¾ï¿½ï¿½ï¿½Ã»ï¿½
+	 * @param buyerId ï¿½ï¿½ï¿½ÒªÉ¾ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½id
 	 * @return
 	 */
 	boolean deleteUser(long buyerId);
 	
 	/**
-	 * ÅúÁ¿É¾³ıÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @param buyerIds 
 	 * @return
 	 */
 	boolean deleteUsers(List<Long> buyerIds);
 	
 	/**
-	 * »ñµÃËùÓĞÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @return
 	 */
 	List<Buyer> getAllUser();
+
+	Buyer findUserById(Long id);
 }
