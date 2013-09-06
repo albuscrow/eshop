@@ -2,6 +2,7 @@ package edu.cqun.eshop.Iservice;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Set;
 
 import edu.cqun.eshop.domain.Buyer;
 
@@ -56,4 +57,10 @@ public interface IUserManagerService {
 	 * @return
 	 */
 	boolean deleteUsers(List<Long> buyerIds);
+	
+	/**
+	 * 获得所有用户
+	 * @return
+	 */
+	List<Buyer> getAllUser();
 }
