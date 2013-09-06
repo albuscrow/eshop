@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>题目</title>
+<style>
+<!--
+body {
+    width: 100%;
+    margin: 40px auto;
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td, .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;    
+}
+
+.bordered th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+#Layer1 {
+	position:absolute;
+	left:381px;
+	top:201px;
+	width:88px;
+	height:23px;
+	z-index:1;
+}
+#Layer2 {
+	position:absolute;
+	left:499px;
+	top:202px;
+	width:99px;
+	height:23px;
+	z-index:2;
+}
+.STYLE3 {font-size: xx-large}
+.STYLE5 {font-size: 24px}
+
+-->
+</style>
+</head>
+<body>
+<form>
+  <div align="center" class="STYLE5">
+    <p>送货信息</p>
+  </div>
+  <p align="center">序号
+    <label>
+    <input name="textfield" type="text" size="10">
+    </label>
+  邮编
+  <label>
+  <input name="textfield2" type="text" size="10">
+  </label>
+  地址
+  <label>
+  <input name="textfield3" type="text" size="20">
+  </label>
+  <label>
+  <input type="submit" name="Submit" value="查询">
+  </label>
+  </p>
+  <table width="156%" class="bordered">
+    <thead>
+
+    <tr>
+      <th>送货表序号</th>
+        <th>邮编</th>
+        <th>地址</th>
+        <th>收货人姓名</th>
+        <th>电话</th>
+        <th>操作</th>        
+      </tr>
+    <tr>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th>&nbsp;</th>
+      <th><a href="#" title="送货表编辑"> </a><a href="#" title="送货信息表编辑">编辑</a><a href="#" title="送货信息表删除"> 删除</a></th>
+      </tr>
+    </thead>
+</table>
+<p>
+  <label></label>
+</p>
+<p align="center">
+  共XX页  每页10条  页数
+  <label>
+    <input name="textfield4" type="text" size="4">
+      </label>
+  /XX页 <a href="#" title="其他支出首页">首页</a> <a href="#" title="其他支出上一页">上一页</a> <a href="#" title="其他支出下一页">下一页</a> <a href="#" title="其他支出尾页">尾页</a> <a href="#" title="其他支出刷新">刷新</a></p>
+<p align="center">
+  <label>
+  <input type="submit" name="Submit2" value="添加">  
+  </label>
+  <label>
+  <input type="submit" name="Submit3" value="返回">
+  </label>
+</p>
+<p>&nbsp;</p>
+</form>
+</body>
+</html>
