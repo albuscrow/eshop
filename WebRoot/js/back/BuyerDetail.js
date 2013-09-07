@@ -1,13 +1,7 @@
-$(function() {
-	alert("123123123");
-	alert(111);
-});
+function modifyUserPassword() {
 
-/*dojo.addOnLoad(function() {
-	alert(111);
-	dojo.event.topic.subscribe('handleModifyPasswordResult', function(data, type, e){
+	$.get("back/ModifyBuyerPassword.action","password="+$("#newPassWord").val(),function(data){
 		alert(data);
 	});
-});*/
-
+};
 
