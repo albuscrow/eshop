@@ -13,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>添加进货单</title>
+<title>更改其他支出</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -27,47 +27,19 @@
 <script type="text/javascript"
 	src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript"
-	src="js/back/StatisticsManager/AddImportList.js"></script>
+	src="js/back/StatisticsManager/AddOtherPay.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
 
 <link rel="stylesheet" type="text/css"
-	href="css/back/StatisticsManager/AddImportList.css">
+	href="css/back/StatisticsManager/AddOtherPay.css">
 
-<link rel="stylesheet" type="text/css" href="css/screen.css" />
-
-</head>
-
-<body>
-	<s:form action="back/AddImportList.action">
-		<div align="center">
-			<p class="STYLE4">添加进货单</p>
-		</div>
-		<table width="156%" class="bordered" align="center">
-			<thead>
-				<tr>
-					<th>商品名称</th>
-					<th>数量(单位：件)</th>
-					<th>每件商品成本(单位：元)</th>
-				</tr>
-				<tr>
-					<td><s:textfield name="name" type="text" size="20" />
-					</td>
-					<td><s:textfield name="quantity" type="text" size="10" />
-					</td>
-					<td><s:textfield name="price" type="text" size="10" />
-					</td>
-				</tr>
-			</thead>
-		</table>
-		<p align="center">
-			<label> <s:submit  value="提交"></s:submit> </label>
-			<label> <input type="button" value="取消" 
-			onclick="location.href='back/ImportList.action'"></label>
-		</p>
-		<p>&nbsp;</p>
-	</s:form>
-
-</body>
+<link rel="stylesheet" type="text/css" 
+	href="css/screen.css" />
+  </head>
+  
+  <body>
+    This is my JSP page. <br>
+  </body>
 </html>

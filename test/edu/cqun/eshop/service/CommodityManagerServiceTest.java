@@ -21,20 +21,29 @@ public class CommodityManagerServiceTest {
 	private ICommodityManagerService testService;
 	
 	@SuppressWarnings("deprecation")
+//	@Test
+//	public void test() {
+//		Commodity testCommodity =new Commodity();
+////		testCommodity.setPrice((double) 10);
+////		testCommodity.setName("aaa");
+////		testCommodity.setIsRecommend(false);
+////		testCommodity.setPicture("11424115");
+////		Timestamp timestamp=new Timestamp(2013,9,13,4,5,5, 0);
+////		testCommodity.setRegisterDate(timestamp);
+////		testCommodity.setBrand("aaf");
+////		testService.addCommodity(testCommodity);
+//		List<Commodity> commoditiylist = testService.getAllCommodities();
+//		for (Commodity commodity : commoditiylist) {
+//			System.out.println(commodity.getName());
+//		}
+//	}
+	
 	@Test
-	public void test() {
-		Commodity testCommodity =new Commodity();
-//		testCommodity.setPrice((double) 10);
-//		testCommodity.setName("aaa");
-//		testCommodity.setIsRecommend(false);
-//		testCommodity.setPicture("11424115");
-//		Timestamp timestamp=new Timestamp(2013,9,13,4,5,5, 0);
-//		testCommodity.setRegisterDate(timestamp);
-//		testCommodity.setBrand("aaf");
-//		testService.addCommodity(testCommodity);
-		List<Commodity> commoditiylist = testService.getAllCommodities();
-		for (Commodity commodity : commoditiylist) {
-			System.out.println(commodity.getName());
-		}
+	public void test2() {
+		List<Commodity> list = testService.getCommoditiesByCommodityName("¿•¬ÿ…Ω∫ÕÃÔ”Ò‘ÊÀƒ–«");
+//		for (Commodity commodity : list) {
+//			System.out.println(commodity);
+//		}
+		System.out.println(list.get(0));
 	}
 }
