@@ -125,7 +125,8 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 	public List<User> getAllUser() {
 		// TODO Auto-generated method stub
 		try{
-			return userDAO.findAll();
+			List<User> result= userDAO.findAll();
+			return result;
 		}catch (RuntimeException re) {
 			throw re;
 		}

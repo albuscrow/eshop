@@ -1,9 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	String basePath = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()
+			         + path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -22,15 +21,11 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 <script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
-<script type="text/javascript"
-	src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript" src="js/back/main.js"></script>
 
-<link rel="stylesheet" type="text/css"
-	href="css/ui-lightness/jquery-ui-1.10.3.css">
-
+<link rel="stylesheet" type="text/css"href="css/ui-lightness/jquery-ui-1.10.3.css">
 <link rel="stylesheet" type="text/css" href="css/back/main.css">
-
 </head>
 
 <body>
@@ -46,7 +41,8 @@
 		</div>
 		
 		<h3 id = "BuyerManager">买家管理</h3>
-		<div></div>
+		<div>
+		</div>
 		
 		<h3>营业信息管理</h3>
 		<div>
@@ -54,6 +50,6 @@
 		</div>
 	</div>
 	
-	<iframe class="content" src="view/back/CommodityManager/CommodityManager.jsp" scrolling="auto"></iframe>
+	<iframe class="content" src="view/back/welcome.jsp" scrolling="auto"></iframe>
 </body>
 </html>

@@ -62,6 +62,10 @@
 			<result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
 		</action>
 		
+		<action name="DeleteSyetemUser" class="edu.cqun.eshop.action.DeleteSyetemUserAction">
+		    <result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
+	    </action>
+		
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
 		   	<result type="plainText"></result>
 		</action>
