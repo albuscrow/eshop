@@ -57,11 +57,20 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
 				<tr>
 					<th>是否推荐
 					<select name = "isRecommend">
- 					 <option value ="true">是</option>
-  						<option value ="false">否</option>
-						</select></th>
+ 					<option value ="true">是</option>
+  					<option value ="false">否</option>
+					</select></th>
 					<th>品牌<input name="brand" type="text" size="15"></th>
 					<th>类别<input name="category" type="text" size="15"></th>
+					<th>			
+					<s:select
+          			  label="分类"
+          			  list="category"
+          			  listValue="name"
+           			 listKey="categoryId"
+         			   name="categorySelect"
+          			  headerKey="null"
+          			  headerValue="全部"/>
 					<th>产地<input name="origin" type="text" size="15"></th>
 					<th colspan="2">上市日期<input name = "regdate" size="10" class="datepicker"></th>
 				</tr>

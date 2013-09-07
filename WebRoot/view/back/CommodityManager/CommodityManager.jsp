@@ -22,7 +22,16 @@
 
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
-
+<script type="text/javascript">
+function JHshNumberText()
+        {
+                if ( !(((window.event.keyCode >= 48) && (window.event.keyCode <= 57)) || (window.event.keyCode == 13)))
+                {
+                        window.event.keyCode = 0 ;
+                }
+        }
+        </script>
+  
 </head>
 <body>
 	<form>
@@ -32,16 +41,19 @@
 		<p align="center">
 			<span class="STYLE6">
 		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" >
-			商品编号 <label> <input	name="textfield" type="text" size="10"> </label> <label></label>
-			商品名称 <label> <input type="text" name="textfield2"> </label>
+			商品编号：
 			<s:textfield 
             label="商品编号" 
-            name="goodsId" />
+            name="goodsId" 
             
+            onchange="JHshNumberText()"            />
+            
+          	  商品名称：
 			<s:textfield 
             label="商品名称" 
             name="goodsName" />
             
+          	  分类:
 			<s:select
             label="分类"
             list="category"
