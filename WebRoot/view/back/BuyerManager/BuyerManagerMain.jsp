@@ -27,6 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<display:table name="${buyers}" pagesize="5" id = "buyer">
 		<display:column property="user" title="用户名"  href="back/BuyerDetail.action" paramId="buyerId" paramProperty="buyerId"/>
 		<display:column property="sex" title="性别" />
+		<display:column property = "password" title = "密码"></display:column>
 		<display:column property="registerDate" title="注册时间" />
 	</display:table>
 </body>

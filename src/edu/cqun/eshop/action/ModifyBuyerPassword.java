@@ -39,15 +39,14 @@ ServletRequestAware,ServletResponseAware{
     
     @Override
     public String execute() {
-    	// TODO Auto-generated method stub
     	Buyer currentBuyer = (Buyer) att.get("currentBuyer");
     	try {
     		userManagerService.modifypassword(currentBuyer.getBuyerId(), currentBuyer.getPassword(), password);
     		response.setContentType("text/html;charset=utf-8");
-    		response.getWriter().write("success");
+    		response.getWriter().write("success!");
 		} catch (Exception e) {
 			try {
-				response.getWriter().write("fail");
+				response.getWriter().write("fail!");
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
