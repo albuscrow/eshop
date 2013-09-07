@@ -35,76 +35,55 @@
 <link rel="stylesheet" type="text/css"
 	href="css/back/StatisticsManager/ImportList.css">
 
-<link rel="stylesheet" type="text/css" 
-	href="css/screen.css" />
+<link rel="stylesheet" type="text/css" href="css/screen.css" />
 
 </head>
 
 <body>
-	<form>
+	<s:form action="back/QueryImportList.action">
 		<div align="center">
 			<p class="STYLE4">进货单</p>
 		</div>
+		<br />
+		<p align="center">注：货单号、商品名称、进货时间可选一至多项填写</p>
+		<br />
 		<p align="center">
-			<span class="STYLE6">货单号 <label> <input
-					name="textfield" type="text" size="10"> </label> <label></label> <label></label>
-				商品名称 <label> <input type="text" name="textfield9"> </label>
-				进货时间 <label> <input name="textfield2" type="text" size="4">
-					年</label> <label> <input name="textfield4" type="text" size="4">
-					月 <input name="textfield5" type="text" size="4"> 日</label> 到 <label></label>
-				<label> <input name="textfield6" type="text" size="4">
-					年 <input name="textfield7" type="text" size="4"> 月</label> <label>
-					<input name="textfield8" type="text" size="4"> 日</label> <label>
-					<input type="submit" name="Submit" value="查询"> </label> <label></label>
-				<label></label> </span> <label> </label>
+			货单号 <label> <s:textfield name="importId" type="text" size="10" /> </label>
+			 商品名称 <label> <s:textfield type="text" name="name" /> </label> 
+			 进货时间 <label> <s:textfield name="years" type="text" size="4" /> 年</label> <label> <s:textfield
+						name="months" type="text" size="4" /> 月 <input name="days"
+					type="text" size="4"> 日</label> 到 <label></label> <label> <input
+					name="yeare" type="text" size="4"> 年 <input name="monthe"
+					type="text" size="4"> 月</label> <label> <input name="daye"
+					type="text" size="4"> 日</label>
 		</p>
-		<table width="156%" class="bordered">
-			<thead>
+		<br />
+		<p align="center">
+			<s:submit value="查询"></s:submit>
+			<label></label>
+		</p>
 
-				<tr>
-					<th>货单号</th>
-					<th>商品名称</th>
-					<th>数量</th>
-					<th>进货时间</th>
-					<th>操作</th>
-				</tr>
-				<tr>
-					<th>&nbsp;</th>
-					<th>&nbsp;</th>
-					<th>&nbsp;</th>
-					<th>&nbsp;</th>
-					<th><a href="#" title="商品编辑页面"> 编辑 </a><a href="#"
-						title="商品删除页面"> 删除</a>
-					</th>
-				</tr>
-			</thead>
-		</table>
-		<p align="center">
-			共XX页 每页10条 页数 <label> <input name="textfield3" type="text"
-				size="4"> </label> /XX页 <a href="#" title="商品管理首页">首页</a><a href="#"></a>
-			<a href="#" title="商品管理上一页">上一页</a> <a href="#" title="商品管理下一页">下一页</a>
-			<a href="#" title="商品管理尾页">尾页</a> <a href="#" title="商品管理刷新">刷新</a>&nbsp;<a
-				href="#">返回</a>
-		</p>
-		<p align="center">
-		
-			<label> <input type="button" name="button" value="添加" 
-			onclick="location.href='back/AddImportListEX.action'"/>
-			</label>
-		</p>
-		<p>&nbsp;</p>
-	</form>
+	</s:form>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-	
+
 	<display:table name="${importLists}" pagesize="5" id="importLists">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
+		<display:column property="importId" title="货单编号" />
 		<display:column property="commodity.name" title="商品名" />
 		<display:column property="quantity" title="数量" />
-		<display:column property="price" sortable="true" headerClass="sortable" title="价格" />
-		<display:column property="importDate" sortable="true" headerClass="sortable" title="进货日期" />
-		<display:column title="操作" ><a href="back/ModifyImportList.action?importId=${importLists.importId}">编辑</a><p>&nbsp;</p><a href="back/DeleteImportList.action">删除</a></display:column>
+		<display:column property="price" sortable="true"
+			headerClass="sortable" title="价格" />
+		<display:column property="importDate" sortable="true"
+			headerClass="sortable" title="进货日期" />
+		<display:column title="操作">
+			<a
+				href="back/ModifyImportList.action?importId=${importLists.importId}">编辑</a>
+			<p>&nbsp;</p>
+			<a
+				href="back/DeleteImportList.action?importId=${importLists.importId}">删除</a>
+		</display:column>
 	</display:table>
-	
+
 </body>
 </html>

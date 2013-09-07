@@ -3,6 +3,8 @@ package edu.cqun.eshop.dao;
 import java.sql.Timestamp;
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
+import org.hibernate.classic.Session;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -153,12 +155,50 @@ public class ImportListDAO extends HibernateDaoSupport {
 	public static ImportListDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (ImportListDAO) ctx.getBean("ImportListDAO");
 	}
-	
-	public List<ImportList> getOverallImportByPeriod(Timestamp start, Timestamp end){
+
+	public List<ImportList> getOverallImportByPeriod(Timestamp start,
+			Timestamp end) {
 		org.hibernate.Session session = getSession();
-		List<ImportList> record_needed = session.createCriteria(ImportList.class)
-				.add(Restrictions.between("importDate", start, end))
-				.list();
+		List<ImportList> record_needed = session
+				.createCriteria(ImportList.class)
+				.add(Restrictions.between("importDate", start, end)).list();
 		return record_needed;
 	}
+
+	public List findByForeignProperty(String propertyName, Object value) {
+		log.debug("finding Reply instance with property: " + propertyName
+				+ ", value: " + value);
+		try {
+			String queryString = "from Reply as model where model."
+					+ propertyName + "= ?";
+			Query queryObject = getSession().createQuery(queryString);
+			queryObject.setParameter(0, value);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List findImportListByCommodity(Object commodity) {
+		return findByProperty("commodity", commodity);
+	}
+
+//	public List<ImportList> getImportListByCommodityId(Long id) {
+//		org.hibernate.Session session = null;
+//		try {
+//			session = getSession();
+//			String HQL = "select i.name from Import as s where s.tid ="
+//					+ id.toString();
+//			Query query = session.createQuery(HQL);
+//			return query.list();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			// logs.error("查询学生时候出现错误！");
+//			return null;
+//		} finally {
+//			this.releaseSession(session);
+//		}
+//		// return record_needed;
+//	}
 }
