@@ -31,7 +31,7 @@
 		</div>
 		<p align="center">
 			<span class="STYLE6">
-		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" tooltipConfig="#{'jsTooltipEnabled':'true'}">
+		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" >
 			商品编号 <label> <input	name="textfield" type="text" size="10"> </label> <label></label>
 			商品名称 <label> <input type="text" name="textfield2"> </label>
 			<s:textfield 
