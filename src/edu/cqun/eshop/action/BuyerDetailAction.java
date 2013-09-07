@@ -1,6 +1,8 @@
 package edu.cqun.eshop.action;
 
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,14 +14,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.cqun.eshop.Iservice.ITrolleyManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Buyer;
+import edu.cqun.eshop.domain.OrderList;
 
 public class BuyerDetailAction extends ActionSupport implements SessionAware,
 		ServletRequestAware,ServletResponseAware {
 
 	@Autowired
 	private IUserManagerService userManagerService;
+	
+	@Autowired
+	private ITrolleyManagerService trolleyManagerService;
 
 	private Map att;
     private HttpServletRequest request;
@@ -40,7 +47,11 @@ public class BuyerDetailAction extends ActionSupport implements SessionAware,
     public String execute()  {
     	// TODO Auto-generated method stub
     	buyer = userManagerService.findUserById(Long.parseLong(request.getParameter("buyerId")));
+    	
+    	Set<OrderList> commodifyInTrolley = (Set<OrderList>) trolleyManagerService.checkTrolley(buyer.getBuyerId());
+    	att.put("commoditys", commodifyInTrolley);
     	att.put("currentBuyer", buyer);
+    	
     	return SUCCESS;
     }
 

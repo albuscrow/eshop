@@ -1,5 +1,6 @@
 package edu.cqun.eshop.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,27 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private List<Category> category;
+	private String goodsId;
+	private String goodsName;
+	
+	public String getGoodsId() {
+		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
+		return goodsId;
+	}
+
+	public void setGoodsId(String goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public String getGoodsName() {
+		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
 
 	public List<Category> getCategory() {
 		return category;
@@ -42,15 +64,36 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		this.category = category;
 	}
 	
-
+	@Override
 	public String execute() {
-		if (commodityService == null) {
-			System.out.println("null!!!!!!!");
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
+		response.setCharacterEncoding("UTF-8");
+		
 		category=commodityService.getCategories();
 		
+		String testString=goodsId;
 		Commodity example = new Commodity();
-		att.put("commodities", commodityService.getCommodities(example));
+		if(goodsId!=null&&!goodsId.equals("")){
+		long commodityId=Long.parseLong(goodsId);
+		System.out.println("+++++================="+commodityId+"+++++==================");
+		example.setCommodityId(commodityId);
+		}
+//		if(goodsName!=null&!goodsName.equals("")){
+//			example.setName(goodsName);
+//		}
+		List<Commodity> result=commodityService.getCommodities(example);
+		System.out.println("_________________________________________________________");
+		for (Commodity commodity : result) {
+			System.out.println(commodity.getName());
+		}
+		System.out.println("_________________________________________________________");
+
+		att.put("commodities", result );
+	
 		return SUCCESS;
 	}
 

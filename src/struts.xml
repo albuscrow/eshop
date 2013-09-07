@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<include file="structs-default.xml" />
 	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
 		value="true" />
+	
 	<constant name="struts.objectFactory" value="spring" />
+    
 
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="template" />
@@ -69,6 +72,28 @@
 		
 		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
 			<result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
+		</action>
+		
+		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
+		   	
+		</action>
+	</package>
+	
+	<package name="forward" namespace="/forward" extends="struts-default">
+		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
+			
+		</action>
+		
+		<action name="main" class = "edu.cqun.eshop.forwordAction.Main">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="regesterPage">
+			<result>/view/forward/regester.jsp</result>
+		</action>
+		
+		<action name="regester" class = "edu.cqun.eshop.forwordAction.LoginAction">
+			<result>/view/forward/main.jsp</result>
 		</action>
 	</package>
 </struts>

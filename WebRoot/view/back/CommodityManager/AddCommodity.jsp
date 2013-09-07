@@ -3,6 +3,9 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()+ path + "/";
 %>
+
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -21,7 +24,7 @@
 <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.3.css">
 <link rel="stylesheet" type="text/css" href="css/back/addgoods.css" />
 
- <script>
+  <script>
 $(function() {
 var spinner = $( ".MySpinner" ).spinner();
 	spinner.spinner("value",0);
@@ -29,15 +32,19 @@ var spinner = $( ".MySpinner" ).spinner();
 $( "button" ).button();
 });
 $(function() {
-$( ".datepicker" ).datepicker();
+$( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
 });
-</script>
+</script> 
 </head>
 
 <body>
-	<form enctype="multipart/form-data">
 		<p align="center" class="STYLE4">添加商品</p>
 		<div align="center">
+		<s:actionerror />
+			<s:actionmessage />
+			<s:fielderror />
+		<s:form action="/back/AddCommodityAction.action" method="post" enctype="multipart/form-data">
+		
 			<table class="bordered">
 				<tr>
 					<th>商品名称 <input name="name" type="text"
@@ -48,24 +55,36 @@ $( ".datepicker" ).datepicker();
 					<th>剩余数量<input name="rest" size="5" class ="MySpinner">(件)</th>
 				</tr>
 				<tr>
-					<th>是否推荐<input name="isRecommend" type="text" size="15"></th>
-					<th>平均分数<input name="averagemark" class ="MySpinner"	 size="15"></th>
+					<th>是否推荐
+					<select name = "isRecommend">
+ 					<option value ="true">是</option>
+  					<option value ="false">否</option>
+					</select></th>
+					<th>品牌<input name="brand" type="text" size="15"></th>
+					<th>类别<input name="category" type="text" size="15"></th>
+					<th>			
+					<s:select
+          			  label="分类"
+          			  list="category"
+          			  listValue="name"
+           			 listKey="categoryId"
+         			   name="categorySelect"
+          			  headerKey="null"
+          			  headerValue="全部"/>
 					<th>产地<input name="origin" type="text" size="15"></th>
-					<th colspan="2">上市日期<input size="10" class="datepicker"></th>
+					<th colspan="2">上市日期<input name = "regdate" size="10" class="datepicker"></th>
 				</tr>
 				<tr>
 					<th colspan="2">简介<input name="introduction" type="text" size="15"></th>
 					<th colspan="3"><div align="center">图片</div></th>
 				</tr>
-			</table>
+			</table> 
+		</s:form>	
 		</div>
+		
 		<p align="center">
 			<label> <input type="submit" name="Submit" value="添加">
-			</label> <label></label> <label> <input type="submit" name="Submit2"
-				value="返回"> </label>
+			</label> <label></label> <label> <input type="submit" name="Submit2" value="返回"> </label>
 		</p>
-	</form>
-	<form name="form1" method="post" action=""></form>
-	<p>&nbsp;</p>
 </body>
 </html>

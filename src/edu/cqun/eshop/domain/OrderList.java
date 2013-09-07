@@ -106,7 +106,7 @@ public class OrderList implements java.io.Serializable {
 		this.orderId = orderId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "Commodity_ID")
 	public Commodity getCommodity() {
 		return this.commodity;

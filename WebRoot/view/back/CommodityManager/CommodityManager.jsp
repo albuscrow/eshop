@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"+ request.getServerName() + ":" + request.getServerPort()+ path + "/";
@@ -19,9 +20,19 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
+
+<script type="text/javascript">
+
+$("#CommodityManager").click(function() {
+		$(".content").attr("src","back/CommodityManager.action");
+	});
+	
+</script>
+	
 
 </head>
 <body>
@@ -31,17 +42,18 @@
 		</div>
 		<p align="center">
 			<span class="STYLE6">
-		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" tooltipConfig="#{'jsTooltipEnabled':'true'}">
-			商品编号 <label> <input	name="textfield" type="text" size="10"> </label> <label></label>
-			商品名称 <label> <input type="text" name="textfield2"> </label>
+		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" >
+			商品编号：
 			<s:textfield 
             label="商品编号" 
-            name="goodsId" />
+            name="goodsId"  />
             
+          	  商品名称：
 			<s:textfield 
             label="商品名称" 
             name="goodsName" />
             
+          	  分类:
 			<s:select
             label="分类"
             list="category"
