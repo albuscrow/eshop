@@ -77,15 +77,23 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		
 		String testString=goodsId;
 		Commodity example = new Commodity();
-		if(goodsId!=null&goodsId!=""){
+		if(goodsId!=null&&!goodsId.equals("")){
 		long commodityId=Long.parseLong(goodsId);
 		System.out.println("+++++================="+commodityId+"+++++==================");
 		example.setCommodityId(commodityId);
 		}
-//		if(goodsName!=null&goodsName!=""){
+//		if(goodsName!=null&!goodsName.equals("")){
 //			example.setName(goodsName);
 //		}
-		att.put("commodities", commodityService.getCommodities(example));
+		List<Commodity> result=commodityService.getCommodities(example);
+		System.out.println("_________________________________________________________");
+		for (Commodity commodity : result) {
+			System.out.println(commodity.getName());
+		}
+		System.out.println("_________________________________________________________");
+
+		att.put("commodities", result );
+	
 		return SUCCESS;
 	}
 

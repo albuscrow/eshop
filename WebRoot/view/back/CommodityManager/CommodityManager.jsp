@@ -25,6 +25,15 @@
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
 
+<script type="text/javascript">
+
+$("#CommodityManager").click(function() {
+		$(".content").attr("src","back/CommodityManager.action");
+	});
+	
+</script>
+	
+
 </head>
 <body>
 	<form>
