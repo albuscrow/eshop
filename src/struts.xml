@@ -5,6 +5,11 @@
 	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
 		value="true" />
 	<constant name="struts.objectFactory" value="spring" />
+
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.ui.templateDir" value="template" />
+	<constant name="struts.ui.templateSuffix" value="ftl" />
+
 	<package name="back" extends="struts-default" namespace="/back">
 		<action name="login">
 			<result>/view/back/login.jsp</result>
@@ -13,10 +18,26 @@
 		<action name="main">
 			<result>/view/back/main.jsp</result>
 		</action>
-		
+
 		<action name="importList" class="edu.cqun.eshop.action.GetImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
+
+		<action name="ImportModify" class="edu.cqun.eshop.action.ModifyImportListAction">
+			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+
+		<action name="AddImportList" class="edu.cqun.eshop.action.AddImportListAction">
+			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+
+		<action name="AddImportListEX">
+			<result>/view/back/StatisticsManager/AddImportList.jsp</result>
+		</action>
+
+		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
+			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
+
 		<action name="addCommodity">
 			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
 		</action>
@@ -28,18 +49,18 @@
 		<action name="BuyerManager" class="edu.cqun.eshop.action.GetBuyerAction">
 			<result>/view/back/BuyerManager/BuyerManagerMain.jsp</result>
 		</action>
-		
+
 		<action name="BuyerDetail" class="edu.cqun.eshop.action.BuyerDetailAction">
 			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
-		
+
 		<action name="ChangeBuyerPassword" class="edu.cqun.eshop.action.BuyerDetailAction">
 			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
-		
+
 
 		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
-		    <result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
+			<result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
 		</action>
 	</package>
 </struts>

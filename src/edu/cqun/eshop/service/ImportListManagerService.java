@@ -44,15 +44,14 @@ public class ImportListManagerService implements IImportListManagerService {
 	public List<ImportList> getAllImportList() {
 		// TODO Auto-generated method stub
 		List<ImportList> list = importListDAO.findAll();
-//		Hibernate.initialize(list);
-		
-		System.out.println("listsize:"+list.size());
-		System.out.println("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS:"+list.get(0).getCommodity().getName());
-//		System.out.println();
-//		for (ImportList importList : list) {
-//			
-//		}
 		return list;
+	}
+
+	@Override
+	public ImportList getById(long id) {
+		// TODO Auto-generated method stub
+		ImportList importList = importListDAO.findById(id);
+		return importList;
 	}
 
 }

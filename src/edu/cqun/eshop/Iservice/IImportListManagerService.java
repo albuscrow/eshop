@@ -32,4 +32,11 @@ public interface IImportListManagerService {
 	 * @return
 	 */
 	List<ImportList> getAllImportList ();
+	
+	/**
+	 * 通过ID查找进货单
+	 * @param id
+	 * @return
+	 */
+	ImportList getById(long id);
 }
