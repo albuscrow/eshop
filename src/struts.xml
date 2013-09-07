@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<include file="structs-default.xml" />
 	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
 		value="true" />
+	
 	<constant name="struts.objectFactory" value="spring" />
+    
 
 	<constant name="struts.ui.theme" value="simple" />
 	<constant name="struts.ui.templateDir" value="template" />
