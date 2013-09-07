@@ -66,4 +66,10 @@
 		   	<result type="plainText"></result>
 		</action>
 	</package>
+	
+	<package name="forward" namespace="/forward" extends="struts-default">
+		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
+			<result></result>
+		</action>
+	</package>
 </struts>
