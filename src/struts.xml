@@ -41,5 +41,9 @@
 		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
 		    <result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
 		</action>
+		
+		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
+		   	<result type="plainText"></result>
+		</action>
 	</package>
 </struts>
