@@ -156,5 +156,15 @@ public class UserManagerService implements IUserManagerService {
 			return null;
 		}
 	}
+	
+	@Override
+	public Buyer findUserById(Long id){
+		try {
+			return buyerDAO.findById(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 }

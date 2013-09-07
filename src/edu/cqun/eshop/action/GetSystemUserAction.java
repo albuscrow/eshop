@@ -13,18 +13,19 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-public class GetBuyerAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class GetSystemUserAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 
+	 * 取得所有系统用户信息
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private IUserManagerService userManagerService;
+	private ISystemUserManagerService systemUserManagerService;
 
 	private Map att;
     private HttpServletRequest request;
@@ -33,7 +34,7 @@ public class GetBuyerAction extends ActionSupport  implements SessionAware, Serv
     
     @Override
 	public String execute() {
-		att.put("buyers", userManagerService.getAllUser());
+		att.put("users", systemUserManagerService.getAllUser());
 		
 		return SUCCESS;
 	}

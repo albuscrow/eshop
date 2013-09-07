@@ -41,13 +41,13 @@
 			<br>
 		</div>
 		
-		<h3>系统用户管理</h3>
+		<h3 id = "SystemUserManager">系统用户管理</h3>
 		<div>
-			<h3 id = "systemUserManager">系统用户管理管理</h3>
 		</div>
 		
 		<h3 id = "BuyerManager">买家管理</h3>
 		<div></div>
+		
 		<h3>营业信息管理</h3>
 		<div>
 			<a href="">1234</a> <a>5678</a>
