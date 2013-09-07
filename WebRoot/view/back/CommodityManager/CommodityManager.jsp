@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page contentType="text/html; charset=UTF-8"%>
 
 <%
 	String path = request.getContextPath();
@@ -25,9 +26,9 @@
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
 
+
 </head>
 <body>
-	<form>
 		<div align="center">
 			<p class="STYLE4">商品管理</p>
 		</div>
@@ -47,7 +48,7 @@
           	  分类:
 			<s:select
             label="分类"
-            list="category"
+            list="%{#session.category}"
             listValue="name"
             listKey="categoryId"
             name="categorySelect"
@@ -73,7 +74,6 @@
 			<display:column property="origin" title="产地" />
 			<display:column property="registerDate" title="上市日期" />
 		</display:table>
-	</form>
 	<p align="center">
 		<a href="back/CommodityManager.action" title="商品管理刷新">刷新</a>
 	</p>

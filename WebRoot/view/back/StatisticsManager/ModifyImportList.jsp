@@ -13,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>添加进货单</title>
+<title>更改进货单</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -35,14 +35,15 @@
 <link rel="stylesheet" type="text/css"
 	href="css/back/StatisticsManager/AddImportList.css">
 
-<link rel="stylesheet" type="text/css" href="css/screen.css" />
+<link rel="stylesheet" type="text/css" 
+	href="css/screen.css" />
 
-</head>
-
-<body>
-	<s:form action="back/AddImportList.action">
+  </head>
+  
+  <body>
+    <s:form action="back/ModifyImportListEX.action">
 		<div align="center">
-			<p class="STYLE4">添加进货单</p>
+			<p class="STYLE4">更改进货单</p>
 		</div>
 		<table width="156%" class="bordered" align="center">
 			<thead>
@@ -52,11 +53,11 @@
 					<th>每件商品成本(单位：元)</th>
 				</tr>
 				<tr>
-					<td><s:textfield name="name" type="text" size="20" />
+					<td><s:textfield name="name" type="text" size="20" value="%{#session.importList.commodity.name}"/>
 					</td>
-					<td><s:textfield name="quantity" type="text" size="10" />
+					<td><s:textfield name="quantity" type="text" size="10" value="%{#session.importList.quantity}"/>
 					</td>
-					<td><s:textfield name="price" type="text" size="10" />
+					<td><s:textfield name="price" type="text" size="10" value="%{#session.importList.price}"/>
 					</td>
 				</tr>
 			</thead>
@@ -68,6 +69,5 @@
 		</p>
 		<p>&nbsp;</p>
 	</s:form>
-
-</body>
+  </body>
 </html>

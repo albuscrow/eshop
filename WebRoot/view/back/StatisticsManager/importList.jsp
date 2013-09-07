@@ -87,7 +87,7 @@
 				href="#">返回</a>
 		</p>
 		<p align="center">
-		<!-- /view/back/StatisticsManager/AddImportList.jsp -->
+		
 			<label> <input type="button" name="button" value="添加" 
 			onclick="location.href='back/AddImportListEX.action'"/>
 			</label>
@@ -97,13 +97,13 @@
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
 	
-	<display:table name="${importLists}" pagesize="2" id="importLists">
+	<display:table name="${importLists}" pagesize="5" id="importLists">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
 		<display:column property="commodity.name" title="商品名" />
 		<display:column property="quantity" title="数量" />
 		<display:column property="price" sortable="true" headerClass="sortable" title="价格" />
 		<display:column property="importDate" sortable="true" headerClass="sortable" title="进货日期" />
-		<display:column title="操作" ><a href="back/ImportModify.action?importId=${importLists.importId}">编辑</a><p>&nbsp;</p><a href="back/ImportDelete.action">删除</a></display:column>
+		<display:column title="操作" ><a href="back/ModifyImportList.action?importId=${importLists.importId}">编辑</a><p>&nbsp;</p><a href="back/DeleteImportList.action">删除</a></display:column>
 	</display:table>
 	
 </body>

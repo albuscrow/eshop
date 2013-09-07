@@ -8,6 +8,10 @@
   <welcome-file-list>
     <welcome-file>/index.jsp</welcome-file>
   </welcome-file-list>
+  
+
+
+  
   <filter>
   	<filter-name>struts2</filter-name>
   	<filter-class>
@@ -19,6 +23,11 @@
   	<url-pattern>*.action</url-pattern>
   </filter-mapping>
   
+    <filter-mapping>
+    <filter-name>struts2</filter-name>
+    <url-pattern>*.jsp</url-pattern>
+</filter-mapping>
+ 
   <filter-mapping>
      <filter-name>struts2</filter-name>
      <url-pattern>/struts/*</url-pattern>

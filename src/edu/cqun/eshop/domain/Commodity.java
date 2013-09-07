@@ -264,16 +264,13 @@ public class Commodity implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Commodity [commodityId=" + commodityId + ", category="
-				+ category + ", name=" + name + ", sales=" + sales + ", price="
+		return "Commodity [commodityId=" + commodityId + ", name=" + name + ", sales=" + sales + ", price="
 				+ price + ", discountPrice=" + discountPrice + ", isRecommend="
 				+ isRecommend + ", rest=" + rest + ", picture=" + picture
 				+ ", averageMark=" + averageMark + ", introduction="
 				+ introduction + ", origin=" + origin + ", marketPrice="
 				+ marketPrice + ", registerDate=" + registerDate + ", isSale="
-				+ isSale + ", brand=" + brand + ", orderLists=" + orderLists
-				+ ", salesRecords=" + salesRecords + ", importLists="
-				+ importLists + "]";
+				+ isSale + ", brand=" + brand + "]";
 	}
 
 }

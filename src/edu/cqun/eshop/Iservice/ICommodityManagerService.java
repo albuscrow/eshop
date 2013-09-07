@@ -9,73 +9,75 @@ import edu.cqun.eshop.domain.Commodity;
 public interface ICommodityManagerService {
 	
 	/**
-	 * �����Ʒ
+	 * 锟斤拷锟斤拷锟狡�
 	 * @param commodity
 	 * @return
 	 */
 	boolean addCommodity(Commodity commodity);
 	
 	/**
-	 * ɾ����Ʒ
+	 * 删锟斤拷锟斤拷品
 	 * @param commodity
 	 * @return
 	 */
 	boolean deleteCommodity(long commodityId);
 	
 	/**
-	 * ����ɾ����Ʒ
+	 * 锟斤拷锟斤拷删锟斤拷锟斤拷品
 	 * @param commodity
 	 * @return
 	 */
 	boolean deleteCommoditys(Set<Long> commodityIds);
 	
 	/**
-	 * �޸���Ʒ��Ϣ
+	 * 锟睫革拷锟斤拷品锟斤拷息
 	 * @param commodity
 	 * @return
 	 */
 	boolean modifyCommodity(Commodity commodity);
 	
 	/**
-	 * �鿴ĳ����Ʒ�Ŀ��
+	 * 锟介看某锟斤拷锟斤拷品锟侥匡拷锟�
 	 * @param commodityId
 	 * @return 
 	 */
 	long getCommodityQuantity(long commodityId);
 	
 	/**
-	 * ��ݱ�ǩ�鿴��Ʒ
+	 * 锟斤拷荼锟角╋拷榭达拷锟狡�
 	 * @param categorys
 	 * @return
 	 */
 	Set<Commodity> searchCommodity(Category category);
 	
 	/**
-	 * ȡ�ð��������������Ʒ
+	 * 取锟矫帮拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟狡�
 	 * @return
 	 */
 	List<Commodity> getCommodityOrderBysales();
 	
 	/**
-	 * ȡ���Ƽ�����Ʒ
+	 * 取锟斤拷锟狡硷拷锟斤拷锟斤拷品
 	 * @return
 	 */
 	List<Commodity> getRecommendCommodity();
 	
 	/**
-	 * ȡ���ؼ۵���Ʒ
+	 * 取锟斤拷锟截价碉拷锟斤拷品
 	 * @return
 	 */
 	List<Commodity>getSpecialOffercommodity();
 
 	/*
-	 * ȡ��������Ʒ
+	 * 取锟斤拷锟斤拷锟斤拷锟斤拷品
 	 * @return
 	 */
 	List<Commodity>getAllCommodities();
 	List<Category> getCategories();
 	List<Commodity> getCommodities(Commodity example) ;
 
-
+	Commodity getCommodityById(long id);
+	
+	List<Commodity> getCommoditiesByCommodityName(String name);
 }
 
