@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <input type = "text" value = "用户名" id = "buyerUserName" > 
     <input type = "text" value = "密码" id = "password" >
     <input type="button"onclick="login()" class="HY" value="[登录]" id = "login">
-    <input type="button" onclick="window.location.href('regesterPage.action')"class="HY" value="[注册]"id = "regester" >    
+    <input type="button" onclick="location.href='forward/regesterPage.action'"class="HY" value="[注册]"id = "regester" >    
     <input type="button" class="HY" value="我的账户" id = "zhanghu" >
     <input type="button" class="HY"value="我的订单" id = "order"></td>
   </tr>
@@ -62,13 +62,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </p>
     </td>
     <td width="169" height="83" align="center" valign="bottom">
-<!--    <form id="form1" name="form1" method="post" action="">
-      <input type="submit" name="gr" id="gr" value="我的Ego" style="height:30px;width:100px" />
-    </form>      <form id="form2" name="form2" method="post" action="">
-        <input type="submit" name="gr2" id="gr2" value="购物车" style="height:30px;width:100px"/>
-    </form>    <form id="form3" name="form3" method="post" action="">
-      <input type="submit" name="gr3" id="gr3" value="我的订单" style="height:30px;width:100px"/>
-    </form>-->
     <ul id="MenuBar1" class="MenuBarHorizontal">
       <li><a class="MenuBarItemSubmenu" href="#">我的索引</a>
         <ul>

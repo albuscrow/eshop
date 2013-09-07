@@ -9,7 +9,7 @@ function login() {
 	var password = $("#password").val();
 	$.get("forward/login.action",{username: userName,password: password},function(data){
 		var datas = data.split(":");
-		if(datas[0] = "success"){
+		if(datas[0] == "success"){
 			$("#zhanghu").show();
 			$("#order").show();
 			$("#buyerUserName").hide();

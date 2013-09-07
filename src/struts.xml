@@ -63,13 +63,25 @@
 		</action>
 		
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
-		   	<result type="plainText"></result>
+		   	
 		</action>
 	</package>
 	
 	<package name="forward" namespace="/forward" extends="struts-default">
 		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
-			<result></result>
+			
+		</action>
+		
+		<action name="main" class = "edu.cqun.eshop.forwordAction.Main">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="regesterPage">
+			<result>/view/forward/regester.jsp</result>
+		</action>
+		
+		<action name="regester" class = "edu.cqun.eshop.forwordAction.LoginAction">
+			<result>/view/forward/main.jsp</result>
 		</action>
 	</package>
 </struts>
