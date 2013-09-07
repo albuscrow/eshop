@@ -19,6 +19,11 @@
   	<url-pattern>*.action</url-pattern>
   </filter-mapping>
   
+  <filter-mapping>
+     <filter-name>struts2</filter-name>
+     <url-pattern>/struts/*</url-pattern>
+  </filter-mapping>
+  
   <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
