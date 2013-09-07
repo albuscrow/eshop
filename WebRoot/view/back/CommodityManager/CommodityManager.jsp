@@ -57,7 +57,7 @@ $("#CommodityManager").click(function() {
           	  分类:
 			<s:select
             label="分类"
-            list="category"
+            list="%{#session.category}"
             listValue="name"
             listKey="categoryId"
             name="categorySelect"

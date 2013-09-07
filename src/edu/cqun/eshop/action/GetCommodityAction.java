@@ -101,7 +101,7 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		System.out.println("_________________________________________________________");
 
 		att.put("commodities", result );
-	
+		att.put("category",category);
 
 		return SUCCESS;
 	}
