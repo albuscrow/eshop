@@ -1,5 +1,6 @@
 package edu.cqun.eshop.action;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.Map;
 
@@ -37,6 +38,7 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private String goodsName;
 	
 	public String getGoodsId() {
+		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
 		return goodsId;
 	}
 
@@ -45,6 +47,7 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	}
 
 	public String getGoodsName() {
+		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
 		return goodsName;
 	}
 
@@ -63,14 +66,23 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	
 	@Override
 	public String execute() {
+		try {
+			request.setCharacterEncoding("UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		response.setCharacterEncoding("UTF-8");
+		
 		category=commodityService.getCategories();
+		
 		String testString=goodsId;
 		Commodity example = new Commodity();
-		if(goodsId!=null){
+		if(goodsId!=null&goodsId!=""){
 		long commodityId=Long.parseLong(goodsId);
+		System.out.println("+++++================="+commodityId+"+++++==================");
 		example.setCommodityId(commodityId);
 		}
-//		if(!goodsName.isEmpty()){
+//		if(goodsName!=null&goodsName!=""){
 //			example.setName(goodsName);
 //		}
 		att.put("commodities", commodityService.getCommodities(example));
