@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.opensymphony.xwork2.Result;
+
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.domain.Category;
 import edu.cqun.eshop.domain.Commodity;
@@ -130,13 +132,29 @@ public class CommodityManagerService implements ICommodityManagerService {
 		}
 		return null;
 	}
-
+	
+	
 	@Override
 	public List<Commodity> getAllCommodities() {
 		List<Commodity> result;
 		result=commdityDAO.findAll();
 		Hibernate.initialize(result);
 		return result;
+	}
+	@Override
+	public  List<Commodity> getCommodities(Commodity example) {
+		List<Commodity> result=null;
+		result=commdityDAO.findByExample(example);
+		return result;
+	}
+
+	@Override
+	public List<Category> getCategories() {
+		List<Category> result;
+		result=categoryDAO.findAll();
+		Hibernate.initialize(result);
+		return result;
+		
 	}
 
 }
