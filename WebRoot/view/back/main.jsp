@@ -50,6 +50,7 @@
 		</div>
 	</div>
 	
-	<iframe class="content" src="view/back/welcome.jsp" scrolling="auto"></iframe>
+	<iframe class="content" src="view/back/backWelcome.jsp" scrolling="auto"></iframe>
+
 </body>
 </html>

@@ -34,7 +34,9 @@ public class DeleteSyetemUserAction extends ActionSupport  implements SessionAwa
     
     @Override
 	public String execute() {
-		long id;
+//		String id = request.getParameter("id");
+//		int uid = Integer.parseInt(id);
+//		systemUserManagerService.deleteSystemUser(uid);
 		return SUCCESS;
 	}
 

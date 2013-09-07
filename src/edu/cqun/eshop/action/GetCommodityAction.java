@@ -33,6 +33,25 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private List<Category> category;
+	private String goodsId;
+	private String goodsName;
+	
+	public String getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(String goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
 
 	public List<Category> getCategory() {
 		return category;
@@ -42,14 +61,18 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		this.category = category;
 	}
 	
-
+	@Override
 	public String execute() {
-		if (commodityService == null) {
-			System.out.println("null!!!!!!!");
-		}
 		category=commodityService.getCategories();
-		
+		String testString=goodsId;
 		Commodity example = new Commodity();
+		if(goodsId!=null){
+		long commodityId=Long.parseLong(goodsId);
+		example.setCommodityId(commodityId);
+		}
+//		if(!goodsName.isEmpty()){
+//			example.setName(goodsName);
+//		}
 		att.put("commodities", commodityService.getCommodities(example));
 		return SUCCESS;
 	}
