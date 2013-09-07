@@ -17,10 +17,10 @@ import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-public class DeleteSyetemUserAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class GSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除系统用户
+	 * 取得所有系统用户信息
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -34,9 +34,8 @@ public class DeleteSyetemUserAction extends ActionSupport  implements SessionAwa
     
     @Override
 	public String execute() {
-//		String id = request.getParameter("id");
-//		int uid = Integer.parseInt(id);
-//		systemUserManagerService.deleteSystemUser(uid);
+		att.put("users", systemUserManagerService.getAllUser());
+		
 		return SUCCESS;
 	}
 

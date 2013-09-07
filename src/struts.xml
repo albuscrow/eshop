@@ -58,12 +58,12 @@
 			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
 		
-		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
-			<result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
+		<action name="SUM" class="edu.cqun.eshop.action.GSUA">
+			<result>/view/back/SUM/SUM.jsp</result>
 		</action>
 		
-		<action name="DeleteSyetemUser" class="edu.cqun.eshop.action.DeleteSyetemUserAction">
-		    <result>/view/back/SystemUserManager/delete.jsp</result>
+		<action name="DSU" class="edu.cqun.eshop.action.DSUA">
+		    <result>/view/back/SUM/SUM.jsp</result>
 	    </action>
 		
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">

@@ -23,6 +23,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    delete page. <br>
+    modify page. <br>
   </body>
 </html>

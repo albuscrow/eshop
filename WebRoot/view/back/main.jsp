@@ -36,7 +36,7 @@
 			<br>
 		</div>
 		
-		<h3 id = "SystemUserManager">系统用户管理</h3>
+		<h3 id = "SUM">系统用户管理</h3>
 		<div>
 		</div>
 		

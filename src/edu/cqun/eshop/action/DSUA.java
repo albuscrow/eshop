@@ -17,10 +17,10 @@ import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-public class GetSystemUserAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class DSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 取得所有系统用户信息
+	 * 删除系统用户
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -34,8 +34,9 @@ public class GetSystemUserAction extends ActionSupport  implements SessionAware,
     
     @Override
 	public String execute() {
-		att.put("users", systemUserManagerService.getAllUser());
-		
+		String id = request.getParameter("userId");
+		int uid = Integer.parseInt(id);
+		systemUserManagerService.deleteSystemUser(uid);
 		return SUCCESS;
 	}
 
