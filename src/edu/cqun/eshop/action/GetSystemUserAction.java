@@ -1,6 +1,5 @@
 package edu.cqun.eshop.action;
 
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,47 +9,33 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.ICommodityManagerService;
+import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
-import edu.cqun.eshop.domain.*;
-import edu.cqun.eshop.service.CommodityManagerService;
 
-public class GetCommodityAction extends ActionSupport implements SessionAware,
-		ServletRequestAware, ServletResponseAware {
+
+public class GetSystemUserAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 
+	 * 取得所有系统用户信息
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private ICommodityManagerService commodityService;
+	private ISystemUserManagerService systemUserManagerService;
 
 	private Map att;
-	private HttpServletRequest request;
-	private HttpServletResponse response;
-	private List<Category> category;
+    private HttpServletRequest request;
+    private HttpServletResponse response;
 
-	public List<Category> getCategory() {
-		return category;
-	}
-
-	public void setCategory(List<Category> category) {
-		this.category = category;
-	}
-	
-
+    
+    @Override
 	public String execute() {
-		if (commodityService == null) {
-			System.out.println("null!!!!!!!");
-		}
-		category=commodityService.getCategories();
+		att.put("users", systemUserManagerService.getAllUser());
 		
-		Commodity example = new Commodity();
-		att.put("commodities", commodityService.getCommodities(example));
 		return SUCCESS;
 	}
 
@@ -67,6 +52,5 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
-
 	}
 }

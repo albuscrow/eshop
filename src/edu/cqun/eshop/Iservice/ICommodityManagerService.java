@@ -9,69 +9,73 @@ import edu.cqun.eshop.domain.Commodity;
 public interface ICommodityManagerService {
 	
 	/**
-	 * лМ╪силф╥
+	 * О©╫О©╫О©╫О©╫О©╫ф╥
 	 * @param commodity
 	 * @return
 	 */
 	boolean addCommodity(Commodity commodity);
 	
 	/**
-	 * и╬ЁЩилф╥
+	 * и╬О©╫О©╫О©╫О©╫ф╥
 	 * @param commodity
 	 * @return
 	 */
 	boolean deleteCommodity(long commodityId);
 	
 	/**
-	 * еЗа©и╬ЁЩилф╥
+	 * О©╫О©╫О©╫О©╫и╬О©╫О©╫О©╫О©╫ф╥
 	 * @param commodity
 	 * @return
 	 */
 	boolean deleteCommoditys(Set<Long> commodityIds);
 	
 	/**
-	 * пч╦дилф╥пео╒
+	 * О©╫ч╦О©╫О©╫О©╫ф╥О©╫О©╫о╒
 	 * @param commodity
 	 * @return
 	 */
 	boolean modifyCommodity(Commodity commodity);
 	
 	/**
-	 * ╡И©╢дЁ╦Жилф╥╣д©Б╢Ф
+	 * О©╫И©╢дЁО©╫О©╫О©╫О©╫ф╥О©╫д©О©╫О©╫
 	 * @param commodityId
 	 * @return 
 	 */
 	long getCommodityQuantity(long commodityId);
 	
 	/**
-	 * ╦Ы╬щ╠Йг╘╡И©╢илф╥
+	 * О©╫О©╫щ╠О©╫г╘О©╫И©╢О©╫О©╫ф╥
 	 * @param categorys
 	 * @return
 	 */
 	Set<Commodity> searchCommodity(Category category);
 	
 	/**
-	 * х║╣ц╟╢ууоЗа©еепР╣дилф╥
+	 * х║О©╫ц╟О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ф╥
 	 * @return
 	 */
 	List<Commodity> getCommodityOrderBysales();
 	
 	/**
-	 * х║╣цмф╪Ж╣дилф╥
+	 * х║О©╫О©╫О©╫ф╪О©╫О©╫О©╫О©╫О©╫ф╥
 	 * @return
 	 */
 	List<Commodity> getRecommendCommodity();
 	
 	/**
-	 * х║╣цль╪ш╣дилф╥
+	 * х║О©╫О©╫О©╫ь╪ш╣О©╫О©╫О©╫ф╥
 	 * @return
 	 */
 	List<Commodity>getSpecialOffercommodity();
 
 	/*
-	 * х║╣цкЫспилф╥
+	 * х║О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫ф╥
 	 * @return
 	 */
 	List<Commodity>getAllCommodities();
+	List<Category> getCategories();
+	List<Commodity> getCommodities(Commodity example) ;
+
+
 }
 
