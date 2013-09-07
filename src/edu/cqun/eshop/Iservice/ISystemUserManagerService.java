@@ -47,5 +47,5 @@ public interface ISystemUserManagerService {
 	 * @param user
 	 * @return
 	 */
-	List getAllUser();
+	List<User> getAllUser();
 }

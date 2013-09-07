@@ -5,6 +5,7 @@
 %>
 
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -22,7 +23,6 @@
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
 
-
 </head>
 <body>
 	<form>
@@ -31,18 +31,30 @@
 		</div>
 		<p align="center">
 			<span class="STYLE6">
+		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" tooltipConfig="#{'jsTooltipEnabled':'true'}">
 			商品编号 <label> <input	name="textfield" type="text" size="10"> </label> <label></label>
 			商品名称 <label> <input type="text" name="textfield2"> </label>
-			分类 <label> 
-			<select name="select">
-			<option>食品</option>
-			<option>家具</option>
-			<option>电器</option>
-			</select> </label> 
-			<label> <input type="submit" name="Submit" value="查询">
-			</label> </span> <label> </label>
+			<s:textfield 
+            label="商品编号" 
+            name="goodsId" />
+            
+			<s:textfield 
+            label="商品名称" 
+            name="goodsName" />
+            
+			<s:select
+            label="分类"
+            list="category"
+            listValue="name"
+            listKey="categoryId"
+            name="categorySelect"
+            headerKey="null"
+            headerValue="全部"/>
+            
+            <s:submit value="查询" />            
+		</s:form>
+		</span>
 		</p>
-		
 		<display:table name="${commodities}" pagesize="10">
 			<display:column property="commodityId" title="商品编号" />
 			<display:column property="name" title="商品名称" />

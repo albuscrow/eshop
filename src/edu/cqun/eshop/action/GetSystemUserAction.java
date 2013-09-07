@@ -9,32 +9,33 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.ICommodityManagerService;
-import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.ISystemUserManagerService;
+import edu.cqun.eshop.Iservice.IUserManagerService;
 
-public class GetImportListAction extends ActionSupport implements SessionAware,
-ServletRequestAware, ServletResponseAware{
+
+public class GetSystemUserAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 
+	 * 取得所有系统用户信息
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	IImportListManagerService iImportListManagerService;
+	private ISystemUserManagerService systemUserManagerService;
 
 	private Map att;
-	private HttpServletRequest request;
-	private HttpServletResponse response;
+    private HttpServletRequest request;
+    private HttpServletResponse response;
 
+    
+    @Override
 	public String execute() {
-//		if (commodityService == null) {
-//			System.out.println("null!!!!!!!");
-//		}
-		att.put("importLists", iImportListManagerService.getAllImportList());
+		att.put("users", systemUserManagerService.getAllUser());
+		
 		return SUCCESS;
 	}
 
@@ -51,6 +52,5 @@ ServletRequestAware, ServletResponseAware{
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
-
 	}
 }

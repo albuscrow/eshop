@@ -1,5 +1,6 @@
 package edu.cqun.eshop.action;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,12 +32,25 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
+	private List<Category> category;
+
+	public List<Category> getCategory() {
+		return category;
+	}
+
+	public void setCategory(List<Category> category) {
+		this.category = category;
+	}
+	
 
 	public String execute() {
 		if (commodityService == null) {
 			System.out.println("null!!!!!!!");
 		}
-		att.put("commodities", commodityService.getAllCommodities());
+		category=commodityService.getCategories();
+		
+		Commodity example = new Commodity();
+		att.put("commodities", commodityService.getCommodities(example));
 		return SUCCESS;
 	}
 

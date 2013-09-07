@@ -12,29 +12,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.domain.ImportList;
 
-public class GetImportListAction extends ActionSupport implements SessionAware,
-ServletRequestAware, ServletResponseAware{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -7977697013453779402L;
+public class AddImportListAction extends ActionSupport implements SessionAware,
+		ServletRequestAware, ServletResponseAware {
 
 	@Autowired
-	IImportListManagerService iImportListManagerService;
+	private IImportListManagerService iImportListManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-
+	private String name;
+	private String quantity;
+	
+	@Override
 	public String execute() {
-//		if (commodityService == null) {
-//			System.out.println("null!!!!!!!");
-//		}
-		att.put("importLists", iImportListManagerService.getAllImportList());
+		// TODO Auto-generated method stub
+		ImportList importList = iImportListManagerService.getById(Long
+				.parseLong(request.getParameter("importId")));
+		att.put("importList", importList);
 		return SUCCESS;
 	}
 
