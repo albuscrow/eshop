@@ -16,10 +16,10 @@ import com.opensymphony.xwork2.ActionSupport;
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 
 
-public class DSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class MSUIA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除系统用户
+	 * 修改系统用户信息
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -35,7 +35,14 @@ public class DSUA extends ActionSupport  implements SessionAware, ServletRequest
 	public String execute() {
 		String uidr = request.getParameter("userId");
 		long uid = Long.parseLong(uidr);
-		if(systemUserManagerService.deleteSystemUser(uid)==true){
+		
+		String roleidr = request.getParameter("role_id");
+		long roleid = Long.parseLong(roleidr);
+		
+		String username = request.getParameter("username");
+		
+		
+		if(systemUserManagerService.modifySystemUserInfo(uid, roleid, username)==true){
 			return SUCCESS;
 		}
 	    else{

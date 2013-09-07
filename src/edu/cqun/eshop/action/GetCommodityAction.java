@@ -82,9 +82,9 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		System.out.println("+++++================="+commodityId+"+++++==================");
 		example.setCommodityId(commodityId);
 		}
-//		if(goodsName!=null&goodsName!=""){
-//			example.setName(goodsName);
-//		}
+		if(goodsName!=null&goodsName!=""){
+			example.setName(goodsName);
+		}
 		att.put("commodities", commodityService.getCommodities(example));
 		return SUCCESS;
 	}

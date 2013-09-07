@@ -62,11 +62,23 @@
 		</action>
 		
 		<action name="SUM" class="edu.cqun.eshop.action.GSUA">
-			<result>/view/back/SUM/SUM.jsp</result>
+			<result name="success">/view/back/SUM/SUM.jsp</result>
+			<result name="error">/view/back/SUM/fail.jsp</result>
 		</action>
 		
 		<action name="DSU" class="edu.cqun.eshop.action.DSUA">
-		    <result>/view/back/SUM/SUM.jsp</result>
+		    <result name="success">/view/back/SUM/suc.jsp</result>
+		    <result name="error">/view/back/SUM/fail.jsp</result>
+	    </action>
+	    
+	    <action name="MSUP" class="edu.cqun.eshop.action.MSUPA">
+		    <result name="success">/view/back/SUM/suc.jsp</result>
+		    <result name="error">/view/back/SUM/fail.jsp</result>
+	    </action>
+		
+	    <action name="MSUI" class="edu.cqun.eshop.action.MSUIA">
+		    <result name="success">/view/back/SUM/suc.jsp</result>
+		    <result name="error">/view/back/SUM/fail.jsp</result>
 	    </action>
 		
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">

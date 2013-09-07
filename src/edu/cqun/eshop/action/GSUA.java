@@ -35,8 +35,10 @@ public class GSUA extends ActionSupport  implements SessionAware, ServletRequest
     @Override
 	public String execute() {
 		att.put("users", systemUserManagerService.getAllUser());
-		
-		return SUCCESS;
+		if(systemUserManagerService.getAllUser().isEmpty())
+			return ERROR;
+		else
+		    return SUCCESS;
 	}
 
 	@Override
