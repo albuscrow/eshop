@@ -22,16 +22,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
-<script type="text/javascript">
-function JHshNumberText()
-        {
-                if ( !(((window.event.keyCode >= 48) && (window.event.keyCode <= 57)) || (window.event.keyCode == 13)))
-                {
-                        window.event.keyCode = 0 ;
-                }
-        }
-        </script>
-  
+
 </head>
 <body>
 	<form>
@@ -44,9 +35,7 @@ function JHshNumberText()
 			商品编号：
 			<s:textfield 
             label="商品编号" 
-            name="goodsId" 
-            
-            onchange="JHshNumberText()"            />
+            name="goodsId"  />
             
           	  商品名称：
 			<s:textfield 

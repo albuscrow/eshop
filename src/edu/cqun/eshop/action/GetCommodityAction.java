@@ -37,6 +37,7 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private String goodsName;
 	
 	public String getGoodsId() {
+		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
 		return goodsId;
 	}
 
@@ -45,6 +46,7 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	}
 
 	public String getGoodsName() {
+		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
 		return goodsName;
 	}
 
@@ -64,15 +66,19 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	@Override
 	public String execute() {
 		category=commodityService.getCategories();
+		
 		String testString=goodsId;
+		
+		System.out.println("______________________________"+testString+"**********************");
 		Commodity example = new Commodity();
-		if(goodsId!=null){
+		if(goodsId!=null&goodsId!=""){
 		long commodityId=Long.parseLong(goodsId);
+		System.out.println("+++++================="+commodityId+"+++++==================");
 		example.setCommodityId(commodityId);
 		}
-//		if(!goodsName.isEmpty()){
-//			example.setName(goodsName);
-//		}
+		if(goodsName!=null&goodsName!=""){
+			example.setName(goodsName);
+		}
 		att.put("commodities", commodityService.getCommodities(example));
 		return SUCCESS;
 	}
