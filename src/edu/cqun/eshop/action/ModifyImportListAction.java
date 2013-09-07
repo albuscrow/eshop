@@ -82,12 +82,7 @@ public class ModifyImportListAction extends ActionSupport implements
 		else {
 			System.out.println("Price¾¹È»²»ÎªNULLLLLLLLLLLLLL!");
 			System.out.println(name);
-			List<Commodity> list;
-			try {
-				list = iCommodityManagerService.getCommoditiesByCommodityName(name);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
 			if (list.isEmpty()) {
 				System.out.println("FAILED!dededed!!!!!!!!!!!!!!");
 				return "fail";
