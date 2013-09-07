@@ -54,6 +54,6 @@
 		</div>
 	</div>
 	
-	<iframe class="content" src="view/back/CommodityManager/CommodityManager.jsp" scrolling="auto"></iframe>
+	<iframe class="content" src="back/CommodityManager.action" scrolling="auto"></iframe>
 </body>
 </html>
