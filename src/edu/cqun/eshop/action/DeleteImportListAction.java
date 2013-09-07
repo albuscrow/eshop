@@ -20,58 +20,21 @@ import edu.cqun.eshop.Iservice.IImportListManagerService;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.ImportList;
 
-public class AddImportListAction extends ActionSupport implements SessionAware,
+public class DeleteImportListAction extends ActionSupport implements SessionAware,
 		ServletRequestAware, ServletResponseAware {
 
 	@Autowired
 	private IImportListManagerService iImportListManagerService;
-	@Autowired
-	private ICommodityManagerService iCommodityManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-	private String name;
-	private String price;
-	private String quantity;
-	
-	
-	
-	public String getName() {
-		return name;
-	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getPrice() {
-		return price;
-	}
-
-	public void setPrice(String price) {
-		this.price = price;
-	}
-
-	public String getQuantity() {
-		return quantity;
-	}
-
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
-	}
-
-	
 	@Override
 	public String execute() {
 		// TODO Auto-generated method stub
-		Short quantitynum = Short.parseShort(quantity);
-		Double pricenum = Double.parseDouble(price);
-		Timestamp importDate = new Timestamp(System.currentTimeMillis());
-		ImportList importList = new ImportList(quantitynum, pricenum, importDate);
-		Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
-		importList.setCommodity(commodity);
-		iImportListManagerService.addImportList(importList);
+		String importId = request.getParameter("importId");
+		iImportListManagerService.deleteImportList(Long.parseLong(importId));
 		att.put("importLists", iImportListManagerService.getAllImportList());
 		return SUCCESS;
 	}

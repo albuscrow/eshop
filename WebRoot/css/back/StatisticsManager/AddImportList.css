@@ -14,6 +14,11 @@ table {
     width: 100%;    
 }
 
+.cancelButton{
+	
+	
+}
+
 .bordered {
     border: solid #ccc 1px;
     -moz-border-radius: 6px;
