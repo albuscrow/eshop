@@ -14,7 +14,6 @@
 	<constant name="struts.ui.templateSuffix" value="ftl" />
 	<constant name="struts.locale" value="zh_CN"></constant>
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
-	
 
 	<package name="back" extends="struts-default" namespace="/back">
 		<action name="login">
