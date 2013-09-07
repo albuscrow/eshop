@@ -14,7 +14,6 @@
 	<constant name="struts.ui.templateSuffix" value="ftl" />
 	<constant name="struts.locale" value="zh_CN"></constant>
 	<constant name="struts.i18n.encoding" value="utf-8"></constant>
-	
 
 	<package name="back" extends="struts-default" namespace="/back">
 		<action name="login">
@@ -77,9 +76,25 @@
 			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
 		
-		<action name="SystemUserManager" class="edu.cqun.eshop.action.GetSystemUserAction">
-			<result>/view/back/SystemUserManager/SystemUserManager.jsp</result>
+		<action name="SUM" class="edu.cqun.eshop.action.GSUA">
+			<result name="success">/view/back/SUM/SUM.jsp</result>
+			<result name="error">/view/back/SUM/fail.jsp</result>
 		</action>
+		
+		<action name="DSU" class="edu.cqun.eshop.action.DSUA">
+		    <result name="success">/view/back/SUM/suc.jsp</result>
+		    <result name="error">/view/back/SUM/fail.jsp</result>
+	    </action>
+	    
+	    <action name="MSUP" class="edu.cqun.eshop.action.MSUPA">
+		    <result name="success">/view/back/SUM/suc.jsp</result>
+		    <result name="error">/view/back/SUM/fail.jsp</result>
+	    </action>
+		
+	    <action name="MSUI" class="edu.cqun.eshop.action.MSUIA">
+		    <result name="success">/view/back/SUM/suc.jsp</result>
+		    <result name="error">/view/back/SUM/fail.jsp</result>
+	    </action>
 		
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
 		   	

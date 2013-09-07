@@ -26,18 +26,9 @@
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css" href="css/back/commodityMain.css" />
 
-<script type="text/javascript">
-
-$("#CommodityManager").click(function() {
-		$(".content").attr("src","back/CommodityManager.action");
-	});
-	
-</script>
-	
 
 </head>
 <body>
-	<form>
 		<div align="center">
 			<p class="STYLE4">商品管理</p>
 		</div>
@@ -57,7 +48,7 @@ $("#CommodityManager").click(function() {
           	  分类:
 			<s:select
             label="分类"
-            list="category"
+            list="%{#session.category}"
             listValue="name"
             listKey="categoryId"
             name="categorySelect"
@@ -83,7 +74,6 @@ $("#CommodityManager").click(function() {
 			<display:column property="origin" title="产地" />
 			<display:column property="registerDate" title="上市日期" />
 		</display:table>
-	</form>
 	<p align="center">
 		<a href="back/CommodityManager.action" title="商品管理刷新">刷新</a>
 	</p>

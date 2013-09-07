@@ -130,7 +130,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<display:column property="name" title="商品名"  href="back/BuyerDetail.action" paramId="commodityId" paramProperty="commodityId"/>
 		<display:column property="price" title="价格" />
 		<display:column property = "introduction" title = "简介"/>
-		<display:column property="品牌" title="brand" />
+		<display:column property="brand" title="品牌" />
     </display:table></td>
   </tr>
 </table>
