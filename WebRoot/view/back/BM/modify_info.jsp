@@ -28,11 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-        <form action="back/MSUI.action">
-                        请输入要修改信息的系统用户ID <input name="userId"><br><br>
-                       如果要修改此用户角色，请输入具体角色ID<input name="role_id"><br><br>
+        <form action="back/MBI.action">
+                       请输入要修改信息的买家用户ID <input name="buyerId"><br><br>
                       如果要修改用户名，请输入新用户名<input name="username"><br><br>
-                     如果要修改用户名，请输入新的用户姓名<input name="name"><br><br>            
+            如果要修改姓名，请输入新姓名<input name="realname"><br><br>
+           如果要修改性别，请输入新的性别<input name="newsex"><br><br> 
+            如果要修改邮箱，请输入新邮箱地址<input name="email"><br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <input type="submit" value="确认修改">                     

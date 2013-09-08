@@ -20,7 +20,7 @@ import edu.cqun.eshop.Iservice.IUserManagerService;
 public class GSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * È¡µÃËùÓÐÏµÍ³ÓÃ»§ÐÅÏ¢
+	 * æŸ¥å‡ºæ‰€æœ‰ç³»ç»Ÿç”¨æˆ·
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 

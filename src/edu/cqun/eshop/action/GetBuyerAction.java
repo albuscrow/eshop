@@ -19,7 +19,7 @@ import edu.cqun.eshop.Iservice.IUserManagerService;
 public class GetBuyerAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 
+	 * 查出所有买家
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 

@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'delete.jsp' starting page</title>
+    <title>系统用户查询结果</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,15 +28,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-        <form action="back/MSUI.action">
-                        请输入要修改信息的系统用户ID <input name="userId"><br><br>
-                       如果要修改此用户角色，请输入具体角色ID<input name="role_id"><br><br>
-                      如果要修改用户名，请输入新用户名<input name="username"><br><br>
-                     如果要修改用户名，请输入新的用户姓名<input name="name"><br><br>            
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="submit" value="确认修改">                     
-        
-        </form>
+    <display:table name="${user}" pagesize="3" id = "user">
+		<display:column property="userId" title="用户ID" />
+		<display:column property="user" title="用户名" />
+		<display:column property="roleList.role" title="用户角色" />
+		<display:column property="roleList.authority" title="用户权限" />
+	</display:table>
+	 (  角色代号对应的角色： 1：买家   2：商品编辑    3：系统管理员    4：普通员工     5：仓库管理员       6：财务  )
   </body>
 </html>
