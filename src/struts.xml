@@ -32,12 +32,20 @@
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
 		
+		<action name="OrderList" class="edu.cqun.eshop.action.GetOrderListAction">
+			<result>/view/back/StatisticsManager/OrderList.jsp</result>
+		</action>
+		
 		<action name="QueryImportList" class="edu.cqun.eshop.action.QueryImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
 		<action name="QueryOtherPay" class="edu.cqun.eshop.action.QueryOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
+		</action>
+		
+		<action name="QueryOrderList" class="edu.cqun.eshop.action.QueryOrderListAction">
+			<result>/view/back/StatisticsManager/OrderList.jsp</result>
 		</action>
 
 		<action name="ModifyImportList" class="edu.cqun.eshop.action.ModifyImportListAction">
@@ -46,6 +54,10 @@
 		
 		<action name="ModifyOtherPay" class="edu.cqun.eshop.action.ModifyOtherPayAction">
 			<result>/view/back/StatisticsManager/ModifyOtherPay.jsp</result>
+		</action>
+		
+		<action name="ModifyOrderList" class="edu.cqun.eshop.action.ModifyOrderListAction">
+			<result>/view/back/StatisticsManager/ModifyOrderList.jsp</result>
 		</action>
 		
 		<action name="ModifyImportListEX" class="edu.cqun.eshop.action.ModifyImportListAction">
@@ -58,6 +70,11 @@
 			<result name="fail">/view/back/StatisticsManager/UserNotFound.jsp</result>
 		</action>
 		
+		<action name="ModifyOrderListEX" class="edu.cqun.eshop.action.ModifyOrderListAction">
+			<result name="success">/view/back/StatisticsManager/OrderList.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFound.jsp</result>
+		</action>
+		
 		<action name="AddImportList" class="edu.cqun.eshop.action.AddImportListAction">
 			<result name="success">/view/back/StatisticsManager/ImportList.jsp</result>
 			<result name="fail">/view/back/StatisticsManager/CommodityNotFoundADD.jsp</result>
@@ -65,6 +82,11 @@
 		
 		<action name="AddOtherPay" class="edu.cqun.eshop.action.AddOtherPayAction">
 			<result name="success">/view/back/StatisticsManager/OtherPay.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFoundADD.jsp</result>
+		</action>
+		
+		<action name="AddOrderList" class="edu.cqun.eshop.action.AddOrderListAction">
+			<result name="success">/view/back/StatisticsManager/OrderList.jsp</result>
 			<result name="fail">/view/back/StatisticsManager/UserNotFoundADD.jsp</result>
 		</action>
 
@@ -76,11 +98,14 @@
 			<result>/view/back/StatisticsManager/AddOtherPay.jsp</result>
 		</action>
 		
+		<action name="AddOrderListEX">
+			<result>/view/back/StatisticsManager/AddOrderList.jsp</result>
+		</action>
+		
 		<action name="DeleteImportList" class="edu.cqun.eshop.action.DeleteImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
-<<<<<<< HEAD
 		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
@@ -89,11 +114,13 @@
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action>
 		
-=======
 		<action name="DeleteOtherPay" class="edu.cqun.eshop.action.DeleteOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
->>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
+		
+		<action name="DeleteOrderList" class="edu.cqun.eshop.action.DeleteOrderListAction">
+			<result>/view/back/StatisticsManager/OrderList.jsp</result>
+		</action>
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
