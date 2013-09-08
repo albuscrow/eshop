@@ -15,7 +15,7 @@ public interface IOrderManagerService {
 	boolean generateOrderList(OrderList orderList);
 	
 	/**
-	 * 根据用户id查询该用户的订单
+	 * 根据买家id查询该用户的订单
 	 * @param buyerId
 	 * @return
 	 */

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import edu.cqun.eshop.Iservice.IOrderManagerService;
 import edu.cqun.eshop.Iservice.ITrolleyManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Buyer;
@@ -27,6 +28,9 @@ public class BuyerDetailAction extends ActionSupport implements SessionAware,
 	
 	@Autowired
 	private ITrolleyManagerService trolleyManagerService;
+	
+	@Autowired
+	private IOrderManagerService iOrderManagerService;
 
 	private Map att;
     private HttpServletRequest request;
@@ -51,6 +55,9 @@ public class BuyerDetailAction extends ActionSupport implements SessionAware,
     	Set<OrderList> commodifyInTrolley = (Set<OrderList>) trolleyManagerService.checkTrolley(buyer.getBuyerId());
     	att.put("commoditys", commodifyInTrolley);
     	att.put("currentBuyer", buyer);
+    	
+    	Set<OrderList> orderLists = iOrderManagerService.findOrderListByUser(Long.parseLong(request.getParameter("buyerId")));
+    	att.put("orderLists", orderLists);
     	
     	return SUCCESS;
     }

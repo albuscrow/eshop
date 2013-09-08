@@ -23,6 +23,14 @@
 			<result>/view/back/main.jsp</result>
 		</action>
 
+		<action name="StatisticsEX">
+			<result>/view/back/StatisticsManager/Statistics.jsp</result>
+		</action>
+
+		<action name="Statistics" class="edu.cqun.eshop.action.StatisticsAction">
+			<result>/view/back/StatisticsManager/Statistics.jsp</result>
+		</action>
+
 		<action name="ImportList" class="edu.cqun.eshop.action.GetImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
@@ -56,7 +64,7 @@
 		</action>
 		
 		<action name="ModifyOrderList" class="edu.cqun.eshop.action.ModifyOrderListAction">
-			<result>/view/back/StatisticsManager/ModifyOrderList.jsp</result>
+			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
 		
 		<action name="ModifyImportListEX" class="edu.cqun.eshop.action.ModifyImportListAction">
