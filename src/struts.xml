@@ -173,15 +173,33 @@
 			<result>/view/forward/main.jsp</result>
 		</action>
 		
+		<action name="searchByK" class = "edu.cqun.eshop.forwordAction.SearchByK">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
 		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
 			<result>/view/forward/mytrolley.jsp</result>
 		</action>
 		
 		<action name="buy">
-			<result>/view/forward/buy.jsp</result>
+			<result type="dispatcher">/view/forward/buy.jsp</result>
 		</action>
-		<action name="buyinf" class = "edu.cqun.eshop.forwordAction.Buy">
+		<action name="buyinf" class = "edu.cqun.eshop.forwordAction.SubmitOrder">
 			<result>/view/forward/pay.jsp</result>
+		</action>
+		<action name="comment">
+			<result>/view/forward/comment.jsp</result>
+		</action>
+		<action name="addComment" class = "edu.cqun.eshop.forwordAction.AddComment">
+			<result>/view/forward/mytrolley.jsp</result>
+		</action>
+		
+		<action name="mine">
+			<result>/view/forward/modify.jsp</result>
+		</action>
+		
+		<action name="Modify" class="edu.cqun.eshop.forwordAction.Modify">
+			<result>/view/forward/main.jsp</result>
 		</action>
 	</package>
 </struts>

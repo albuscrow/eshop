@@ -1,5 +1,6 @@
 package edu.cqun.eshop.forwordAction;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Map;
 
@@ -14,21 +15,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.IOrderManagerService;
+import edu.cqun.eshop.constant.OrderStatus;
 import edu.cqun.eshop.domain.Buyer;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.OrderList;
 
-public class Buy extends ActionSupport implements SessionAware,
+public class SubmitOrder extends ActionSupport implements SessionAware,
 ServletRequestAware, ServletResponseAware {
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 
-	private OrderList orderList;
 	
-	private String payType;
-	private String postType;
+	
+	
+
+	public Long getCid() {
+		return cid;
+	}
+
+	public void setCid(Long cid) {
+		this.cid = cid;
+	}
 
 	public String getPostType() {
 		return postType;
@@ -45,35 +54,59 @@ ServletRequestAware, ServletResponseAware {
 	public void setPayType(String payType) {
 		this.payType = payType;
 	}
+	
 
-	public OrderList getOrderList() {
-		return orderList;
+
+	
+
+	public OrderList getOrder() {
+		return order;
 	}
 
-	public void setOrderList(OrderList orderList) {
-		this.orderList = orderList;
+	public void setOrder(OrderList order) {
+		this.order = order;
 	}
+	
+	private String payType;
+	private String postType;
+	private Long cid;
+	private OrderList order;
 
 	@Autowired
 	private IOrderManagerService orderManagerService;
 
 	public String execute(){
 		Buyer buyer = (Buyer) att.get("buyer");
-		Long commodityId = Long.parseLong(request.getParameter("id"));
-		orderList.setBuyer(buyer);
+		
+		order.setBuyer(buyer);
 
 		List<Commodity> commodities = (List<Commodity>) att.get("commodities");
 
 		Commodity addedCommodity = null;
 		for (Commodity commodity : commodities) {
-			if(commodity.getCommodityId().equals(commodityId)){
+			if(commodity.getCommodityId().equals(cid)){
 				addedCommodity = commodity;
 				break;
 			}
 		}
-		orderList.setCommodity(addedCommodity);
+		order.setCommodity(addedCommodity);
+		if (payType.compareTo("货到付款")==0) {
+			order.setPayType((short) 0);
+		}else{
+			order.setPayType((short) 1);
+		}
 		
-		orderManagerService.generateOrderList(orderList);
+		if (postType.compareTo("平邮") == 0) {
+			order.setPostType(0);
+		}else{
+			order.setPostType(1);
+		}
+		
+		order.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+		
+		order.setState(OrderStatus.NON_PAY);
+		
+		orderManagerService.generateOrderList(order);
 		return SUCCESS;
 	}
 
