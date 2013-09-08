@@ -9,27 +9,27 @@ import edu.cqun.eshop.domain.Buyer;
 public interface IUserManagerService {
 
 	/**
-	 * ��½
+	 * 登陆
 	 * @param buyer
 	 * @return
 	 */
 	boolean checkLogin(Buyer buyer);
 	
 	/**
-	 * ע��
+	 * 注册
 	 * @param buyer
 	 */
 	boolean regester(Buyer buyer);
 	
 	/**
-	 * �����û���
-	 * @param buyer buyer�е��������Ϊnull�����������һ���������������Ϊnull�����ڲ���ʱ���Ը����ԣ����Ե���findbyexample�����Ǹ�����
+	 * 查找买家
+	 * @param buyer buyer
 	 * @return
 	 */
 	List<Buyer> findUser(Buyer buyer);
 	
 	/**
-	 * �޸�����
+	 * 修改密码
 	 * @param password
 	 * @return
 	 */
@@ -37,29 +37,28 @@ public interface IUserManagerService {
 
 	
 	/**
-	 * �޸��û�����
-	 * @param buyer buyer�а����û��޸ĺ������
+	 * 修改买家信息
+	 * @param buyer buyer
 	 * @return
 	 */
-	boolean modifyUserInfo(long id,String name, String sex, String user, 
-			String email, Timestamp registerDate);
+	boolean modifyUserInfo(Long id,String name, String sex, String user, String email);
 	
 	/**
-	 * ɾ���û�
-	 * @param buyerId ���Ҫɾ����û���id
+	 * 删除买家
+	 * @param buyerId 
 	 * @return
 	 */
 	boolean deleteUser(long buyerId);
 	
 	/**
-	 * ����ɾ���û�
+	 * 批量删除买家
 	 * @param buyerIds 
 	 * @return
 	 */
 	boolean deleteUsers(List<Long> buyerIds);
 	
 	/**
-	 * ��������û�
+	 * 找出所有买家
 	 * @return
 	 */
 	List<Buyer> getAllUser();

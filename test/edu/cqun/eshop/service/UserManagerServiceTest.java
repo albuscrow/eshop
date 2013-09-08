@@ -24,7 +24,7 @@ public class UserManagerServiceTest {
 
 	@Autowired
 	IUserManagerService service;
-
+/*
 	@Test
 	public void testCheckLogin() {
 		//Timestamp data = new Timestamp(System.currentTimeMillis());
@@ -64,32 +64,32 @@ public class UserManagerServiceTest {
 		assertTrue(service.modifypassword(id,old_password,new_password));
 		return;
 	}
-
+*/
 	@Test
 	public void testmodifyUserInfo() {
+		//断定返回"true",否则就报错。201309030003L
+		assertTrue(service.modifyUserInfo(201309010001l, "lc.gai", "女", "gai", "54545"));
+		return;
+	}
+/*
+	@Test
+	public void testdeleteUser() {
+		long id=3;
 		//断定返回"true",否则就报错。
-		assertTrue(service.modifyUserInfo(201309010001l,"lc.gai","男",null,null,null));
+		assertTrue(service.deleteUser(id));
 		return;
 	}
 
-//	@Test
-//	public void testdeleteUser() {
-//		long id=3;
-//		//断定返回"true",否则就报错。
-//		assertTrue(service.deleteUser(id));
-//		return;
-//	}
-//
-//	@Test
-//	public void testdeleteUsers() {
-//		List<Long> buyerIds = new ArrayList<Long>();
-//		Long idl=1l;
-//		Long idp=2l;
-//		buyerIds.add(idl);
-//		buyerIds.add(idp);
-//		//断定返回"true",否则就报错。
-//		assertTrue(service.deleteUsers(buyerIds));
-//		return;
-//	}
-
+	@Test
+	public void testdeleteUsers() {
+		List<Long> buyerIds = new ArrayList<Long>();
+		Long idl=1l;
+		Long idp=2l;
+		buyerIds.add(idl);
+		buyerIds.add(idp);
+		//断定返回"true",否则就报错。
+		assertTrue(service.deleteUsers(buyerIds));
+		return;
+	}
+*/
 }

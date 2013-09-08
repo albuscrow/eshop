@@ -10,40 +10,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>系统用户信息管理</title>
+    <title>系统用户查询结果</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-    
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
     <script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/screen.css" />
     <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.10.3.css">
-    
-    <script type="text/javascript" src="js/back/SUM/SUM.js"></script>
   </head>
   
   <body>
- 
-       相关操作：
-       <button onclick="javascript:location.href='view/back/SUM/add.jsp'">增加系统用户</button>&nbsp;&nbsp;
-        <button onclick="javascript:location.href='view/back/SUM/delete.jsp'">删除系统用户</button>&nbsp;&nbsp;
-	    <button onclick="javascript:location.href='view/back/SUM/modify_info.jsp'">修改系统用户基本信息</button>&nbsp;&nbsp;
-	    <button onclick="javascript:location.href='view/back/SUM/modify_pass.jsp'">修改系统用户密码</button>&nbsp;&nbsp;
-	    <button onclick="javascript:location.href='view/back/SUM/query.jsp'">查询系统用户</button>&nbsp;&nbsp;
-
-   <display:table name="${users}" pagesize="3" id = "user">
+    <display:table name="${user}" pagesize="3" id = "user">
 		<display:column property="userId" title="用户ID" />
 		<display:column property="user" title="用户名" />
 		<display:column property="roleList.role" title="用户角色" />
 		<display:column property="roleList.authority" title="用户权限" />
 	</display:table>
 	 (  角色代号对应的角色： 1：买家   2：商品编辑    3：系统管理员    4：普通员工     5：仓库管理员       6：财务  )
-	 
-
   </body>
 </html>

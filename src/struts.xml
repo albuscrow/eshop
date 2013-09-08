@@ -65,7 +65,7 @@
 		</action>
 
 		<action name="BuyerManager" class="edu.cqun.eshop.action.GetBuyerAction">
-			<result>/view/back/BuyerManager/BuyerManagerMain.jsp</result>
+			<result>/view/back/BM/BMM.jsp</result>
 		</action>
 
 		<action name="BuyerDetail" class="edu.cqun.eshop.action.BuyerDetailAction">
@@ -78,24 +78,49 @@
 		
 		<action name="SUM" class="edu.cqun.eshop.action.GSUA">
 			<result name="success">/view/back/SUM/SUM.jsp</result>
-			<result name="error">/view/back/SUM/fail.jsp</result>
+			<result name="error">/view/back/fail.jsp</result>
 		</action>
 		
 		<action name="DSU" class="edu.cqun.eshop.action.DSUA">
-		    <result name="success">/view/back/SUM/suc.jsp</result>
-		    <result name="error">/view/back/SUM/fail.jsp</result>
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
 	    
 	    <action name="MSUP" class="edu.cqun.eshop.action.MSUPA">
-		    <result name="success">/view/back/SUM/suc.jsp</result>
-		    <result name="error">/view/back/SUM/fail.jsp</result>
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
 		
 	    <action name="MSUI" class="edu.cqun.eshop.action.MSUIA">
-		    <result name="success">/view/back/SUM/suc.jsp</result>
-		    <result name="error">/view/back/SUM/fail.jsp</result>
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="AddUser" class="edu.cqun.eshop.action.AddUserA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
 		
+	    <action name="FindUser" class="edu.cqun.eshop.action.FindUserA">
+		    <result name="success">/view/back/SUM/queryResult.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	     <action name="AddBuyer" class="edu.cqun.eshop.action.AddBuyerA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="deleteBuyer" class="edu.cqun.eshop.action.deleteBuyerA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
+	    <action name="MBI" class="edu.cqun.eshop.action.MBIA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>
+	    
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
 		   	
 		</action>

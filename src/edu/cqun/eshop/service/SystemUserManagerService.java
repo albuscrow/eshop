@@ -132,4 +132,16 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 		}
 	}
 
+	@Override
+	public User findUser(long user_id) {
+		// TODO Auto-generated method stub
+		try{
+			User user=userDAO.findById(user_id);
+			return user;
+		}catch (RuntimeException re) {
+			throw re;
+		}
+
+	}
+
 }

@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'modify_pass.jsp' starting page</title>
+    <title>增加买家用户</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	    <script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/screen.css" />
@@ -28,16 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <form action="back/MSUP.action">
-           请输入用户ID<input name="userId"><br>
-          请输入旧密码<input  type="password" name="old_pass"><br>
-          请输入新密码<input  type="password" name="new_pass"><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="确认修改">     
-    </form> 
-    
+        <form action="back/AddBuyer.action">
+                           请填写新增买家基本信息：<br><br>
+                              请输入用户名<input name="username"><br><br>
+                              请输入密码<input name="pass"><br><br>
+                           请输入姓名<input name="realname"><br><br> 
+                    <input type="submit" value="点击确认增加此买家"> 
+                                 （ 注：以上全为为必填项，其余信息请在注册完成后进行修改补充）
+        </form>
   </body>
 </html>

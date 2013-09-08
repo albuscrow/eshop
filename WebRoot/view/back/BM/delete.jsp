@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'modify_pass.jsp' starting page</title>
+    <title>删除买家用户</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	    <script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/screen.css" />
@@ -28,16 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <form action="back/MSUP.action">
-           请输入用户ID<input name="userId"><br>
-          请输入旧密码<input  type="password" name="old_pass"><br>
-          请输入新密码<input  type="password" name="new_pass"><br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="确认修改">     
-    </form> 
-    
+  <form action="back/deleteBuyer.action">
+  请输入要删除的买家ID
+    <input name="buyerId" ><br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  value="确认删除">
+    </form>
   </body>
 </html>
