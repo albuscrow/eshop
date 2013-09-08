@@ -180,7 +180,7 @@
 		<action name="buy">
 			<result>/view/forward/buy.jsp</result>
 		</action>
-		<action name="buy" class = "edu.cqun.eshop.forwordAction.Buy">
+		<action name="buyinf" class = "edu.cqun.eshop.forwordAction.Buy">
 			<result>/view/forward/pay.jsp</result>
 		</action>
 	</package>

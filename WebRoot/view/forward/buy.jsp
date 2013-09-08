@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-	<s:form action="forward/buy.action" onsubmit="return check()">
+	<s:form theme="xhtml" action="forward/buy.action" onsubmit="return check()">
 	<s:textfield name="orderList.quantity" label="数量"></s:textfield>
 	<s:textfield name="orderList.address" label="地址"></s:textfield>
 	<s:textfield name="orderList.postcode" label="邮编"></s:textfield>
