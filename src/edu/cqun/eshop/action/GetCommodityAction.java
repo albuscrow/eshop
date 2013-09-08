@@ -1,6 +1,7 @@
 package edu.cqun.eshop.action;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +37,9 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private List<Category> category;
 	private String goodsId;
 	private String goodsName;
+	private String categorySelect;
+
+	private  List<Commodity> allCommodities;
 	
 	public String getGoodsId() {
 		System.out.println("*****************************"+goodsId+":"+goodsName+"*****************************");
@@ -66,50 +70,34 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	
 	@Override
 	public String execute() {
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		response.setCharacterEncoding("UTF-8");
-		
 		category=commodityService.getCategories();
+		allCommodities=commodityService.getAllCommodities();
+		List<Commodity> result=new ArrayList<Commodity>() ;
 		
-		String testString=goodsId;
-		Commodity example = new Commodity();
-		if(goodsId!=null&&!goodsId.equals("")){
-		long commodityId=Long.parseLong(goodsId);
-		System.out.println("+++++================="+commodityId+"+++++==================");
-		example.setCommodityId(commodityId);
+		if(goodsId==null&&goodsName==null&&(categorySelect==null)){
+			result=allCommodities;
+		}else if(goodsId!=null&&!goodsId.equals(""))
+		{
+			Long commodityId=Long.parseLong(goodsId);
+			result.add(commodityService.getCommodityById(commodityId));
+		}else {
+			for (Commodity  commodity: allCommodities) {
+				String commodityName=commodity.getName();
+				if(	commodityName.contains(goodsName)&&(categorySelect==null||categorySelect.equals(commodity.getCategory().getName()))){
+					result.add(commodity);
+				}
+			}
 		}
-<<<<<<< HEAD
-		if(goodsName!=null&goodsName!=""){
-			example.setName(goodsName);
-		}
-		att.put("commodities", commodityService.getCommodities(example));
-=======
-
-		try {
-			request.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		goodsName = request.getParameter("goodsName");
-		if(goodsName!=null & goodsName!=""){
-			example.setName(goodsName);
-		}
-		List<Commodity> result=commodityService.getCommodities(example);
+		
+		att.put("commodities", result );
+		att.put("category",category);
+		
 		System.out.println("_________________________________________________________");
 		for (Commodity commodity : result) {
 			System.out.println(commodity.getName());
 		}
 		System.out.println("_________________________________________________________");
-
-		att.put("commodities", result );
-		att.put("category",category);
-
->>>>>>> e111409249275346a0e4d98a9d4ea50f0c4efbbe
+		
 		return SUCCESS;
 	}
 

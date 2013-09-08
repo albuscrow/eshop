@@ -80,7 +80,13 @@ public interface ICommodityManagerService {
 	
 	List<Commodity> getCommoditiesByCommodityName(String name);
 
+	
+	List<Commodity> getCommoditiesByCategory(Category category);
+
+
+
 
 	List<Commodity> searchByKeyword(String keyword);
+
 }
 

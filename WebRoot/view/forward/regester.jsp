@@ -40,7 +40,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<p id = "inf">"${error}"</p>
+	<!--  
 	<s:form theme="xhtml" onsubmit="return validate()" action="forward/Regester.action">
+	-->
 	<s:textfield name = "buyer.user" label = "用户名" id = "user" ></s:textfield>
 	<s:password name = "buyer.password" label = "密码" id = "password"></s:password>
 	<s:password name = "password"  label = "密码确认" id = "passwordconfirm"></s:password>
