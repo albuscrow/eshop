@@ -8,22 +8,27 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class DeleteCommodityAction extends ActionSupport implements SessionAware,
-		ServletRequestAware, ServletResponseAware{
+import edu.cqun.eshop.service.CommodityManagerService;
+
+public class DeleteCommodityAction extends ActionSupport implements
+		SessionAware, ServletRequestAware, ServletResponseAware {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1332656397617449886L;
-	
+
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-	
+
 	private String commodityId;
-	
+	@Autowired
+	private CommodityManagerService commodityService;
+
 	public String getCommodityId() {
 		return commodityId;
 	}
@@ -32,12 +37,15 @@ public class DeleteCommodityAction extends ActionSupport implements SessionAware
 		this.commodityId = commodityId;
 	}
 
+	@Override
 	public String execute() {
-	
+		commodityId=request.getParameter("commodityId");
+		Long deleteId=Long.parseLong(commodityId);
+		commodityService.deleteCommodity(deleteId);
 		return SUCCESS;
 	}
 
-@Override
+	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
 		this.response = arg0;
 	}
@@ -53,6 +61,3 @@ public class DeleteCommodityAction extends ActionSupport implements SessionAware
 
 	}
 }
-
-
-	

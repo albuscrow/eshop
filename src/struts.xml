@@ -3,8 +3,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<include file="structs-default.xml" />
-	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
-		value="true" />
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"	value="true" />
 	
 	<constant name="struts.objectFactory" value="spring" />
     
@@ -80,7 +79,6 @@
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
-<<<<<<< HEAD
 		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
@@ -89,11 +87,9 @@
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action>
 		
-=======
 		<action name="DeleteOtherPay" class="edu.cqun.eshop.action.DeleteOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
->>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
