@@ -82,7 +82,7 @@
 	</package>
 	
 	<package name="forward" namespace="/forward" extends="struts-default">
-		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="login" class="edu.cqun.eshop.forwordAction.UserLoginAction">
 			
 		</action>
 		
@@ -94,8 +94,25 @@
 			<result>/view/forward/regester.jsp</result>
 		</action>
 		
-		<action name="regester" class = "edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="regester" class = "edu.cqun.eshop.forwordAction.Regester">
+			<result type="">/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="AddToTrolley" class = "edu.cqun.eshop.forwordAction.AddToTrolley">
+			
+		</action>
+		
+		<action name="Regester" class = "edu.cqun.eshop.forwordAction.Regester">
 			<result>/view/forward/main.jsp</result>
+			<result name="error">/view/forward/regester.jsp</result>
+		</action>
+		
+		<action name="search" class = "edu.cqun.eshop.forwordAction.Search">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
+			<result>/view/forward/mytrolley.jsp</result>
 		</action>
 	</package>
 </struts>

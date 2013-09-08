@@ -79,5 +79,8 @@ public interface ICommodityManagerService {
 	Commodity getCommodityById(long id);
 	
 	List<Commodity> getCommoditiesByCommodityName(String name);
+
+
+	List<Commodity> searchByKeyword(String keyword);
 }
 

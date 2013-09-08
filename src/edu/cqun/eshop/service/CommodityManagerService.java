@@ -1,5 +1,6 @@
 package edu.cqun.eshop.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -168,6 +169,20 @@ public class CommodityManagerService implements ICommodityManagerService {
 		// TODO Auto-generated method stub
 		List<Commodity> list = commdityDAO.findByName(name);
 		return list;
+	}
+
+	@Override
+	public List<Commodity> searchByKeyword(String keyword) {
+		List<Commodity> commodity = this.getAllCommodities();
+		List<Commodity> result = new ArrayList<Commodity>();
+		
+		for (Commodity commodity2 : commodity) {
+			if (commodity2.getName().contains(keyword) || commodity2.getIntroduction().contains(keyword)) {
+				result.add(commodity2);
+			}
+		}
+		
+		return result;
 	}
 
 }
