@@ -79,14 +79,14 @@ public interface ICommodityManagerService {
 	Commodity getCommodityById(long id);
 	
 	List<Commodity> getCommoditiesByCommodityName(String name);
-<<<<<<< HEAD
+
 	
 	List<Commodity> getCommoditiesByCategory(Category category);
 
-=======
+
 
 
 	List<Commodity> searchByKeyword(String keyword);
->>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
+
 }
 
