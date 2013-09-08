@@ -34,7 +34,7 @@
 		</div>
 		<p align="center">
 			<span class="STYLE6">
-		<s:form action="/back/CommodityManager.action" method="post" enctype="multipart/form-data" >
+		<s:form action="CommodityManager" namespace="/back" method="post" enctype="multipart/form-data" >
 			商品编号：
 			<s:textfield 
             label="商品编号" 
@@ -59,7 +59,7 @@
 		</s:form>
 		</span>
 		</p>
-		<display:table name="${commodities}" pagesize="10">
+		<display:table name="${commodities}" pagesize="10" id="commodities">
 			<display:column property="commodityId" title="商品编号" />
 			<display:column property="name" title="商品名称" />
 			<display:column property="category.name" title="分类" />
@@ -73,6 +73,12 @@
 			<display:column property="introduction" title="简介" />
 			<display:column property="origin" title="产地" />
 			<display:column property="registerDate" title="上市日期" />
+			<display:column title="操作">
+			 
+			<p>&nbsp;</p>
+			<a
+				href="back/DeleteCommodity.action?commodityId=${commodities.commodityId}">删除</a> 
+		</display:column>
 		</display:table>
 	<p align="center">
 		<a href="back/CommodityManager.action" title="商品管理刷新">刷新</a>

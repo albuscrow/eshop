@@ -52,6 +52,15 @@
 		<action name="DeleteImportList" class="edu.cqun.eshop.action.DeleteImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
+		
+		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
+		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
+		
+		<action name="DeleteCommodity" class="edu.cqun.eshop.action.DeleteCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
+		</action>
+		
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
