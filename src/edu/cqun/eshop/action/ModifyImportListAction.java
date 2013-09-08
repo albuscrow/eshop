@@ -25,26 +25,16 @@ public class ModifyImportListAction extends ActionSupport implements
 
 	@Autowired
 	private IImportListManagerService iImportListManagerService;
-	
+
 	@Autowired
 	private ICommodityManagerService iCommodityManagerService;
-	
+
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private String name;
 	private String price;
 	private String quantity;
-//	private String importId;
-//	
-//	
-//	public String getImportId() {
-//		return importId;
-//	}
-//
-//	public void setImportId(String importId) {
-//		this.importId = importId;
-//	}
 
 	public String getName() {
 		return name;
@@ -69,39 +59,49 @@ public class ModifyImportListAction extends ActionSupport implements
 	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
-	
+
 	@Override
-	public String execute()  {
-	// TODO Auto-generated method stub
-		if(price==null){
+	public String execute() {
+		// TODO Auto-generated method stub
+		if (price == null || price.equals("")) {
 			String importId = request.getParameter("importId");
-			System.out.println("SDFASLKDJFKALSJDFLAJL:"+importId);
-			ImportList importList = iImportListManagerService.getById(Long.parseLong(importId));
+			System.out.println("SDFASLKDJFKALSJDFLAJL:" + importId);
+			ImportList importList = iImportListManagerService.getById(Long
+					.parseLong(importId));
 			att.put("importList", importList);
-		}
-		else {
-			System.out.println("Price竟然不为NULLLLLLLLLLLLLL!");
-			System.out.println(name);
-			List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
-			if (list.isEmpty()) {
-				System.out.println("FAILED!dededed!!!!!!!!!!!!!!");
+		} else {
+			if (!quantity.equals("") & !price.equals("") & !name.equals("")) {
+				System.out.println("Price竟然不为NULLLLLLLLLLLLLL!");
+				System.out.println(name);
+				List<Commodity> list = iCommodityManagerService
+						.getCommoditiesByCommodityName(name);
+				if (list.isEmpty()) {
+					System.out.println("FAILED!dededed!!!!!!!!!!!!!!");
+					return "fail";
+				}
+				// Long id = Long.parseLong(request.getParameter("importId"));
+				ImportList importList = (ImportList) att.get("importList");
+				Long id = importList.getImportId();
+				System.out.println("DDDDiergele:" + id);
+				Timestamp timestamp = importList.getImportDate();
+				Short quantitynum = Short.parseShort(quantity);
+				Double pricenum = Double.parseDouble(price);
+				ImportList importList2 = new ImportList(quantitynum, pricenum,
+						timestamp);
+				System.out.println("Commodity:" + list.get(0));
+				importList2.setCommodity(list.get(0));
+				importList2.setImportId(id);
+				iImportListManagerService.modifyImportList(importList2);
+				List<ImportList> importLists = iImportListManagerService
+						.getAllImportList();
+				att.put("importLists", importLists);
+				System.out.println();
+			} else {
 				return "fail";
 			}
-//			Long id = Long.parseLong(request.getParameter("importId"));
-			ImportList importList = (ImportList) att.get("importList");
-			Long id = importList.getImportId();
-			System.out.println("DDDDiergele:"+id);
-			Timestamp timestamp = importList.getImportDate();
-			Short quantitynum = Short.parseShort(quantity);
-			Double pricenum = Double.parseDouble(price);
-			ImportList importList2 = new ImportList(quantitynum, pricenum, timestamp);
-			System.out.println("Commodity:"+list.get(0));
-			importList2.setCommodity(list.get(0));
-			importList2.setImportId(id);
-			iImportListManagerService.modifyImportList(importList2);
 		}
-	return SUCCESS;
-}
+		return SUCCESS;
+	}
 
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {

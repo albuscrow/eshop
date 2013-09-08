@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'delete.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,15 +19,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-    <a href="back/main.action">后台登陆</a>
-    <hr/>
-    <a href="back/ImportList.action">进货单页面</a>
-    <hr/>
-    <a href = "forward/main.action">前台</a>
-    <hr/>
-    <a href = "back/OtherPay.action">其他支出</a>
+        <form action="back/MSUI.action">
+                       请输入要修改信息的系统用户ID <input name="userId"><br>
+                      如果要修改此用户角色，请输入具体角色ID<input name="role_id"><br>
+                     如果要修改用户名，请输入新用户名<input name="username"><br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <input type="submit" value="确认修改">                     
+        
+        </form>
   </body>
 </html>

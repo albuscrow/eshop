@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'modify_pass.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,12 +22,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a href="back/main.action">后台登陆</a>
-    <hr/>
-    <a href="back/ImportList.action">进货单页面</a>
-    <hr/>
-    <a href = "forward/main.action">前台</a>
-    <hr/>
-    <a href = "back/OtherPay.action">其他支出</a>
+  <form action="back/MSUP.action">
+           请输入用户ID<input name="userId"><br>
+          请输入旧密码<input  type="password" name="old_pass"><br>
+          请输入新密码<input  type="password" name="new_pass"><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="确认修改">     
+    </form> 
+    
   </body>
 </html>

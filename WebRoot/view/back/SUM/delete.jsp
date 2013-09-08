@@ -3,13 +3,13 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>系统用户信息管理</title>
+    <title>删除系统用户</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -19,13 +19,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<link rel="stylesheet" type="text/css" href="css/screen.css" />
+
   </head>
   
   <body>
-    	<display:table name="${users}" pagesize="3" id = "user">
-		<display:column property="userId" title="系统用户ID" />
-		<display:column property="user" title="系统用户名" />
-	</display:table>
+  <form action="back/DSU.action">
+  请输入要删除的用户ID
+    <input name="userId" ><br><br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit"  value="确认删除">
+    </form>
   </body>
 </html>

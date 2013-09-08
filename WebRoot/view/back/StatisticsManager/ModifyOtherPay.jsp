@@ -40,6 +40,34 @@
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <s:form action="ModifyOtherPayEX" namespace="/back">
+		<div align="center">
+			<p class="STYLE4">更改其他支出单</p>
+		
+		<table width="156%" class="bordered" align="center">
+			<thead>
+				<tr>
+					<th>负责人</th>
+					<th>描述</th>
+					<th>总额(单位：元)</th>
+				</tr>
+				<tr>
+					<td><s:textfield name="name" type="text" size="20" value="%{#session.otherPay.user.name}"/>
+					</td>
+					<td><s:textfield name="note" type="text" size="10" value="%{#session.otherPay.note}"/>
+					</td>
+					<td><s:textfield name="amount" type="text" size="10" value="%{#session.otherPay.amount}"/>
+					</td>
+				</tr>
+			</thead>
+		</table>
+		<p align="center">
+			<label> <s:submit  value="提交"></s:submit> </label>
+			<label> <input type="button" value="取消" 
+			onclick="location.href='back/OtherPay.action'"></label>
+		</p>
+		<p>&nbsp;</p>
+		</div>
+	</s:form>
   </body>
 </html>

@@ -1,5 +1,6 @@
 package edu.cqun.eshop.Iservice;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import edu.cqun.eshop.domain.ImportList;
@@ -39,4 +40,14 @@ public interface IImportListManagerService {
 	 * @return
 	 */
 	ImportList getById(long id);
+	
+	/**
+	 * 通过信息查询进货单
+	 * @param id
+	 * @param name
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	List<ImportList> getImportListByMessage(Long id, String name, Timestamp start, Timestamp end);
 }

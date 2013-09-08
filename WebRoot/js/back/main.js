@@ -13,8 +13,8 @@ $(function init() {
 	$("#BuyerManager").click(function() {
 		$(".content").attr("src","back/BuyerManager.action");
 	});
-	$("#SystemUserManager").click(function() {
-		$(".content").attr("src","back/SystemUserManager.action");
+	$("#SUM").click(function() {
+		$(".content").attr("src","back/SUM.action");
 	});
 });
 

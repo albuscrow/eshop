@@ -82,6 +82,12 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		System.out.println("+++++================="+commodityId+"+++++==================");
 		example.setCommodityId(commodityId);
 		}
+<<<<<<< HEAD
+		if(goodsName!=null&goodsName!=""){
+			example.setName(goodsName);
+		}
+		att.put("commodities", commodityService.getCommodities(example));
+=======
 
 		try {
 			request.setCharacterEncoding("utf-8");
@@ -103,6 +109,7 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		att.put("commodities", result );
 		att.put("category",category);
 
+>>>>>>> e111409249275346a0e4d98a9d4ea50f0c4efbbe
 		return SUCCESS;
 	}
 

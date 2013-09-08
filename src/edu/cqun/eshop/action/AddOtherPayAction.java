@@ -16,26 +16,29 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
+import edu.cqun.eshop.Iservice.ISystemUserManagerService;
+import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.ImportList;
+import edu.cqun.eshop.domain.OtherPay;
+import edu.cqun.eshop.domain.User;
 
-public class AddImportListAction extends ActionSupport implements SessionAware,
+public class AddOtherPayAction extends ActionSupport implements SessionAware,
 		ServletRequestAware, ServletResponseAware {
 
 	@Autowired
-	private IImportListManagerService iImportListManagerService;
+	private IOtherPayManagerService iOtherPayManagerService;
 	@Autowired
-	private ICommodityManagerService iCommodityManagerService;
+	private ISystemUserManagerService iSystemUserManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	private String name;
-	private String price;
-	private String quantity;
-	
-	
-	
+	private String note;
+	private String amount;
+
 	public String getName() {
 		return name;
 	}
@@ -44,49 +47,49 @@ public class AddImportListAction extends ActionSupport implements SessionAware,
 		this.name = name;
 	}
 
-	public String getPrice() {
-		return price;
+	public String getNote() {
+		return note;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
+	public void setNote(String note) {
+		this.note = note;
 	}
 
-	public String getQuantity() {
-		return quantity;
+	public String getAmount() {
+		return amount;
 	}
 
-	public void setQuantity(String quantity) {
-		this.quantity = quantity;
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
-	
 	@Override
 	public String execute() {
 		// TODO Auto-generated method stub
-		if(!quantity.equals("") & !price.equals("") & !name.equals("")){
-			Short quantitynum = Short.parseShort(quantity);
-			Double pricenum = Double.parseDouble(price);
-			Timestamp importDate = new Timestamp(System.currentTimeMillis());
-			ImportList importList = new ImportList(quantitynum, pricenum, importDate);
-			
-			List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
-			
-			if(!list.isEmpty()){
-				Commodity commodity = list.get(0);
-//				Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
-				importList.setCommodity(commodity);
-				iImportListManagerService.addImportList(importList);
-				att.put("importLists", iImportListManagerService.getAllImportList());
+		if (!amount.equals("") & !note.equals("") & !name.equals("")) {
+			Double amountnum = Double.parseDouble(amount);
+			Timestamp opayDate = new Timestamp(System.currentTimeMillis());
+
+			OtherPay otherPay = new OtherPay(opayDate);
+			List<User> list = iSystemUserManagerService.getUsersByName(name);
+
+			if (!list.isEmpty()) {
+				User user = list.get(0);
+				// Commodity commodity =
+				// iCommodityManagerService.getCommodityById(10401001l);
+				otherPay.setAmount(amountnum);
+				otherPay.setNote(note);
+				otherPay.setUser(user);
+				iOtherPayManagerService.addOtherPay(otherPay);
+				att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
 				return SUCCESS;
-			}
-			else {
+			} else {
 				return "fail";
 			}
-		}
-		else {
+		} else {
 			return "fail";
 		}
+
 	}
 
 	@Override

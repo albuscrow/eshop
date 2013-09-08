@@ -1,5 +1,6 @@
 package edu.cqun.eshop.action;
 
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,18 +10,16 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
-import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-public class GetSystemUserAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class DSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 取得所有系统用户信息
+	 * 删除系统用户
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -34,9 +33,15 @@ public class GetSystemUserAction extends ActionSupport  implements SessionAware,
     
     @Override
 	public String execute() {
-		att.put("users", systemUserManagerService.getAllUser());
-		
-		return SUCCESS;
+		String uidr = request.getParameter("userId");
+		long uid = Long.parseLong(uidr);
+		if(systemUserManagerService.deleteSystemUser(uid)==true){
+			return SUCCESS;
+		}
+	    else{
+		     return ERROR;
+		} 
+    	//return SUCCESS;
 	}
 
 	@Override

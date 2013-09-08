@@ -1,4 +1,6 @@
+
 #Sun Sep 08 21:02:14 CST 2013
+
 eclipse.preferences.version=1
 encoding//WebRoot/index.jsp=UTF-8
 encoding//WebRoot/js/back/main.js=UTF-8
@@ -6,7 +8,12 @@ encoding//WebRoot/view/back/BuyerManager/BuyerDetail.jsp=UTF-8
 encoding//WebRoot/view/back/CommodityManager/AddCommodity.jsp=UTF-8
 encoding//WebRoot/view/back/CommodityManager/CommodityManager.jsp=UTF-8
 encoding//WebRoot/view/back/CommodityManager/example/AddCommodity.jsp=UTF-8
-encoding//WebRoot/view/back/SystemUserManager/SystemUserManager.jsp=UTF-8
+encoding//WebRoot/view/back/SUM/SUM.jsp=UTF-8
+encoding//WebRoot/view/back/SUM/delete.jsp=UTF-8
+encoding//WebRoot/view/back/SUM/fail.jsp=UTF-8
+encoding//WebRoot/view/back/SUM/modify_info.jsp=UTF-8
+encoding//WebRoot/view/back/SUM/modify_pass.jsp=UTF-8
+encoding//WebRoot/view/back/SUM/suc.jsp=UTF-8
 encoding//WebRoot/view/back/SystemUserManager/systemUserManager.jsp=UTF-8
 encoding//WebRoot/view/forward/mytrolley.jsp=UTF-8
 encoding//WebRoot/view/forward/searchresult.jsp=UTF-8

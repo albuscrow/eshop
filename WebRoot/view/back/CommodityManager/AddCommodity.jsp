@@ -43,8 +43,7 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
 		<s:actionerror />
 			<s:actionmessage />
 			<s:fielderror />
-		<s:form action="/back/AddCommodityAction.action" method="post" enctype="multipart/form-data">
-		
+		<form action="/back/AddCommodityAction.action" method="post" enctype="multipart/form-data">
 			<table class="bordered">
 				<tr>
 					<th>商品名称 <input name="name" type="text"
@@ -67,8 +66,8 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
           			  label="分类"
           			  list="category"
           			  listValue="name"
-           			 listKey="categoryId"
-         			   name="categorySelect"
+           			  listKey="categoryId"
+         			  name="categorySelect"
           			  headerKey="null"
           			  headerValue="全部"/>
 					<th>产地<input name="origin" type="text" size="15"></th>
@@ -79,12 +78,12 @@ $( ".datepicker" ).datepicker().datepicker( "option", "dateFormat", "yy-mm-dd");
 					<th colspan="3"><div align="center">图片</div></th>
 				</tr>
 			</table> 
-		</s:form>	
+			<label> <input type="submit" name="Submit" value="添加"></label>  
+		</form>	
 		</div>
 		
 		<p align="center">
-			<label> <input type="submit" name="Submit" value="添加">
-			</label> <label></label> <label> <input type="submit" name="Submit2" value="返回"> </label>
+			<label> <input type="submit" name="Submit2" value="返回"> </label>
 		</p>
 </body>
 </html>

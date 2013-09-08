@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'suc.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,15 +19,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-    <a href="back/main.action">后台登陆</a>
-    <hr/>
-    <a href="back/ImportList.action">进货单页面</a>
-    <hr/>
-    <a href = "forward/main.action">前台</a>
-    <hr/>
-    <a href = "back/OtherPay.action">其他支出</a>
+  <img alt="网速不给力啊" src="images/suc.jpg">
   </body>
 </html>
