@@ -71,7 +71,7 @@ public class ImportListManagerService implements IImportListManagerService {
 			return list;
 		}
 		else {
-			if(name!=null & start!=null & end!=null){
+			if(!name.equals("") & start!=null & end!=null){
 				List<ImportList> list = importListDAO.getOverallImportByPeriod(start, end);
 				List<ImportList> result = new ArrayList<ImportList>();
 				for (ImportList importList : list) {
@@ -82,7 +82,7 @@ public class ImportListManagerService implements IImportListManagerService {
 				}
 				return result;
 			}
-			else if(name!=null){
+			else if(!name.equals("")){
 				List<Commodity> list = commodityDAO.findByName(name);
 				List<ImportList> result = new ArrayList<ImportList>();
 				for (Commodity commodity : list) {
@@ -95,8 +95,9 @@ public class ImportListManagerService implements IImportListManagerService {
 				return importListDAO.getOverallImportByPeriod(start, end);
 			}
 			else {
-				System.out.println("Message ‰»Î¥ÌŒÛ£°");
-				return null;
+//				return null;
+				List<ImportList> list = importListDAO.findAll();
+				return list;
 			}
 		}
 	}

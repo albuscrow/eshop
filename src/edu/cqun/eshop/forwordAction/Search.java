@@ -1,6 +1,6 @@
 package edu.cqun.eshop.forwordAction;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,40 +13,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.IUserManagerService;
-import edu.cqun.eshop.domain.Buyer;
-import edu.cqun.eshop.service.UserManagerService;
+import edu.cqun.eshop.Iservice.ICommodityManagerService;
+import edu.cqun.eshop.domain.Commodity;
 
-public class LoginAction extends ActionSupport implements SessionAware,
-		ServletRequestAware, ServletResponseAware {
+public class Search extends ActionSupport implements SessionAware,ServletRequestAware,ServletResponseAware{
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
 	@Autowired
-	private IUserManagerService userManagerService;
-	
+	private ICommodityManagerService commodityManagerService;
 	
 	@Override
-	public String execute()  {
-		Buyer buyer = new Buyer();
-		buyer.setUser(request.getParameter("username"));
-		buyer.setPassword(request.getParameter("password"));
-		response.setContentType("text/html;charset=utf-8");
-		try {
-			if (userManagerService.checkLogin(buyer)) {
-				att.put("buyer", buyer);
-				response.getWriter().write("success:"+buyer.getUser());
-			}else{
-				response.getWriter().write("fail");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return null;
+	public String execute() {
+		String keyword = request.getParameter("keyword");
+		List<Commodity> commodities = commodityManagerService.searchByKeyword(keyword);
+		att.put("commodities", commodities);
+		return SUCCESS;
 	}
-	
 	
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {

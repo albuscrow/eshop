@@ -41,10 +41,10 @@
   </head>
   
   <body>
-    <s:form action="back/ModifyImportListEX.action">
+    <s:form action="ModifyImportListEX" namespace="/back">
 		<div align="center">
 			<p class="STYLE4">更改进货单</p>
-		</div>
+		
 		<table width="156%" class="bordered" align="center">
 			<thead>
 				<tr>
@@ -68,6 +68,7 @@
 			onclick="location.href='back/ImportList.action'"></label>
 		</p>
 		<p>&nbsp;</p>
+		</div>
 	</s:form>
   </body>
 </html>

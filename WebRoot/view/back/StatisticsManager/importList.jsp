@@ -40,7 +40,7 @@
 </head>
 
 <body>
-	<s:form action="back/QueryImportList.action">
+	<s:form action="QueryImportList" namespace="/back">
 		<div align="center">
 			<p class="STYLE4">进货单</p>
 		</div>
@@ -50,24 +50,32 @@
 		<p align="center">
 			货单号 <label> <s:textfield name="importId" type="text" size="10" /> </label>
 			 商品名称 <label> <s:textfield type="text" name="name" /> </label> 
-			 进货时间 <label> <s:textfield name="years" type="text" size="4" /> 年</label> <label> <s:textfield
-						name="months" type="text" size="4" /> 月 <input name="days"
-					type="text" size="4"> 日</label> 到 <label></label> <label> <input
-					name="yeare" type="text" size="4"> 年 <input name="monthe"
-					type="text" size="4"> 月</label> <label> <input name="daye"
-					type="text" size="4"> 日</label>
+			 进货时间 <label> <s:textfield name="years" type="text" size="4" /> 年</label> 
+			 <label> <s:textfield name="months" type="text" size="4" /> 月 </label>
+			 <label> <s:textfield name="days" type="text" size="4"/> 日</label> 
+			 <label> 到 </label> 
+			 <label> <s:textfield name="yeare" type="text" size="4"/> 年 </label> 
+			 <label> <s:textfield name="monthe" type="text" size="4"/> 月</label> 
+			 <label> <s:textfield name="daye" type="text" size="4"/> 日</label>
 		</p>
 		<br />
 		<p align="center">
 			<s:submit value="查询"></s:submit>
-			<label></label>
+			<label><input type="button" value="添加进货单" 
+			onclick="location.href='back/AddImportListEX.action'"></label>
+			<label><input type="button" value="重置" 
+			onclick="location.href='back/ImportList.action'"></label>
 		</p>
 
 	</s:form>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
+<<<<<<< HEAD
 		<div align="center">
 
+=======
+<div align="center">
+>>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
 	<display:table name="${importLists}" pagesize="5" id="importLists">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
 		<display:column property="importId" title="货单编号" />

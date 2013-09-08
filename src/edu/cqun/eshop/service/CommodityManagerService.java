@@ -185,4 +185,18 @@ public class CommodityManagerService implements ICommodityManagerService {
 		
 	}
 
+	@Override
+	public List<Commodity> searchByKeyword(String keyword) {
+		List<Commodity> commodity = this.getAllCommodities();
+		List<Commodity> result = new ArrayList<Commodity>();
+		
+		for (Commodity commodity2 : commodity) {
+			if (commodity2.getName().contains(keyword) || commodity2.getIntroduction().contains(keyword)) {
+				result.add(commodity2);
+			}
+		}
+		
+		return result;
+	}
+
 }

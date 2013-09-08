@@ -28,31 +28,59 @@
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
+		<action name="OtherPay" class="edu.cqun.eshop.action.GetOtherPayAction">
+			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
+		</action>
+		
 		<action name="QueryImportList" class="edu.cqun.eshop.action.QueryImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+		
+		<action name="QueryOtherPay" class="edu.cqun.eshop.action.QueryOtherPayAction">
+			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
 
 		<action name="ModifyImportList" class="edu.cqun.eshop.action.ModifyImportListAction">
 			<result>/view/back/StatisticsManager/ModifyImportList.jsp</result>
 		</action>
 		
+		<action name="ModifyOtherPay" class="edu.cqun.eshop.action.ModifyOtherPayAction">
+			<result>/view/back/StatisticsManager/ModifyOtherPay.jsp</result>
+		</action>
+		
 		<action name="ModifyImportListEX" class="edu.cqun.eshop.action.ModifyImportListAction">
 			<result name="success">/view/back/StatisticsManager/ImportList.jsp</result>
 			<result name="fail">/view/back/StatisticsManager/CommodityNotFound.jsp</result>
 		</action>
-
+		
+		<action name="ModifyOtherPayEX" class="edu.cqun.eshop.action.ModifyOtherPayAction">
+			<result name="success">/view/back/StatisticsManager/OtherPay.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFound.jsp</result>
+		</action>
+		
 		<action name="AddImportList" class="edu.cqun.eshop.action.AddImportListAction">
-			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+			<result name="success">/view/back/StatisticsManager/ImportList.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/CommodityNotFoundADD.jsp</result>
+		</action>
+		
+		<action name="AddOtherPay" class="edu.cqun.eshop.action.AddOtherPayAction">
+			<result name="success">/view/back/StatisticsManager/OtherPay.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFoundADD.jsp</result>
 		</action>
 
 		<action name="AddImportListEX">
 			<result>/view/back/StatisticsManager/AddImportList.jsp</result>
 		</action>
 		
+		<action name="AddOtherPayEX">
+			<result>/view/back/StatisticsManager/AddOtherPay.jsp</result>
+		</action>
+		
 		<action name="DeleteImportList" class="edu.cqun.eshop.action.DeleteImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
+<<<<<<< HEAD
 		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
@@ -61,6 +89,11 @@
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action>
 		
+=======
+		<action name="DeleteOtherPay" class="edu.cqun.eshop.action.DeleteOtherPayAction">
+			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
+		</action>
+>>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
@@ -111,7 +144,7 @@
 	</package>
 	
 	<package name="forward" namespace="/forward" extends="struts-default">
-		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="login" class="edu.cqun.eshop.forwordAction.UserLoginAction">
 			
 		</action>
 		
@@ -123,8 +156,25 @@
 			<result>/view/forward/regester.jsp</result>
 		</action>
 		
-		<action name="regester" class = "edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="regester" class = "edu.cqun.eshop.forwordAction.Regester">
+			<result type="">/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="AddToTrolley" class = "edu.cqun.eshop.forwordAction.AddToTrolley">
+			
+		</action>
+		
+		<action name="Regester" class = "edu.cqun.eshop.forwordAction.Regester">
 			<result>/view/forward/main.jsp</result>
+			<result name="error">/view/forward/regester.jsp</result>
+		</action>
+		
+		<action name="search" class = "edu.cqun.eshop.forwordAction.Search">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
+			<result>/view/forward/mytrolley.jsp</result>
 		</action>
 	</package>
 </struts>

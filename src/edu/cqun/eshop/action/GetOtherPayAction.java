@@ -1,4 +1,4 @@
-package edu.cqun.eshop.forwordAction;
+package edu.cqun.eshop.action;
 
 import java.util.Map;
 
@@ -13,29 +13,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
+import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
 
-public class Main extends ActionSupport implements SessionAware,
-		ServletRequestAware, ServletResponseAware {
-	
+public class GetOtherPayAction extends ActionSupport implements SessionAware,
+ServletRequestAware, ServletResponseAware{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7977697013453779402L;
+
+	@Autowired
+	IOtherPayManagerService iOtherPayManagerService;
+
 	private Map att;
-    private HttpServletRequest request;
-    private HttpServletResponse response;
-    
-    @Autowired
-    private ICommodityManagerService commodityManagerService;
-    
-    @Override
-    public String execute()  {
-    	
-    	
-    	if(request.getSession().getAttribute("flag")==null){
-    		request.getSession().setAttribute("flag", "no");
-    	}
-    	att.put("commodities", commodityManagerService.getAllCommodities());
-    	return SUCCESS;
-    }
+	private HttpServletRequest request;
+	private HttpServletResponse response;
 
-    @Override
+	public String execute() {
+//		if (commodityService == null) {
+//			System.out.println("null!!!!!!!");
+//		}
+		att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
+		return SUCCESS;
+	}
+
+	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
 		this.response = arg0;
 	}
@@ -50,5 +54,4 @@ public class Main extends ActionSupport implements SessionAware,
 		this.att = arg0;
 
 	}
-
 }

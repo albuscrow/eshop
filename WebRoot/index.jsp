@@ -26,5 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <a href="back/ImportList.action">进货单页面</a>
     <hr/>
     <a href = "forward/main.action">前台</a>
+    <hr/>
+    <a href = "back/OtherPay.action">其他支出</a>
   </body>
 </html>
