@@ -24,7 +24,7 @@ public class UserManagerServiceTest {
 
 	@Autowired
 	IUserManagerService service;
-/*
+
 	@Test
 	public void testCheckLogin() {
 		//Timestamp data = new Timestamp(System.currentTimeMillis());
@@ -64,14 +64,14 @@ public class UserManagerServiceTest {
 		assertTrue(service.modifypassword(id,old_password,new_password));
 		return;
 	}
-*/
+
 	@Test
 	public void testmodifyUserInfo() {
 		//断定返回"true",否则就报错。201309030003L
-		assertTrue(service.modifyUserInfo(201309010001l, "lc.gai", "女", "gai", "54545"));
+		assertTrue(service.modifyUserInfo(201309010001l, "lc.gai2", "女", "gai", "54545"));
 		return;
 	}
-/*
+
 	@Test
 	public void testdeleteUser() {
 		long id=3;
@@ -91,5 +91,5 @@ public class UserManagerServiceTest {
 		assertTrue(service.deleteUsers(buyerIds));
 		return;
 	}
-*/
+
 }

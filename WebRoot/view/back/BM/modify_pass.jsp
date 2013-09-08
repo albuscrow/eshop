@@ -28,10 +28,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <form action="back/MSUP.action">
-           请输入用户ID<input name="userId"><br>
-          请输入旧密码<input  type="password" name="old_pass"><br>
-          请输入新密码<input  type="password" name="new_pass"><br>
+  <form action="back/MBP.action">
+           请输入要修改的买家ID<input name="buyerId"><br>
+           请输入旧密码<input  type="password" name="old_pass"><br>
+           请输入新密码<input  type="password" name="new_pass"><br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

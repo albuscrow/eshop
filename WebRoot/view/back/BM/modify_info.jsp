@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                        请输入要修改信息的买家用户ID <input name="buyerId"><br><br>
                       如果要修改用户名，请输入新用户名<input name="username"><br><br>
             如果要修改姓名，请输入新姓名<input name="realname"><br><br>
-           如果要修改性别，请输入新的性别<input name="sex"><br><br> 
+           如果要修改性别，请输入新的性别<input name="newsex"><br><br> 
             如果要修改邮箱，请输入新邮箱地址<input name="email"><br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

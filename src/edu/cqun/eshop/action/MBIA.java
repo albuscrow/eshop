@@ -45,13 +45,13 @@ public class MBIA extends ActionSupport  implements SessionAware, ServletRequest
     	
 		String username = request.getParameter("username");
 		
-		String sex = request.getParameter("sex");
+		String newsex = request.getParameter("newsex");
 		
 		String realname = request.getParameter("realname");
 		
 		String email = request.getParameter("email");
 		
-		if(userManagerService.modifyUserInfo(buyerId, realname, sex, username, email)){
+		if(userManagerService.modifyUserInfo(buyerId, realname, newsex, username, email)){
 			return SUCCESS;
 		}
 	    else{

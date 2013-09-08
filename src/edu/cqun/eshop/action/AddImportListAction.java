@@ -1,6 +1,7 @@
 package edu.cqun.eshop.action;
 
 import java.sql.Timestamp;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +11,6 @@ import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import antlr.collections.List;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -69,11 +68,21 @@ public class AddImportListAction extends ActionSupport implements SessionAware,
 		Double pricenum = Double.parseDouble(price);
 		Timestamp importDate = new Timestamp(System.currentTimeMillis());
 		ImportList importList = new ImportList(quantitynum, pricenum, importDate);
-		Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
-		importList.setCommodity(commodity);
-		iImportListManagerService.addImportList(importList);
-		att.put("importLists", iImportListManagerService.getAllImportList());
-		return SUCCESS;
+		
+		List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
+		
+		if(!list.isEmpty()){
+			Commodity commodity = list.get(0);
+//			Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
+			importList.setCommodity(commodity);
+			iImportListManagerService.addImportList(importList);
+			att.put("importLists", iImportListManagerService.getAllImportList());
+			return SUCCESS;
+		}
+		else {
+			return "fail";
+		}
+		
 	}
 
 	@Override

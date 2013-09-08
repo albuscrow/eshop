@@ -57,4 +57,11 @@ public interface ISystemUserManagerService {
 	 * @return
 	 */
 	List<User> getAllUser();
+	
+	/**
+	 * 通过名字取得用户
+	 * @param name
+	 * @return
+	 */
+	List<User> getUsersByName(String name);
 }

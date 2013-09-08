@@ -133,6 +133,7 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 	}
 
 	@Override
+
 	public User findUser(long user_id) {
 		// TODO Auto-generated method stub
 		try{
@@ -141,6 +142,12 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 		}catch (RuntimeException re) {
 			throw re;
 		}
+
+	}
+	
+	public List<User> getUsersByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
 
 	}
 

@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>系统用户查询结果</title>
+    <title>买家用户查询结果</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,11 +28,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <display:table name="${user}" pagesize="3" id = "user">
-		<display:column property="userId" title="用户ID" />
-		<display:column property="user" title="用户名" />
-		<display:column property="roleList.role" title="用户角色" />
-		<display:column property="roleList.authority" title="用户权限" />
+    <display:table name="${buyer}" pagesize="3" id = "buyer">
+	    <display:column property="buyerId" title="买家ID" />
+		<display:column property="name" title="买家姓名" />
+		<display:column property="sex" title="性别" />
+		<display:column property="user" title="买家用户名" />
+		<display:column property="email" title="邮箱" />
+		<display:column property="registerDate" title="注册时间" />
 	</display:table>
 	 (  角色代号对应的角色： 1：买家   2：商品编辑    3：系统管理员    4：普通员工     5：仓库管理员       6：财务  )
   </body>

@@ -28,29 +28,60 @@
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
+		<action name="OtherPay" class="edu.cqun.eshop.action.GetOtherPayAction">
+			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
+		</action>
+		
 		<action name="QueryImportList" class="edu.cqun.eshop.action.QueryImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+		
+		<action name="QueryOtherPay" class="edu.cqun.eshop.action.QueryOtherPayAction">
+			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
 
 		<action name="ModifyImportList" class="edu.cqun.eshop.action.ModifyImportListAction">
 			<result>/view/back/StatisticsManager/ModifyImportList.jsp</result>
 		</action>
 		
+		<action name="ModifyOtherPay" class="edu.cqun.eshop.action.ModifyOtherPayAction">
+			<result>/view/back/StatisticsManager/ModifyOtherPay.jsp</result>
+		</action>
+		
 		<action name="ModifyImportListEX" class="edu.cqun.eshop.action.ModifyImportListAction">
 			<result name="success">/view/back/StatisticsManager/ImportList.jsp</result>
 			<result name="fail">/view/back/StatisticsManager/CommodityNotFound.jsp</result>
 		</action>
-
+		
+		<action name="ModifyOtherPayEX" class="edu.cqun.eshop.action.ModifyOtherPayAction">
+			<result name="success">/view/back/StatisticsManager/OtherPay.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFound.jsp</result>
+		</action>
+		
 		<action name="AddImportList" class="edu.cqun.eshop.action.AddImportListAction">
-			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+			<result name="success">/view/back/StatisticsManager/ImportList.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/CommodityNotFoundADD.jsp</result>
+		</action>
+		
+		<action name="AddOtherPay" class="edu.cqun.eshop.action.AddOtherPayAction">
+			<result name="success">/view/back/StatisticsManager/OtherPay.jsp</result>
+			<result name="fail">/view/back/StatisticsManager/UserNotFoundADD.jsp</result>
 		</action>
 
 		<action name="AddImportListEX">
 			<result>/view/back/StatisticsManager/AddImportList.jsp</result>
 		</action>
 		
+		<action name="AddOtherPayEX">
+			<result>/view/back/StatisticsManager/AddOtherPay.jsp</result>
+		</action>
+		
 		<action name="DeleteImportList" class="edu.cqun.eshop.action.DeleteImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
+		
+		<action name="DeleteOtherPay" class="edu.cqun.eshop.action.DeleteOtherPayAction">
+			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
@@ -120,6 +151,16 @@
 		    <result name="success">/view/back/suc.jsp</result>
 		    <result name="error">/view/back/fail.jsp</result>
 	    </action>
+	    
+	    <action name="MBP" class="edu.cqun.eshop.action.MBPA">
+		    <result name="success">/view/back/suc.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>	    
+	    
+	    <action name="FindBuyer" class="edu.cqun.eshop.action.FindBuyerA">
+		    <result name="success">/view/back/BM/queryResult.jsp</result>
+		    <result name="error">/view/back/fail.jsp</result>
+	    </action>	    
 	    
 		<action name="ModifyBuyerPassword" class="edu.cqun.eshop.action.ModifyBuyerPassword">
 		   	

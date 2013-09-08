@@ -28,8 +28,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-        <form action="back/FindUser.action">
-        请输入要查询的用户ID<input name="userId"><br><br>
+        <form action="back/FindBuyer.action">
+        请输入要查询的买家ID<input name="buyerId"><br><br>
         <input type="submit" value="提交">
         </form>
   </body>

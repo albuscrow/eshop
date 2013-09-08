@@ -20,7 +20,7 @@ import edu.cqun.eshop.Iservice.IImportListManagerService;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.ImportList;
 
-public class ModifyImportListAction extends ActionSupport implements
+public class ModifyOtherPayAction extends ActionSupport implements
 		SessionAware, ServletRequestAware, ServletResponseAware {
 
 	@Autowired

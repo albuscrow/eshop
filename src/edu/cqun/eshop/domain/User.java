@@ -26,6 +26,7 @@ public class User implements java.io.Serializable {
 	private RoleList roleList;
 	private String user;
 	private String password;
+	private String name;
 	private Set<OtherPay> otherPaies = new HashSet<OtherPay>(0);
 
 	// Constructors
@@ -88,6 +89,15 @@ public class User implements java.io.Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	@Column(name = "Name", nullable = false, length = 32)
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<OtherPay> getOtherPaies() {
@@ -97,5 +107,4 @@ public class User implements java.io.Serializable {
 	public void setOtherPaies(Set<OtherPay> otherPaies) {
 		this.otherPaies = otherPaies;
 	}
-
 }
