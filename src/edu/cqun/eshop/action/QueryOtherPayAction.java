@@ -16,7 +16,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
 import edu.cqun.eshop.domain.ImportList;
+import edu.cqun.eshop.domain.OtherPay;
 
 public class QueryOtherPayAction extends ActionSupport implements SessionAware,
 ServletRequestAware, ServletResponseAware{
@@ -27,12 +29,12 @@ ServletRequestAware, ServletResponseAware{
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	IImportListManagerService iImportListManagerService;
+	IOtherPayManagerService iOtherPayManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-	private String importId;
+	private String opayId;
 	private String name;
 	private String years;
 	private String months;
@@ -43,12 +45,12 @@ ServletRequestAware, ServletResponseAware{
 	private String startTime = "00:00:00";
 	private String endTime = "23:59:59";
 	
-	public String getImportId() {
-		return importId;
+	public String getOpayId() {
+		return opayId;
 	}
 
-	public void setImportId(String importId) {
-		this.importId = importId;
+	public void setOpayId(String opayId) {
+		this.opayId = opayId;
 	}
 
 	public String getName() {
@@ -121,12 +123,12 @@ ServletRequestAware, ServletResponseAware{
 			start = Timestamp.valueOf(startString);
 			end = Timestamp.valueOf(endString);
 		}
-		if(!importId.equals("")){
-			id = Long.parseLong(importId);
+		if(!opayId.equals("")){
+			id = Long.parseLong(opayId);
 		}
-		List<ImportList> list = iImportListManagerService.getImportListByMessage(id, name, start, end);
+		List<OtherPay> list = iOtherPayManagerService.getOtherPayByMessage(id, name, start, end);
 //		if(!list.isEmpty()){
-		att.put("importLists", list);
+		att.put("otherPays", list);
 		return SUCCESS;
 //		}
 //		else {

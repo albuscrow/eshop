@@ -3,6 +3,7 @@ package edu.cqun.eshop.dao;
 import java.sql.Timestamp;
 import java.util.List;
 import org.hibernate.LockMode;
+import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -155,5 +156,24 @@ public class OtherPayDAO extends HibernateDaoSupport {
 				.add(Restrictions.between("opayDate", start, end))
 				.list();
 		return record_needed;
+	}
+	
+	public List findByForeignProperty(String propertyName, Object value) {
+		log.debug("finding Reply instance with property: " + propertyName
+				+ ", value: " + value);
+		try {
+			String queryString = "from Reply as model where model."
+					+ propertyName + "= ?";
+			Query queryObject = getSession().createQuery(queryString);
+			queryObject.setParameter(0, value);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+
+	public List findOtherPayByUser(Object user) {
+		return findByProperty("user", user);
 	}
 }

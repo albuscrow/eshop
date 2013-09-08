@@ -40,10 +40,10 @@
   </head>
   
   <body>
-    <s:form action="ModifyImportListEX" namespace="/back">
+    <s:form action="ModifyOtherPayEX" namespace="/back">
 		<div align="center">
 			<p class="STYLE4">更改其他支出单</p>
-		</div>
+		
 		<table width="156%" class="bordered" align="center">
 			<thead>
 				<tr>
@@ -67,6 +67,7 @@
 			onclick="location.href='back/OtherPay.action'"></label>
 		</p>
 		<p>&nbsp;</p>
+		</div>
 	</s:form>
   </body>
 </html>

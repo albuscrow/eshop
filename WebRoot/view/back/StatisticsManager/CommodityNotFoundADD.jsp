@@ -38,7 +38,7 @@
 </head>
   
   <body>
-    <h1>找不到对应商品。若为新商品，请先添加后再进行操作！</h1><br>
+    <h1 align="center">找不到对应商品。若为新商品，请先添加后再进行操作！</h1><br>
     <p align="center">
 			<label> <input type="button" value="返回" 
 			onclick="location.href='back/ImportList.action'"></label>

@@ -22,6 +22,7 @@ import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.ImportList;
 import edu.cqun.eshop.domain.OtherPay;
+import edu.cqun.eshop.domain.User;
 
 public class AddOtherPayAction extends ActionSupport implements SessionAware,
 		ServletRequestAware, ServletResponseAware {
@@ -37,7 +38,7 @@ public class AddOtherPayAction extends ActionSupport implements SessionAware,
 	private String name;
 	private String note;
 	private String amount;
-	
+
 	public String getName() {
 		return name;
 	}
@@ -45,7 +46,7 @@ public class AddOtherPayAction extends ActionSupport implements SessionAware,
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getNote() {
 		return note;
 	}
@@ -65,23 +66,30 @@ public class AddOtherPayAction extends ActionSupport implements SessionAware,
 	@Override
 	public String execute() {
 		// TODO Auto-generated method stub
-		Double pricenum = Double.parseDouble(amount);
-		Timestamp importDate = new Timestamp(System.currentTimeMillis());
-		
-		List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
-		
-		if(!list.isEmpty()){
-			Commodity commodity = list.get(0);
-//			Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
-			importList.setCommodity(commodity);
-			iImportListManagerService.addImportList(importList);
-			att.put("importLists", iImportListManagerService.getAllImportList());
-			return SUCCESS;
-		}
-		else {
+		if (!amount.equals("") & !note.equals("") & !name.equals("")) {
+			Double amountnum = Double.parseDouble(amount);
+			Timestamp opayDate = new Timestamp(System.currentTimeMillis());
+
+			OtherPay otherPay = new OtherPay(opayDate);
+			List<User> list = iSystemUserManagerService.getUsersByName(name);
+
+			if (!list.isEmpty()) {
+				User user = list.get(0);
+				// Commodity commodity =
+				// iCommodityManagerService.getCommodityById(10401001l);
+				otherPay.setAmount(amountnum);
+				otherPay.setNote(note);
+				otherPay.setUser(user);
+				iOtherPayManagerService.addOtherPay(otherPay);
+				att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
+				return SUCCESS;
+			} else {
+				return "fail";
+			}
+		} else {
 			return "fail";
 		}
-		
+
 	}
 
 	@Override

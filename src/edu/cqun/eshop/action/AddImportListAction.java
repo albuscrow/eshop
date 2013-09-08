@@ -64,25 +64,29 @@ public class AddImportListAction extends ActionSupport implements SessionAware,
 	@Override
 	public String execute() {
 		// TODO Auto-generated method stub
-		Short quantitynum = Short.parseShort(quantity);
-		Double pricenum = Double.parseDouble(price);
-		Timestamp importDate = new Timestamp(System.currentTimeMillis());
-		ImportList importList = new ImportList(quantitynum, pricenum, importDate);
-		
-		List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
-		
-		if(!list.isEmpty()){
-			Commodity commodity = list.get(0);
-//			Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
-			importList.setCommodity(commodity);
-			iImportListManagerService.addImportList(importList);
-			att.put("importLists", iImportListManagerService.getAllImportList());
-			return SUCCESS;
+		if(!quantity.equals("") & !price.equals("") & !name.equals("")){
+			Short quantitynum = Short.parseShort(quantity);
+			Double pricenum = Double.parseDouble(price);
+			Timestamp importDate = new Timestamp(System.currentTimeMillis());
+			ImportList importList = new ImportList(quantitynum, pricenum, importDate);
+			
+			List<Commodity> list = iCommodityManagerService.getCommoditiesByCommodityName(name);
+			
+			if(!list.isEmpty()){
+				Commodity commodity = list.get(0);
+//				Commodity commodity = iCommodityManagerService.getCommodityById(10401001l);
+				importList.setCommodity(commodity);
+				iImportListManagerService.addImportList(importList);
+				att.put("importLists", iImportListManagerService.getAllImportList());
+				return SUCCESS;
+			}
+			else {
+				return "fail";
+			}
 		}
 		else {
 			return "fail";
 		}
-		
 	}
 
 	@Override
