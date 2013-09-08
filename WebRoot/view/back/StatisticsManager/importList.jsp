@@ -63,12 +63,19 @@
 			<s:submit value="查询"></s:submit>
 			<label><input type="button" value="添加进货单" 
 			onclick="location.href='back/AddImportListEX.action'"></label>
+			<label><input type="button" value="重置" 
+			onclick="location.href='back/ImportList.action'"></label>
 		</p>
 
 	</s:form>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
+<<<<<<< HEAD
+		<div align="center">
 
+=======
+<div align="center">
+>>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
 	<display:table name="${importLists}" pagesize="5" id="importLists">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
 		<display:column property="importId" title="货单编号" />
@@ -86,6 +93,6 @@
 				href="back/DeleteImportList.action?importId=${importLists.importId}">删除</a>
 		</display:column>
 	</display:table>
-
+</div>
 </body>
 </html>

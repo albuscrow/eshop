@@ -1,5 +1,6 @@
 package edu.cqun.eshop.service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -159,15 +160,42 @@ public class CommodityManagerService implements ICommodityManagerService {
 
 	@Override
 	public Commodity getCommodityById(long id) {
-		// TODO Auto-generated method stub
 		return commdityDAO.findById(id);
 	}
 
 	@Override
 	public List<Commodity> getCommoditiesByCommodityName(String name) {
-		// TODO Auto-generated method stub
 		List<Commodity> list = commdityDAO.findByName(name);
 		return list;
+	}
+	
+	public List<Commodity> getCommoditiesByCategory(Category category) {
+		List<Commodity> list=new ArrayList<Commodity>();
+		
+		List<Commodity> allCommodities=getAllCommodities();
+		for (Commodity commodity : allCommodities) {
+			if (commodity.getCategory()==category) {
+				list.add(commodity);
+			}
+		}
+		
+		return list;
+		
+		
+	}
+
+	@Override
+	public List<Commodity> searchByKeyword(String keyword) {
+		List<Commodity> commodity = this.getAllCommodities();
+		List<Commodity> result = new ArrayList<Commodity>();
+		
+		for (Commodity commodity2 : commodity) {
+			if (commodity2.getName().contains(keyword) || commodity2.getIntroduction().contains(keyword)) {
+				result.add(commodity2);
+			}
+		}
+		
+		return result;
 	}
 
 }

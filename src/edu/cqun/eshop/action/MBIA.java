@@ -26,7 +26,7 @@ import edu.cqun.eshop.domain.User;
 public class MBIA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 修改买家基本信息
+	 * 淇敼涔板鍩烘湰淇℃伅
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 

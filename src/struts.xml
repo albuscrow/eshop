@@ -80,9 +80,20 @@
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
+
+		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
+		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
+		
+		<action name="DeleteCommodity" class="edu.cqun.eshop.action.DeleteCommodityAction">
+			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
+		</action>
+		
+
 		<action name="DeleteOtherPay" class="edu.cqun.eshop.action.DeleteOtherPayAction">
 			<result>/view/back/StatisticsManager/OtherPay.jsp</result>
 		</action>
+
 
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
@@ -168,7 +179,7 @@
 	</package>
 	
 	<package name="forward" namespace="/forward" extends="struts-default">
-		<action name="login" class="edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="login" class="edu.cqun.eshop.forwordAction.UserLoginAction">
 			
 		</action>
 		
@@ -180,8 +191,25 @@
 			<result>/view/forward/regester.jsp</result>
 		</action>
 		
-		<action name="regester" class = "edu.cqun.eshop.forwordAction.LoginAction">
+		<action name="regester" class = "edu.cqun.eshop.forwordAction.Regester">
+			<result type="">/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="AddToTrolley" class = "edu.cqun.eshop.forwordAction.AddToTrolley">
+			
+		</action>
+		
+		<action name="Regester" class = "edu.cqun.eshop.forwordAction.Regester">
 			<result>/view/forward/main.jsp</result>
+			<result name="error">/view/forward/regester.jsp</result>
+		</action>
+		
+		<action name="search" class = "edu.cqun.eshop.forwordAction.Search">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
+		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
+			<result>/view/forward/mytrolley.jsp</result>
 		</action>
 	</package>
 </struts>

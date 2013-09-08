@@ -20,7 +20,7 @@ import edu.cqun.eshop.Iservice.IUserManagerService;
 public class deleteBuyerA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * É¾³ýÂò¼ÒÓÃ»§
+	 * åˆ é™¤ä¹°å®¶ç”¨æˆ·
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 

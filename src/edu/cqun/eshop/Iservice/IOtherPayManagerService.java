@@ -1,7 +1,9 @@
 package edu.cqun.eshop.Iservice;
 
+import java.sql.Timestamp;
 import java.util.List;
 
+import edu.cqun.eshop.domain.ImportList;
 import edu.cqun.eshop.domain.OtherPay;
 
 public interface IOtherPayManagerService {
@@ -39,4 +41,14 @@ public interface IOtherPayManagerService {
 	 * @return
 	 */
 	OtherPay getById(long id);
+	
+	/**
+	 * 通过信息查询其他支出单
+	 * @param id
+	 * @param name
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	List<OtherPay> getOtherPayByMessage(Long id, String name, Timestamp start, Timestamp end);
 }

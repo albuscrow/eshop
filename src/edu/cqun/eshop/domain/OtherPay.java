@@ -55,7 +55,7 @@ public class OtherPay implements java.io.Serializable {
 		this.opayId = opayId;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "User_ID")
 	public User getUser() {
 		return this.user;

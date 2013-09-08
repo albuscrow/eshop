@@ -14,6 +14,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
 
 public class GetOtherPayAction extends ActionSupport implements SessionAware,
 ServletRequestAware, ServletResponseAware{
@@ -24,7 +25,7 @@ ServletRequestAware, ServletResponseAware{
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	IImportListManagerService iImportListManagerService;
+	IOtherPayManagerService iOtherPayManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
@@ -34,7 +35,7 @@ ServletRequestAware, ServletResponseAware{
 //		if (commodityService == null) {
 //			System.out.println("null!!!!!!!");
 //		}
-		att.put("importLists", iImportListManagerService.getAllImportList());
+		att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
 		return SUCCESS;
 	}
 

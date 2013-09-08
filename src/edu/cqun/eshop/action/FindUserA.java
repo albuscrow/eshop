@@ -20,7 +20,7 @@ import edu.cqun.eshop.Iservice.IUserManagerService;
 public class FindUserA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 取得所有系统用户信息
+	 * 鏌ヨ绯荤粺鐢ㄦ埛
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 

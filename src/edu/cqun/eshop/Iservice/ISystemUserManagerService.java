@@ -8,42 +8,42 @@ import edu.cqun.eshop.domain.User;
 public interface ISystemUserManagerService {
 	
 	/**
-	 * Ìí¼ÓÏµÍ³ÓÃ»§
+	 * æ·»åŠ ç³»ç»Ÿç”¨æˆ·
 	 * @param user
 	 * @return
 	 */
 	boolean addSystemUser(User user);
 	
 	/**
-	 * ¸ù¾İÓÃ»§IdÉ¾³ıÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IdÉ¾ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @param UserId
 	 * @return
 	 */
 	boolean deleteSystemUser(long userId);
 	
 	/**
-	 * ¸ù¾İÓÃ»§IdÉ¾³ıÓÃ»§
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½IdÉ¾ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @param userIds
 	 * @return
 	 */
 	boolean deleteSystemUsers(List<Long> userIds);
 	
 	/**
-	 * ¸ù¾İÓÃ»§ÃÜÂë
+	 * ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param userIds
 	 * @return
 	 */
 	boolean modifySystemUserPassword(long id,String old_password,String new_password);
 	
 	/**
-	 * ĞŞ¸ÄÓÃ»§ĞÅÏ¢
+	 * ï¿½Ş¸ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	 * @param user
 	 * @return
 	 */
-	boolean modifySystemUserInfo(long user_id,long role_id,String user);
+	boolean modifySystemUserInfo(long user_id,long role_id,String user,String name);
 	
 	/**
-	 * ²éÑ¯ÏµÍ³ÓÃ»§ĞÅÏ¢
+	 * ï¿½ï¿½Ñ¯ÏµÍ³ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	 * @param user
 	 * @return
 	 */	
@@ -52,14 +52,14 @@ public interface ISystemUserManagerService {
 	
 	
 	/**
-	 * È¡µÃËùÓĞÏµÍ³ÓÃ»§ĞÅÏ¢
+	 * È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
 	 * @param user
 	 * @return
 	 */
 	List<User> getAllUser();
 	
 	/**
-	 * Í¨¹ıÃû×ÖÈ¡µÃÓÃ»§
+	 * Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ã»ï¿½
 	 * @param name
 	 * @return
 	 */

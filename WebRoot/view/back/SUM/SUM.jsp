@@ -41,6 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<display:column property="user" title="用户名" />
 		<display:column property="roleList.role" title="用户角色" />
 		<display:column property="roleList.authority" title="用户权限" />
+		<display:column property="name" title="用户姓名" />
 	</display:table>
 	 (  角色代号对应的角色： 1：买家   2：商品编辑    3：系统管理员    4：普通员工     5：仓库管理员       6：财务  )
 	 

@@ -88,7 +88,7 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 	private RoleListDAO roleListDAO;
 
 	@Override
-	public boolean modifySystemUserInfo(long user_id,long role_id, String user) {
+	public boolean modifySystemUserInfo(long user_id,long role_id, String user,String name) {
 		// TODO Auto-generated method stub
 		try{
 			User resultUser=userDAO.findById(user_id);
@@ -111,6 +111,9 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 				if(user!=null)
 					resultUser.setUser(user);
 
+				if(name!=null)
+					resultUser.setName(name);
+				
 				userDAO.save(resultUser);
 				return true;
 			}
@@ -147,7 +150,8 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 	
 	public List<User> getUsersByName(String name) {
 		// TODO Auto-generated method stub
-		return null;
+
+		return userDAO.findByName(name);
 
 	}
 

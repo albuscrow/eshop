@@ -17,6 +17,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
 import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
 import edu.cqun.eshop.domain.Commodity;
 import edu.cqun.eshop.domain.ImportList;
 
@@ -24,7 +25,7 @@ public class DeleteOtherPayAction extends ActionSupport implements SessionAware,
 		ServletRequestAware, ServletResponseAware {
 
 	@Autowired
-	private IImportListManagerService iImportListManagerService;
+	private IOtherPayManagerService iOtherPayManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
@@ -33,9 +34,9 @@ public class DeleteOtherPayAction extends ActionSupport implements SessionAware,
 	@Override
 	public String execute() {
 		// TODO Auto-generated method stub
-		String importId = request.getParameter("importId");
-		iImportListManagerService.deleteImportList(Long.parseLong(importId));
-		att.put("importLists", iImportListManagerService.getAllImportList());
+		String opayId = request.getParameter("opayId");
+		iOtherPayManagerService.deleteOtherPay(Long.parseLong(opayId));
+		att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
 		return SUCCESS;
 	}
 

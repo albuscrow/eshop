@@ -21,7 +21,7 @@ import edu.cqun.eshop.domain.User;
 public class AddUserA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 修改系统用户信息
+	 * 澧炲姞鏂扮殑绯荤粺鐢ㄦ埛
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
