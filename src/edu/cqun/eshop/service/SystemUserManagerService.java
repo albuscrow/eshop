@@ -132,4 +132,10 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 		}
 	}
 
+	@Override
+	public List<User> getUsersByName(String name) {
+		// TODO Auto-generated method stub
+		return userDAO.findb;
+	}
+
 }

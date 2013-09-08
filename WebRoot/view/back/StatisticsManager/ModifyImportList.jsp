@@ -41,7 +41,7 @@
   </head>
   
   <body>
-    <s:form action="back/ModifyImportListEX.action">
+    <s:form action="ModifyImportListEX" namespace="/back">
 		<div align="center">
 			<p class="STYLE4">更改进货单</p>
 		</div>
