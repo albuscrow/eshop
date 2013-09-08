@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'delete.jsp' starting page</title>
+    <title>增加系统用户</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,15 +28,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-        <form action="back/MSUI.action">
-                        请输入要修改信息的系统用户ID <input name="userId"><br><br>
-                       如果要修改此用户角色，请输入具体角色ID<input name="role_id"><br><br>
-                      如果要修改用户名，请输入新用户名<input name="username"><br><br>
-                     如果要修改用户名，请输入新的用户姓名<input name="name"><br><br>            
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <input type="submit" value="确认修改">                     
-        
+        <form action="back/AddUser.action">
+                           请填写新增用户基本信息：<br><br>
+                             请输入用户名<input name="username"><br><br>
+                             请输入密码<input name="pass"><br><br>
+        <input type="submit" value="点击确认增加此系统用户">（注：用户权限在审核之后进用户信息修改页面修改）
         </form>
   </body>
 </html>

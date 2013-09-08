@@ -30,7 +30,6 @@ public class UserLoginAction extends ActionSupport implements SessionAware,
 	
 	@Override
 	public String execute()  {
-		System.out.println("UserLoginAction.execute()");
 		Buyer buyer = new Buyer();
 		buyer.setUser(request.getParameter("username"));
 		buyer.setPassword(request.getParameter("password"));

@@ -180,7 +180,6 @@ public class CommodityManagerService implements ICommodityManagerService {
 		return list;
 	}
 	
-	@Override
 	public List<Commodity> getCommoditiesByCategory(Category category) {
 		List<Commodity> list=new ArrayList<Commodity>();
 		

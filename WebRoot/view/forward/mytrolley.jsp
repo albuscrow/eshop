@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -34,10 +34,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 	<display:table name = "${orders}" id = "order" size="5">
-		<display:column property="buyer.name" title = "商品名"></display:column>
+		<display:column property="commodity.name" title = "商品名"></display:column>
 		<display:column property="quantity" title = "数量"></display:column>
 		<display:column property="state" title = "状态"></display:column>
 		<display:column property="total" title = "总价"></display:column>
+		<display:column><input type="button" value="评价" onclick = "window.location.href('comment.action?orderid=${order.orderId}')"></display:column>
 	</display:table>
 </body>
 </html>

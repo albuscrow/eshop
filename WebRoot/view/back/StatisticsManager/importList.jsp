@@ -70,7 +70,8 @@
 	</s:form>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-		<div align="center">
+
+<div align="center">
 	<display:table name="${importLists}" pagesize="5" id="importLists">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
 		<display:column property="importId" title="货单编号" />

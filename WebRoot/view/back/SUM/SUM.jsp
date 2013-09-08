@@ -28,17 +28,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  
+ 
+       相关操作：
+       <button onclick="javascript:location.href='view/back/SUM/add.jsp'">增加系统用户</button>&nbsp;&nbsp;
+        <button onclick="javascript:location.href='view/back/SUM/delete.jsp'">删除系统用户</button>&nbsp;&nbsp;
+	    <button onclick="javascript:location.href='view/back/SUM/modify_info.jsp'">修改系统用户基本信息</button>&nbsp;&nbsp;
+	    <button onclick="javascript:location.href='view/back/SUM/modify_pass.jsp'">修改系统用户密码</button>&nbsp;&nbsp;
+	    <button onclick="javascript:location.href='view/back/SUM/query.jsp'">查询系统用户</button>&nbsp;&nbsp;
+
    <display:table name="${users}" pagesize="3" id = "user">
 		<display:column property="userId" title="用户ID" />
 		<display:column property="user" title="用户名" />
 		<display:column property="roleList.role" title="用户角色" />
 		<display:column property="roleList.authority" title="用户权限" />
+		<display:column property="name" title="用户姓名" />
 	</display:table>
-	 (  角色代号对应的角色： 1：买家   2：商品编辑    3：系统管理员    4：普通员工     5：仓库管理员       6：财务  )<br><br><br>
+	 (  角色代号对应的角色： 1：买家   2：商品编辑    3：系统管理员    4：普通员工     5：仓库管理员       6：财务  )
 	 
-	    <button onclick="javascript:location.href='view/back/SUM/delete.jsp'">点击此处删除系统用户</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <button onclick="javascript:location.href='view/back/SUM/modify_info.jsp'">点击此处修改系统用户信息</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	    <button onclick="javascript:location.href='view/back/SUM/modify_pass.jsp'">点击此处修改系统用户密码</button>
+
   </body>
 </html>

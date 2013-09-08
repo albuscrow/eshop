@@ -14,12 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
+import edu.cqun.eshop.domain.RoleList;
+import edu.cqun.eshop.domain.User;
 
 
-public class DSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class AddUserA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除系统用户
+	 * 增加新的系统用户
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -33,9 +35,13 @@ public class DSUA extends ActionSupport  implements SessionAware, ServletRequest
     
     @Override
 	public String execute() {
-		String uidr = request.getParameter("userId");
-		long uid = Long.parseLong(uidr);
-		if(systemUserManagerService.deleteSystemUser(uid)==true){
+		String username = request.getParameter("username");
+		
+		String pass=request.getParameter("pass");
+		
+		User user = new User(username, pass);
+			
+		if(systemUserManagerService.addSystemUser(user)==true){
 			return SUCCESS;
 		}
 	    else{

@@ -19,7 +19,7 @@ import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 public class MSUIA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 修改系统用户信息
+	 * 淇敼绯荤粺鐢ㄦ埛鍩烘湰淇℃伅
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -41,8 +41,9 @@ public class MSUIA extends ActionSupport  implements SessionAware, ServletReques
 		
 		String username = request.getParameter("username");
 		
+		String name = request.getParameter("name");
 		
-		if(systemUserManagerService.modifySystemUserInfo(uid, roleid, username)==true){
+		if(systemUserManagerService.modifySystemUserInfo(uid, roleid, username,name)){
 			return SUCCESS;
 		}
 	    else{

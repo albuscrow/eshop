@@ -19,7 +19,7 @@ import edu.cqun.eshop.Iservice.ISystemUserManagerService;
 public class MSUPA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除系统用户密码
+	 * 淇敼绯荤粺鐢ㄦ埛瀵嗙爜
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
