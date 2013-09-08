@@ -163,7 +163,7 @@ public class Commodity implements java.io.Serializable {
 		this.rest = rest;
 	}
 
-	@Column(name = "Picture", nullable = false, length = 256)
+	@Column(name = "Picture", length = 256)
 	public String getPicture() {
 		return this.picture;
 	}

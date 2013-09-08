@@ -37,13 +37,22 @@ public class CommodityManagerServiceTest {
 //			System.out.println(commodity.getName());
 //		}
 //	}
+//	
+//	@Test
+//	public void test2() {
+//		List<Commodity> list = testService.getCommoditiesByCommodityName("ï¿½ï¿½ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+////		for (Commodity commodity : list) {
+////			System.out.println(commodity);
+////		}
+//		System.out.println(list.get(0));
+//	}
 	
 	@Test
 	public void test2() {
-		List<Commodity> list = testService.getCommoditiesByCommodityName("À¥ÂØÉ½ºÍÌïÓñÔæËÄÐÇ");
+		boolean done = testService.deleteCommodity(10401001l);
 //		for (Commodity commodity : list) {
 //			System.out.println(commodity);
 //		}
-		System.out.println(list.get(0));
+		System.out.println(done);
 	}
 }

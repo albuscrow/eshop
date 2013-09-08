@@ -94,8 +94,12 @@
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
 
-		<action name="addCommodity">
+		<action name="addCommodity" class="edu.cqun.eshop.action.GetCategoryAction">
 			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
+		</action>
+		<action name="AddCommodity" class="edu.cqun.eshop.action.AddCommodityAction">
+			<result name="success">/view/back/CommodityManager/CommodityManager.jsp</result>
+			<result name="fail">/view/back/CommodityManager/Addfail.jsp</result>
 		</action>
 
 		<action name="CommodityManager" class="edu.cqun.eshop.action.GetCommodityAction">
