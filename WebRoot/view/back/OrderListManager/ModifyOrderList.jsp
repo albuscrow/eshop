@@ -13,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>更改其他支出</title>
+<title>更改订单</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -42,7 +42,7 @@
   <body>
     <s:form action="ModifyOrderListEX" namespace="/back">
 		<div align="center">
-			<p class="STYLE4">更改其他支出单</p>
+			<p class="STYLE4">更改订单</p>
 		
 		<table width="156%" class="bordered" align="center">
 			<thead>
@@ -60,27 +60,27 @@
 					<th>运费(单位：元)</th>
 				</tr>
 				<tr>
-					<td><s:textfield name="name" type="text" size="20" value="%{#session.orderList.user.name}"/>
+					<td><s:textfield name="name" type="text" size="20" value="%{#session.orderList.commodity.name}"/>
 					</td>
-					<td><s:textfield name="buyerId" type="text" size="10" value="%{#session.orderList.note}"/>
+					<td><s:textfield name="buyerId" type="text" size="10" value="%{#session.orderList.buyer.buyerId}"/>
 					</td>
-					<td><s:textfield name="quantity" type="text" size="10" value="%{#session.orderList.amount}"/>
+					<td><s:textfield name="quantity" type="text" size="10" value="%{#session.orderList.quantity}"/>
 					</td>
-					<td><s:textfield name="payType" type="text" size="20" value="%{#session.orderList.user.name}"/>
+					<td><s:textfield name="payType" type="text" size="20" value="%{#session.orderList.payType}"/>
 					</td>
-					<td><s:textfield name="state" type="text" size="10" value="%{#session.orderList.note}"/>
+					<td><s:textfield name="state" type="text" size="10" value="%{#session.orderList.state}"/>
 					</td>
-					<td><s:textfield name="amount" type="text" size="10" value="%{#session.orderList.amount}"/>
+					<td><s:textfield name="logisticsState" type="text" size="10" value="%{#session.orderList.logisticsState}"/>
 					</td>
-					<td><s:textfield name="name" type="text" size="20" value="%{#session.orderList.user.name}"/>
+					<td><s:textfield name="postType" type="text" size="20" value="%{#session.orderList.postType}"/>
 					</td>
-					<td><s:textfield name="note" type="text" size="10" value="%{#session.orderList.note}"/>
+					<td><s:textfield name="postcode" type="text" size="10" value="%{#session.orderList.postcode}"/>
 					</td>
-					<td><s:textfield name="amount" type="text" size="10" value="%{#session.orderList.amount}"/>
+					<td><s:textfield name="address" type="text" size="10" value="%{#session.orderList.address}"/>
 					</td>
-					<td><s:textfield name="name" type="text" size="20" value="%{#session.orderList.user.name}"/>
+					<td><s:textfield name="phone" type="text" size="20" value="%{#session.orderList.phone}"/>
 					</td>
-					<td><s:textfield name="note" type="text" size="10" value="%{#session.orderList.note}"/>
+					<td><s:textfield name="carriageFee" type="text" size="10" value="%{#session.orderList.carriageFee}"/>
 					</td>
 				</tr>
 			</thead>

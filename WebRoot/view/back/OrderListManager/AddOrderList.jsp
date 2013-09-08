@@ -43,21 +43,45 @@
   <body>
     <s:form action="AddOrderList" namespace="/back">
 		<div align="center">
-			<p class="STYLE4">添加其他支出单</p>
+			<p class="STYLE4">添加订单</p>
 		
 		<table width="156%" class="bordered" align="center">
 			<thead>
 				<tr>
-					<th>负责人</th>
-					<th>描述</th>
-					<th>总额(单位：元)</th>
+					<th>商品名称</th>
+					<th>买家ID</th>
+					<th>数量</th>
+					<th>付款方式</th>
+					<th>订单状态</th>
+					<th>物流状态</th>
+					<th>派送方式</th>
+					<th>邮编</th>
+					<th>地址</th>
+					<th>电话</th>
+					<th>运费(单位：元)</th>
 				</tr>
 				<tr>
-					<td><s:textfield name="name" type="text" size="20" />
+					<td><s:textfield name="name" type="text" size="20" value="%{#session.orderList.commodity.name}"/>
 					</td>
-					<td><s:textfield name="note" type="text" size="10" />
+					<td><s:textfield name="buyerId" type="text" size="10" value="%{#session.orderList.buyer.buyerId}"/>
 					</td>
-					<td><s:textfield name="amount" type="text" size="10" />
+					<td><s:textfield name="quantity" type="text" size="10" value="%{#session.orderList.quantity}"/>
+					</td>
+					<td><s:textfield name="payType" type="text" size="20" value="%{#session.orderList.payType}"/>
+					</td>
+					<td><s:textfield name="state" type="text" size="10" value="%{#session.orderList.state}"/>
+					</td>
+					<td><s:textfield name="logisticsState" type="text" size="10" value="%{#session.orderList.logisticsState}"/>
+					</td>
+					<td><s:textfield name="postType" type="text" size="20" value="%{#session.orderList.postType}"/>
+					</td>
+					<td><s:textfield name="postcode" type="text" size="10" value="%{#session.orderList.postcode}"/>
+					</td>
+					<td><s:textfield name="address" type="text" size="10" value="%{#session.orderList.address}"/>
+					</td>
+					<td><s:textfield name="phone" type="text" size="20" value="%{#session.orderList.phone}"/>
+					</td>
+					<td><s:textfield name="carriageFee" type="text" size="10" value="%{#session.orderList.carriageFee}"/>
 					</td>
 				</tr>
 			</thead>
