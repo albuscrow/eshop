@@ -57,7 +57,7 @@ public class UserManagerServiceTest {
 	@Test
 	public void testmodifypassword() {
 		//Buyer buyer = new Buyer() ;
-		long id=3;
+		long id=201309010001l;
 		String old_password="20105296";
 		String new_password="20105298";
 		//断定返回"true",否则就报错。
@@ -67,8 +67,8 @@ public class UserManagerServiceTest {
 
 	@Test
 	public void testmodifyUserInfo() {
-		//断定返回"true",否则就报错。
-		assertTrue(service.modifyUserInfo(201309010001l,"lc","男",null,null,null));
+		//断定返回"true",否则就报错。201309030003L
+		assertTrue(service.modifyUserInfo(201309010001l, "lc.gai2", "女", "gai", "54545"));
 		return;
 	}
 

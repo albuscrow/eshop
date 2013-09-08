@@ -7,14 +7,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ page import="java.lang.*,java.util.*" %>
+
+<%@ page import="java.lang.*,java.util.*"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'main.jsp' starting page</title>
+<title>My JSP 'buy.jsp' starting page</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -29,25 +30,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
 <link rel="stylesheet" type="text/css"
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
+	
+	
+<script type="text/javascript" src="js/forward/buy.js?random=<%= (new Random()).nextInt()%>"></script>
 
-
-
-<script type="text/javascript" src="js/forward/regester.js?random=<%= (new Random()).nextInt()%>"></script>
 
 
 </head>
 
 <body>
-	<p id = "inf">"${error}"</p>
-	<s:form theme="xhtml" onsubmit="return validate()" action="Regester">
-	<s:textfield name = "buyer.user" label = "用户名" id = "user" ></s:textfield>
-	<s:password name = "buyer.password" label = "密码" id = "password"></s:password>
-	<s:password name = "password"  label = "密码确认" id = "passwordconfirm"></s:password>
-	<s:textfield name = "buyer.name" label="姓名" id = "name"></s:textfield>
-	<s:textfield name = "buyer.email" label = "email" id = "email"></s:textfield>
-	<s:select list="{'男', '女'}" name= "buyer.sex" label="性别" id = "sex"></s:select>
+	<s:form theme="xhtml" action="buyinf" onsubmit="return check()">
+	<s:textfield id ="quantity" name="order.quantity" label="数量"></s:textfield>
+	<s:textfield id = "address" name="order.address" label="地址"></s:textfield>
+	<s:textfield id = "postcode" name="order.postcode" label="邮编"></s:textfield>
+	<s:textfield id = "phone" name="order.phone" label="联系电话"></s:textfield>
+	<s:hidden id = "cid" value="%{#parameters.cid}" name = "cid"></s:hidden>
+	<s:select list="{'货到付款','网银支付'}" name="payType" label="付款方式"></s:select>
+	<s:select list="{'顺风快递','平邮'}" name="postType" label="快递方式"></s:select>
 	<s:submit></s:submit>
 	</s:form>
-
 </body>
 </html>

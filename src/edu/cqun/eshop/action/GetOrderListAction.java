@@ -1,6 +1,5 @@
 package edu.cqun.eshop.action;
 
-import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,35 +12,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.ISystemUserManagerService;
+import edu.cqun.eshop.Iservice.ICommodityManagerService;
+import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
 
-
-public class DSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class GetOrderListAction extends ActionSupport implements SessionAware,
+ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除系统用户
+	 * 
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private ISystemUserManagerService systemUserManagerService;
+	IOtherPayManagerService iOtherPayManagerService;
 
 	private Map att;
-    private HttpServletRequest request;
-    private HttpServletResponse response;
+	private HttpServletRequest request;
+	private HttpServletResponse response;
 
-    
-    @Override
 	public String execute() {
-		String uidr = request.getParameter("userId");
-		long uid = Long.parseLong(uidr);
-		if(systemUserManagerService.deleteSystemUser(uid)==true){
-			return SUCCESS;
-		}
-	    else{
-		     return ERROR;
-		} 
-    	//return SUCCESS;
+//		if (commodityService == null) {
+//			System.out.println("null!!!!!!!");
+//		}
+		att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
+		return SUCCESS;
 	}
 
 	@Override
@@ -57,5 +52,6 @@ public class DSUA extends ActionSupport  implements SessionAware, ServletRequest
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
+
 	}
 }

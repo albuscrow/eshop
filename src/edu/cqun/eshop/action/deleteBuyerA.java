@@ -14,17 +14,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ISystemUserManagerService;
+import edu.cqun.eshop.Iservice.IUserManagerService;
 
 
-public class DSUA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+public class deleteBuyerA extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 删除系统用户
+	 * 删除买家用户
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private ISystemUserManagerService systemUserManagerService;
+	private IUserManagerService userManagerService;
 
 	private Map att;
     private HttpServletRequest request;
@@ -33,9 +34,9 @@ public class DSUA extends ActionSupport  implements SessionAware, ServletRequest
     
     @Override
 	public String execute() {
-		String uidr = request.getParameter("userId");
-		long uid = Long.parseLong(uidr);
-		if(systemUserManagerService.deleteSystemUser(uid)==true){
+		String buyerIdr = request.getParameter("buyerId");
+		long buyerId = Long.parseLong(buyerIdr);
+		if(userManagerService.deleteUser(buyerId)==true){
 			return SUCCESS;
 		}
 	    else{

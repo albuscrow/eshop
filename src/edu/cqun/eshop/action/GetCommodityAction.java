@@ -74,30 +74,61 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 		allCommodities=commodityService.getAllCommodities();
 		List<Commodity> result=new ArrayList<Commodity>() ;
 		
+		String testString=goodsId;
+		Commodity example = new Commodity();
+		if(goodsId!=null&&!goodsId.equals("")){
+		long commodityId=Long.parseLong(goodsId);
+		System.out.println("+++++================="+commodityId+"+++++==================");
+		example.setCommodityId(commodityId);
+		}
+
+		if(goodsName!=null&goodsName!=""){
+			example.setName(goodsName);
+		}
+		att.put("commodities", commodityService.getCommodities(example));
+
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		goodsName = request.getParameter("goodsName");
+		if(goodsName!=null & goodsName!=""){
+			example.setName(goodsName);
+		}
+		List<Commodity> result1=commodityService.getCommodities(example);
+
 		if(goodsId==null&&goodsName==null&&(categorySelect==null)){
-			result=allCommodities;
+			result1=allCommodities;
 		}else if(goodsId!=null&&!goodsId.equals(""))
 		{
 			Long commodityId=Long.parseLong(goodsId);
-			result.add(commodityService.getCommodityById(commodityId));
+			result1.add(commodityService.getCommodityById(commodityId));
 		}else {
 			for (Commodity  commodity: allCommodities) {
 				String commodityName=commodity.getName();
 				if(	commodityName.contains(goodsName)&&(categorySelect==null||categorySelect.equals(commodity.getCategory().getName()))){
-					result.add(commodity);
+					result1.add(commodity);
 				}
 			}
 		}
 		
-		att.put("commodities", result );
+		att.put("commodities", result1 );
 		att.put("category",category);
 		
+
 		System.out.println("_________________________________________________________");
-		for (Commodity commodity : result) {
+		for (Commodity commodity : result1) {
 			System.out.println(commodity.getName());
 		}
 		System.out.println("_________________________________________________________");
-		
+
+
+		att.put("commodities", result1 );
+		att.put("category",category);
+
+
 		return SUCCESS;
 	}
 

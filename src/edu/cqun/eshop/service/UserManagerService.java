@@ -85,8 +85,7 @@ public class UserManagerService implements IUserManagerService {
 	}
 
 	@Override
-	public boolean modifyUserInfo(long id,String name, String sex, String user,
-			String email, Timestamp registerDate) {
+	public boolean modifyUserInfo(Long id,String name, String sex, String user,String email) {
 		// TODO Auto-generated method stub
 		try{
 			Buyer result=buyerDAO.findById(id);
@@ -103,9 +102,6 @@ public class UserManagerService implements IUserManagerService {
 				
 				if(email!=null)
 				result.setEmail(email);
-				
-				if(registerDate!=null)
-				result.setRegisterDate(registerDate);
 				
 				buyerDAO.save(result);
 			}
