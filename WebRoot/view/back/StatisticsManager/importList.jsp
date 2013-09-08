@@ -70,12 +70,7 @@
 	</s:form>
 	<p>&nbsp;</p>
 	<p>&nbsp;</p>
-<<<<<<< HEAD
-		<div align="center">
-
-=======
 <div align="center">
->>>>>>> ae81bf44a4d3bec19c26f23900f786753c424df8
 	<display:table name="${importLists}" pagesize="5" id="importLists">
 		<display:setProperty name="basic.msg.empty_list" value="无记录可供显示" />
 		<display:column property="importId" title="货单编号" />
