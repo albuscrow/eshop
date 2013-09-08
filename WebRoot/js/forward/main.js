@@ -51,6 +51,7 @@ function buy(data) {
 	if($("#flag").val()!="yes"){
 		alert("请先登录");
 	}else{
+		window.location.href("buy.action?id="+data);
 	}
 	
 }

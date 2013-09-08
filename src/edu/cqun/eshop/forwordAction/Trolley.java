@@ -2,6 +2,7 @@ package edu.cqun.eshop.forwordAction;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +33,7 @@ ServletRequestAware, ServletResponseAware{
 	public String execute(){
 		
 		Buyer buyer = (Buyer)att.get("buyer");
-		List<OrderList> orderList = (List<OrderList>) orderManagerService.findOrderListByUser(buyer.getBuyerId());
+		Set<OrderList> orderList = (Set<OrderList>) orderManagerService.findOrderListByUser(buyer.getBuyerId());
 		att.put("orders", orderList);
 		return SUCCESS;
 	}

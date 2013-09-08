@@ -165,5 +165,12 @@
 		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
 			<result>/view/forward/mytrolley.jsp</result>
 		</action>
+		
+		<action name="buy">
+			<result>/view/forward/buy.jsp</result>
+		</action>
+		<action name="buy" class = "edu.cqun.eshop.forwordAction.Buy">
+			<result>/view/forward/pay.jsp</result>
+		</action>
 	</package>
 </struts>
