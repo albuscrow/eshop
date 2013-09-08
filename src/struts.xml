@@ -27,6 +27,10 @@
 		<action name="ImportList" class="edu.cqun.eshop.action.GetImportListAction">
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
+		
+		<action name="QueryImportList" class="edu.cqun.eshop.action.QueryImportListAction">
+			<result>/view/back/StatisticsManager/ImportList.jsp</result>
+		</action>
 
 		<action name="ModifyImportList" class="edu.cqun.eshop.action.ModifyImportListAction">
 			<result>/view/back/StatisticsManager/ModifyImportList.jsp</result>

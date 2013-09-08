@@ -96,4 +96,10 @@ public class ImportList implements java.io.Serializable {
 		this.importDate = importDate;
 	}
 
+	@Override
+	public String toString() {
+		return "ImportList [importId=" + importId + ", quantity=" + quantity
+				+ ", price=" + price + ", importDate=" + importDate + "]";
+	}
+	
 }
