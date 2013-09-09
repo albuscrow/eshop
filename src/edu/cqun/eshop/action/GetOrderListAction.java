@@ -13,38 +13,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
-import edu.cqun.eshop.service.CommodityManagerService;
+import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
 
-public class DeleteCommodityAction extends ActionSupport implements
-		SessionAware, ServletRequestAware, ServletResponseAware {
+public class GetOrderListAction extends ActionSupport implements SessionAware,
+ServletRequestAware, ServletResponseAware{
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1332656397617449886L;
+	private static final long serialVersionUID = -7977697013453779402L;
+
 	@Autowired
-	private ICommodityManagerService commodityService;
+	IOtherPayManagerService iOtherPayManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 
-	private String commodityId;
-
-	public String getCommodityId() {
-		return commodityId;
-	}
-
-	public void setCommodityId(String commodityId) {
-		this.commodityId = commodityId;
-	}
-
-	@Override
 	public String execute() {
-		commodityId=request.getParameter("commodityId");
-		Long deleteId=Long.parseLong(commodityId);
-		boolean done = commodityService.deleteCommodity(deleteId);
-		att.put("commodities", commodityService.getAllCommodities());
-
+//		if (commodityService == null) {
+//			System.out.println("null!!!!!!!");
+//		}
+		att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
 		return SUCCESS;
 	}
 

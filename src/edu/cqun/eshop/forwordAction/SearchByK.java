@@ -2,7 +2,6 @@ package edu.cqun.eshop.forwordAction;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,27 +13,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.IOrderManagerService;
-import edu.cqun.eshop.domain.Buyer;
-import edu.cqun.eshop.domain.OrderList;
+import edu.cqun.eshop.Iservice.ICommodityManagerService;
+import edu.cqun.eshop.domain.Commodity;
 
-public class Trolley extends ActionSupport implements SessionAware,
-ServletRequestAware, ServletResponseAware{
-	
-	@SuppressWarnings("rawtypes")
+public class SearchByK extends ActionSupport implements SessionAware,ServletRequestAware,ServletResponseAware{
+
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
 	@Autowired
-	private IOrderManagerService orderManagerService;
+	private ICommodityManagerService commodityManagerService;
 	
-	
-	public String execute(){
-		
-		Buyer buyer = (Buyer)att.get("buyer");
-		Set<OrderList> orderList = (Set<OrderList>) orderManagerService.findOrderListByUser(buyer.getBuyerId());
-		att.put("orders", orderList);
+	@Override
+	public String execute() {
+		String keyword = request.getParameter("K");
+		List<Commodity> commodities = commodityManagerService.searchByKeyword(keyword);
+//		att.put("commodities", commodities);
 		return SUCCESS;
 	}
 	

@@ -13,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>相关统计</title>
+<title>订单管理</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -40,26 +40,12 @@
 </head>
 
 <body>
-	<s:form action="Statistics" namespace="/back">
-		<div align="center" class="STYLE5">营业统计</div>
+	<s:form action="BuyerDetail" namespace="/back">
+		<div align="center" class="STYLE5">订单管理</div>
 		<p align="center">
-			时间 ：<label> <s:textfield name="years" type="text" size="4" />
-				年</label> <label> <s:textfield name="months" type="text" size="4" />
-				月 </label> <label> <s:textfield name="days" type="text" size="4" />
-				日</label> <label> 到 </label> <label> <s:textfield name="yeare"
-					type="text" size="4" /> 年 </label> <label> <s:textfield
-					name="monthe" type="text" size="4" /> 月</label> <label> <s:textfield
-					name="daye" type="text" size="4" /> 日</label><s:submit value="查询"></s:submit>
+			请输入您要查询的买家ID：<label> <s:textfield name="buyerId" type="text" size="10" /></label>
+				<s:submit value="查询"></s:submit>
 		</p>
-		<div align="center">
-			<table width="156%" class="bordered">
-				<thead>
-					<tr>
-						<th><div align="center">此时间段的营业额为${requestScope.result}</div></th>
-					</tr>
-				</thead>
-			</table>
-		</div>
 		<p>&nbsp;</p>
 	</s:form>
 </body>

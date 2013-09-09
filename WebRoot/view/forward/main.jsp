@@ -79,19 +79,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </tr>
   <tr>
     <td height="100%" align="center" valign="top"><ul id="MenuBar2" class="MenuBarVertical">
-      <li><a class="MenuBarItemSubmenu" href="#">食品酒水</a>
+      <li><a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=1">食品酒水</a>
        
       </li>
       <li>
-      <a class="MenuBarItemSubmenu" href="#">电子数码</a>
+      <a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=2">电子数码</a>
     
       </li>
       <li>
-      <a class="MenuBarItemSubmenu" href="#">服饰鞋帽</a>
+      <a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=3">服饰鞋帽</a>
      
       </li>
       <li>
-      <a class="MenuBarItemSubmenu" href="#">个人护理</a>
+      <a class="MenuBarItemSubmenu" href="forward/searchByK.action?K=4">个人护理</a>
      
       </li>
     </ul></td>

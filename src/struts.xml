@@ -3,8 +3,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<include file="structs-default.xml" />
-	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"
-		value="true" />
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect"	value="true" />
 	
 	<constant name="struts.objectFactory" value="spring" />
     
@@ -22,6 +21,18 @@
 
 		<action name="main">
 			<result>/view/back/main.jsp</result>
+		</action>
+
+		<action name="OrderListManagement">
+			<result>/view/back/StatisticsManager/OrderListManagement.jsp</result>
+		</action>
+
+		<action name="StatisticsEX">
+			<result>/view/back/StatisticsManager/Statistics.jsp</result>
+		</action>
+
+		<action name="Statistics" class="edu.cqun.eshop.action.StatisticsAction">
+			<result>/view/back/StatisticsManager/Statistics.jsp</result>
 		</action>
 
 		<action name="ImportList" class="edu.cqun.eshop.action.GetImportListAction">
@@ -57,7 +68,7 @@
 		</action>
 		
 		<action name="ModifyOrderList" class="edu.cqun.eshop.action.ModifyOrderListAction">
-			<result>/view/back/StatisticsManager/ModifyOrderList.jsp</result>
+			<result>/view/back/BuyerManager/BuyerDetail.jsp</result>
 		</action>
 		
 		<action name="ModifyImportListEX" class="edu.cqun.eshop.action.ModifyImportListAction">
@@ -106,10 +117,6 @@
 			<result>/view/back/StatisticsManager/ImportList.jsp</result>
 		</action>
 		
-		<action name="ModifyCommodity" class="edu.cqun.eshop.action.ModifyCommodityAction">
-			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
-		</action><!--未完！！！！！！！！！！！！！！！！！！  -->
-		
 		<action name="DeleteCommodity" class="edu.cqun.eshop.action.DeleteCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
 		</action>
@@ -125,9 +132,22 @@
 		<!-- <action name="ImportDelete" class="edu.cqun.eshop.action.GetImportListAction"> 
 			<result>/view/back/StatisticsManager/ImportList.jsp</result> </action> -->
 
-		<action name="addCommodity">
+		<action name="addCommodity" class="edu.cqun.eshop.action.GetCategoryAction">
 			<result>/view/back/CommodityManager/AddCommodity.jsp</result>
 		</action>
+		<action name="AddCommodity" class="edu.cqun.eshop.action.AddCommodityAction">
+			<result name="success">/view/back/CommodityManager/CommodityManager.jsp</result>
+			<result name="fail">/view/back/CommodityManager/Addfail.jsp</result>
+		</action>
+		
+		<action name="ModifyCommodity" class="edu.cqun.eshop.action.GetModifyCommodityAction">
+			<result>/view/back/CommodityManager/ModifyCommodity.jsp</result>
+		</action>
+		<action name="ModifyCommodityEX" class="edu.cqun.eshop.action.ModifyCommodityAction">
+			<result name="success">/view/back/CommodityManager/CommodityManager.jsp</result>
+			<result name="fail">/view/back/CommodityManager/Addfail.jsp</result>
+		</action>
+		
 
 		<action name="CommodityManager" class="edu.cqun.eshop.action.GetCommodityAction">
 			<result>/view/back/CommodityManager/CommodityManager.jsp</result>
@@ -260,8 +280,34 @@
 			<result>/view/forward/main.jsp</result>
 		</action>
 		
+		<action name="searchByK" class = "edu.cqun.eshop.forwordAction.SearchByK">
+			<result>/view/forward/main.jsp</result>
+		</action>
+		
 		<action name="trolley" class = "edu.cqun.eshop.forwordAction.Trolley">
 			<result>/view/forward/mytrolley.jsp</result>
+		</action>
+
+		
+		<action name="buy">
+			<result type="dispatcher">/view/forward/buy.jsp</result>
+		</action>
+		<action name="buyinf" class = "edu.cqun.eshop.forwordAction.SubmitOrder">
+			<result>/view/forward/pay.jsp</result>
+		</action>
+		<action name="comment">
+			<result>/view/forward/comment.jsp</result>
+		</action>
+		<action name="addComment" class = "edu.cqun.eshop.forwordAction.AddComment">
+			<result>/view/forward/mytrolley.jsp</result>
+		</action>
+		
+		<action name="mine">
+			<result>/view/forward/modify.jsp</result>
+		</action>
+		
+		<action name="Modify" class="edu.cqun.eshop.forwordAction.Modify">
+			<result>/view/forward/main.jsp</result>
 		</action>
 
 	</package>

@@ -27,13 +27,13 @@
 <script type="text/javascript"
 	src="js/jquery/jquery-ui-1.10.3.custom.js"></script>
 <script type="text/javascript"
-	src="js/back/StatisticsManager/OtherPay.js"></script>
+	src="js/back/StatisticsManager/ImportList.js"></script>
 
 <link rel="stylesheet" type="text/css"
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
 
 <link rel="stylesheet" type="text/css"
-	href="css/back/StatisticsManager/OtherPay.css">
+	href="css/back/StatisticsManager/ImportList.css">
 
 <link rel="stylesheet" type="text/css" 
 	href="css/screen.css" />

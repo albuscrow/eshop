@@ -1,8 +1,7 @@
 package edu.cqun.eshop.forwordAction;
 
-import java.util.List;
+import java.sql.Timestamp;
 import java.util.Map;
-import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,28 +13,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-import edu.cqun.eshop.Iservice.IOrderManagerService;
+import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Buyer;
-import edu.cqun.eshop.domain.OrderList;
 
-public class Trolley extends ActionSupport implements SessionAware,
+public class Modify extends ActionSupport implements SessionAware,
 ServletRequestAware, ServletResponseAware{
 	
-	@SuppressWarnings("rawtypes")
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 	
 	@Autowired
-	private IOrderManagerService orderManagerService;
+	private IUserManagerService userManagerService;
 	
+	private Buyer buyer;
+
+	public Buyer getBuyer() {
+		return buyer;
+	}
+
+	public void setBuyer(Buyer buyer) {
+		this.buyer = buyer;
+	}
 	
-	public String execute(){
-		
-		Buyer buyer = (Buyer)att.get("buyer");
-		Set<OrderList> orderList = (Set<OrderList>) orderManagerService.findOrderListByUser(buyer.getBuyerId());
-		att.put("orders", orderList);
-		return SUCCESS;
+	@Override
+	public String execute() {
+	    Long id = ((Buyer)att.get("buyer")).getBuyerId();
+	    userManagerService.modifyUserInfo(id, buyer.getName(), buyer.getSex(), buyer.getUser(), buyer.getEmail());
+	    return SUCCESS;
 	}
 	
 	@Override

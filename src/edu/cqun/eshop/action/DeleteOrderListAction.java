@@ -1,5 +1,6 @@
 package edu.cqun.eshop.action;
 
+import java.sql.Timestamp;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,41 +11,32 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import antlr.collections.List;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
-import edu.cqun.eshop.service.CommodityManagerService;
+import edu.cqun.eshop.Iservice.IImportListManagerService;
+import edu.cqun.eshop.Iservice.IOtherPayManagerService;
+import edu.cqun.eshop.domain.Commodity;
+import edu.cqun.eshop.domain.ImportList;
 
-public class DeleteCommodityAction extends ActionSupport implements
-		SessionAware, ServletRequestAware, ServletResponseAware {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1332656397617449886L;
+public class DeleteOrderListAction extends ActionSupport implements SessionAware,
+		ServletRequestAware, ServletResponseAware {
+
 	@Autowired
-	private ICommodityManagerService commodityService;
+	private IOtherPayManagerService iOtherPayManagerService;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
 
-	private String commodityId;
-
-	public String getCommodityId() {
-		return commodityId;
-	}
-
-	public void setCommodityId(String commodityId) {
-		this.commodityId = commodityId;
-	}
-
 	@Override
 	public String execute() {
-		commodityId=request.getParameter("commodityId");
-		Long deleteId=Long.parseLong(commodityId);
-		boolean done = commodityService.deleteCommodity(deleteId);
-		att.put("commodities", commodityService.getAllCommodities());
-
+		// TODO Auto-generated method stub
+		String opayId = request.getParameter("opayId");
+		iOtherPayManagerService.deleteOtherPay(Long.parseLong(opayId));
+		att.put("otherPays", iOtherPayManagerService.getAllOtherPay());
 		return SUCCESS;
 	}
 

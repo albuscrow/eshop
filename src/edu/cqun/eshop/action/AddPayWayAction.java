@@ -28,7 +28,7 @@ import edu.cqun.eshop.domain.User;
 public class AddPayWayAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
 
 	/**
-	 * 添加新的付款方式
+	 * 添加新的买家用户
 	 */
 	private static final long serialVersionUID = -7977697013453779402L;
 
@@ -47,7 +47,6 @@ public class AddPayWayAction extends ActionSupport  implements SessionAware, Ser
 		String url = request.getParameter("url");
 		
 		PayWay payWay = new PayWay(name, comp, url);
-		
 		if(payWayManagerService.addPay(payWay)){
 			return SUCCESS;
 		}
