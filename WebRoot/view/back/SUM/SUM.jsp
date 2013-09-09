@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <button onclick="javascript:location.href='view/back/SUM/modify_pass.jsp'">修改系统用户密码</button>&nbsp;&nbsp;
 	    <button onclick="javascript:location.href='view/back/SUM/query.jsp'">查询系统用户</button>&nbsp;&nbsp;
 
-   <display:table name="${users}" pagesize="3" id = "user">
+   <display:table name="${users}" pagesize="10" id = "user">
 		<display:column property="userId" title="用户ID" />
 		<display:column property="user" title="用户名" />
 		<display:column property="roleList.role" title="用户角色" />

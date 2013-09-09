@@ -95,23 +95,12 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 			if(resultUser!=null)
 			{
 				if(0<role_id && role_id<7)
-				{
-					RoleList resultRoleList = roleListDAO.findById(role_id);
-					if(resultRoleList!=null)
-					{
-						resultUser.setRoleList(resultRoleList);
-					    userDAO.save(resultUser);
-					}
-					else
-						return false;
-				}
-				else
-					return false;
+						resultUser.setRoleList(roleListDAO.findById(role_id));
 
-				if(user!=null)
+				if(user!=null&&!user.equals(""))
 					resultUser.setUser(user);
 
-				if(name!=null)
+				if(name!=null&&!name.equals(""))
 					resultUser.setName(name);
 				
 				userDAO.save(resultUser);

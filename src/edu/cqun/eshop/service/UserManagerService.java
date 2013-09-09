@@ -91,19 +91,17 @@ public class UserManagerService implements IUserManagerService {
 			Buyer result=buyerDAO.findById(id);
 			if(result!=null)
 			{
-				if(name!=null)
+				if(name!=null&&!name.equals(""))
 				result.setName(name);
 				
-				if(sex!=null)
+				if(sex!=null&&!sex.equals(""))
 				result.setSex(sex);
 				
-				if(user!=null)
+				if(user!=null&&!user.equals(""))
 				result.setUser(user);
 				
-				if(email!=null)
+				if(email!=null&&!email.equals(""))
 				result.setEmail(email);
-				
-				result.setRegisterDate(new Timestamp(System.currentTimeMillis()));
 				
 				buyerDAO.save(result);
 			}

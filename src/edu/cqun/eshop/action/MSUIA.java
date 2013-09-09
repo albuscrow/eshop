@@ -36,8 +36,12 @@ public class MSUIA extends ActionSupport  implements SessionAware, ServletReques
 		String uidr = request.getParameter("userId");
 		long uid = Long.parseLong(uidr);
 		
+		long roleid=-1;
 		String roleidr = request.getParameter("role_id");
-		long roleid = Long.parseLong(roleidr);
+		if(roleidr!="")
+		{
+		    roleid = Long.parseLong(roleidr);
+		}
 		
 		String username = request.getParameter("username");
 		
