@@ -48,6 +48,7 @@
 		<div>
 			<a id = "ImportListManagement">进货单管理</a><br/>
 			<a id = "OtherPayManagement">支出管理</a><br/>
+			<a id = "OrderListManagement">订单管理</a><br/>
 			<a id = "Statistics">相关统计</a><br/>
 		</div>
 	</div>

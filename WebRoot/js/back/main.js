@@ -18,6 +18,10 @@ $(function init() {
 		$(".content").attr("src","back/StatisticsEX.action");
 	});
 	
+	$("#OrderListManagement").click(function() {
+		$(".content").attr("src","back/OrderListManagement.action");
+	});
+	
 	$("#CommodityManager").click(function() {
 		$(".content").attr("src","back/CommodityManager.action");
 	});

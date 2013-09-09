@@ -103,6 +103,8 @@ public class UserManagerService implements IUserManagerService {
 				if(email!=null)
 				result.setEmail(email);
 				
+				result.setRegisterDate(new Timestamp(System.currentTimeMillis()));
+				
 				buyerDAO.save(result);
 			}
 			return true;

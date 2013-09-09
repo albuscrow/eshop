@@ -39,7 +39,7 @@ ServletRequestAware, ServletResponseAware{
 	@Override
 	public String execute() {
 	    Long id = ((Buyer)att.get("buyer")).getBuyerId();
-	    userManagerService.modifyUserInfo(id, buyer.getName(), buyer.getSex(), buyer.getUser(), buyer.getEmail(), buyer.getRegisterDate());
+	    userManagerService.modifyUserInfo(id, buyer.getName(), buyer.getSex(), buyer.getUser(), buyer.getEmail());
 	    return SUCCESS;
 	}
 	
