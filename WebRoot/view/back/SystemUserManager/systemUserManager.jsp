@@ -3,13 +3,14 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%@ taglib uri="http://displaytag.sf.net" prefix="display"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>系统用户管理界面</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,9 +22,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a href="back/login.action">后台登陆</a>
-    <hr/>
-    <a href = "forward/main.action">前台</a>
-    <hr/>
+  	<display:table name="${users}" pagesize="5">
+		<display:column property="userId" title="用户ID" />
+		<display:column property="roleList" title="用户角色" />
+		<display:column property="user" title="用户名" />
+	</display:table>
   </body>
 </html>

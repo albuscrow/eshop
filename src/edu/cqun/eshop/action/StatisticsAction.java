@@ -97,6 +97,24 @@ ServletRequestAware, ServletResponseAware{
 	public String execute() {
 		Timestamp start = null;
 		Timestamp end = null;
+		if(Integer.parseInt(daye)<10){
+			daye = "0"+daye;
+		}
+		if(Integer.parseInt(days)<10){
+			days = "0"+days;
+		}
+		if(Integer.parseInt(yeare)<10){
+			yeare = "0"+yeare;
+		}
+		if(Integer.parseInt(years)<10){
+			years = "0"+years;
+		}
+		if(Integer.parseInt(monthe)<10){
+			monthe = "0"+monthe;
+		}
+		if(Integer.parseInt(months)<10){
+			months = "0"+months;
+		}
 		if(days.equals("") & months.equals("") & daye.equals("") & monthe.equals("")){
 			String startString = years + "-" + "01" + "-" + "01" + " " + startTime;
 			String endString = yeare + "-" + "12" + "-" + "31" + " " + endTime;
@@ -112,6 +130,7 @@ ServletRequestAware, ServletResponseAware{
 		else {
 			String startString = years + "-" + months + "-" + days + " " + startTime;
 			String endString = yeare + "-" + monthe + "-" + daye + " " + endTime;
+			System.out.println("ADFYHAODSHFAJDSHFKLAHJ"+startString);
 			start = Timestamp.valueOf(startString);
 			end = Timestamp.valueOf(endString);
 		}
