@@ -33,23 +33,46 @@
 	href="css/ui-lightness/jquery-ui-1.10.3.css">
 
 <link rel="stylesheet" type="text/css"
-	href="css/back/StatisticsManager/ImportList.css">
+	href="css/back/StatisticsManager/BackLogin.css">
 
 <link rel="stylesheet" type="text/css" href="css/screen.css" />
+
+<STYLE TYPE="text/Css">
+<!--
+BODY {background-image: URL(images/tolley.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;}
+-->
+</STYLE>
 
 </head>
 
 <body>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+	<div class="div1">
 	<s:form action="main" namespace="/back">
 		<div align="center">
-			<p class="STYLE4">欢迎来到Ego后台登录页面</p>
+			<h1>欢迎来到Ego后台登录页面</h1>
 		</div>
 		<br />
 		<p align="center">
 			 <label> 用户名<s:textfield name="userId" type="text" size="20" /> </label>
 		</p>
 		<p align="center">
-			 <label> 密码<s:textfield name="password" type="password" size="20" /> </label>
+			 <label> 密码<s:password name="password" type="password" size="20" /> </label>
 		</p>
 		<br />
 		<p align="center">
@@ -57,5 +80,6 @@
 		</p>
 
 	</s:form>
+	</div>
 </body>
 </html>

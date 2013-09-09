@@ -33,6 +33,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="css/forward/main.css">
 <script type="text/javascript" src="js/forward/main.js?random=<%= (new Random()).nextInt() %>"></script>
 
+<STYLE TYPE="text/Css">
+<!--
+BODY {background-image: URL(images/forward3.jpg);
+background-position: 100% 70%;
+background-repeat: no-repeat;
+background-attachment: fixed;}
+-->
+</STYLE>
 
 </head>
 
