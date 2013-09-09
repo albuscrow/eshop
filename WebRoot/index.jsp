@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a href="back/main.action">后台登陆</a>
+    <a href="back/login.action">后台登陆</a>
     <hr/>
     <a href = "forward/main.action">前台</a>
     <hr/>
