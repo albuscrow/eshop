@@ -35,25 +35,23 @@ public class BuyerDetailAction extends ActionSupport implements SessionAware,
 	private Map att;
     private HttpServletRequest request;
     private HttpServletResponse response;
-    private Buyer buyer;
+    private String buyerId;
     
-    public Buyer getBuyer() {
-		return buyer;
+	public String getBuyerId() {
+		return buyerId;
 	}
 
-
-	public void setBuyer(Buyer buyer) {
-		this.buyer = buyer;
+	public void setBuyerId(String buyerId) {
+		this.buyerId = buyerId;
 	}
-
 
 	@Override
     public String execute()  {
     	// TODO Auto-generated method stub
-    	buyer = userManagerService.findUserById(Long.parseLong(request.getParameter("buyerId")));
+    	Buyer buyer = userManagerService.findUserById(Long.parseLong(buyerId));
     	
-    	Set<OrderList> commodifyInTrolley = (Set<OrderList>) trolleyManagerService.checkTrolley(buyer.getBuyerId());
-    	att.put("commoditys", commodifyInTrolley);
+//    	Set<OrderList> commodifyInTrolley = (Set<OrderList>) trolleyManagerService.checkTrolley(buyer.getBuyerId());
+//    	att.put("commoditys", commodifyInTrolley);
     	att.put("currentBuyer", buyer);
     	
     	Set<OrderList> orderLists = iOrderManagerService.findOrderListByUser(Long.parseLong(request.getParameter("buyerId")));

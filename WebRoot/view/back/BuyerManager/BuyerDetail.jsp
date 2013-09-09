@@ -42,17 +42,19 @@
 
 <body>
 
-	<input type="text" value="${buyer.password}" id="newPassWord" />
+	<%-- <input type="text" value="${buyer.password}" id="newPassWord" />
 	<input type="button" onclick="modifyUserPassword()" value="修改密码" />
-	<input type="reset" />
+	<input type="reset" /> --%>
 
-	<display:table name="${commoditys}" pagesize="5" id = "buyer">
+<%-- 	<display:table name="${commoditys}" pagesize="5" id = "buyer">
 		<display:column property="commodity.name" title="商品名" />
 		<display:column property="commodity.price" title="价格" />
 		<display:column property = "quantity" title = "数量"/>
 		<display:column property="total" title="总价"/>
-	</display:table>
+	</display:table> --%>
 
+	<p>以下为您所要查询的买家订单：</p>
+	
 	<display:table name="${orderLists}" pagesize="5" id = "orderLists">
 		<display:setProperty name="basic.msg.empty_list" value="该买家现暂无订单" />
 		<display:column property="orderId" title="订单号" />

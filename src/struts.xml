@@ -24,6 +24,10 @@
 			<result>/view/back/main.jsp</result>
 		</action>
 
+		<action name="OrderListManagement">
+			<result>/view/back/StatisticsManager/OrderListManagement.jsp</result>
+		</action>
+
 		<action name="StatisticsEX">
 			<result>/view/back/StatisticsManager/Statistics.jsp</result>
 		</action>
