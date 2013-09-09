@@ -39,6 +39,14 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	private String goodsName;
 	private String categorySelect;
 
+	public String getCategorySelect() {
+		return categorySelect;
+	}
+
+	public void setCategorySelect(String categorySelect) {
+		this.categorySelect = categorySelect;
+	}
+
 	private  List<Commodity> allCommodities;
 	
 	public String getGoodsId() {
@@ -70,64 +78,55 @@ public class GetCommodityAction extends ActionSupport implements SessionAware,
 	
 	@Override
 	public String execute() {
-		category=commodityService.getCategories();
-		allCommodities=commodityService.getAllCommodities();
-		List<Commodity> result=new ArrayList<Commodity>() ;
-		
-		String testString=goodsId;
-		Commodity example = new Commodity();
-		if(goodsId!=null&&!goodsId.equals("")){
-		long commodityId=Long.parseLong(goodsId);
-		System.out.println("+++++================="+commodityId+"+++++==================");
-		example.setCommodityId(commodityId);
-		}
+		category = commodityService.getCategories();
+		allCommodities = commodityService.getAllCommodities();
+		List<Commodity> result = new ArrayList<Commodity>();
 
-		if(goodsName!=null&goodsName!=""){
-			example.setName(goodsName);
-		}
-		att.put("commodities", commodityService.getCommodities(example));
+//		Commodity example = new Commodity();
+//		if (goodsId != null && !goodsId.equals("")) {
+//			long commodityId = Long.parseLong(goodsId);
+//			System.out.println("+++++=================" + commodityId+ "+++++==================");
+//			example.setCommodityId(commodityId);
+//		}
+//
+//		if (goodsName != null & goodsName != "") {
+//			example.setName(goodsName);
+//		}
+//		att.put("commodities", commodityService.getCommodities(example));
 
-		try {
-			request.setCharacterEncoding("utf-8");
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		goodsName = request.getParameter("goodsName");
-		if(goodsName!=null & goodsName!=""){
-			example.setName(goodsName);
-		}
-		List<Commodity> result1=commodityService.getCommodities(example);
-
-		if(goodsId==null&&goodsName==null&&(categorySelect==null)){
-			result1=allCommodities;
-		}else if(goodsId!=null&&!goodsId.equals(""))
-		{
-			Long commodityId=Long.parseLong(goodsId);
-			result1.add(commodityService.getCommodityById(commodityId));
-		}else {
-			for (Commodity  commodity: allCommodities) {
-				String commodityName=commodity.getName();
-				if(	commodityName.contains(goodsName)&&(categorySelect==null||categorySelect.equals(commodity.getCategory().getName()))){
-					result1.add(commodity);
+//		goodsName = request.getParameter("goodsName");
+//		if (goodsName != null & goodsName != "") {
+//			example.setName(goodsName);
+//		}
+//		List<Commodity> result1 = commodityService.getCommodities(example);
+//		if(goodsId.equals("")) goodsId=null;
+//		if(goodsName.equals("")) goodsName=null;
+		if ((goodsId == null) && (goodsName == null) && (categorySelect == "all" ||categorySelect == null)) {
+			result = allCommodities;
+		} else if (goodsId != null && !goodsId.equals("")) {
+			Long commodityId = Long.parseLong(goodsId);
+			result.add(commodityService.getCommodityById(commodityId));
+		} else {
+			for (Commodity commodity : allCommodities) {
+				String commodityName = commodity.getName();
+				if (commodityName.contains(goodsName)) {
+					if (categorySelect.equals("all") ) {
+						result.add(commodity);
+					}else if(categorySelect.equals(commodity.getCategory().getCategoryId().toString()) ){
+						result.add(commodity);
+					}
 				}
 			}
 		}
-		
-		att.put("commodities", result1 );
-		att.put("category",category);
-		
+
+		att.put("commodities", result);
+		att.put("category", category);
 
 		System.out.println("_________________________________________________________");
-		for (Commodity commodity : result1) {
+		for (Commodity commodity : result) {
 			System.out.println(commodity.getName());
 		}
 		System.out.println("_________________________________________________________");
-
-
-		att.put("commodities", result1 );
-		att.put("category",category);
-
 
 		return SUCCESS;
 	}

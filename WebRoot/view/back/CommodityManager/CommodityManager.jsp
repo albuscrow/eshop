@@ -47,12 +47,12 @@
             
           	  分类:
 			<s:select
+            name="categorySelect"
             label="分类"
             list="%{#session.category}"
             listValue="name"
             listKey="categoryId"
-            name="categorySelect"
-            headerKey="null"
+            headerKey="all"
             headerValue="全部"/>
             
             <s:submit value="查询" />            
