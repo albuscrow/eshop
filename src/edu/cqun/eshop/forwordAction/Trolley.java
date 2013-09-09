@@ -33,7 +33,7 @@ ServletRequestAware, ServletResponseAware{
 	public String execute(){
 		
 		Buyer buyer = (Buyer)att.get("buyer");
-		Set<OrderList> orderList = (Set<OrderList>) orderManagerService.findOrderListByUser(buyer.getBuyerId());
+		Set<OrderList> orderList = (Set<OrderList>) orderManagerService.findOrderListByUser(201309020001L);
 		att.put("orders", orderList);
 		return SUCCESS;
 	}

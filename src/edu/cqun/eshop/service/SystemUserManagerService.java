@@ -143,5 +143,20 @@ public class SystemUserManagerService implements ISystemUserManagerService{
 		return userDAO.findByName(name);
 
 	}
+	
+	@Override
+	public boolean checkLogin(String user,String password){
+		// TODO Auto-generated method stub
+		List<User> list = userDAO.findByUser(user);
+		if(list.isEmpty()){
+			return false;
+		}
+		if(password.equals(list.get(0).getPassword())){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
 }

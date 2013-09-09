@@ -19,8 +19,9 @@
 			<result>/view/back/login.jsp</result>
 		</action>
 
-		<action name="main">
-			<result>/view/back/main.jsp</result>
+		<action name="main" class="edu.cqun.eshop.action.BackLoginAction">
+			<result name="success">/view/back/main.jsp</result>
+			<result name="fail">/view/back/loginfail.jsp</result>
 		</action>
 
 		<action name="OrderListManagement">
