@@ -63,5 +63,9 @@ public interface IUserManagerService {
 	 */
 	List<Buyer> getAllUser();
 
+	/**
+	 * 通过买家ID找出买家
+	 * @return
+	 */
 	Buyer findUserById(Long id);
 }

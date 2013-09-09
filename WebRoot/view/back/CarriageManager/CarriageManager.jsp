@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>增加系统用户</title>
+    <title>配送方式管理</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -28,12 +28,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-        <form action="back/AddUser.action">
-                            请填写新增用户基本信息：<br><br>
-                              请输入用户名<input name="username"><br><br>
-                              请输入密码<input name="pass"><br><br>
-                            请输入姓名<input name="name"><br><br>
-        <input type="submit" value="点击确认增加此系统用户">（注：用户权限在审核之后进用户信息修改页面修改）
-        </form>
+        操作：
+  <button onclick="javascript:location.href='view/back/CarriageManager/add.jsp'">增加配送方式</button>
+  <button onclick="javascript:location.href='view/back/CarriageManager/delete.jsp'">删除配送方式</button>
+     <display:table name="${carriages}" pagesize="3" id = "carriage">
+		<display:column property="carriageId" title="配送方式ID" />
+		<display:column property="start" title="起始地" />
+		<display:column property="destination" title="目的地" />
+		<display:column property="company" title="配送公司" />
+		<display:column property="cost" title="花费" />
+	</display:table>
+    
   </body>
 </html>

@@ -35,7 +35,7 @@ public class DSUA extends ActionSupport  implements SessionAware, ServletRequest
 	public String execute() {
 		String uidr = request.getParameter("userId");
 		long uid = Long.parseLong(uidr);
-		if(systemUserManagerService.deleteSystemUser(uid)==true){
+		if(systemUserManagerService.deleteSystemUser(uid)){
 			return SUCCESS;
 		}
 	    else{

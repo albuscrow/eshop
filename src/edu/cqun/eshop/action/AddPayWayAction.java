@@ -1,6 +1,6 @@
 package edu.cqun.eshop.action;
 
-import java.util.List;
+import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
@@ -13,48 +13,49 @@ import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.sun.jmx.snmp.Timestamp;
 
-import edu.cqun.eshop.Iservice.ITrolleyManagerService;
+import edu.cqun.eshop.Iservice.IPayWayManagerService;
 import edu.cqun.eshop.Iservice.IUserManagerService;
 import edu.cqun.eshop.domain.Buyer;
+import edu.cqun.eshop.domain.Delivery;
 import edu.cqun.eshop.domain.OrderList;
+import edu.cqun.eshop.domain.PayWay;
+import edu.cqun.eshop.domain.RoleList;
+import edu.cqun.eshop.domain.User;
 
-public class BuyerDetailAction extends ActionSupport implements SessionAware,
-		ServletRequestAware,ServletResponseAware {
+
+public class AddPayWayAction extends ActionSupport  implements SessionAware, ServletRequestAware, ServletResponseAware{
+
+	/**
+	 * 添加新的付款方式
+	 */
+	private static final long serialVersionUID = -7977697013453779402L;
 
 	@Autowired
-	private IUserManagerService userManagerService;
-	
-	@Autowired
-	private ITrolleyManagerService trolleyManagerService;
+	private IPayWayManagerService payWayManagerService;
 
 	private Map att;
     private HttpServletRequest request;
     private HttpServletResponse response;
-    private Buyer buyer;
+
     
-    public Buyer getBuyer() {
-		return buyer;
+    @Override
+	public String execute() {
+		String name = request.getParameter("name");
+		String comp = request.getParameter("comp");
+		String url = request.getParameter("url");
+		
+		PayWay payWay = new PayWay(name, comp, url);
+		
+		if(payWayManagerService.addPay(payWay)){
+			return SUCCESS;
+		}
+	    else{
+		     return ERROR;
+		} 
+    	//return SUCCESS;
 	}
-
-
-	public void setBuyer(Buyer buyer) {
-		this.buyer = buyer;
-	}
-
-
-	@Override
-    public String execute()  {
-    	// TODO Auto-generated method stub
-    	buyer = userManagerService.findUserById(Long.parseLong(request.getParameter("buyerId")));
-    	
-    	Set<OrderList> commodifyInTrolley = (Set<OrderList>) trolleyManagerService.checkTrolley(buyer.getBuyerId());
-    	att.put("commoditys", commodifyInTrolley);
-    	att.put("currentBuyer", buyer);
-    	
-    	return SUCCESS;
-    }
-
 
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
@@ -69,7 +70,5 @@ public class BuyerDetailAction extends ActionSupport implements SessionAware,
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
-
 	}
-
 }

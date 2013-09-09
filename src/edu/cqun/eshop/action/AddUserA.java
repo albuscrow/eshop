@@ -36,12 +36,15 @@ public class AddUserA extends ActionSupport  implements SessionAware, ServletReq
     @Override
 	public String execute() {
 		String username = request.getParameter("username");
-		
+		String name = request.getParameter("name");
 		String pass=request.getParameter("pass");
 		
-		User user = new User(username, pass);
+		User user = new User();
+		user.setName(name);
+		user.setUser(username);
+		user.setPassword(pass);
 			
-		if(systemUserManagerService.addSystemUser(user)==true){
+		if(systemUserManagerService.addSystemUser(user)){
 			return SUCCESS;
 		}
 	    else{

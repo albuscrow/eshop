@@ -13,9 +13,19 @@ $(function init() {
 	$("#BuyerManager").click(function() {
 		$(".content").attr("src","back/BuyerManager.action");
 	});
+	
 	$("#SUM").click(function() {
 		$(".content").attr("src","back/SUM.action");
 	});
+	
+	$("#PayWayManager").click(function() {
+		$(".content").attr("src","back/PayWayManager.action");
+	});
+	
+	$("#CarriageManager").click(function() {
+		$(".content").attr("src","back/CarriageManager.action");
+	});
+	
 });
 
 

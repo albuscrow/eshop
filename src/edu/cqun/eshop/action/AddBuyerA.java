@@ -47,7 +47,7 @@ public class AddBuyerA extends ActionSupport  implements SessionAware, ServletRe
 		
 		Buyer buyer = new Buyer(realname, username, pass, new java.sql.Timestamp(date.getDateTime()));
 		
-		if(userManagerService.regester(buyer)==true){
+		if(userManagerService.regester(buyer)){
 			return SUCCESS;
 		}
 	    else{

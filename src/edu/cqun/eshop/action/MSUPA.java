@@ -39,7 +39,7 @@ public class MSUPA extends ActionSupport  implements SessionAware, ServletReques
 		String old_pass=request.getParameter("old_pass");
 		String new_pass=request.getParameter("new_pass");
 		
-		if(systemUserManagerService.modifySystemUserPassword(uid, old_pass, new_pass)==true){
+		if(systemUserManagerService.modifySystemUserPassword(uid, old_pass, new_pass)){
 			return SUCCESS;
 		}
 	    else{
