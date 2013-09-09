@@ -3,6 +3,7 @@ package edu.cqun.eshop.service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lowagie.text.pdf.hyphenation.TernaryTree.Iterator;
 import com.opensymphony.xwork2.Result;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
@@ -35,7 +37,8 @@ public class CommodityManagerService implements ICommodityManagerService {
 	@Override
 	public boolean deleteCommodity(long commodityId) {
 		try {
-			commdityDAO.delete(commdityDAO.findById(commodityId));
+			Commodity deleteItem=commdityDAO.findById(commodityId);
+			commdityDAO.delete(deleteItem);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -151,8 +154,16 @@ public class CommodityManagerService implements ICommodityManagerService {
 
 	@Override
 	public List<Category> getCategories() {
-		List<Category> result;
-		result=categoryDAO.findAll();
+		List<Category> result=new ArrayList<Category>();
+		List<Commodity> list=commdityDAO.findAll();
+		Set<Category> fliter=new HashSet<Category>();
+		for (Commodity commodity : list) {
+			fliter.add(commodity.getCategory());
+		}
+		for (Category category : fliter) {
+			result.add(category);
+		}
+		
 		Hibernate.initialize(result);
 		return result;
 		

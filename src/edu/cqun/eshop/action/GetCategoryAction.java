@@ -1,5 +1,6 @@
 package edu.cqun.eshop.action;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,41 +14,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.opensymphony.xwork2.ActionSupport;
 
 import edu.cqun.eshop.Iservice.ICommodityManagerService;
-import edu.cqun.eshop.service.CommodityManagerService;
+import edu.cqun.eshop.domain.Category;
 
-public class DeleteCommodityAction extends ActionSupport implements
-		SessionAware, ServletRequestAware, ServletResponseAware {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1332656397617449886L;
+public class GetCategoryAction extends ActionSupport implements SessionAware,
+ServletRequestAware, ServletResponseAware{
 	@Autowired
 	private ICommodityManagerService commodityService;
+	private List<Category> category;
 
 	private Map att;
 	private HttpServletRequest request;
 	private HttpServletResponse response;
-
-	private String commodityId;
-
-	public String getCommodityId() {
-		return commodityId;
-	}
-
-	public void setCommodityId(String commodityId) {
-		this.commodityId = commodityId;
-	}
-
 	@Override
 	public String execute() {
-		commodityId=request.getParameter("commodityId");
-		Long deleteId=Long.parseLong(commodityId);
-		boolean done = commodityService.deleteCommodity(deleteId);
-		att.put("commodities", commodityService.getAllCommodities());
-
+		att.put("category",category=commodityService.getCategories());
 		return SUCCESS;
 	}
-
 	@Override
 	public void setServletResponse(HttpServletResponse arg0) {
 		this.response = arg0;
@@ -61,6 +43,6 @@ public class DeleteCommodityAction extends ActionSupport implements
 	@Override
 	public void setSession(Map<String, Object> arg0) {
 		this.att = arg0;
-
 	}
 }
+
